@@ -14,7 +14,7 @@ $(document).ready(function () {
   })(jQuery);
 
   // input text for typing animation
-  $("#holder").writeText("WEB DESIGNER + FRONT-END DEVELOPER");
+  $("#holder").writeText("Political News + Polling");
 
   // initialize wow.js
   new WOW().init();
@@ -79,8 +79,8 @@ $(document).ready(function () {
     scrollBar: true,
     responsiveWidth: 400,
     navigation: true,
-    navigationTooltips: ["home", "about", "portfolio", "contact", "connect"],
-    anchors: ["home", "about", "portfolio", "contact", "connect"],
+    navigationTooltips: ["home", "about", "polling", "contact", "connect"],
+    anchors: ["home", "about", "polling", "contact", "connect"],
     menu: "#myMenu",
     fitToSection: false,
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
     $.fn.fullpage.moveTo(2);
   });
 
-  $(document).on("click", "#projects", function () {
+  $(document).on("click", "#news", function () {
     $.fn.fullpage.moveTo(3);
   });
 

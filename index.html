@@ -2,14 +2,35 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Personal Webpage</title>
-  <title>BRADENGELHARDT</title>
-  <meta name="description" content="Web designer and front-end developer">
+  <title>SalmonBallot - Your political compass</title>
+  <title>Micheal Salmon</title>
+  <meta name="description" content="A guide in politics and news">
   <link href='https://fonts.googleapis.com/css?family=Raleway:100,200,400,600' rel='stylesheet' type='text/css'>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'><link rel="stylesheet" href="./style.css">
+
+<style>
+
+      .salmonTail {
+      transform: translateX(-2px);
+      animation: swim 2.4s ease alternate infinite;
+      }
+      @keyframes swim {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(-2px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+
+
+</style>
 
 </head>
 <body>
@@ -18,13 +39,23 @@
   <!-- navbar header -->
   <div class="nav-header">
     <div class="nav-brand">
-      <img src="https://s3-us-west-2.amazonaws.com/parallax-theme/assets/bradlogo2.png">
+      <div style="position:absolute; bottom:0px; right:10px; z-index:-20;">
+          <svg class="salmonTail" width="50" height="50" viewBox="-359 -463 900 500">
+            <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="#D95952"></path>
+
+          </svg>
+      </div>
+      <div style="position:absolute; bottom:0px; right:10px; z-index:-20;">
+          <svg width="50" height="50" viewBox="-359 -463 900 500">
+            <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="#D95952"></path>
+          </svg>
+      </div>
     </div>
     <i class="fa fa-bars fa-3x"></i>
     <div class="header-links">
       <ul>
         <li data-menuanchor="fourthPage"><a href="#contact">CONTACT</a></li>
-        <li data-menuanchor="thirdPage"><a href="#portfolio">PORTFOLIO</a></li>
+        <li data-menuanchor="thirdPage"><a href="#news">NEWS</a></li>
         <li data-menuanchor="secondPage"><a href="#about">ABOUT</a></li>
       </ul>
     </div>
@@ -38,7 +69,7 @@
       <div class="nav-links">
         <ul id='myMenu'>
           <li data-menuanchor="secondPage"><a href="#about">ABOUT</a></li>
-          <li data-menuanchor="thirdPage"><a href="#portfolio">PORTFOLIO</a></li>
+          <li data-menuanchor="thirdPage"><a href="#news">NEWS</a></li>
           <li data-menuanchor="fourthPage"><a href="#contact">CONTACT</a></li>
         </ul>
       </div>
@@ -54,7 +85,7 @@
 
     <div class="section aboutme" data-anchor="aboutme">
       <div class="opaque-bg animated fadeInDown">
-        <h1 style="color:white">BRAD<span style="color:#FF6363">/</span>ENGELHARDT</h1>
+        <h1 style="color:#FF6363">Salmon<span style="color:white">Ballot</span>.com</h1>
         <p><span id="holder"></span><span class="blinking-cursor">|</span></p>
       </div>
       <i id="moveDown" class="fa fa-chevron-down fa-3x bounce"></i>
@@ -65,8 +96,8 @@
 
     <div class="section" data-anchor="skills">
       <div class="content">
-        <h1 class="wow fadeInDown" data-wow-delay="0.2s">ABOUT ME</h1>
-        <p class="wow fadeInDown" data-wow-delay="0.2s">Hi, I'm Brad Engelhardt! I'm a Silicon Valley based Web Designer & Front-end Developer focused on creating clean, responsive web designs!</p>
+        <h1 class="wow fadeInDown" data-wow-delay="0.2s">Political Polling</h1>
+        <p class="wow fadeInDown" data-wow-delay="0.2s"></p>
 
         <div class=" wow fadeInUp container-skillbar" data-wow-delay="0.2s">
           <div class="skillbar clearfix " data-percent="90%">
@@ -111,7 +142,7 @@
 
     <!-- begin section -->
 
-    <div class="section" data-anchor="projects">
+    <div class="section" data-anchor="news">
       <div class="content-slide">
         <div class="slide">
           <h1 class="wow fadeInDown" data-wow-delay="0.2s">XFAIRE</h1>
@@ -151,7 +182,7 @@
 
     <div class="section" data-anchor="contact">
       <div class="content wow fadeInDown" data-wow-delay="0.2s">
-        <h1>CONTACT ME</h1>
+        <h1>CONTACT</h1>
         <p>Whether you're interested in working with me or just want to say hello, I'd love to hear from you!</p>
         <br>
         <div class="contact-form">
@@ -193,12 +224,12 @@
 
     <div class="section fp-auto-height">
       <div class="footer">
-        <p>CONNECT WITH ME</p>
+        <p>CONNECT ON SOCIALS</p>
         <div class="social-links">
-          <span><a href="https://www.linkedin.com/in/bradleyengelhardt" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></span>
-          <span><a target="_blank" href="https://twitter.com/bradengelhardt" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></span>
-          <span><a href="https://github.com/SquishyAndroid" target="_blank"><i class="fa fa-github fa-2x"></i></a></span>
-          <span><a href="https://codepen.io/SquishyAndroid/pens/public/"><i class="fa fa-codepen fa-2x"></i></a></span>
+          <span><a href="https://www.linkedin.com/in/woodandmortar" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></span>
+          <span><a target="_blank" href="https://twitter.com/salmonfund" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></span>
+          <span><a href="https://github.com/woodmorttar" target="_blank"><i class="fa fa-github fa-2x"></i></a></span>
+          <span><a href="https://codepen.io/woodmortar/pens/public/"><i class="fa fa-codepen fa-2x"></i></a></span>
         </div>
       </div>
     </div>
