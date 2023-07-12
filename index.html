@@ -2,247 +2,237 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>SalmonBallot - Your political compass</title>
-  <title>Micheal Salmon</title>
-  <meta name="description" content="A guide in politics and news">
-  <link href='https://fonts.googleapis.com/css?family=Raleway:100,200,400,600' rel='stylesheet' type='text/css'>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'><link rel="stylesheet" href="./style.css">
+  <title>#SalmonBallot</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
 
 <style>
-
-      .salmonTail {
-      transform: translateX(-2px);
-      animation: swim 2.4s ease alternate infinite;
-      }
-      @keyframes swim {
-        0% {
-          transform: translateX(0px);
-        }
-        50% {
-          transform: translateX(-2px);
-        }
-        100% {
-          transform: translateX(0px);
-        }
-      }
-
-
+.salmonTail {
+transform: translateX(-2px);
+animation: swim 2.4s ease alternate infinite;
+}
+@keyframes swim {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 </style>
+
+
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<body>
-  <!-- navbar header -->
-  <div class="nav-header">
-    <div class="nav-brand">
-      <div style="position:absolute; bottom:0px; right:10px; z-index:-20;">
-          <svg class="salmonTail" width="50" height="50" viewBox="-359 -463 900 500">
-            <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="#D95952"></path>
+<div class='page'>
+  <header>
+    <div class='sticky-nav difference d-flex justify-content-between'>
+      <div class='logo'>
 
-          </svg>
-      </div>
-      <div style="position:absolute; bottom:0px; right:10px; z-index:-20;">
-          <svg width="50" height="50" viewBox="-359 -463 900 500">
-            <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="#D95952"></path>
-          </svg>
-      </div>
-    </div>
-    <i class="fa fa-bars fa-3x"></i>
-    <div class="header-links">
-      <ul>
-        <li data-menuanchor="fourthPage"><a href="#contact">CONTACT</a></li>
-        <li data-menuanchor="thirdPage"><a href="#news">NEWS</a></li>
-        <li data-menuanchor="secondPage"><a href="#about">ABOUT</a></li>
-      </ul>
-    </div>
-  </div>
-  <!-- end navbar header -->
+        <div style="position:absolute; bottom:0px; left:10px; z-index:2;">
+            <svg class="salmonTail" width="50" height="50" viewBox="-359 -463 900 500">
+              <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="#D95952"></path>
 
-  <!-- sidebar slider -->
-  <div class="nav-screen">
-    <i class="fa fa-times fa-3x"></i>
-    <div class="nav-container">
-      <div class="nav-links">
-        <ul id='myMenu'>
-          <li data-menuanchor="secondPage"><a href="#about">ABOUT</a></li>
-          <li data-menuanchor="thirdPage"><a href="#news">NEWS</a></li>
-          <li data-menuanchor="fourthPage"><a href="#contact">CONTACT</a></li>
-        </ul>
+            </svg>
+        </div>
+        <div style="position:absolute; bottom:0px; left:10px; z-index:2;">
+            <svg width="50" height="50" viewBox="-359 -463 900 500">
+              <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="#D95952"></path>
+            </svg>
+        </div>
+
+      </div>
+      <div class='menu box' id='nav-btn'>
+        <svg id="i1" class="icon" viewBox="20 30 60 40">
+        <path id="top-line-1"     d="M30,37 L70,37 Z"></path>
+        <path id="middle-line-1" 	d="M30,50 L70,50 Z"></path>
+        <path id="bottom-line-1" 	d="M30,63 L70,63 Z"></path>
+        </svg>
       </div>
     </div>
-  </div>
-  <!-- end navbar slider -->
-
-  <!-- begin fullpage -->
-
-  <div id="fullpage">
-
-    <!-- begin section -->
-
-    <div class="section aboutme" data-anchor="aboutme">
-      <div class="opaque-bg animated fadeInDown">
-        <h1 style="color:#FF6363">Salmon<span style="color:white">Ballot</span>.com</h1>
-        <p><span id="holder"></span><span class="blinking-cursor">|</span></p>
-      </div>
-      <i id="moveDown" class="fa fa-chevron-down fa-3x bounce"></i>
-    </div>
-    <!-- end section -->
-
-    <!-- begin section -->
-
-    <div class="section" data-anchor="skills">
-      <div class="content">
-        <h1 class="wow fadeInDown" data-wow-delay="0.2s">Political Polling</h1>
-        <p class="wow fadeInDown" data-wow-delay="0.2s"></p>
-
-        <div class=" wow fadeInUp container-skillbar" data-wow-delay="0.2s">
-          <div class="skillbar clearfix " data-percent="90%">
-            <div class="skillbar-title" style="background: #DD1E2F;"><span>HTML5</span></div>
-            <div class="skillbar-bar" style="background: #DD1E2F;"></div>
-            <div class="skill-bar-percent">90%</div>
-          </div> <!-- End Skill Bar -->
-
-          <div class="skillbar clearfix " data-percent="80%">
-            <div class="skillbar-title" style="background: #EBB035;"><span>CSS3</span></div>
-            <div class="skillbar-bar" style="background: #EBB035;"></div>
-            <div class="skill-bar-percent">80%</div>
-          </div> <!-- End Skill Bar -->
-
-          <div class="skillbar clearfix " data-percent="75%">
-            <div class="skillbar-title" style="background: #218559;"><span>Photoshop</span></div>
-            <div class="skillbar-bar" style="background: #218559;"></div>
-            <div class="skill-bar-percent">75%</div>
-          </div> <!-- End Skill Bar -->
-
-          <div class="skillbar clearfix " data-percent="45%">
-            <div class="skillbar-title" style="background: #6840D4;"><span>Rails</span></div>
-            <div class="skillbar-bar" style="background: #6840D4;"></div>
-            <div class="skill-bar-percent">45%</div>
-          </div> <!-- End Skill Bar -->
-
-          <div class="skillbar clearfix " data-percent="30%">
-            <div class="skillbar-title" style="background: #06A2CB;"><span>jQuery</span></div>
-            <div class="skillbar-bar" style="background: #06A2CB;"></div>
-            <div class="skill-bar-percent">30%</div>
-          </div> <!-- End Skill Bar -->
-
-          <div class="skillbar clearfix " data-percent="20%">
-            <div class="skillbar-title" style="background: #AB4DD2;"><span>PHP</span></div>
-            <div class="skillbar-bar" style="background: #AB4DD2;"></div>
-            <div class="skill-bar-percent">20%</div>
-          </div> <!-- End Skill Bar -->
+    <div id='takeover-nav'>
+      <div class='container-fluid'>
+        <div class='row'>
+          <div class='nav-col nav-contact col-12 col-md-7 bg-black d-flex align-items-center justify-content-center position-relative py-5 px-3 order-1 order-md-0'>
+            <div class='position-absolute w-100 h-100 bg-topographic'></div>
+            <div class='content position-relative'>
+              <h2 class='nav-title white mb-5'>
+                Navigating through political discourse<span class="d-inline green">&period;</span>
+              </h2>
+              <ul class='contact-items white list-unstyled mb-5'>
+                <li class='pb-4'>
+                  <a class='text-decoration-none' href='#'>+1 913-280-2336</a>
+                </li>
+                <li class='pb-4'>
+                  <a class='text-decoration-none' href='#'>Micheal.mfg@gmail.com</a>
+                </li>
+                <li>
+                  <a class='text-decoration-none' href='#'>Kansas City, KS 64130</a>
+                </li>
+              </ul>
+              <div class='social'>
+                <a class='text-decoration-none green' href='#'>linkedin</a>
+                <span class='mx-2 white'>
+                  |
+                </span>
+                <a class='text-decoration-none green' href='#'>facebook</a>
+                <span class='mx-2 white'>
+                  |
+                </span>
+                <a class='text-decoration-none green' href='#'>instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class='nav-col nav-menu col-12 col-md-5 bg-green d-flex align-items-center pt-5 pb-3 pb-md-5 px-3 px-md-5 order-0 order-md-1'>
+            <ul class='nav-items list-unstyled'>
+              <li class='pb-3'>
+                <a class='text-decoration-none' href='#'>Compass</a>
+              </li>
+              <li class='pb-3'>
+                <a class='text-decoration-none' href='#'>Issues</a>
+              </li>
+              <li class='pb-3'>
+                <a class='text-decoration-none' href='#'>Contact</a>
+              </li>
+              <li>
+                <a class='text-decoration-none' href='#'>About</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <!-- end section -->
-
-    <!-- begin section -->
-
-    <div class="section" data-anchor="news">
-      <div class="content-slide">
-        <div class="slide">
-          <h1 class="wow fadeInDown" data-wow-delay="0.2s">XFAIRE</h1>
-          <p class="wow fadeInDown" data-wow-delay="0.2s">Digital streaming service</p>
-          <img class="wow fadeInUp" data-wow-delay="0.2s" data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/xfaire.jpg">
-        </div>
-        <div class="slide">
-          <h1>MACHETE ENERGY</h1>
-          <p>Energy drink website</p>
-          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/machete.jpg">
-        </div>
-        <div class="slide">
-          <h1>PORTFOLIO</h1>
-          <p>Mockup of a personal portfolio I was working on for a friend.</p>
-          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/cascioportfolio.jpg">
-        </div>
-        <div class="slide">
-          <h1>THATONEBLOG</h1>
-          <p>Minimalist blogging platform.</p>
-          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/blog.jpg">
-        </div>
-        <div class="slide">
-          <h1>PIXBORED</h1>
-          <p>Website for sharing images and gifs.</p>
-          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/pixbored.jpg">
-        </div>
-        <div class="slide">
-          <h1>PERSONAL WEBSITE</h1>
-          <p>Responsive vertical/horizontal header website theme.</p>
-          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/personalsite.jpg">
-        </div>
-      </div>
+  </header>
+  <section class='hero d-flex align-items-center justify-content-center'>
+    <div class='video-wrap'>
+      <video autoplay="" playsinline="" loop="" muted="" id="video-bg">
+      <source src="https://tactus.wpengine.com/wp-content/uploads/tactus-waves-hero.mp4" type="video/mp4">
+      <source src="https://tactus.wpengine.com/wp-content/uploads/tactus-waves-hero.mp4" type="video/mp4">
+      </video>
     </div>
-    <!-- end section -->
-
-    <!-- begin section -->
-
-    <div class="section" data-anchor="contact">
-      <div class="content wow fadeInDown" data-wow-delay="0.2s">
-        <h1>CONTACT</h1>
-        <p>Whether you're interested in working with me or just want to say hello, I'd love to hear from you!</p>
+    <div class='position-absolute w-100 gradient-overlay'></div>
+    <div class='content position-relative text-center mb-5'>
+      <h1 class='hero-title blend'>
+        #SalmonBallot
         <br>
-        <div class="contact-form">
-
-          <div id="form-messages"></div>
-          <form id="ajax-contact" method="post" role="form" action="contact.php" data-toggle="validator">
-            <div class="form-group has-feedback wow fadeInLeft" data-wow-delay="0.6s">
-              <input type="text" class="form-control" id="name" name="name" placeholder="NAME" data-error="Field can't be blank!" required>
-              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-              <div class="help-block with-errors"></div>
-            </div>
-
-            <div class="form-group has-feedback wow fadeInRight" data-wow-delay="0.8s">
-              <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL" data-error="Field can't be blank!" required>
-              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-              <div class="help-block with-errors"></div>
-            </div>
-
-            <div class="form-group has-feedback wow fadeInLeft" data-wow-delay="1s">
-              <textarea data-minlength="10" class="form-control" id="message" name="message" placeholder="MESSAGE" data-error="Minimum of 10 characters" required></textarea>
-              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-              <div class="help-block with-errors"></div>
-            </div>
-
-            <div class="hidden">
-              <input type="text" class="form-control" id="human" name="human" placeholder="">
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="1s">
-              <button type="submit" id="submit" name="submit" class="btn btn-lg">SEND MESSAGE</button>
-            </div>
-          </form>
-          <br>
-        </div>
-      </div>
+        Political Compass
+      </h1>
     </div>
-    <!-- end section -->
+  </section>
 
-    <!-- begin section -->
 
-    <div class="section fp-auto-height">
-      <div class="footer">
-        <p>CONNECT ON SOCIALS</p>
-        <div class="social-links">
-          <span><a href="https://www.linkedin.com/in/woodandmortar" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></span>
-          <span><a target="_blank" href="https://twitter.com/salmonfund" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></span>
-          <span><a href="https://github.com/woodmorttar" target="_blank"><i class="fa fa-github fa-2x"></i></a></span>
-          <span><a href="https://codepen.io/woodmortar/pens/public/"><i class="fa fa-codepen fa-2x"></i></a></span>
-        </div>
-      </div>
-    </div>
-    <!-- end section -->
 
-  </div>
-  <!-- end fullpage -->
-</body>
+  <section class='two'></section>
+
+
+
+  <section class='three'>
+
+    <section id="quiz">
+            <div class="container"><div class="section_title"><br><br>
+
+              <p><h2>Political <b>Heading</b></h2></p>
+
+              <p>Each question will move the compass to the left or to the right. The amount of movement depends on how conservative or liberal your views are.</b></p><br>
+
+               </div><div class="container"><center>
+
+    <!-- Interactive Question -->
+    <form name = "myform"><h3>If you had to choose, would you rather have…</h3><br>
+              <a class="btn home-btn" name = "rad" onclick = "getAnswer('1a', '1')">A smaller government providing fewer services</a><a class="btn home-btn" name = "rad" onclick = "getAnswer('1b', '2')">A bigger government providing more services</a><br><br><div id = "para"></div></form><script type = "text/javascript">
+    var reltext = [];
+    reltext[1] = "A smaller government providing fewer services is RIGHT leaning"
+    reltext[2] = "A bigger government providing more services is LEFT leaning"
+
+    function getAnswer(ans, rel) {
+    document.getElementById("para").innerHTML = reltext[rel];
+    }
+
+    </script>
+    <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <form name = "myform1"><h3>A bigger government providing more services...</h3><br><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1a', '1')">Throbbing</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1b', '2')">Sharp</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1c', '3')">Intolerable</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1d','4')">Dull</a><br><br><div id = "para1"></div></form><script type = "text/javascript">
+    var reltext1 = [];
+    reltext1[1] = "A throbbing headache is a sensation of pounding, pulsating, rhythmic, or explosive pressure in the head. It can affect all or just a portion of your head. The sensation of pain is subjective, meaning that each person experiences it differently."
+    reltext1[2] = "In most cases, a sharp headaches is a secondary headache. External compression headaches are a result of pressure-causing headgear. Another form often happens to children via Ice cream headaches, commonly called a brain freeze. Rebound headaches are caused by overuse of pain medication. Lastly, Sinus headaches are caused by inflammation and congestion in sinus cavities."
+    reltext1[3] = "These headaches are often the most dangerous, and it's recommended that you seek help immediately. Some types of intolerable headaches include; Tension headaches, Migraine headaches, Meningitis or an infection of the fluid surrounding the brain and spinal cord, Tumors, Temporal or giant cell arteritis, an inflammation or swelling of blood vessels in the head, and lastly a head injury with or without bleeding within the skull."
+    reltext1[4] = "Tension-type headaches are the most common variety of headaches. They may be experienced as a tight band of pain around your head, or a dull ache or pressure. They can cause mild to moderate pain on both sides of the head, and may be triggered by stress, neck strain, missed meals, depression, anxiety or lack of sleep."
+
+    function getAnswer1(ans1, rel1) {
+    document.getElementById("para1").innerHTML = reltext1[rel1];
+    }
+
+    </script>
+    <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <form name = "myform2"><h3>What seems to aggravate your headache?</h3><br><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1a', '1')">Exertion</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1b', '2')">Coughing</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3')">Bending</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1d','4')">Sex</a><br><br><div id = "para2"></div></form><script type = "text/javascript">
+    var reltext2 = [];
+    reltext2[1] = "Increased blood pressure in the blood vessels of the brain, which is called venous pressure. Primary exertion headaches are harmless. However, any underlying cause of the headaches must be ruled out first to ensure a more serious condition isn't causing the pain."
+    reltext2[2] = "Cough headaches are an unusual type of headache triggered by coughing and other types of straining — such as from sneezing, blowing your nose, laughing, crying, singing, bending over or having a bowel movement. Secondary cough headaches are more serious, as they can be caused by problems within the brain."
+    reltext2[3] = "The pain with the sinus headache will be either in the cheekbones or in the middle of the forehead and other symptoms would include stuffy nose or cold symptoms and cough. On the other hand, if the pain is not in these locations or not associated with these other symptoms, then it is less likely to be a sinus headache."
+    reltext2[4] = "Sex stirs up lots of emotions, chemicals and other reactions within the body, therefore it’s understandable how sexual activity can be a migraine trigger. It is sometimes called a coital headache and sex-related migraines are usually unpredictable and don’t occur with each sexual experience. This type of migraines occur most often in people ages 20 to 60, with it most commonly first occurring around age 40."
+
+    function getAnswer2(ans2, rel2) {
+    document.getElementById("para2").innerHTML = reltext2[rel2];
+    }
+
+    </script>
+    <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <form name = "myform3"><h3>Are your headaches associated with visual disturbances?</h3><br><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1')">Nausea</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2')">Fever</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3')">Weakness</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1d','4')">Cold Limbs</a><br><br><div id = "para3"></div></form><script type = "text/javascript">
+    var reltext3 = [];
+    reltext3[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
+    reltext3[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
+    reltext3[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
+    reltext3[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+
+    function getAnswer3(ans3, rel3) {
+    document.getElementById("para3").innerHTML = reltext3[rel3];
+    }
+
+    </script><!-- End of Interactive Question -->
+
+    <!-- Interactive Question --><form name = "myform4"><h3>How do you currently deal with your headaches?</h3><br><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1')">Medicine</a><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2')">Exercise</a><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3')">Remedies</a><a class="btn home-btn" name = "rad4" href="mailto:drandrew@wellspinekc.com?subject=I%20need%20help%20with%20my%20Headaches">I need Help</a><br><br><div id = "para4"></div></form><script type = "text/javascript">
+    var reltext4 = [];
+    reltext4[1] = "If your headache symptoms are mild to moderate, some doctors recommend that you first try an over-the-counter pain medicine, such as aspirin, ibuprofen, naproxen, or acetaminophen. If that doesn't work, then you can try a prescription medicine that can either prevent a headache from coming or stop a headache after it has started. Keep in mind, these aren't solutions to the problem - they just help with short term relief."
+    reltext4[2] = "Exercise often causes you to rehydrate, which often times is the cause of your initial headache. After you drink water and the symptoms persist, you might have an underlying issues that needs to be diagnosed."
+    reltext4[3] = "Getting an adequate amount of sleep each night is important, but don't oversleep. Chiropractitioners also recommend that you go to bed and wake up on a regular schedule. If you feel a migraine attack coming on, try to rest in a dark, quiet room. Icing the back of your neck and applying gentle pressure to the painful areas on your scalp may also help. Keeping a headache diary can help you and your Chiropractor learn more about what triggers your migraines, as well as what treatments are most effective."
+    reltext4[4] = "Chiropractors like WELLSPINE KC are known for fixing the underlying issues that cause headaches. Contact a Chiropractitioner today to see how they can help you get past the worst part of your day."
+
+    function getAnswer4(ans4, rel4) {
+    document.getElementById("para4").innerHTML = reltext4[rel4];
+    }
+
+    </script><!-- End of Interactive Question -->
+
+  </center></div></section>
+  </section>
+
+
+
+  <section class='four'></section>
+
+
+
+  <section class='five'></section>
+
+
+
+</div>
+<div class='custom-cursor'></div>
 <!-- partial -->
-  <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'></script><script  src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/409445/animateAnything.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>
