@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>#SalmonBallot</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <META NAME="KEYWORDS" CONTENT="WoodandMortar LLC, remodeling, home remodel, home remodeling, bathroom remodel, bathroom remodeling, kitchen, kitchen remodel, kitchen remodeling, overland park, lenexa, home depot, lowes, home improvement, home repair, house repair, house improvement, design, home design, designers, kitchen remodel, bathroom remodel, cement, stone, veneer, kitchen, bathroom, veneer stone, Painters, Painting, fireplace, tile, home repair, Contractors, Home, Home Renovations, Wood, wood&mortar, wood & mortar, brick, stucco, Wood and Mortar, WoodandMortar">
+  <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
+      <meta name="description" content="Building trust in residential construction">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" sizes="180x180" href="salmon.png">
+          <link rel="icon" type="image/png" href="salmon.png" sizes="32x32">
+          <link rel="icon" type="image/png" href="salmon.png" sizes="16x16">
+          <link rel="mask-icon" href="salmon.png" color="#fff">
+          <link rel="shortcut icon" href="salmon.png">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
 
 
 <style>
+
+.inactive {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .salmonTail {
 transform: translateX(-2px);
 animation: swim 2.4s ease alternate infinite;
@@ -22,6 +40,101 @@ animation: swim 2.4s ease alternate infinite;
     transform: translateX(0px);
   }
 }
+
+.home-btn,
+.home-btn:focus,
+.home-btn:active,
+.home-btn:visited {
+    background: transparent;
+    border-color: black;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 19px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 3px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.home-btn:hover {
+    background-color: black;
+    color: #fff;
+}
+
+
+#circle {
+  width:100%;
+  height:700px;
+background: none;
+  display:block;
+}
+
+#water #waveShape {
+  animation-name: waveAction01;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+}
+
+@keyframes waveAction01 {
+  0% {
+    transform: translate(300px, -1780px);
+  }
+  50% {
+    transform: translate(203px, -1799px);
+  }
+  100% {
+    transform: translate(102px, -1780px);
+  }
+}
+
+#water2 #waveShape2 {
+  animation-name: waveAction02;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+}
+
+@keyframes waveAction02 {
+  0% {
+    transform: translate(300px, -1820px);
+  }
+  50% {
+    transform: translate(203px, -1829px);
+  }
+  100% {
+    transform: translate(102px, -1820px);
+  }
+}
+
+#water3 #waveShape3 {
+  animation-name: waveAction03;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 4s;
+}
+
+@keyframes waveAction03 {
+  0% {
+    transform: translate(300px, -1740px);
+  }
+  50% {
+    transform: translate(203px, -1750px);
+  }
+  100% {
+    transform: translate(102px, -1740px);
+  }
+}
+
+.double-width {
+    transform: scaleX(2.3);
+  }
+
 </style>
 
 
@@ -35,13 +148,13 @@ animation: swim 2.4s ease alternate infinite;
       <div class='logo'>
 
         <div style="position:absolute; bottom:0px; left:10px; z-index:2;">
-            <svg class="salmonTail" width="50" height="50" viewBox="-359 -463 900 500">
+            <svg class="salmonTail" width="80" height="80" viewBox="-359 -463 900 500">
               <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="#D95952"></path>
 
             </svg>
         </div>
         <div style="position:absolute; bottom:0px; left:10px; z-index:2;">
-            <svg width="50" height="50" viewBox="-359 -463 900 500">
+            <svg width="80" height="80" viewBox="-359 -463 900 500">
               <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="#D95952"></path>
             </svg>
         </div>
@@ -91,7 +204,7 @@ animation: swim 2.4s ease alternate infinite;
           <div class='nav-col nav-menu col-12 col-md-5 bg-green d-flex align-items-center pt-5 pb-3 pb-md-5 px-3 px-md-5 order-0 order-md-1'>
             <ul class='nav-items list-unstyled'>
               <li class='pb-3'>
-                <a class='text-decoration-none' href='#'>Compass</a>
+                <a class='text-decoration-none' href='#'>Heading</a>
               </li>
               <li class='pb-3'>
                 <a class='text-decoration-none' href='#'>Issues</a>
@@ -120,14 +233,47 @@ animation: swim 2.4s ease alternate infinite;
       <h1 class='hero-title blend'>
         #SalmonBallot
         <br>
-        Political Compass
+        Political Heading
       </h1>
     </div>
   </section>
 
 
 
-  <section class='two'></section>
+  <section class='two'>
+
+  <div class="column left" style="top:1000px; left: 30px; z-index: 99; position: absolute;">
+    <h2 style="color:#04acff;">Liberal<br>
+    Left | <p id="clicksBlue"></p></h2><br>
+    <h2 style="color:#212121;">Third<br>
+    Party | <p id="clicksBlack"></p></h2><br>
+    <h2 style="color:#D95952;">Conservative<br>
+    Right | <p id="clicksRed"></p></h2>
+  </div>
+
+  <div class="column right" style="Top:1100px; right: 90px; z-index: 99; position: absolute;">
+    <h2>Heading <br> Pending
+    </h2>
+  </div>
+
+      <svg id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" class="double-width" viewBox="0 0 211 211">
+
+      <g id="circle" transform="translate(-362 1822)">
+
+
+        <g id="water2">
+          <path id="waveShape2" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
+        </g>
+        <g id="water">
+          <path id="waveShape" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#212121"/>
+        </g>
+        <g id="water3">
+          <path id="waveShape3" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#D95952"/>
+        </g>
+      </g>
+    </svg>
+
+  </section>
 
 
 
@@ -136,33 +282,45 @@ animation: swim 2.4s ease alternate infinite;
     <section id="quiz">
             <div class="container"><div class="section_title"><br><br>
 
-              <p><h2>Political <b>Heading</b></h2></p>
+              <p><h1>Political Heading</h1></p>
 
-              <p>Each question will move the compass to the left or to the right. The amount of movement depends on how conservative or liberal your views are.</b></p><br>
+<br><hr><br><hr><br><br>
+
+<p>Each question will change the water level. As you complete the quiz, your heading will generate based on your mix of ideals.
+  #SalmonBallot highlights the need for a functioning third party system, and aims to educate by wading through disinformation.
+  Keeping a fresh source of politcal issue related content and thought exercises.</b></p><br>
 
                </div><div class="container"><center>
 
     <!-- Interactive Question -->
-    <form name = "myform"><h3>If you had to choose, would you rather have…</h3><br>
-              <a class="btn home-btn" name = "rad" onclick = "getAnswer('1a', '1')">A smaller government providing fewer services</a><a class="btn home-btn" name = "rad" onclick = "getAnswer('1b', '2')">A bigger government providing more services</a><br><br><div id = "para"></div></form><script type = "text/javascript">
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform"><br><br><h3>If you had to choose, would you rather have…</h3><br>
+              <a class="btn home-btn" name = "rad" onclick = "getAnswer('1a', '1');changeRed();">A smaller government providing fewer services</a>
+              <a class="btn home-btn" name = "rad" onclick = "getAnswer('1b', '2');changeBlue();">A bigger government providing more services</a><br><br>
+              </div><div id = "para"></div></form>
+              <script type = "text/javascript">
+
     var reltext = [];
     reltext[1] = "A smaller government providing fewer services is RIGHT leaning"
     reltext[2] = "A bigger government providing more services is LEFT leaning"
 
     function getAnswer(ans, rel) {
-    document.getElementById("para").innerHTML = reltext[rel];
-    }
+      document.getElementById("para").innerHTML = reltext[rel];}
 
     </script>
     <!-- End of Interactive Question -->
 
     <!-- Interactive Question -->
-    <form name = "myform1"><h3>A bigger government providing more services...</h3><br><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1a', '1')">Throbbing</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1b', '2')">Sharp</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1c', '3')">Intolerable</a><a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1d','4')">Dull</a><br><br><div id = "para1"></div></form><script type = "text/javascript">
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform1"><br><br><h3>A bigger government providing more services...</h3><br>
+      <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1a', '1');changeRed();changeBlue();">would greatly help the American people</a>
+      <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1b', '2');changeRed();changeBlue();">would damage the American people</a>
+      <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1c', '3');changeBlack();">would require transparency and strong leadership</a>
+      <br><br></div><div id = "para1"></div></form><script type = "text/javascript">
     var reltext1 = [];
-    reltext1[1] = "A throbbing headache is a sensation of pounding, pulsating, rhythmic, or explosive pressure in the head. It can affect all or just a portion of your head. The sensation of pain is subjective, meaning that each person experiences it differently."
-    reltext1[2] = "In most cases, a sharp headaches is a secondary headache. External compression headaches are a result of pressure-causing headgear. Another form often happens to children via Ice cream headaches, commonly called a brain freeze. Rebound headaches are caused by overuse of pain medication. Lastly, Sinus headaches are caused by inflammation and congestion in sinus cavities."
-    reltext1[3] = "These headaches are often the most dangerous, and it's recommended that you seek help immediately. Some types of intolerable headaches include; Tension headaches, Migraine headaches, Meningitis or an infection of the fluid surrounding the brain and spinal cord, Tumors, Temporal or giant cell arteritis, an inflammation or swelling of blood vessels in the head, and lastly a head injury with or without bleeding within the skull."
-    reltext1[4] = "Tension-type headaches are the most common variety of headaches. They may be experienced as a tight band of pain around your head, or a dull ache or pressure. They can cause mild to moderate pain on both sides of the head, and may be triggered by stress, neck strain, missed meals, depression, anxiety or lack of sleep."
+    reltext1[1] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
+    reltext1[2] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
+    reltext1[3] = "When the people regain trust in their government, the system stops failing"
 
     function getAnswer1(ans1, rel1) {
     document.getElementById("para1").innerHTML = reltext1[rel1];
@@ -172,12 +330,16 @@ animation: swim 2.4s ease alternate infinite;
     <!-- End of Interactive Question -->
 
     <!-- Interactive Question -->
-    <form name = "myform2"><h3>What seems to aggravate your headache?</h3><br><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1a', '1')">Exertion</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1b', '2')">Coughing</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3')">Bending</a><a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1d','4')">Sex</a><br><br><div id = "para2"></div></form><script type = "text/javascript">
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform2"><br><br><h3>Which of the following statements come closest to your view?</h3><br>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1a', '1');changeBlue();changeBlue();">America’s openness to people from all over the world is essential to who we are as a nation</a>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1b', '2');changeRed();changeRed();">If America is too open to people from all over the world, we risk losing our identity as a nation </a>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3');changeBlack();changeBlue();">America needs to keep innovating new ways to help capture its culture through border management</a>
+      <br><br></div><div id = "para2"></div></form><script type = "text/javascript">
     var reltext2 = [];
-    reltext2[1] = "Increased blood pressure in the blood vessels of the brain, which is called venous pressure. Primary exertion headaches are harmless. However, any underlying cause of the headaches must be ruled out first to ensure a more serious condition isn't causing the pain."
-    reltext2[2] = "Cough headaches are an unusual type of headache triggered by coughing and other types of straining — such as from sneezing, blowing your nose, laughing, crying, singing, bending over or having a bowel movement. Secondary cough headaches are more serious, as they can be caused by problems within the brain."
-    reltext2[3] = "The pain with the sinus headache will be either in the cheekbones or in the middle of the forehead and other symptoms would include stuffy nose or cold symptoms and cough. On the other hand, if the pain is not in these locations or not associated with these other symptoms, then it is less likely to be a sinus headache."
-    reltext2[4] = "Sex stirs up lots of emotions, chemicals and other reactions within the body, therefore it’s understandable how sexual activity can be a migraine trigger. It is sometimes called a coital headache and sex-related migraines are usually unpredictable and don’t occur with each sexual experience. This type of migraines occur most often in people ages 20 to 60, with it most commonly first occurring around age 40."
+    reltext2[1] = "Double Left leaning sentiment"
+    reltext2[2] = "Double Right leaning sentiment"
+    reltext2[3] = "Moderately left leaning sentiment"
 
     function getAnswer2(ans2, rel2) {
     document.getElementById("para2").innerHTML = reltext2[rel2];
@@ -187,12 +349,16 @@ animation: swim 2.4s ease alternate infinite;
     <!-- End of Interactive Question -->
 
     <!-- Interactive Question -->
-    <form name = "myform3"><h3>Are your headaches associated with visual disturbances?</h3><br><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1')">Nausea</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2')">Fever</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3')">Weakness</a><a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1d','4')">Cold Limbs</a><br><br><div id = "para3"></div></form><script type = "text/javascript">
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform3"><br><br><h3>In general, would you say experts who study a subject for many years are… </h3><br>
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1');changeBlue();">Usually <strong>better</strong> at making policy decisions about than subject that the standard person</a>
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2');changeRed();">Usually <strong>Worse</strong> at making policy decisions about than subject that the standard person</a>
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3');changeBlack();">Although usually better, an opposition is important for perspective while polling from reviewed experts</a>
+    </div><div id = "para3"></div></form><script type = "text/javascript">
     var reltext3 = [];
-    reltext3[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
-    reltext3[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
-    reltext3[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
-    reltext3[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+    reltext3[1] = "The left have an affinity for trusting institutionalized science."
+    reltext3[2] = "The right have faith in what their personal leaders instruct."
+    reltext3[3] = "Understading where majority rule and intellegent guidance could exists when technology is trusted."
 
     function getAnswer3(ans3, rel3) {
     document.getElementById("para3").innerHTML = reltext3[rel3];
@@ -200,18 +366,250 @@ animation: swim 2.4s ease alternate infinite;
 
     </script><!-- End of Interactive Question -->
 
-    <!-- Interactive Question --><form name = "myform4"><h3>How do you currently deal with your headaches?</h3><br><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1')">Medicine</a><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2')">Exercise</a><a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3')">Remedies</a><a class="btn home-btn" name = "rad4" href="mailto:drandrew@wellspinekc.com?subject=I%20need%20help%20with%20my%20Headaches">I need Help</a><br><br><div id = "para4"></div></form><script type = "text/javascript">
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform4"><br><br><h3>Thinking about increased trade of goods and services between the U.S. and other nations in recent decades, would you say that the U.S. has...</h3><br>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1')">Gained more than it's lost because increased trade has helped lower prices and increase competitiveness in business</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2')">Lost more than it's gained because increased trade has cost jobs in manufacturing and lower national wages to compete</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3')">Trade between nations has caused the dilution of Americas purity.</a>
+    <br><br></div><div id = "para4"></div></form><script type = "text/javascript">
     var reltext4 = [];
     reltext4[1] = "If your headache symptoms are mild to moderate, some doctors recommend that you first try an over-the-counter pain medicine, such as aspirin, ibuprofen, naproxen, or acetaminophen. If that doesn't work, then you can try a prescription medicine that can either prevent a headache from coming or stop a headache after it has started. Keep in mind, these aren't solutions to the problem - they just help with short term relief."
     reltext4[2] = "Exercise often causes you to rehydrate, which often times is the cause of your initial headache. After you drink water and the symptoms persist, you might have an underlying issues that needs to be diagnosed."
     reltext4[3] = "Getting an adequate amount of sleep each night is important, but don't oversleep. Chiropractitioners also recommend that you go to bed and wake up on a regular schedule. If you feel a migraine attack coming on, try to rest in a dark, quiet room. Icing the back of your neck and applying gentle pressure to the painful areas on your scalp may also help. Keeping a headache diary can help you and your Chiropractor learn more about what triggers your migraines, as well as what treatments are most effective."
-    reltext4[4] = "Chiropractors like WELLSPINE KC are known for fixing the underlying issues that cause headaches. Contact a Chiropractitioner today to see how they can help you get past the worst part of your day."
 
     function getAnswer4(ans4, rel4) {
     document.getElementById("para4").innerHTML = reltext4[rel4];
     }
 
     </script><!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform5"><br><br><h3>How much more, if anything, needs to be done to ensure equal rights for all Americans regardless of their racial or ethnic backgrounds? </h3><br>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1a', '1')">Everyone has equal rights</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1b', '2')">Some things could be changed</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1c', '3')">A lot should be changed</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1d','4')">The system needs to be rebuilt</a><br><br>
+    </div><div id = "para5"></div></form><script type = "text/javascript">
+    var reltext5 = [];
+    reltext5[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
+    reltext5[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
+    reltext5[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
+    reltext5[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+
+    function getAnswer5(ans5, rel5) {
+    document.getElementById("para5").innerHTML = reltext5[rel5];
+    }
+
+    </script><!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform6"><br><br><h3>Which of the following statements comes closest to your view?</h3><br>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1a', '1')">Business corporations make too much profit</a>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1b', '2')">Legislation is fair when it comes to business profit taking </a><br><br>
+    </div><div id = "para6"></div></form><script type = "text/javascript">
+    var reltext6 = [];
+    reltext6[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
+    reltext6[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
+
+    function getAnswer6(ans6, rel6) {
+    document.getElementById("para6").innerHTML = reltext6[rel6];
+    }
+
+    </script><!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform7"><br><br><h3>How much, if at all, would it bother you to regularly hear people speak a language other than English in public places in your community?</h3><br>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1a', '1')">A Lot</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1b', '2')">Some</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1c', '3')">Not Much</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1d','4')">Not at all</a><br><br>
+    </div><div id = "para7"></div></form><script type = "text/javascript">
+    var reltext7 = [];
+    reltext7[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
+    reltext7[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
+    reltext7[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
+    reltext7[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+
+    function getAnswer7(ans7, rel7) {
+    document.getElementById("para7").innerHTML = reltext7[rel7];
+    }
+
+    </script><!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform8"><br><br><h3>Which of the following statements come closest to your view?</h3><br>
+              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1a', '1');changeRed();">America's openness to people from all over the world is essential to who we are as a nation.</a>
+              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1b', '2');changeBlue();">If America is too open to people from all over the world, we risk losing our identity as a nation.</a>
+            </div><div id = "para8"></div></form>
+              <script type = "text/javascript">
+
+    var reltext8 = [];
+    reltext8[1] = "Closed trade borders is RIGHT leaning"
+    reltext8[2] = "Open trade borders is LEFT leaning"
+
+    function getAnswer8(ans8, rel8) {
+      document.getElementById("para8").innerHTML = reltext8[rel8];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform9"><br><br><h3>Which of these statements best describes your opinion about the United States?</h3><br>
+              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1a', '1');changeRed();">America stands above all other countries in the world</a>
+              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1b', '2');changeBlue();">America is one of the greatest countries in the world, along with some others.</a>
+              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1c', '3');changeBlack();">There are other countires that are better than America</a>
+              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1d', '4);changeBlack();">America is by far the worst country.</a><br><br>
+            </div><div id = "para9"></div></form>
+              <script type = "text/javascript">
+
+    var reltext9 = [];
+    reltext9[1] = "Closed trade borders is RIGHT leaning"
+    reltext9[2] = "Open trade borders is LEFT leaning"
+    reltext9[3] = "Closed trade borders is RIGHT leaning"
+    reltext9[4] = "Open trade borders is LEFT leaning"
+
+    function getAnswer9(ans9, rel9) {
+      document.getElementById("para9").innerHTML = reltext9[rel9];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform10"><br><br><h3>How much of a problem, if any, would you say each of the following are in the country today?</h3><br>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1a', '1');changeRed();changeRed();">People being too easily offended by things others say are a <strong>major</strong> problem</a>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1b', '2');changeRed();">People being too easily offended by things others say are a <strong>minor</strong> problem</a>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1c', '3');changeBlue();changeBlue();">People saying things that are offensive to others are a <strong>major </strong>problem</a>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1d', '4);changeBlack();">People saying things that are offensive to others are a <strong>minor </strong>problem</a><br><br>
+            </div><div id = "para10"></div></form>
+              <script type = "text/javascript">
+
+    var reltext10 = [];
+    reltext10[1] = "People being too easily offended by things others say are a <strong>major</strong> problem is Double Right leaning"
+    reltext10[2] = "People being too easily offended by things others say are a <strong>minor</strong> problem is right leaning"
+    reltext10[3] = "People saying things that are offensive to others are a <strong>major </strong>problem is Double Left leaning"
+    reltext10[4] = "People saying things that are offensive to others are a <strong>minor </strong>problem is left leaning"
+
+    function getAnswer10(ans10, rel10) {
+      document.getElementById("para10").innerHTML = reltext10[rel10];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform11"><br><br><h3>Which comes closer to your view of candidtaes for political office, even if neither is exactly right? I usually feel like...</h3><br>
+              <a class="btn home-btn" name = "rad11" onclick = "getAnswer11('1a', '1');changeRed();">There is at least one candidate who shares most my views</a>
+              <a class="btn home-btn" name = "rad11" onclick = "getAnswer11('1b', '2');changeBlack();changeBlack();">None of the candidates represent my views well</a><br><br>
+            </div><div id = "para11"></div></form>
+              <script type = "text/javascript">
+
+    var reltext11 = [];
+    reltext11[1] = "If you resonate with any politician, you understand the need for conservation"
+    reltext11[2] = "The two party system can be distinguished by 9 subcatagories. <a href='https://www.pewresearch.org/politics/2021/11/09/beyond-red-vs-blue-the-political-typology-2/'>Learn more</a> "
+
+    function getAnswer11(ans11, rel11) {
+      document.getElementById("para11").innerHTML = reltext11[rel11];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform12"><br><br><h3>In general, how much do White people benefit from advantages in society that Black people do not have?</h3><br>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1a', '1');changeBlue();changeBlue();">A great deal</a>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1b', '2');changeBlue();">A fair amount</a>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1c', '3');changeRed();">Not too much</a>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1d', '4);changeRed();changeRed();">Not at all</a><br><br>
+            </div><div id = "para12"></div></form>
+              <script type = "text/javascript">
+
+    var reltext12 = [];
+    reltext12[1] = "Strong Left leaning sentiment"
+    reltext12[2] = "Weak Left leaning sentiment"
+    reltext12[3] = "Weak Right leaning sentiment"
+    reltext12[4] = "Strong Right leaning sentiment"
+
+    function getAnswer12(ans12, rel12) {
+      document.getElementById("para12").innerHTML = reltext12[rel12];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform13"><br><br><h3>Do you think acceptance of people who are transgender is...</h3><br>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1a', '1');changeBlue();changeBlue();">Very good for society</a>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1b', '2');changeBlue();">Somewhat good for society</a>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1c', '3');changeBlack();">Neither good nor bad for society</a>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1d', '4');changeRed();">Somewhat bad for society</a>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1e', '5);changeRed();changeRed();">Very Bad for society</a><br><br>
+            </div><div id = "para13"></div></form>
+              <script type = "text/javascript">
+
+    var reltext13 = [];
+    reltext13[1] = "Strong Left leaning sentiment"
+    reltext13[2] = "Weak Left leaning sentiment"
+    reltext13[3] = "Partial"
+    reltext13[4] = "Weak Right leaning sentiment"
+    reltext13[5] = "Strong Right leaning sentiment"
+
+    function getAnswer13(ans13, rel13) {
+      document.getElementById("para13").innerHTML = reltext13[rel13];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform14"><br><br><h3>Which of the following come closest to your view?</h3><br>
+              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1a', '1');changeBlue();changeBlack();">Religion should be kept separate from government policies</a>
+              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1b', '2');changeRed();changeRed();">Government policies should support religious values and beliefs</a><br><br>
+            </div><div id = "para14"></div></form>
+              <script type = "text/javascript">
+
+    var reltext14 = [];
+    reltext14[1] = "Most people agree that religion should be seperate from government"
+    reltext14[2] = "Strong right leaning sentiment"
+
+    function getAnswer14(ans14, rel14) {
+      document.getElementById("para14").innerHTML = reltext14[rel14];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
+
+    <!-- Interactive Question -->
+    <div onclick="this.classList.toggle('inactive');">
+    <form name = "myform15"><br><br><h3>In the future, do you think...</h3><br>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();">American policies should try to keep it so we're the only military super power.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();">It would be acceptable if another country became as militarily powerful as America.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();">The world initiative should aim towards dismantling all weapons</a><br><br>
+            </div><div id = "para15"></div></form>
+              <script type = "text/javascript">
+
+    var reltext15 = [];
+    reltext15[1] = "Monopolizing weapons is RIGHT leaning"
+    reltext15[2] = "Free Open warfare is is LEFT leaning"
+    reltext15[3] = "Closed warfare isn't currently on the table"
+
+    function getAnswer15(ans15, rel15) {
+      document.getElementById("para15").innerHTML = reltext15[rel15];}
+
+    </script>
+    <!-- End of Interactive Question -->
+
 
   </center></div></section>
   </section>
@@ -228,6 +626,42 @@ animation: swim 2.4s ease alternate infinite;
 
 </div>
 <div class='custom-cursor'></div>
+
+<script>
+
+    // Get buttons
+    const buttons = document.querySelectorAll(".btn");
+
+    // Add click event listener to buttons
+    buttons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        // Change button style
+        this.style.backgroundColor = "#212121";
+        this.style.color = "white";
+        this.style.borderColor = "#212121";
+
+      });
+
+    });
+
+var clicksRed = 0;
+var clicksBlack = 0;
+var clicksBlue = 0;
+function changeRed() {
+    clicksRed += 1;
+    document.getElementById("clicksRed").innerHTML = clicksRed;
+}
+function changeBlue() {
+    clicksBlue += 1;
+    document.getElementById("clicksBlue").innerHTML = clicksBlue;
+}
+function changeBlack() {
+    clicksBlack += 1;
+    document.getElementById("clicksBlack").innerHTML = clicksBlack;
+}
+</script>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js'></script>

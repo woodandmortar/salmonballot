@@ -255,15 +255,20 @@ section.hero:after {
 }
 section.two {
   background-color: #efefef;
+  min-height: 700px;
+  height: 700px;
+  overflow: clip;
 }
 section.three {
   background-color: #D95952;
+  min-height: 200px;
+  height: 200px;
 }
 section.four {
-  background-color: #00BCD4;
+  background-color: #efefef;
 }
 section.five {
-  background-color: #212121;
+  background-color: #efefef;
 }
 
 @media screen and (min-width: 1200px) {
