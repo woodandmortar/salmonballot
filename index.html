@@ -135,6 +135,7 @@ background: none;
     transform: scaleX(2.3);
   }
 
+
 </style>
 
 
@@ -231,30 +232,102 @@ background: none;
     <div class='position-absolute w-100 gradient-overlay'></div>
     <div class='content position-relative text-center mb-5'>
       <h1 class='hero-title blend'>
-        #SalmonBallot
+        #<font style="color: #D95952;">Salmon</font>Ballot
         <br>
-        Political Heading
+        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 800);"><h1>Find my heading</h1></a>
       </h1>
     </div>
   </section>
 
+  <div id="compass" style="position: absolute; top: 850px; left: 20%; width: 400px; height: 400px; margin: 20px; z-index: 999;">
+    <div style="position: relative">
 
+      <img src="compass.png" style=" z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+
+      <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+
+      <polygon points="200,0 400,200 200,400 0,200" fill="transparent"/>
+
+      <circle cx="200" cy="200" r="15" opacity=".8" fill="#212121"/>
+
+      <script>
+
+        const diamond = document.querySelector('polygon');
+        const dot = document.querySelector('circle');
+
+      </script>
+
+    </svg>
+
+    </div>
+
+  </div>
+
+  <div id="traits" style="position: absolute; top: 850px; right: 20%; width: 400px; height: 400px; margin: 20px; z-index: 999;">
+
+    <div class="carousel" style="width:400px;height:400px;overflow:hidden">
+
+      <div class="carousel-inner">
+
+        <div class="item">
+          <h2>The Artist</h2>
+          <p>Artists enrich our lives and culture through their creativity and unique visions. Their innovations inspire new
+            ideas and technologies that can drive economic growth. Artistic expression fosters dialogue, brings communities together,
+             and promotes diversity and inclusion. Supporting the arts ecosystem creates jobs, attracts tourism, and allows local businesses
+              to thrive. Investment in the arts is thus an investment in the health, vibrancy and economic stability of society as a whole.</p>
+        </div>
+
+        <div class="item2">
+          <h2>The Activist</h2>
+          <p>Activists drive social progress and reforms that create more just, equitable and sustainable economic structures. By advocating
+             for the needs of marginalized groups, the environment, and ethical business practices, activists play a vital role in holding corporations
+              and governments accountable. This pushes society as a whole towards greater empathy, responsibility and prosperity for all. When economic
+               gains are shared broadly, and economic systems work for both people and planet, society becomes more resilient. Activists help ensure economic
+               stability is never achieved at the expense of humanity or nature.</p>
+        </div>
+
+        <div class="item3">
+          <h2>The Thinker</h2>
+          <p>Progressive perspectives that challenge established systems foster innovation and evolution towards
+            more equitable growth models. Left leaning thinkers advocating for the vulnerable provide a vital counterbalance
+             to unchecked capitalism. Their ideas help ensure economic stability is built upon ethical, just foundations - not simply material gains.</p>
+        </div>
+        <div class="item4">
+          <h2>The Wamb</h2>
+          <p>Main text 2...</p>
+        </div>
+        <div class="item5">
+          <h2>The Normie</h2>
+          <p>Main text 2...</p>
+        </div>
+        <div class="item6">
+          <h2>The Nerd</h2>
+          <p>Main text 2...</p>
+        </div>
+        <div class="item7">
+          <h2>The Doer</h2>
+          <p>Main text 2...</p>
+        </div>
+        <div class="item8">
+          <h2>The Beaucrate</h2>
+          <p>Main text 2...</p>
+        </div>
+        <div class="item9">
+          <h2>The Handyman</h2>
+          <p>Main text 2...</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
   <section class='two'>
 
-  <div class="column left" style="top:1000px; left: 30px; z-index: 99; position: absolute;">
-    <h2 style="color:#04acff;">Liberal<br>
-    Left | <p id="clicksBlue"></p></h2><br>
-    <h2 style="color:#212121;">Third<br>
-    Party | <p id="clicksBlack"></p></h2><br>
-    <h2 style="color:#D95952;">Conservative<br>
-    Right | <p id="clicksRed"></p></h2>
-  </div>
 
-  <div class="column right" style="Top:1100px; right: 90px; z-index: 99; position: absolute;">
-    <h2>Heading <br> Pending
-    </h2>
-  </div>
+
+
 
       <svg id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" class="double-width" viewBox="0 0 211 211">
 
@@ -282,13 +355,13 @@ background: none;
     <section id="quiz">
             <div class="container"><div class="section_title"><br><br>
 <center>
-              <p><h1>Political Heading</h1></p>
+              <p><h1>Political Heading <br>
+                Left (<font id="clicksBlue"></font>)  Third (<font id="clicksBlack"></font>)  Right (<font id="clicksRed"></font>)</h1></p>
 
-<br><hr><br><hr><br><br>
+<br><hr><br><br>
 
-<p>Each question will change the water level. As you complete the quiz, your heading will generate based on your mix of ideals.
-  #SalmonBallot highlights the need for a functioning third party system, and aims to educate by wading through disinformation.
-  Keeping a fresh source of politcal issue related content and thought exercises.</b></p><br>
+<p>Each question will move your heading based on research from the PEW Research Center in Washington D.C. political topology. SalmonBallot offers a comprehensive political perspective navigating through
+  social content. Keeping a fresh source of politcal related content and thought exercises, lets compare how our nation changes with the policies we create.</b></p><br>
 
                </div><div class="container">
 
@@ -595,9 +668,9 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform15"><br><br><h3>In the future, do you think...</h3><br>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();">American policies should try to keep it so we're the only military super power.</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();">It would be acceptable if another country became as militarily powerful as America.</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();">The world initiative should aim towards dismantling all weapons</a><br><br>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();window.scroll(0, 800);">American policies should try to keep it so we're the only military super power.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();window.scroll(0, 800);">It would be acceptable if another country became as militarily powerful as America.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);">The world initiative should aim towards dismantling all weapons</a><br><br>
             </div><div id = "para15"></div></form>
               <script type = "text/javascript">
 
@@ -618,12 +691,8 @@ background: none;
 
 
 
-  <section class='four'></section>
-
-
-
+  <section class='four'>  </section>
   <section class='five'></section>
-
 
 
 </div>
@@ -648,21 +717,59 @@ background: none;
 
     });
 
+var xaxis = 200;
+var yaxis = 200;
 var clicksRed = 0;
 var clicksBlack = 0;
 var clicksBlue = 0;
 function changeRed() {
     clicksRed += 1;
     document.getElementById("clicksRed").innerHTML = clicksRed;
+    xaxis -= 30;
+    yaxis -= 10;
+    dot.setAttribute('cx', xaxis);
+    dot.setAttribute('cy', yaxis);
 }
 function changeBlue() {
     clicksBlue += 1;
     document.getElementById("clicksBlue").innerHTML = clicksBlue;
+    xaxis += 30;
+    yaxis += 10;
+    dot.setAttribute('cx', xaxis);
+    dot.setAttribute('cy', yaxis);
 }
 function changeBlack() {
     clicksBlack += 1;
     document.getElementById("clicksBlack").innerHTML = clicksBlack;
+    yaxis += 15;
+    dot.setAttribute('cy', yaxis);
 }
+
+const items = document.querySelectorAll('.item');
+let currentIdx = 0;
+
+function showNextItem() {
+
+  // Hide all items first
+  items.forEach(item => {
+    item.style.transform = `translateX(400px)`;
+  });
+
+  // Show current item
+  items[currentIdx].style.transform = `translateX(0)`;
+
+  currentIdx++;
+
+  if(currentIdx >= items.length) {
+    currentIdx = 0;
+  }
+
+  setTimeout(showNextItem, 4000);
+
+}
+
+showNextItem();
+
 </script>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'></script>
