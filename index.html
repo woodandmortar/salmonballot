@@ -281,7 +281,7 @@ background: none;
 
     <section id="quiz">
             <div class="container"><div class="section_title"><br><br>
-
+<center>
               <p><h1>Political Heading</h1></p>
 
 <br><hr><br><hr><br><br>
@@ -290,7 +290,7 @@ background: none;
   #SalmonBallot highlights the need for a functioning third party system, and aims to educate by wading through disinformation.
   Keeping a fresh source of politcal issue related content and thought exercises.</b></p><br>
 
-               </div><div class="container"><center>
+               </div><div class="container">
 
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
@@ -320,7 +320,7 @@ background: none;
     var reltext1 = [];
     reltext1[1] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
     reltext1[2] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
-    reltext1[3] = "When the people regain trust in their government, the system stops failing"
+    reltext1[3] = "When the government earns their people's trust, the system stops failing"
 
     function getAnswer1(ans1, rel1) {
     document.getElementById("para1").innerHTML = reltext1[rel1];
@@ -337,9 +337,9 @@ background: none;
       <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3');changeBlack();changeBlue();">America needs to keep innovating new ways to help capture its culture through border management</a>
       <br><br></div><div id = "para2"></div></form><script type = "text/javascript">
     var reltext2 = [];
-    reltext2[1] = "Double Left leaning sentiment"
-    reltext2[2] = "Double Right leaning sentiment"
-    reltext2[3] = "Moderately left leaning sentiment"
+    reltext2[1] = "Welcoming all people openly is a strong Left stance"
+    reltext2[2] = "Loyalty through nationalism is a strong Right stance"
+    reltext2[3] = "Managing border access from a place of inclusion is a left leaning moderate stance"
 
     function getAnswer2(ans2, rel2) {
     document.getElementById("para2").innerHTML = reltext2[rel2];
@@ -352,13 +352,13 @@ background: none;
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform3"><br><br><h3>In general, would you say experts who study a subject for many years are… </h3><br>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1');changeBlue();">Usually <strong>better</strong> at making policy decisions about than subject that the standard person</a>
-      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2');changeRed();">Usually <strong>Worse</strong> at making policy decisions about than subject that the standard person</a>
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2');changeRed();">Usually <strong>worse</strong> at making policy decisions about than subject that the standard person</a>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3');changeBlack();">Although usually better, an opposition is important for perspective while polling from reviewed experts</a>
     </div><div id = "para3"></div></form><script type = "text/javascript">
     var reltext3 = [];
-    reltext3[1] = "The left have an affinity for trusting institutionalized science."
-    reltext3[2] = "The right have faith in what their personal leaders instruct."
-    reltext3[3] = "Understading where majority rule and intellegent guidance could exists when technology is trusted."
+    reltext3[1] = "The Left have an affinity for trusting institutionalized science."
+    reltext3[2] = "The Right have faith in what their personal leaders instruct."
+    reltext3[3] = "Understanding where majority rule and intellegent guidance could coexist when technology is trusted."
 
     function getAnswer3(ans3, rel3) {
     document.getElementById("para3").innerHTML = reltext3[rel3];
@@ -369,14 +369,14 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform4"><br><br><h3>Thinking about increased trade of goods and services between the U.S. and other nations in recent decades, would you say that the U.S. has...</h3><br>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1')">Gained more than it's lost because increased trade has helped lower prices and increase competitiveness in business</a>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2')">Lost more than it's gained because increased trade has cost jobs in manufacturing and lower national wages to compete</a>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3')">Trade between nations has caused the dilution of Americas purity.</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1');changeRed();">Gained more than it's lost because increased trade has helped lower prices and increase competitiveness in business</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2');changeBlue();">Lost more than it's gained because increased trade has cost jobs in manufacturing and lower national wages to compete</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3');changeBlack();">Trade between nations will happen regardless of American policies, but neglecting trade enterprise will set America back.</a>
     <br><br></div><div id = "para4"></div></form><script type = "text/javascript">
     var reltext4 = [];
-    reltext4[1] = "If your headache symptoms are mild to moderate, some doctors recommend that you first try an over-the-counter pain medicine, such as aspirin, ibuprofen, naproxen, or acetaminophen. If that doesn't work, then you can try a prescription medicine that can either prevent a headache from coming or stop a headache after it has started. Keep in mind, these aren't solutions to the problem - they just help with short term relief."
-    reltext4[2] = "Exercise often causes you to rehydrate, which often times is the cause of your initial headache. After you drink water and the symptoms persist, you might have an underlying issues that needs to be diagnosed."
-    reltext4[3] = "Getting an adequate amount of sleep each night is important, but don't oversleep. Chiropractitioners also recommend that you go to bed and wake up on a regular schedule. If you feel a migraine attack coming on, try to rest in a dark, quiet room. Icing the back of your neck and applying gentle pressure to the painful areas on your scalp may also help. Keeping a headache diary can help you and your Chiropractor learn more about what triggers your migraines, as well as what treatments are most effective."
+    reltext4[1] = "The Right prioritize succeeding in global economic competition through capitalism"
+    reltext4[2] = "The Left prioritize citizen experience and wellbeing over economic gains"
+    reltext4[3] = "Globalism can create strength in any economy when it is well managed"
 
     function getAnswer4(ans4, rel4) {
     document.getElementById("para4").innerHTML = reltext4[rel4];
@@ -387,16 +387,18 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform5"><br><br><h3>How much more, if anything, needs to be done to ensure equal rights for all Americans regardless of their racial or ethnic backgrounds? </h3><br>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1a', '1')">Everyone has equal rights</a>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1b', '2')">Some things could be changed</a>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1c', '3')">A lot should be changed</a>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1d','4')">The system needs to be rebuilt</a><br><br>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1a', '1');changeRed();changeRed();">Everyone has equal rights</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1b', '2');changeRed();">Some things could be changed</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1c', '3');changeBlue();">A lot should be changed</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1d','4');changeBlue();changeBlue();">The system needs to be rebuilt</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1e','5');changeBlue();changeBlack();changeBlack();">Changing the system will require methodical follow through</a><br><br>
     </div><div id = "para5"></div></form><script type = "text/javascript">
     var reltext5 = [];
-    reltext5[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
-    reltext5[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
-    reltext5[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
-    reltext5[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+    reltext5[1] = "Maintainance of the existing status quo is a deeply Right sentiment"
+    reltext5[2] = "Accepting minor changes to the existing status quo is a Right leaning sentiment"
+    reltext5[3] = "Inviting changes to the existing status quo is a Left leaning sentiment"
+    reltext5[4] = "Demanding major changes to the existing status quo is a deeply Left sentiment"
+    reltext5[5] = "Realistic expectations around systemic reform is a Left of center moderate sentiment"
 
     function getAnswer5(ans5, rel5) {
     document.getElementById("para5").innerHTML = reltext5[rel5];
@@ -407,12 +409,12 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform6"><br><br><h3>Which of the following statements comes closest to your view?</h3><br>
-      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1a', '1')">Business corporations make too much profit</a>
-      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1b', '2')">Legislation is fair when it comes to business profit taking </a><br><br>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1a', '1');changeBlue();">Business corporations make too much profit</a>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1b', '2');changeRed();">Legislation is fair when it comes to business profit taking</a><br><br>
     </div><div id = "para6"></div></form><script type = "text/javascript">
     var reltext6 = [];
-    reltext6[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
-    reltext6[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
+    reltext6[1] = "The Left believe in limited profit taking"
+    reltext6[2] = "The Right believe in a right to unfettered profit taking"
 
     function getAnswer6(ans6, rel6) {
     document.getElementById("para6").innerHTML = reltext6[rel6];
@@ -423,16 +425,16 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform7"><br><br><h3>How much, if at all, would it bother you to regularly hear people speak a language other than English in public places in your community?</h3><br>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1a', '1')">A Lot</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1b', '2')">Some</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1c', '3')">Not Much</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1d','4')">Not at all</a><br><br>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1a', '1');changeRed();changeRed();">A Lot</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1b', '2')changeRed();">Some</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1c', '3')changeBlue();">Not Much</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1d','4')changeBlue();changeBlack();">Not at all</a><br><br>
     </div><div id = "para7"></div></form><script type = "text/javascript">
     var reltext7 = [];
-    reltext7[1] = "Nausea and vomiting are symptoms of an underlying illness and not a specific disease. Nausea is the sensation that the stomach wants to empty itself, while vomiting or throwing up, is the act of forcible emptying of the stomach. The term dry heaves refers to an episode of vomiting where there is no food in the stomach to vomit, and only clear secretions are vomited."
-    reltext7[2] = "Although a fever could be considered any body temperature above the normal 98.6 F, medically, a person is not considered to have a significant fever until the temperature is above 100.4 F. Most fever is beneficial, causes no problems, and helps the body fight off infections. The main reason to treat a fever is to increase comfort. Fever is the result of an immune response by your body to a foreign invader. Foreign invaders include viruses, bacteria, fungi, drugs, or other toxins."
-    reltext7[3] = "Weakness is a decrease in the strength in one or more muscles. In the strictest sense, the medical definition of weakness refers to loss of muscle strength, and headaches are focused upon conditions that can result in a measurable loss of muscle function. Weakness may be generalized or may affect one muscle or muscle group exclusively."
-    reltext7[4] = "Cold hands can arise due to cold exposure. Like cold sensation in the feet, cold hands can also be caused by problems with the circulation to the hands or with the nervous system. Some forms of thyroid disease can also result in the sensation of cold feet and hands."
+    reltext7[1] = "Far Right Ideals"
+    reltext7[2] = "Moderately Right"
+    reltext7[3] = "Moderate"
+    reltext7[4] = "Moderately Left Ideals"
 
     function getAnswer7(ans7, rel7) {
     document.getElementById("para7").innerHTML = reltext7[rel7];
