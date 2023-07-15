@@ -234,13 +234,13 @@ background: none;
       <h1 class='hero-title blend'>
         #<font style="color: #D95952;">Salmon</font>Ballot
         <br>
-        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 800);"><h1>Find my heading</h1></a>
+        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 800);"><h2>Find my heading</h2></a>
       </h1>
     </div>
   </section>
 
-  <div id="compass" style="position: absolute; top: 850px; left: 20%; width: 400px; height: 400px; margin: 20px; z-index: 999;">
-    <div style="position: relative">
+  <div id="compass" style="position: relative; z-index: 999;">
+    <div style="position: absolute;top: 250px;left: 50%;transform: translate(-50%, -50%);">
 
       <img src="compass.png" style=" z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 
@@ -248,76 +248,10 @@ background: none;
 
       <polygon points="200,0 400,200 200,400 0,200" fill="transparent"/>
 
-      <circle cx="200" cy="200" r="15" opacity=".8" fill="#212121"/>
+      <circle cx="200" cy="200" r="35" opacity=".8" fill="#212121"/>
 
-      <script>
-
-        const diamond = document.querySelector('polygon');
-        const dot = document.querySelector('circle');
-
-      </script>
 
     </svg>
-
-    </div>
-
-  </div>
-
-  <div id="traits" style="position: absolute; top: 850px; right: 20%; width: 400px; height: 400px; margin: 20px; z-index: 999;">
-
-    <div class="carousel" style="width:400px;height:400px;overflow:hidden">
-
-      <div class="carousel-inner">
-
-        <div class="item">
-          <h2>The Artist</h2>
-          <p>Artists enrich our lives and culture through their creativity and unique visions. Their innovations inspire new
-            ideas and technologies that can drive economic growth. Artistic expression fosters dialogue, brings communities together,
-             and promotes diversity and inclusion. Supporting the arts ecosystem creates jobs, attracts tourism, and allows local businesses
-              to thrive. Investment in the arts is thus an investment in the health, vibrancy and economic stability of society as a whole.</p>
-        </div>
-
-        <div class="item2">
-          <h2>The Activist</h2>
-          <p>Activists drive social progress and reforms that create more just, equitable and sustainable economic structures. By advocating
-             for the needs of marginalized groups, the environment, and ethical business practices, activists play a vital role in holding corporations
-              and governments accountable. This pushes society as a whole towards greater empathy, responsibility and prosperity for all. When economic
-               gains are shared broadly, and economic systems work for both people and planet, society becomes more resilient. Activists help ensure economic
-               stability is never achieved at the expense of humanity or nature.</p>
-        </div>
-
-        <div class="item3">
-          <h2>The Thinker</h2>
-          <p>Progressive perspectives that challenge established systems foster innovation and evolution towards
-            more equitable growth models. Left leaning thinkers advocating for the vulnerable provide a vital counterbalance
-             to unchecked capitalism. Their ideas help ensure economic stability is built upon ethical, just foundations - not simply material gains.</p>
-        </div>
-        <div class="item4">
-          <h2>The Wamb</h2>
-          <p>Main text 2...</p>
-        </div>
-        <div class="item5">
-          <h2>The Normie</h2>
-          <p>Main text 2...</p>
-        </div>
-        <div class="item6">
-          <h2>The Nerd</h2>
-          <p>Main text 2...</p>
-        </div>
-        <div class="item7">
-          <h2>The Doer</h2>
-          <p>Main text 2...</p>
-        </div>
-        <div class="item8">
-          <h2>The Beaucrate</h2>
-          <p>Main text 2...</p>
-        </div>
-        <div class="item9">
-          <h2>The Handyman</h2>
-          <p>Main text 2...</p>
-        </div>
-
-      </div>
 
     </div>
 
@@ -355,13 +289,14 @@ background: none;
     <section id="quiz">
             <div class="container"><div class="section_title"><br><br>
 <center>
-              <p><h1>Political Heading <br>
-                Left (<font id="clicksBlue"></font>)  Third (<font id="clicksBlack"></font>)  Right (<font id="clicksRed"></font>)</h1></p>
+              <p><h1>Political Heading <br><h1>
+                <h2>Progressive (<font id="clicksBlue"></font>)  Economist (<font id="clicksBlack"></font>)
+                   Conservative (<font id="clicksRed"></font>)  Socialist (<font id="clicksGold"></font>)</h2></p>
 
 <br><hr><br><br>
 
-<p>Each question will move your heading based on research from the PEW Research Center in Washington D.C. political topology. SalmonBallot offers a comprehensive political perspective navigating through
-  social content. Keeping a fresh source of politcal related content and thought exercises, lets compare how our nation changes with the policies we create.</b></p><br>
+<p>Each question will move your heading based on research from the PEW Research Center in Washington D.C. political topology. <strong>#<font style="color: #D95952;">Salmon</font>Ballot</strong> offers a comprehensive political perspective navigating through
+  social content. Keeping a fresh source of politcal thought exercises to demonstrate in real time that the <strong> Normie </strong> doesnt exist.</b></p><br>
 
                </div><div class="container">
 
@@ -386,7 +321,7 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform1"><br><br><h3>A bigger government providing more services...</h3><br>
-      <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1a', '1');changeRed();changeBlue();">would greatly help the American people</a>
+      <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1a', '1');changeRed();changeBlue();changeGold();">would greatly help the American people</a>
       <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1b', '2');changeRed();changeBlue();">would damage the American people</a>
       <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1c', '3');changeBlack();">would require transparency and strong leadership</a>
       <br><br></div><div id = "para1"></div></form><script type = "text/javascript">
@@ -427,11 +362,13 @@ background: none;
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1');changeBlue();">Usually <strong>better</strong> at making policy decisions about than subject that the standard person</a>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2');changeRed();">Usually <strong>worse</strong> at making policy decisions about than subject that the standard person</a>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3');changeBlack();">Although usually better, an opposition is important for perspective while polling from reviewed experts</a>
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1d', '4');changeGold();changeGold();">Whoever has the gold makes the rules.</a>
     </div><div id = "para3"></div></form><script type = "text/javascript">
     var reltext3 = [];
     reltext3[1] = "The Left have an affinity for trusting institutionalized science."
     reltext3[2] = "The Right have faith in what their personal leaders instruct."
     reltext3[3] = "Understanding where majority rule and intellegent guidance could coexist when technology is trusted."
+    reltext3[4] = "Big business and lobbying dictate global economy."
 
     function getAnswer3(ans3, rel3) {
     document.getElementById("para3").innerHTML = reltext3[rel3];
@@ -442,9 +379,9 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform4"><br><br><h3>Thinking about increased trade of goods and services between the U.S. and other nations in recent decades, would you say that the U.S. has...</h3><br>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1');changeRed();">Gained more than it's lost because increased trade has helped lower prices and increase competitiveness in business</a>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2');changeBlue();">Lost more than it's gained because increased trade has cost jobs in manufacturing and lower national wages to compete</a>
-    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3');changeBlack();">Trade between nations will happen regardless of American policies, but neglecting trade enterprise will set America back.</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1a', '1');changeRed();changeGold();">Gained more than it's lost because increased trade has helped lower prices and increase competitiveness in business</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1b', '2');changeBlue();changeBlack();">Lost more than it's gained because increased trade has cost jobs in manufacturing and lower national wages to compete</a>
+    <a class="btn home-btn" name = "rad4" onclick = "getAnswer4('1c', '3');changeGold();changeGold();">Trade between nations will happen regardless of American policies, but neglecting trade enterprise will set America back.</a>
     <br><br></div><div id = "para4"></div></form><script type = "text/javascript">
     var reltext4 = [];
     reltext4[1] = "The Right prioritize succeeding in global economic competition through capitalism"
@@ -462,8 +399,8 @@ background: none;
     <form name = "myform5"><br><br><h3>How much more, if anything, needs to be done to ensure equal rights for all Americans regardless of their racial or ethnic backgrounds? </h3><br>
       <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1a', '1');changeRed();changeRed();">Everyone has equal rights</a>
       <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1b', '2');changeRed();">Some things could be changed</a>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1c', '3');changeBlue();">A lot should be changed</a>
-      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1d','4');changeBlue();changeBlue();">The system needs to be rebuilt</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1c', '3');changeBlue();changeBlack();">A lot should be changed</a>
+      <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1d','4');changeBlue();changeBlue();changeBlack();changeBlack();">The system needs to be rebuilt</a>
       <a class="btn home-btn" name = "rad5" onclick = "getAnswer5('1e','5');changeBlue();changeBlack();changeBlack();">Changing the system will require methodical follow through</a><br><br>
     </div><div id = "para5"></div></form><script type = "text/javascript">
     var reltext5 = [];
@@ -482,12 +419,14 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform6"><br><br><h3>Which of the following statements comes closest to your view?</h3><br>
-      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1a', '1');changeBlue();">Business corporations make too much profit</a>
-      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1b', '2');changeRed();">Legislation is fair when it comes to business profit taking</a><br><br>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1a', '1');changeBlue();changeBlack();">Business corporations make too much profit</a>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1b', '2');changeRed();">Legislation is fair when it comes to business profit taking</a>
+      <a class="btn home-btn" name = "rad6" onclick = "getAnswer6('1c', '3');changeGold();changeGold();">Legislation cares too much about the worker, when America can just outsource</a><br><br>
     </div><div id = "para6"></div></form><script type = "text/javascript">
     var reltext6 = [];
     reltext6[1] = "The Left believe in limited profit taking"
     reltext6[2] = "The Right believe in a right to unfettered profit taking"
+    reltext6[3] = "Pushing workers to the brink is the second most plausible reason for systemic economic collapse"
 
     function getAnswer6(ans6, rel6) {
     document.getElementById("para6").innerHTML = reltext6[rel6];
@@ -722,53 +661,34 @@ var yaxis = 200;
 var clicksRed = 0;
 var clicksBlack = 0;
 var clicksBlue = 0;
+var clicksGold = 0;
 function changeRed() {
     clicksRed += 1;
     document.getElementById("clicksRed").innerHTML = clicksRed;
-    xaxis -= 30;
-    yaxis -= 10;
+    xaxis += 30;
     dot.setAttribute('cx', xaxis);
-    dot.setAttribute('cy', yaxis);
 }
 function changeBlue() {
     clicksBlue += 1;
     document.getElementById("clicksBlue").innerHTML = clicksBlue;
-    xaxis += 30;
-    yaxis += 10;
+    xaxis -= 30;
     dot.setAttribute('cx', xaxis);
-    dot.setAttribute('cy', yaxis);
 }
 function changeBlack() {
     clicksBlack += 1;
     document.getElementById("clicksBlack").innerHTML = clicksBlack;
-    yaxis += 15;
+    yaxis -= 30;
     dot.setAttribute('cy', yaxis);
 }
-
-const items = document.querySelectorAll('.item');
-let currentIdx = 0;
-
-function showNextItem() {
-
-  // Hide all items first
-  items.forEach(item => {
-    item.style.transform = `translateX(400px)`;
-  });
-
-  // Show current item
-  items[currentIdx].style.transform = `translateX(0)`;
-
-  currentIdx++;
-
-  if(currentIdx >= items.length) {
-    currentIdx = 0;
-  }
-
-  setTimeout(showNextItem, 4000);
-
+function changeGold() {
+    clicksGold += 1;
+    document.getElementById("clicksGold").innerHTML = clicksGold;
+    yaxis += 30;
+    dot.setAttribute('cy', yaxis);
 }
+const dot = document.querySelector('circle');
 
-showNextItem();
+
 
 </script>
 <!-- partial -->
