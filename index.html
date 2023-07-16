@@ -136,6 +136,29 @@ background: none;
   }
 
 
+  .white-box {
+    position: absolute;
+    top: 1150px;
+    left: 50%;
+    opacity: .9;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    background-color: #efefef;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin: auto;
+    z-index: 2;
+  }
+
+  .close-x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
 </style>
 
 
@@ -180,38 +203,38 @@ background: none;
               </h2>
               <ul class='contact-items white list-unstyled mb-5'>
                 <li class='pb-4'>
-                  <a class='text-decoration-none' href='#'>+1 913-280-2336</a>
+                  <a class='text-decoration-none' href="sms:+19132802336?body=Hello%20there" title="Text Micheal's cell phone">+1 913-280-2336</a>
                 </li>
                 <li class='pb-4'>
-                  <a class='text-decoration-none' href='#'>Micheal.mfg@gmail.com</a>
+                  <a class='text-decoration-none' href='mailto:Micheal.mfg@gmail.com'>Micheal.mfg@gmail.com</a>
                 </li>
                 <li>
-                  <a class='text-decoration-none' href='#'>Kansas City, KS 64130</a>
+                  <a class='text-decoration-none' href="https://www.google.com/maps/dir/?api=1&destination=555+Main+St,+New+York+NY&destination_place_id=ChIJRWZAST6twokRJ636lNejxng" target="_blank">Kansas City, KS 64130</a>
                 </li>
               </ul>
               <div class='social'>
-                <a class='text-decoration-none green' href='#'>linkedin</a>
+                <a class='text-decoration-none green' href='https://www.linkedin.com/in/woodandmortar'>linkedin</a>
                 <span class='mx-2 white'>
                   |
                 </span>
-                <a class='text-decoration-none green' href='#'>facebook</a>
+                <a class='text-decoration-none green' href='https://www.facebook.com/woodandmortar/'>facebook</a>
                 <span class='mx-2 white'>
                   |
                 </span>
-                <a class='text-decoration-none green' href='#'>instagram</a>
+                <a class='text-decoration-none green' href='http://Twitter.com/salmon_fund'>twitter</a>
               </div>
             </div>
           </div>
           <div class='nav-col nav-menu col-12 col-md-5 bg-green d-flex align-items-center pt-5 pb-3 pb-md-5 px-3 px-md-5 order-0 order-md-1'>
             <ul class='nav-items list-unstyled'>
               <li class='pb-3'>
-                <a class='text-decoration-none' href='#'>Heading</a>
+                <a class='text-decoration-none' href='traits.html'>Headings</a>
               </li>
               <li class='pb-3'>
                 <a class='text-decoration-none' href='#'>Issues</a>
               </li>
               <li class='pb-3'>
-                <a class='text-decoration-none' href='#'>Contact</a>
+                <a class='text-decoration-none' href='mailto:Micheal.mfg@gmail.com'>Contact</a>
               </li>
               <li>
                 <a class='text-decoration-none' href='#'>About</a>
@@ -234,12 +257,37 @@ background: none;
       <h1 class='hero-title blend'>
         #<font style="color: #D95952;">Salmon</font>Ballot
         <br>
-        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 800);"><h2>Find my heading</h2></a>
+        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 600);"><h2>Find my heading</h2></a>
       </h1>
     </div>
   </section>
 
-  <div id="compass" style="position: relative; z-index: 999;">
+
+  <div class="white-box">
+    <svg class="close-x" viewBox="0 0 20 20">
+      <path fill="currentColor" d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+    </svg>
+
+<p>
+<center><h1>What is a Heading?</h1></center><br><br>
+<h3 style="margin: 20px;">A political heading summarizes the ideological stance and key policy positions that a group of people share, as determined through political polling and analysis of voters' views on major issues.
+<br><br>
+Political headings act as broad categories that encompass the ideological leanings and policy priorities held by a significant segment of the
+population. By analyzing public opinion polls, focus groups, voting patterns, and demographic data, political strategists can identify clusters of
+voters who share compatibilities across a range of issues. Headings like "conservative," "progressive," or "libertarian" summarize the prevailing direction
+of political beliefs within these groups. The headings help simplify political dialogue by reducing complex overlapping views down to a few familiar labels.
+</h3>
+</p>
+
+  </div>
+
+
+
+
+
+
+
+  <div id="compass" style="position: relative; z-index: 1;">
     <div style="position: absolute;top: 250px;left: 50%;transform: translate(-50%, -50%);">
 
       <img src="compass.png" style=" z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -284,6 +332,23 @@ background: none;
 
 
 
+
+
+
+
+  <div id="video-overlay" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 20;">
+    <iframe id="youtubeVids" width="500" height="300" src="https://www.youtube.com/embed/YsmgPp_nlok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div style="position: absolute; top: -15px; right: -15px; width: 30px; height: 30px; border-radius: 50%; background: black; cursor: pointer;" onclick="overlay.style.display='none'">
+        <svg width="30" height="30" viewBox="0 0 20 20" fill="white">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+  </div>
+
+
+
+
+
   <section class='three'>
 
     <section id="quiz">
@@ -313,6 +378,8 @@ background: none;
     reltext[2] = "A bigger government providing more services is LEFT leaning"
 
     function getAnswer(ans, rel) {
+      document.getElementById('youtubeVids').src = "https://www.youtube.com/embed/nCedOQJ0ZEA";
+      overlay.style.display = "block";
       document.getElementById("para").innerHTML = reltext[rel];}
 
     </script>
@@ -326,8 +393,8 @@ background: none;
       <a class="btn home-btn" name = "rad1" onclick = "getAnswer1('1c', '3');changeBlack();">would require transparency and strong leadership</a>
       <br><br></div><div id = "para1"></div></form><script type = "text/javascript">
     var reltext1 = [];
-    reltext1[1] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
-    reltext1[2] = "The Left and the Right have switched positions on this issue twice over the last 200 years"
+    reltext1[1] = "The Overton window has shifted sides completly on this issue"
+    reltext1[2] = "The Overton window has shifted sides completly on this issue"
     reltext1[3] = "When the government earns their people's trust, the system stops failing"
 
     function getAnswer1(ans1, rel1) {
@@ -346,7 +413,8 @@ background: none;
       <br><br></div><div id = "para2"></div></form><script type = "text/javascript">
     var reltext2 = [];
     reltext2[1] = "Welcoming all people openly is a strong Left stance"
-    reltext2[2] = "Loyalty through nationalism is a strong Right stance"
+    reltext2[2] = "The Overton window has shifted sides completly on this issue, on April 4th 1980 Republican president George Bush answers on how Mexican immigrants
+    are welcome and should be treated like family."
     reltext2[3] = "Managing border access from a place of inclusion is a left leaning moderate stance"
 
     function getAnswer2(ans2, rel2) {
@@ -361,14 +429,12 @@ background: none;
     <form name = "myform3"><br><br><h3>In general, would you say experts who study a subject for many years are… </h3><br>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1a', '1');changeBlue();">Usually <strong>better</strong> at making policy decisions about than subject that the standard person</a>
       <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1b', '2');changeRed();">Usually <strong>worse</strong> at making policy decisions about than subject that the standard person</a>
-      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3');changeBlack();">Although usually better, an opposition is important for perspective while polling from reviewed experts</a>
-      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1d', '4');changeGold();changeGold();">Whoever has the gold makes the rules.</a>
-    </div><div id = "para3"></div></form><script type = "text/javascript">
+      <a class="btn home-btn" name = "rad3" onclick = "getAnswer3('1c', '3');changeGold();changeGold();">Whoever has the gold makes the rules.</a>
+    <br><br></div><div id = "para3"></div></form><script type = "text/javascript">
     var reltext3 = [];
     reltext3[1] = "The Left have an affinity for trusting institutionalized science."
     reltext3[2] = "The Right have faith in what their personal leaders instruct."
-    reltext3[3] = "Understanding where majority rule and intellegent guidance could coexist when technology is trusted."
-    reltext3[4] = "Big business and lobbying dictate global economy."
+    reltext3[3] = "Big business and lobbying dictate global economy."
 
     function getAnswer3(ans3, rel3) {
     document.getElementById("para3").innerHTML = reltext3[rel3];
@@ -438,9 +504,9 @@ background: none;
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform7"><br><br><h3>How much, if at all, would it bother you to regularly hear people speak a language other than English in public places in your community?</h3><br>
       <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1a', '1');changeRed();changeRed();">A Lot</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1b', '2')changeRed();">Some</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1c', '3')changeBlue();">Not Much</a>
-      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1d','4')changeBlue();changeBlack();">Not at all</a><br><br>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1b', '2');changeRed();">Some</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1c', '3');changeBlue();">Not Much</a>
+      <a class="btn home-btn" name = "rad7" onclick = "getAnswer7('1d','4');changeBlue();changeBlack();">Not at all</a><br><br>
     </div><div id = "para7"></div></form><script type = "text/javascript">
     var reltext7 = [];
     reltext7[1] = "Far Right Ideals"
@@ -458,14 +524,14 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform8"><br><br><h3>Which of the following statements come closest to your view?</h3><br>
-              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1a', '1');changeRed();">America's openness to people from all over the world is essential to who we are as a nation.</a>
-              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1b', '2');changeBlue();">If America is too open to people from all over the world, we risk losing our identity as a nation.</a>
+              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1a', '1');changeBlue();changeBlack();">America needs to adjust the tax brackets to capture <strong>more</strong> from the wealthy and <strong>less</strong> from the middle class and poor.</a>
+              <a class="btn home-btn" name = "rad8" onclick = "getAnswer8('1b', '2');changeRed();changeGold();changeGold();">America needs to adjust the tax brackets to capture <strong>less</strong> from the wealthy and <strong>more</strong> from the middle class and poor.</a><br><br>
             </div><div id = "para8"></div></form>
               <script type = "text/javascript">
 
     var reltext8 = [];
-    reltext8[1] = "Closed trade borders is RIGHT leaning"
-    reltext8[2] = "Open trade borders is LEFT leaning"
+    reltext8[1] = "By capturing money from wealthy, they retaliate by inflating and outsourcing work"
+    reltext8[2] = "By capturing money from the middle class and poor, you create a low economic state where buying slows and business suffer"
 
     function getAnswer8(ans8, rel8) {
       document.getElementById("para8").innerHTML = reltext8[rel8];}
@@ -479,15 +545,15 @@ background: none;
               <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1a', '1');changeRed();">America stands above all other countries in the world</a>
               <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1b', '2');changeBlue();">America is one of the greatest countries in the world, along with some others.</a>
               <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1c', '3');changeBlack();">There are other countires that are better than America</a>
-              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1d', '4);changeBlack();">America is by far the worst country.</a><br><br>
+              <a class="btn home-btn" name = "rad9" onclick = "getAnswer9('1d', '4');changeGold();">America is by far the worst country.</a><br><br>
             </div><div id = "para9"></div></form>
               <script type = "text/javascript">
 
     var reltext9 = [];
-    reltext9[1] = "Closed trade borders is RIGHT leaning"
-    reltext9[2] = "Open trade borders is LEFT leaning"
-    reltext9[3] = "Closed trade borders is RIGHT leaning"
-    reltext9[4] = "Open trade borders is LEFT leaning"
+    reltext9[1] = "Conservatives are nationalist"
+    reltext9[2] = "Being proud to be a superpower is Liberal"
+    reltext9[3] = "Recognizing your countries weakness is Socialist"
+    reltext9[4] = "Hating America because it's losing is dominance is an economist perspective"
 
     function getAnswer9(ans9, rel9) {
       document.getElementById("para9").innerHTML = reltext9[rel9];}
@@ -501,16 +567,16 @@ background: none;
     <form name = "myform10"><br><br><h3>How much of a problem, if any, would you say each of the following are in the country today?</h3><br>
               <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1a', '1');changeRed();changeRed();">People being too easily offended by things others say are a <strong>major</strong> problem</a>
               <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1b', '2');changeRed();">People being too easily offended by things others say are a <strong>minor</strong> problem</a>
-              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1c', '3');changeBlue();changeBlue();">People saying things that are offensive to others are a <strong>major </strong>problem</a>
-              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1d', '4);changeBlack();">People saying things that are offensive to others are a <strong>minor </strong>problem</a><br><br>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1c', '3');changeBlue();changeBlack();">People saying things that are offensive to others are a <strong>major </strong>problem</a>
+              <a class="btn home-btn" name = "rad10" onclick = "getAnswer10('1d', '4');changeBlue();changeBlack();changeBlack();">People saying things that are offensive to others are a <strong>minor </strong>problem</a><br><br>
             </div><div id = "para10"></div></form>
               <script type = "text/javascript">
 
     var reltext10 = [];
-    reltext10[1] = "People being too easily offended by things others say are a <strong>major</strong> problem is Double Right leaning"
-    reltext10[2] = "People being too easily offended by things others say are a <strong>minor</strong> problem is right leaning"
-    reltext10[3] = "People saying things that are offensive to others are a <strong>major </strong>problem is Double Left leaning"
-    reltext10[4] = "People saying things that are offensive to others are a <strong>minor </strong>problem is left leaning"
+    reltext10[1] = "People being too easily offended by things others say are a <strong>major</strong> problem has strong Right leaning sentiment"
+    reltext10[2] = "People being too easily offended by things others say are a <strong>minor</strong> problem has a right leaning perspective"
+    reltext10[3] = "People saying things that are offensive to others are a <strong>major </strong>problem is a Socialist perspective that leans Left"
+    reltext10[4] = "People saying things that are offensive to others are a <strong>minor </strong>problem is has strong left leaning socialist sentiment"
 
     function getAnswer10(ans10, rel10) {
       document.getElementById("para10").innerHTML = reltext10[rel10];}
@@ -520,14 +586,14 @@ background: none;
 
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
-    <form name = "myform11"><br><br><h3>Which comes closer to your view of candidtaes for political office, even if neither is exactly right? I usually feel like...</h3><br>
+    <form name = "myform11"><br><br><h3>Which comes closer to your view of candidates for political office, even if neither is exactly right? I usually feel like...</h3><br>
               <a class="btn home-btn" name = "rad11" onclick = "getAnswer11('1a', '1');changeRed();">There is at least one candidate who shares most my views</a>
-              <a class="btn home-btn" name = "rad11" onclick = "getAnswer11('1b', '2');changeBlack();changeBlack();">None of the candidates represent my views well</a><br><br>
+              <a class="btn home-btn" name = "rad11" onclick = "getAnswer11('1b', '2');changeBlack();">None of the candidates represent my views well</a><br><br>
             </div><div id = "para11"></div></form>
               <script type = "text/javascript">
 
     var reltext11 = [];
-    reltext11[1] = "If you resonate with any politician, you understand the need for conservation"
+    reltext11[1] = "When you resonate with politicians you understand the need for conservation"
     reltext11[2] = "The two party system can be distinguished by 9 subcatagories. <a href='https://www.pewresearch.org/politics/2021/11/09/beyond-red-vs-blue-the-political-typology-2/'>Learn more</a> "
 
     function getAnswer11(ans11, rel11) {
@@ -540,20 +606,22 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform12"><br><br><h3>In general, how much do White people benefit from advantages in society that Black people do not have?</h3><br>
-              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1a', '1');changeBlue();changeBlue();">A great deal</a>
-              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1b', '2');changeBlue();">A fair amount</a>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1a', '1');changeBlue();changeBlue();changeBlack();changeBlack();">A great deal</a>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1b', '2');changeBlue();changeBlack();">A fair amount</a>
               <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1c', '3');changeRed();">Not too much</a>
-              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1d', '4);changeRed();changeRed();">Not at all</a><br><br>
+              <a class="btn home-btn" name = "rad12" onclick = "getAnswer12('1d', '4');changeRed();changeRed();">Not at all</a><br><br>
             </div><div id = "para12"></div></form>
               <script type = "text/javascript">
 
     var reltext12 = [];
-    reltext12[1] = "Strong Left leaning sentiment"
+    reltext12[1] = "Socialist Left leaning sentiment"
     reltext12[2] = "Weak Left leaning sentiment"
     reltext12[3] = "Weak Right leaning sentiment"
     reltext12[4] = "Strong Right leaning sentiment"
 
     function getAnswer12(ans12, rel12) {
+      document.getElementById('youtubeVids').src = "https://www.youtube.com/embed/miVlHcdjaWM";
+      overlay.style.display = "block";
       document.getElementById("para12").innerHTML = reltext12[rel12];}
 
     </script>
@@ -567,18 +635,20 @@ background: none;
               <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1b', '2');changeBlue();">Somewhat good for society</a>
               <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1c', '3');changeBlack();">Neither good nor bad for society</a>
               <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1d', '4');changeRed();">Somewhat bad for society</a>
-              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1e', '5);changeRed();changeRed();">Very Bad for society</a><br><br>
+              <a class="btn home-btn" name = "rad13" onclick = "getAnswer13('1e', '5');changeRed();changeRed();">Very Bad for society</a><br><br>
             </div><div id = "para13"></div></form>
               <script type = "text/javascript">
 
     var reltext13 = [];
     reltext13[1] = "Strong Left leaning sentiment"
     reltext13[2] = "Weak Left leaning sentiment"
-    reltext13[3] = "Partial"
+    reltext13[3] = "A true socialist perspective, what people do is thier choice"
     reltext13[4] = "Weak Right leaning sentiment"
     reltext13[5] = "Strong Right leaning sentiment"
 
     function getAnswer13(ans13, rel13) {
+      document.getElementById('youtubeVids').src = "https://www.youtube.com/embed/UE0L92lZM58";
+      overlay.style.display = "block";
       document.getElementById("para13").innerHTML = reltext13[rel13];}
 
     </script>
@@ -609,7 +679,8 @@ background: none;
     <form name = "myform15"><br><br><h3>In the future, do you think...</h3><br>
               <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();window.scroll(0, 800);">American policies should try to keep it so we're the only military super power.</a>
               <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();window.scroll(0, 800);">It would be acceptable if another country became as militarily powerful as America.</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);">The world initiative should aim towards dismantling all weapons</a><br><br>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);">The world initiative should aim towards dismantling all weapons</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1d', '4');changeGold();changeGold();changeGold();window.scroll(0, 800);">Military policies and warfare are crucial towards maintaining trade superiority</a><br><br>
             </div><div id = "para15"></div></form>
               <script type = "text/javascript">
 
@@ -617,6 +688,7 @@ background: none;
     reltext15[1] = "Monopolizing weapons is RIGHT leaning"
     reltext15[2] = "Free Open warfare is is LEFT leaning"
     reltext15[3] = "Closed warfare isn't currently on the table"
+    reltext15[4] = "This is the main agenda for Economists"
 
     function getAnswer15(ans15, rel15) {
       document.getElementById("para15").innerHTML = reltext15[rel15];}
@@ -665,29 +737,55 @@ var clicksGold = 0;
 function changeRed() {
     clicksRed += 1;
     document.getElementById("clicksRed").innerHTML = clicksRed;
-    xaxis += 30;
+    xaxis += 7;
     dot.setAttribute('cx', xaxis);
 }
 function changeBlue() {
     clicksBlue += 1;
     document.getElementById("clicksBlue").innerHTML = clicksBlue;
-    xaxis -= 30;
+    xaxis -= 7;
     dot.setAttribute('cx', xaxis);
 }
 function changeBlack() {
     clicksBlack += 1;
     document.getElementById("clicksBlack").innerHTML = clicksBlack;
-    yaxis -= 30;
+    yaxis -= 7;
     dot.setAttribute('cy', yaxis);
 }
 function changeGold() {
     clicksGold += 1;
     document.getElementById("clicksGold").innerHTML = clicksGold;
-    yaxis += 30;
+    yaxis += 7;
     dot.setAttribute('cy', yaxis);
 }
 const dot = document.querySelector('circle');
 
+// Get reference to box and close button
+const box = document.querySelector('.white-box');
+const closeBtn = document.querySelector('.close-x');
+
+// Add click event listener to close button
+closeBtn.addEventListener('click', () => {
+  box.style.display = 'none';
+});
+
+const btn2 = document.getElementById("show-video");
+const overlay = document.getElementById("video-overlay");
+
+btn2.addEventListener("click", function(e) {
+
+  // Get mouse x,y on click
+  const x = e.clientX;
+  const y = e.clientY;
+
+  // Set overlay top/left based on mouse position
+  overlay.style.left = `${x}px`;
+  overlay.style.top = `${y}px`;
+
+  // Show overlay
+  overlay.style.display = "block";
+
+});
 
 
 </script>

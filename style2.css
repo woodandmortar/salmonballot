@@ -1,0 +1,52 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+@import "https://unpkg.com/open-props/buttons.min.css" layer(demo.support);
+
+@layer demo {
+  .card {
+    /* nested media query */
+    @media (prefers-reduced-motion: no-preference) {
+      /* nested styles are given to context .card */
+      transition: transform .5s var(--ease-squish-3);
+      
+      /* & = .card */
+      &:is(:hover, :focus-within) {
+        transform: translateY(-10px);
+      }
+    }
+  }
+}
+
+@layer demo.support {
+  body {
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+  } 
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, fit-content(var(--size-content-1)));
+    gap: var(--size-5);
+    padding: var(--size-5);
+  }
+  
+  .card {
+    display: grid;
+    grid-row: span 4; 
+    grid-template-rows: subgrid; 
+    gap: var(--size-2);
+    
+    background: var(--surface-2);
+    border: 1px solid transparent;
+    padding-block: var(--size-3);
+    padding-inline: var(--size-5);
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-2);
+    
+    & > a {
+      white-space: nowrap;
+    }
+  }
+}
