@@ -312,7 +312,8 @@ background: none;
     <div class='position-absolute w-100 gradient-overlay'></div>
     <div class='content position-relative text-center mb-5'>
       <h1 class='hero-title blend'>
-        <font style="color: #D95952;">Political</font>Heading</h1>
+        <font style="color: #D95952;">Political</font>Heading</h1><br>
+        <h2><font style="color: #D95952;"><p style="z-index: 100;" id="titleChange">Find your heading</p></font></h2>
     </div>
 
   </section>
@@ -344,8 +345,12 @@ background: none;
     <div class="white-box2">
 
       <div class="grid-container">
-        <div class="grid-item"><a  style="color: white; background-color: #D95952;" onclick = "changeRed();"><h2>nw</h2></a></div>
-        <div class="grid-item"><a  style="color: white; background-color: #D95952;" onclick = "resetCompass();"><h2>Reset</h2></a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();"><h2>Test Red</h2></a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();"><h2>Test Blue</h2></a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlack();"><h2>Test Black</h2></a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();"><h2>Test Gold</h2></a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "resetCompass();"><h2>Reset</h2></a>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "scoreTime();"><h2>Score</h2></a></div></div>
       </div>
 
 
@@ -719,10 +724,10 @@ background: none;
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform15"><br><br><h3>In the future, do you think...</h3><br>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();window.scroll(0, 800);">American policies should try to keep it so we're the only military super power.</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();window.scroll(0, 800);">It would be acceptable if another country became as militarily powerful as America.</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);">The world initiative should aim towards dismantling all weapons</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1d', '4');changeGold();window.scroll(0, 800);">Military policies and warfare are crucial towards maintaining trade superiority</a><br><br>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();window.scroll(0, 800);scoreTime();">American policies should try to keep it so we're the only military super power.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();window.scroll(0, 800);scoreTime();">It would be acceptable if another country became as militarily powerful as America.</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);scoreTime();">The world initiative should aim towards dismantling all weapons</a>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1d', '4');changeGold();window.scroll(0, 800);scoreTime();">Military policies and warfare are crucial towards maintaining trade superiority</a><br><br>
             </div><div id = "para15"></div></form>
               <script type = "text/javascript">
 
@@ -753,6 +758,17 @@ background: none;
 
 <script>
 
+const subcategories = {
+  "progressiveEconomist": ["Explorers"],
+  "moderateEconomist": ["Voyagers"],
+  "conservativeEconomist": ["Navigators"],
+  "progressiveSocialist": ["Captains"],
+  "conservativeSocialist": ["Deckhands"],
+  "moderateSocialist": ["First Mates"],
+  "progressiveModerate": ["Sailors"],
+  "moderateModerate": ["Rowers"],
+  "conservativeModerate": ["Drifters"],
+};
 
     // Get buttons
     const buttons = document.querySelectorAll(".btn");
@@ -770,7 +786,6 @@ background: none;
       });
 
     });
-
 var xaxis = 50;
 var yaxis = 50;
 var x1axis = 50;
@@ -780,6 +795,14 @@ var clicksRed = 0;
 var clicksBlack = 0;
 var clicksBlue = 0;
 var clicksGold = 0;
+clicksBlue += 1;
+clicksRed += 1;
+clicksBlack += 1;
+clicksGold += 1;
+document.getElementById("clicksRed").innerHTML = clicksRed;
+document.getElementById("clicksBlue").innerHTML = clicksBlue;
+document.getElementById("clicksBlack").innerHTML = clicksBlack;
+document.getElementById("clicksGold").innerHTML = clicksGold;
 function changeRed() {
     clicksRed += 1;
     document.getElementById("clicksRed").innerHTML = clicksRed;
@@ -838,6 +861,45 @@ function resetCompass() {
   yaxis = 50;
   dot.setAttribute('cy', yaxis);
   dot.setAttribute('cx', xaxis);
+}
+
+function scoreTime(){
+
+  // Sort counts descending
+  let countsSorted = [clicksRed, clicksBlue, clicksGold, clicksBlack].sort((a,b) => b-a);
+
+  // First two elements are highest
+  let [highest, secondHighest] = countsSorted;
+
+  if (highest == clicksRed && secondHighest == clicksBlue) {
+    subcat = subcategories.conservativeProgressive;
+  } else if (highest == clicksRed && secondHighest == clicksGold) {
+    subcat = subcategories.conservativeSocialist;
+  } else if (highest == clicksRed && secondHighest == clicksBlack) {
+    subcat = subcategories.conservativeEconomist;
+  } else if (highest == clicksBlue && secondHighest == clicksRed) {
+    subcat = subcategories.progressiveConservative;
+  } else if (highest == clicksBlue && secondHighest == clicksGold) {
+    subcat = subcategories.progressiveSocialist;
+  } else if (highest == clicksBlue && secondHighest == clicksBlack) {
+    subcat = subcategories.progressiveEconomist;
+  } else if (highest == clicksGold && secondHighest == clicksRed) {
+    subcat = subcategories.socialistConservative;
+  } else if (highest == clicksGold && secondHighest == clicksBlue) {
+    subcat = subcategories.socialistProgressive;
+  } else if (highest == clicksGold && secondHighest == clicksBlack) {
+    subcat = subcategories.socialistEconomist;
+  } else if (highest == clicksBlack && secondHighest == clicksRed) {
+    subcat = subcategories.economistConservative;
+  } else if (highest == clicksBlack && secondHighest == clicksBlue) {
+    subcat = subcategories.economistProgressive;
+  } else if (highest == clicksBlack && secondHighest == clicksGold) {
+    subcat = subcategories.economistSocialist;
+  }
+
+alert(subcat);
+document.getElementById("titleChange").innerHTML = subcat;
+
 }
 </script>
 <!-- partial -->
