@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>#SalmonBallot</title>
+  <title>PoliticalHeading</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,6 +48,7 @@ animation: swim 2.4s ease alternate infinite;
     background: transparent;
     border-color: black;
     color: black;
+    margin: 4px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 30px;
@@ -112,6 +113,7 @@ background: none;
   }
 }
 
+
 #water3 #waveShape3 {
   animation-name: waveAction03;
   animation-iteration-count: infinite;
@@ -138,33 +140,83 @@ background: none;
 
   .white-box {
     position: absolute;
-    top: 1150px;
+    top: 400px;
     left: 50%;
-    opacity: .9;
     transform: translate(-50%, -50%);
-    width: 90%;
-    background-color: #efefef;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    width: 100%;
+    height: 500px;
+    background-color: none;
+    z-index: 2;
+  }
+  .white-box2 {
+    position: absolute;
+    top: 800px;
+    width: 100%;
+    background-color: none;
     margin: auto;
     z-index: 2;
   }
 
-  .close-x {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+
+  #icon-compass {
+  .needle {
+      transform-origin: center;
+    }
+
+  .needleOut {
+    transform-origin: center;
+    animation: spin 3.5 1;
+    -webkit-animation: spin 258.5s 1;
+    animation-iteration-count:infinite;
+    animation-timing-function: cubic-bezier(.5,-0.5,.5,1.5);
+  }
+}
+
+  @keyframes spin {
+    100% {
+  		-webkit-transform: rotate(360deg);
+  		transform:rotate(360deg); }
   }
 
+
+  .grid-container {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    opacity: .9;
+  }
+
+  .grid-container > div {
+    text-align: center;
+    height: 200px;
+    font-size: 30px;
+    word-wrap: break-word;
+  overflow-wrap: break-word;
+  }
 </style>
 
 
 
 </head>
 <body>
+  <div class="white-box">
+
+        <svg id="icon-compass" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" >
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="50%" stop-color="#efefef" />
+      <stop offset="100%" stop-color="#D95952" />
+    </linearGradient>
+          </defs>
+    <g>
+      <path fill="#efefef" class="needleOut" fill-rule="evenodd" clip-rule="evenodd" d="M50,0C22.386,0,0,22.385,0,50c0,27.613,22.386,50,50,50s50-22.387,50-50   C100,22.385,77.614,0,50,0z M83.375,82.065l-1.948-1.947l-1.309,1.309l1.947,1.948c-2.463,2.367-5.179,4.473-8.118,6.253   l-1.387-2.402l-1.604,0.926l1.385,2.399c-2.971,1.641-6.144,2.957-9.467,3.917l-0.717-2.673l-1.789,0.479l0.718,2.677   c-2.56,0.628-5.201,1.04-7.907,1.224L50,89.814l-3.18,6.36c-2.706-0.184-5.348-0.596-7.907-1.224l0.717-2.677l-1.789-0.479   l-0.716,2.673c-3.324-0.96-6.497-2.276-9.468-3.917l1.385-2.399l-1.604-0.926l-1.386,2.402c-2.938-1.78-5.655-3.886-8.118-6.253   l1.948-1.948l-1.31-1.309l-1.948,1.947c-2.367-2.463-4.473-5.18-6.252-8.118l2.402-1.387l-0.926-1.604l-2.4,1.386   c-1.64-2.972-2.957-6.144-3.917-9.469l2.672-0.716l-0.479-1.789l-2.675,0.717c-0.628-2.559-1.041-5.199-1.225-7.905l6.36-3.18   l-6.361-3.18c0.184-2.706,0.597-5.348,1.226-7.907l2.675,0.717l0.479-1.789l-2.672-0.716c0.96-3.325,2.277-6.498,3.918-9.469   l2.399,1.385l0.926-1.604l-2.402-1.387c1.779-2.938,3.884-5.654,6.251-8.117l1.949,1.949l1.31-1.31l-1.949-1.949   c2.463-2.367,5.18-4.472,8.119-6.251l1.386,2.402l1.604-0.926l-1.385-2.4c2.971-1.64,6.144-2.957,9.468-3.918l0.716,2.672   l1.789-0.479l-0.716-2.675c2.558-0.628,5.2-1.041,7.906-1.225l3.18,6.36l3.18-6.36c2.706,0.184,5.348,0.596,7.906,1.225   l-0.717,2.675l1.789,0.479l0.717-2.672c3.323,0.961,6.496,2.278,9.467,3.918l-1.385,2.4l1.604,0.926l1.387-2.402   c2.939,1.779,5.656,3.884,8.119,6.251l-1.948,1.949l1.309,1.31l1.949-1.949c2.366,2.463,4.472,5.179,6.251,8.118l-2.401,1.386   l0.926,1.604l2.398-1.385c1.642,2.971,2.958,6.144,3.919,9.469l-2.673,0.716l0.479,1.789l2.676-0.717   c0.628,2.559,1.04,5.201,1.224,7.907L89.814,50l6.36,3.18c-0.184,2.706-0.596,5.347-1.224,7.905l-2.676-0.717l-0.479,1.789   l2.673,0.716c-0.961,3.325-2.277,6.497-3.918,9.469l-2.399-1.386l-0.926,1.604l2.402,1.387   C87.848,76.886,85.743,79.603,83.375,82.065z"/>
+      <path id="needleMove" fill="#efefef" class="needle" fill-rule="evenodd" clip-rule="evenodd" d="M57.092,38.082c-1.154-0.688-2.412-1.218-3.752-1.549L50,22.222l-3.339,14.311   c-2.102,0.52-4.019,1.508-5.622,2.864l-4.928-3.286l3.286,4.928c-1.356,1.603-2.345,3.519-2.865,5.622L22.222,50l14.31,3.339   c0.331,1.34,0.862,2.599,1.55,3.752l-15.86,20.687l20.687-15.859c1.154,0.688,2.412,1.219,3.751,1.55L50,77.777l3.34-14.31   c2.102-0.521,4.018-1.509,5.62-2.865l4.929,3.286l-3.285-4.929c1.355-1.603,2.344-3.519,2.863-5.621L77.777,50l-14.311-3.339   c-0.33-1.34-0.861-2.599-1.549-3.752l15.859-20.686L57.092,38.082z M39.301,55.5c-0.85-1.649-1.338-3.516-1.338-5.5   c0-6.648,5.389-12.037,12.037-12.037c1.984,0,3.85,0.488,5.5,1.338L50,43.519c-3.58,0-6.481,2.901-6.481,6.481L39.301,55.5z    M54.629,50c0,2.557-2.072,4.63-4.629,4.63c-2.557,0-4.629-2.073-4.629-4.63c0-2.557,2.072-4.629,4.629-4.629   C52.557,45.371,54.629,47.443,54.629,50z M62.037,50c0,6.647-5.389,12.037-12.037,12.037c-1.984,0-3.85-0.488-5.5-1.338l5.5-4.218   c3.579,0,6.481-2.902,6.481-6.481l4.218-5.5C61.549,46.15,62.037,48.016,62.037,50z"/>
+      <circle fill="#D95952" fill-rule="evenodd" clip-rule="evenodd" cx="50" cy="50" r="10"><animate attributeName="r" values="3;2.5;3" dur=".41s" repeatCount="indefinite"/></circle>
+</g>
+  </svg>
+    </div>
 <!-- partial:index.partial.html -->
 <div class='page'>
   <header>
@@ -213,7 +265,7 @@ background: none;
                 </li>
               </ul>
               <div class='social'>
-                <a class='text-decoration-none green' href='https://www.linkedin.com/in/woodandmortar'>linkedin</a>
+                <a class='text-decoration-none green' href='https://www.linkedin.com/pulse/ai-prompt-political-website-creation-micheal-salmon'>linkedin</a>
                 <span class='mx-2 white'>
                   |
                 </span>
@@ -228,16 +280,16 @@ background: none;
           <div class='nav-col nav-menu col-12 col-md-5 bg-green d-flex align-items-center pt-5 pb-3 pb-md-5 px-3 px-md-5 order-0 order-md-1'>
             <ul class='nav-items list-unstyled'>
               <li class='pb-3'>
-                <a class='text-decoration-none' href='traits.html'>Headings</a>
+                <a class='text-decoration-none' href='https://www.linkedin.com/pulse/ai-prompt-political-website-creation-micheal-salmon'>Headings</a>
               </li>
               <li class='pb-3'>
-                <a class='text-decoration-none' href='#'>Issues</a>
+                <a class='text-decoration-none' href='https://www.linkedin.com/pulse/ai-prompt-political-website-creation-micheal-salmon'>Issues</a>
               </li>
               <li class='pb-3'>
                 <a class='text-decoration-none' href='mailto:Micheal.mfg@gmail.com'>Contact</a>
               </li>
               <li>
-                <a class='text-decoration-none' href='#'>About</a>
+                <a class='text-decoration-none' href='https://www.linkedin.com/pulse/ai-prompt-political-website-creation-micheal-salmon'>About</a>
               </li>
             </ul>
           </div>
@@ -245,6 +297,7 @@ background: none;
       </div>
     </div>
   </header>
+
   <section class='hero d-flex align-items-center justify-content-center'>
     <div class='video-wrap'>
       <video autoplay="" playsinline="" loop="" muted="" id="video-bg">
@@ -255,78 +308,49 @@ background: none;
     <div class='position-absolute w-100 gradient-overlay'></div>
     <div class='content position-relative text-center mb-5'>
       <h1 class='hero-title blend'>
-        #<font style="color: #D95952;">Salmon</font>Ballot
-        <br>
-        <a class="btn home-btn" style="color: white; background-color: #D95952;" onclick = "window.scroll(0, 600);"><h2>Find my heading</h2></a>
-      </h1>
+        <font style="color: #D95952;">Political</font>Heading</h1>
     </div>
+
   </section>
 
 
-  <div class="white-box">
-    <svg class="close-x" viewBox="0 0 20 20">
-      <path fill="currentColor" d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
-    </svg>
-
-<p>
-<center><h1>What is a Heading?</h1></center><br><br>
-<h3 style="margin: 20px;">A political heading summarizes the ideological stance and key policy positions that a group of people share, as determined through political polling and analysis of voters' views on major issues.
-<br><br>
-Political headings act as broad categories that encompass the ideological leanings and policy priorities held by a significant segment of the
-population. By analyzing public opinion polls, focus groups, voting patterns, and demographic data, political strategists can identify clusters of
-voters who share compatibilities across a range of issues. Headings like "conservative," "progressive," or "libertarian" summarize the prevailing direction
-of political beliefs within these groups. The headings help simplify political dialogue by reducing complex overlapping views down to a few familiar labels.
-</h3>
-</p>
-
-  </div>
 
 
 
 
-
-
-
-  <div id="compass" style="position: relative; z-index: 1;">
-    <div style="position: absolute;top: 250px;left: 50%;transform: translate(-50%, -50%);">
-
-      <img src="compass.png" style=" z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-
-      <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-
-      <polygon points="200,0 400,200 200,400 0,200" fill="transparent"/>
-
-      <circle cx="200" cy="200" r="35" opacity=".8" fill="#212121"/>
-
-
-    </svg>
-
-    </div>
-
-  </div>
 
   <section class='two'>
 
+    <svg id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" class="double-width" viewBox="0 0 211 211">
+
+    <g id="circle" transform="translate(-362 1822)">
 
 
-
-
-      <svg id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" class="double-width" viewBox="0 0 211 211">
-
-      <g id="circle" transform="translate(-362 1822)">
-
-
-        <g id="water2">
-          <path id="waveShape2" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
-        </g>
-        <g id="water">
-          <path id="waveShape" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#212121"/>
-        </g>
-        <g id="water3">
-          <path id="waveShape3" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#D95952"/>
-        </g>
+      <g id="water2">
+        <path id="waveShape2" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
       </g>
-    </svg>
+      <g id="water">
+        <path id="waveShape" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#212121"/>
+      </g>
+      <g id="water3">
+        <path id="waveShape3" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
+      </g>
+    </g>
+  </svg>
+    <div class="white-box2">
+
+      <div class="grid-container">
+        <div class="grid-item"><a  style="color: white; background-color: #D95952;" onclick = "changeRed();"><h2>nw</h2></a></div>
+        <div class="grid-item"><a  style="color: white; background-color: #D95952;" onclick = "resetCompass();"><h2>Reset</h2></a></div>
+      </div>
+
+
+
+
+      </div>
+
+
+
 
   </section>
 
@@ -352,19 +376,34 @@ of political beliefs within these groups. The headings help simplify political d
   <section class='three'>
 
     <section id="quiz">
-            <div class="container"><div class="section_title"><br><br>
+            <div class="container"><div class="section_title"><br><hr>
 <center>
-              <p><h1>Political Heading <br><h1>
-                <h2>Progressive (<font id="clicksBlue"></font>)  Economist (<font id="clicksBlack"></font>)
-                   Conservative (<font id="clicksRed"></font>)  Socialist (<font id="clicksGold"></font>)</h2></p>
+              <p><h1>Finding your bearings<br></h1>
+                </p>
 
-<br><hr><br><br>
 
-<p>Each question will move your heading based on research from the PEW Research Center in Washington D.C. political topology. <strong>#<font style="color: #D95952;">Salmon</font>Ballot</strong> offers a comprehensive political perspective navigating through
-  social content. Keeping a fresh source of politcal thought exercises to demonstrate in real time that the <strong> Normie </strong> doesnt exist.</b></p><br>
+<hr><br><br><br><br>
+
+<p>Heading is the direction your nose is pointing. Not necessarily the direction you are travelling in. Bearing is the direction to some target outside of your vehicle, say a destination or a port of origin.
+  The bearing might be absolute (according to a compass) or relative (according to your heading).<br><br>
+
+  Political headings act as broad categories that encompass the ideological leanings and policy priorities held by a significant segment of the
+  population. By analyzing public opinion polls, focus groups, voting patterns, and demographic data, political strategists can identify clusters of
+  voters who share compatibilities across a range of issues. Headings like "conservative," "progressive," or "libertarian" summarize the prevailing direction
+  of political beliefs within these groups. The headings help simplify political dialogue by reducing complex overlapping views down to a few familiar labels.
+<br><br>
+
+  Each question will move your heading based on research from the PEW Research Center in Washington D.C. political topology. <strong>#<font style="color: #D95952;">Salmon</font>Ballot</strong> offers a comprehensive political perspective navigating through
+  social content. Keeping a fresh source of politcal thought exercises to demonstrate in real time that the <strong> Normie </strong> doesnt exist.</b><br><br>
+
+  Conservative votes: <strong id="clicksRed"></strong>
+  Progressive votes: <strong id="clicksBlue"></strong>
+  Economist votes: <strong id="clicksBlack"></strong>
+  Socialist votes: <strong id="clicksGold"></strong>
+</p><br>
 
                </div><div class="container">
-
+<center>
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform"><br><br><h3>If you had to choose, would you rather have…</h3><br>
@@ -407,14 +446,13 @@ of political beliefs within these groups. The headings help simplify political d
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform2"><br><br><h3>Which of the following statements come closest to your view?</h3><br>
-      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1a', '1');changeBlue();changeBlue();">America’s openness to people from all over the world is essential to who we are as a nation</a>
-      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1b', '2');changeRed();changeRed();">If America is too open to people from all over the world, we risk losing our identity as a nation </a>
-      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3');changeBlack();changeBlue();">America needs to keep innovating new ways to help capture its culture through border management</a>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1a', '1');changeBlue();">America’s openness to people from all over the world is essential to who we are as a nation</a>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1b', '2');changeRed();">If America is too open to people from all over the world, we risk losing our identity as a nation </a>
+      <a class="btn home-btn" name = "rad2" onclick = "getAnswer2('1c', '3');changeBlack();">America needs to keep innovating new ways to help capture its culture through border management</a>
       <br><br></div><div id = "para2"></div></form><script type = "text/javascript">
     var reltext2 = [];
     reltext2[1] = "Welcoming all people openly is a strong Left stance"
-    reltext2[2] = "The Overton window has shifted sides completly on this issue, on April 4th 1980 Republican president George Bush answers on how Mexican immigrants
-    are welcome and should be treated like family."
+    reltext2[2] = "The Overton window has shifted sides completly on this issue, on April 4th 1980 Republican president George Bush answers on how Mexican immigrants are welcome and should be treated like family."
     reltext2[3] = "Managing border access from a place of inclusion is a left leaning moderate stance"
 
     function getAnswer2(ans2, rel2) {
@@ -658,8 +696,8 @@ of political beliefs within these groups. The headings help simplify political d
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
     <form name = "myform14"><br><br><h3>Which of the following come closest to your view?</h3><br>
-              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1a', '1');changeBlue();changeBlack();">Religion should be kept separate from government policies</a>
-              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1b', '2');changeRed();changeRed();">Government policies should support religious values and beliefs</a><br><br>
+              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1a', '1');changeBlack();">Religion should be kept separate from government policies</a>
+              <a class="btn home-btn" name = "rad14" onclick = "getAnswer14('1b', '2');changeRed();">Government policies should support religious values and beliefs</a><br><br>
             </div><div id = "para14"></div></form>
               <script type = "text/javascript">
 
@@ -680,7 +718,7 @@ of political beliefs within these groups. The headings help simplify political d
               <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1a', '1');changeRed();window.scroll(0, 800);">American policies should try to keep it so we're the only military super power.</a>
               <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1b', '2');changeBlue();window.scroll(0, 800);">It would be acceptable if another country became as militarily powerful as America.</a>
               <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1c', '3');changeBlack();window.scroll(0, 800);">The world initiative should aim towards dismantling all weapons</a>
-              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1d', '4');changeGold();changeGold();changeGold();window.scroll(0, 800);">Military policies and warfare are crucial towards maintaining trade superiority</a><br><br>
+              <a class="btn home-btn" name = "rad15" onclick = "getAnswer15('1d', '4');changeGold();window.scroll(0, 800);">Military policies and warfare are crucial towards maintaining trade superiority</a><br><br>
             </div><div id = "para15"></div></form>
               <script type = "text/javascript">
 
@@ -702,7 +740,7 @@ of political beliefs within these groups. The headings help simplify political d
 
 
 
-  <section class='four'>  </section>
+  <section class='four'></section>
   <section class='five'></section>
 
 
@@ -710,6 +748,7 @@ of political beliefs within these groups. The headings help simplify political d
 <div class='custom-cursor'></div>
 
 <script>
+
 
     // Get buttons
     const buttons = document.querySelectorAll(".btn");
@@ -728,8 +767,9 @@ of political beliefs within these groups. The headings help simplify political d
 
     });
 
-var xaxis = 200;
-var yaxis = 200;
+var xaxis = 50;
+var yaxis = 50;
+var newRotation = 0;
 var clicksRed = 0;
 var clicksBlack = 0;
 var clicksBlue = 0;
@@ -737,37 +777,37 @@ var clicksGold = 0;
 function changeRed() {
     clicksRed += 1;
     document.getElementById("clicksRed").innerHTML = clicksRed;
-    xaxis += 7;
+    xaxis += 8;
     dot.setAttribute('cx', xaxis);
+     newRotation += 10;
+     needleMove.setAttribute('transform', `rotate(${newRotation})`);
 }
 function changeBlue() {
     clicksBlue += 1;
     document.getElementById("clicksBlue").innerHTML = clicksBlue;
-    xaxis -= 7;
+    xaxis -= 8;
     dot.setAttribute('cx', xaxis);
+    newRotation -= 10;
+    needleMove.setAttribute('transform', `rotate(${newRotation})`);
 }
 function changeBlack() {
     clicksBlack += 1;
     document.getElementById("clicksBlack").innerHTML = clicksBlack;
-    yaxis -= 7;
+    yaxis -= 8;
     dot.setAttribute('cy', yaxis);
+    newRotation += 10;
+    needleMove.setAttribute('transform', `rotate(${newRotation})`);
 }
 function changeGold() {
     clicksGold += 1;
     document.getElementById("clicksGold").innerHTML = clicksGold;
-    yaxis += 7;
+    yaxis += 8;
     dot.setAttribute('cy', yaxis);
+    newRotation -= 10;
+    needleMove.setAttribute('transform', `rotate(${newRotation})`);
 }
 const dot = document.querySelector('circle');
 
-// Get reference to box and close button
-const box = document.querySelector('.white-box');
-const closeBtn = document.querySelector('.close-x');
-
-// Add click event listener to close button
-closeBtn.addEventListener('click', () => {
-  box.style.display = 'none';
-});
 
 const btn2 = document.getElementById("show-video");
 const overlay = document.getElementById("video-overlay");
@@ -787,7 +827,12 @@ btn2.addEventListener("click", function(e) {
 
 });
 
-
+function resetCompass() {
+  xaxis = 50;
+  yaxis = 50;
+  dot.setAttribute('cy', yaxis);
+  dot.setAttribute('cx', xaxis);
+}
 </script>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'></script>
