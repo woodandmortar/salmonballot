@@ -84,32 +84,13 @@ background: none;
 
 @keyframes waveAction01 {
   0% {
-    transform: translate(300px, -1780px);
+    transform: translate(300px, -1795px);
   }
   50% {
-    transform: translate(203px, -1799px);
+    transform: translate(203px, -1820px);
   }
   100% {
-    transform: translate(102px, -1780px);
-  }
-}
-
-#water2 #waveShape2 {
-  animation-name: waveAction02;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 5s;
-}
-
-@keyframes waveAction02 {
-  0% {
-    transform: translate(300px, -1820px);
-  }
-  50% {
-    transform: translate(203px, -1829px);
-  }
-  100% {
-    transform: translate(102px, -1820px);
+    transform: translate(102px, -1795px);
   }
 }
 
@@ -140,20 +121,22 @@ background: none;
 
   .white-box {
     position: absolute;
-    top: 400px;
+    top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 500px;
     background-color: none;
     z-index: 2;
   }
   .white-box2 {
     position: absolute;
-    top: 800px;
     width: 100%;
-    background-color: none;
-    margin: auto;
+    z-index: 0;
+  }
+  .white-box3 {
+    position: absolute;
+    right: 0px;
+    width: 60%;
     z-index: 2;
   }
 
@@ -326,14 +309,20 @@ background: none;
 
   <section class='two'>
 
+    <div class="white-box2">
+      <div style="position: absolute; left: 0px; top: 0px;">
+    <image id="pictureAll" style="height:99%;" src="captain.png">
+</div> </div>
+
+<div class="white-box3">
+<h2><p id="descriptAll"></p></h2><br>
+<a class="btn home-btn" name = "rad15" onclick = "nextPhoto();">Next</a>
+</div>
+
     <svg id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" class="double-width" viewBox="0 0 211 211">
 
     <g id="circle" transform="translate(-362 1822)">
 
-
-      <g id="water2">
-        <path id="waveShape2" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
-      </g>
       <g id="water">
         <path id="waveShape" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#212121"/>
       </g>
@@ -342,24 +331,7 @@ background: none;
       </g>
     </g>
   </svg>
-    <div class="white-box2">
 
-      <div class="grid-container">
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();changeGold();">     <h3>progressiveSocialist</h3><br>Captains</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();">                  <h3>moderateSocialist</h3><br>First Mates</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();changeRed();">      <h3>conservativeSocialist</h3><br>Deckhands</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();">                  <h3>progressiveModerate</h3><br>Sailors</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;">                                            <h3>moderateModerate</h3><br>Rowers</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();">                  <h3>conservativeModerate</h3><br>Drifters</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();changeBlack();">                  <h3>progressiveEconomist</h3><br>Explorers</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlack();">                  <h3>moderateEconomist</h3><br>Voyagers</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();changeBlack();">                  <h3>conservativeEconomist</h3><br>Navigators</a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "resetCompass();"><h3>Reset</h3></a>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "scoreTime();"><h3>Score</h3></a></div></div>
-      </div>
-
-
-      </div>
 
 
 
@@ -761,6 +733,30 @@ background: none;
 
 <script>
 
+const descriptAll = [
+  "<h1>The Explorers</h1><h2> - Progressive Economists<br><br>Explorers represent the pioneering, innovative spirit of progressive economists. They want to discover and implement new economic ideas.</h2>",
+  "<h1>The Navigators</h1><h2> - Conservative Economists<br><br>Navigators represent the careful, cautious nature of conservative economists. They want to chart a steady, traditional economic course.</h2>",
+  "<h1>The Voyagers</h1><h2> - Moderate Economists<br><br>Voyagers represent the balanced approach of moderate economists. They seek economic progress but with pragmatism and bipartisanship.</h2>",
+  "<h1>The Captains</h1><h2> - Progressive Socialists<br><br>Captains represent the bold leadership and vision of progressive socialists. They want to steer society in a new direction.</h2>",
+  "<h1>The First Mates</h1><h2> - Moderate Socialists<br><br>First mates represent the supporting role of moderate socialists. They assist progressive captains with pragmatism.</h2>",
+  "<h1>The Deckhands</h1><h2> - Conservative Socialists<br><br>Deckhands represent the hardworking loyalty of conservative socialists. They keep the ship running smoothly with traditional values.</h2>",
+  "<h1>The Sailors</h1><h2> - Progressive Moderates<br><br>Sailors represent the adaptability and open-mindedness of progressive moderates. They welcome new ideas and opportunities.</h2>",
+  "<h1>The Rowers</h1><h2> - Moderate Moderates<br><br>Rowers represent the teamwork and compromise of moderate moderates. They bring different viewpoints together.</h2>",
+  "<h1>The Drifters</h1><h2> - Conservative Moderates<br><br>Drifters represent the go-with-the-flow nature of conservative moderates. They prefer gradual, incremental change.</h2>"
+];
+
+const picAll = [
+"explorer.png",
+"navigator.png",
+"voyager.png",
+"captain.png",
+"firstmate.png",
+"deckhand.png",
+"sailor.png",
+"rower.png",
+"drifter.png",
+];
+
 const subcategories = {
   "progressiveEconomist": ["Explorers"],
   "moderateEconomist": ["Voyagers"],
@@ -802,6 +798,16 @@ clicksBlue += 1;
 clicksRed += 1;
 clicksBlack += 1;
 clicksGold += 1;
+var nextPho = 0;
+
+function nextPhoto (){
+  if (nextPho != 8) {
+    nextPho += 1;
+  }
+  document.getElementById("descriptAll").innerHTML = descriptAll[nextPho];
+  document.getElementById("pictureAll").src = picAll[nextPho];
+}
+
 document.getElementById("clicksRed").innerHTML = clicksRed;
 document.getElementById("clicksBlue").innerHTML = clicksBlue;
 document.getElementById("clicksBlack").innerHTML = clicksBlack;
