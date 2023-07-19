@@ -345,15 +345,18 @@ background: none;
     <div class="white-box2">
 
       <div class="grid-container">
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();"><h2>Test Red</h2></a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();"><h2>Test Blue</h2></a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlack();"><h2>Test Black</h2></a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();"><h2>Test Gold</h2></a></div>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "resetCompass();"><h2>Reset</h2></a>
-        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "scoreTime();"><h2>Score</h2></a></div></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();changeGold();">     <h3>progressiveSocialist</h3><br>Captains</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();">                  <h3>moderateSocialist</h3><br>First Mates</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeGold();changeRed();">      <h3>conservativeSocialist</h3><br>Deckhands</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();">                  <h3>progressiveModerate</h3><br>Sailors</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;">                                            <h3>moderateModerate</h3><br>Rowers</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();">                  <h3>conservativeModerate</h3><br>Drifters</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlue();changeBlack();">                  <h3>progressiveEconomist</h3><br>Explorers</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeBlack();">                  <h3>moderateEconomist</h3><br>Voyagers</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "changeRed();changeBlack();">                  <h3>conservativeEconomist</h3><br>Navigators</a></div>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "resetCompass();"><h3>Reset</h3></a>
+        <div class="grid-item"><a  style="color: red; background-color: #D95952;" onclick = "scoreTime();"><h3>Score</h3></a></div></div>
       </div>
-
-
 
 
       </div>
@@ -763,8 +766,8 @@ const subcategories = {
   "moderateEconomist": ["Voyagers"],
   "conservativeEconomist": ["Navigators"],
   "progressiveSocialist": ["Captains"],
-  "conservativeSocialist": ["Deckhands"],
   "moderateSocialist": ["First Mates"],
+  "conservativeSocialist": ["Deckhands"],
   "progressiveModerate": ["Sailors"],
   "moderateModerate": ["Rowers"],
   "conservativeModerate": ["Drifters"],
@@ -822,7 +825,7 @@ function changeBlue() {
 function changeBlack() {
     clicksBlack += 1;
     document.getElementById("clicksBlack").innerHTML = clicksBlack;
-    yaxis -= 4;
+    yaxis += 4;
     blackCircle.setAttribute('cy', yaxis);
     newRotation += 10;
     needleMove.setAttribute('transform', `rotate(${newRotation})`);
@@ -830,7 +833,7 @@ function changeBlack() {
 function changeGold() {
     clicksGold += 1;
     document.getElementById("clicksGold").innerHTML = clicksGold;
-    y1axis += 4;
+    y1axis -= 4;
     goldCircle.setAttribute('cy', y1axis);
     newRotation -= 10;
     needleMove.setAttribute('transform', `rotate(${newRotation})`);
@@ -869,33 +872,26 @@ function scoreTime(){
   let countsSorted = [clicksRed, clicksBlue, clicksGold, clicksBlack].sort((a,b) => b-a);
 
   // First two elements are highest
-  let [highest, secondHighest] = countsSorted;
+  let [highest, secondHighest, thirdHighest, fourthHighest] = countsSorted;
 
-  if (highest == clicksRed && secondHighest == clicksBlue) {
-    subcat = subcategories.conservativeProgressive;
-  } else if (highest == clicksRed && secondHighest == clicksGold) {
-    subcat = subcategories.conservativeSocialist;
-  } else if (highest == clicksRed && secondHighest == clicksBlack) {
-    subcat = subcategories.conservativeEconomist;
-  } else if (highest == clicksBlue && secondHighest == clicksRed) {
-    subcat = subcategories.progressiveConservative;
-  } else if (highest == clicksBlue && secondHighest == clicksGold) {
-    subcat = subcategories.progressiveSocialist;
-  } else if (highest == clicksBlue && secondHighest == clicksBlack) {
-    subcat = subcategories.progressiveEconomist;
-  } else if (highest == clicksGold && secondHighest == clicksRed) {
-    subcat = subcategories.socialistConservative;
-  } else if (highest == clicksGold && secondHighest == clicksBlue) {
-    subcat = subcategories.socialistProgressive;
-  } else if (highest == clicksGold && secondHighest == clicksBlack) {
-    subcat = subcategories.socialistEconomist;
-  } else if (highest == clicksBlack && secondHighest == clicksRed) {
-    subcat = subcategories.economistConservative;
-  } else if (highest == clicksBlack && secondHighest == clicksBlue) {
-    subcat = subcategories.economistProgressive;
-  } else if (highest == clicksBlack && secondHighest == clicksGold) {
-    subcat = subcategories.economistSocialist;
-  }
+
+if (highest == secondHighest && thirdHighest == fourthHighest && secondHighest == thirdHighest){subcat = subcategories.moderateModerate;}
+    else if (highest == clicksBlue && secondHighest == clicksGold && clicksGold != 1)  {subcat = subcategories.progressiveSocialist;}
+    else if (highest == clicksGold && secondHighest == clicksBlue && clicksBlue != 1)  {subcat = subcategories.progressiveSocialist;}
+    else if (highest == clicksGold && secondHighest == clicksBlue && thirdHighest == clicksRed && fourthHighest == clicksBlack)         {subcat = subcategories.moderateSocialist;}
+    else if (highest == clicksRed && secondHighest == clicksGold && clicksGold != 1)   {subcat = subcategories.conservativeSocialist;}
+    else if (highest == clicksGold && secondHighest == clicksRed && clicksRed != 1)   {subcat = subcategories.conservativeSocialist;}
+
+    else if (highest == clicksBlue && secondHighest == clicksGold && thirdHighest == clicksBlack && clicksBlack != clicksBlue)         {subcat = subcategories.progressiveModerate;}
+    else if (highest == clicksBlue && secondHighest == clicksBlack && thirdHighest == clicksGold && clicksBlack != clicksBlue)         {subcat = subcategories.progressiveModerate;}
+    else if (highest == clicksRed && secondHighest == clicksGold && thirdHighest == clicksBlack && clicksBlack != clicksRed)          {subcat = subcategories.conservativeModerate;}
+
+    else if (highest == clicksBlue && secondHighest == clicksBlack && clicksBlack != 1) {subcat = subcategories.progressiveEconomist;}
+    else if (highest == clicksBlack && secondHighest == clicksBlue && clicksBlue != 1) {subcat = subcategories.progressiveEconomist;}
+    else if (highest == clicksBlack && secondHighest == clicksBlue && thirdHighest == clicksRed && fourthHighest == clicksGold)        {subcat = subcategories.moderateEconomist;}
+    else if (highest == clicksRed && secondHighest == clicksBlack)  {subcat = subcategories.conservativeEconomist;}
+    else if (highest == clicksBlack && secondHighest == clicksRed)  {subcat = subcategories.conservativeEconomist;}
+
 
 alert(subcat);
 document.getElementById("titleChange").innerHTML = subcat;
