@@ -41,7 +41,7 @@ function init() {
     //OrbitControl
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 1;
+    controls.autoRotateSpeed = .25;
     controls.maxDistance = 350;
     controls.minDistance = 50;
     controls.enablePan = false;
@@ -49,18 +49,18 @@ function init() {
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
     const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
-    const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
-    const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");
-    const texture2 = loader.load("https://i.ibb.co/yYS2yx5/p3-ttfn70.png");
-    const texture4 = loader.load("https://i.ibb.co/yWfKkHh/p4-avirap.png");
+    const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
 
 
     /*  Nucleus  */
     texturenucleus.anisotropy = 6;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(140 * blobScale, 10);
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(111 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
-    opacity: 0.98, });
+    opacity: 1.1, });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
 
@@ -139,8 +139,8 @@ scene.add(smallCone2);
     /*    Moving Stars   */
     let starsGeometry = new THREE.Geometry();
 
-    for (let i = 0; i < 50; i++) {
-        let particleStar = randomPointSphere(250);
+    for (let i = 50; i > 0; i--) {
+        let particleStar = randomPointSphere(120);
 
         particleStar.velocity = THREE.MathUtils.randInt(50, 200);
 
@@ -172,8 +172,8 @@ scene.add(smallCone2);
             blending: THREE.AdditiveBlending,
         });
 
-        for (let i = 0; i < total; i++) {
-            let radius = THREE.MathUtils.randInt(149, 70);
+        for (let i = 50; i > total; i--) {
+            let radius = THREE.MathUtils.randInt(110, 70);
             let particles = randomPointSphere(radius);
             pointGeometry.vertices.push(particles);
         }
@@ -209,7 +209,7 @@ function animate() {
             v.x = v.startX;
             v.y = v.startY;
             v.z = v.startZ;
-            v.velocity = THREE.MathUtils.randInt(50, 300);
+            v.velocity = THREE.MathUtils.randInt(150, 110);
         }
     });
 
