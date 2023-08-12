@@ -57,10 +57,10 @@ function init() {
 
     /*  Nucleus  */
     texturenucleus.anisotropy = 6;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(150 * blobScale, 10);
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(140 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
-    opacity: 0.95, });
+    opacity: 0.98, });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
 
@@ -140,7 +140,7 @@ scene.add(smallCone2);
     let starsGeometry = new THREE.Geometry();
 
     for (let i = 0; i < 50; i++) {
-        let particleStar = randomPointSphere(150);
+        let particleStar = randomPointSphere(250);
 
         particleStar.velocity = THREE.MathUtils.randInt(50, 200);
 
