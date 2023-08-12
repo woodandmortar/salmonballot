@@ -51,12 +51,12 @@ function init() {
     const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
-    const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
-    const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
+    const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
 
 
     /*  Nucleus  */
-    texturenucleus.anisotropy = 6;
+    texturenucleus.anisotropy = 26;
     let icosahedronGeometry = new THREE.IcosahedronGeometry(111 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
@@ -65,63 +65,26 @@ function init() {
     scene.add(nucleus);
 
     const cubeGeometry = new THREE.BoxGeometry(20, 20, 20);
-    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x001100 });
     const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.position.set(0, 0, -110); // Adjust position based on your needs
+    cube.position.set(50, 30, -90); // Adjust position based on your needs
+    cube.rotation.y = Math.PI / 2;
     nucleus.add(cube);
 
-    const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 16);
+    const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 30);
 const cogMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
 const cog = new THREE.Mesh(cogGeometry, cogMaterial);
-cog.rotation.x = Math.PI / 2;
+cog.rotation.x = Math.PI / 90;
 
 // Define the spherical coordinates for the cog's placement
-const sphericalCoordinates = new THREE.Spherical(110, Math.PI, Math.PI / 2); // Adjust the angles
+const sphericalCoordinates = new THREE.Spherical(-110, 110, 110); // Adjust the angles
 const position = new THREE.Vector3().setFromSpherical(sphericalCoordinates);
 cog.position.copy(position);
 
 // Calculate the angle needed to orient the cog toward the sphere's center
 const orientationAngle = Math.atan2(position.y, position.x) - Math.PI;
-
-// Set the cog's rotation to the calculated orientation angle
-cog.rotation.z = orientationAngle;
-
-// Rotate the cog by 90 degrees around its y-axis
-cog.rotation.y = Math.PI / 2;
-
 nucleus.add(cog);
 
-// Create a large cone for the mountain ridge
-const coneGeometry = new THREE.ConeBufferGeometry(20, 40, 30);
-const coneMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown color
-const largeCone = new THREE.Mesh(coneGeometry, coneMaterial);
-
-// Define spherical coordinates for the large cone's placement on the opposite side
-const largeConeSphericalCoordinates = new THREE.Spherical(-110, Math.PI, (-Math.PI / 4)); // Adjust the angles
-const largeConePosition = new THREE.Vector3().setFromSpherical(largeConeSphericalCoordinates);
-
-// Position the large cone on the opposite side
-largeCone.position.copy(largeConePosition);
-
-scene.add(largeCone);
-
-// Create two smaller cones
-const smallConeGeometry = new THREE.ConeBufferGeometry(5, 15, 16);
-const smallConeMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown color
-
-// Define spherical coordinates for the first small cone's placement
-const smallConeSphericalCoordinates1 = new THREE.Spherical(-110, Math.PI, (-Math.PI / 30.1)); // Adjust the angles
-const smallConePosition1 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates1);
-const smallCone1 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
-smallCone1.position.copy(smallConePosition1);
-scene.add(smallCone1);
-
-// Define spherical coordinates for the second small cone's placement
-const smallConeSphericalCoordinates2 = new THREE.Spherical(-110, Math.PI, (-Math.PI / 4 - 30.1)); // Adjust the angles
-const smallConePosition2 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates2);
-const smallCone2 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
-smallCone2.position.copy(smallConePosition2);
-scene.add(smallCone2);
 
 
 
@@ -139,8 +102,8 @@ scene.add(smallCone2);
     /*    Moving Stars   */
     let starsGeometry = new THREE.Geometry();
 
-    for (let i = 50; i > 0; i--) {
-        let particleStar = randomPointSphere(120);
+    for (let i = 0; i < 3; i++) {
+        let particleStar = randomPointSphere(110);
 
         particleStar.velocity = THREE.MathUtils.randInt(50, 200);
 
@@ -151,10 +114,8 @@ scene.add(smallCone2);
         starsGeometry.vertices.push(particleStar);
     }
     let starsMaterial = new THREE.PointsMaterial({
-        size: 5,
+        size: 35,
         color: "#ffffff",
-        transparent: true,
-        opacity: 0.8,
         map: textureStar,
         blending: THREE.AdditiveBlending,
     });
