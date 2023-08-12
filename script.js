@@ -9,7 +9,7 @@ container = document.getElementById("canvas_container"),
 timeout_Debounce,
 noise = new SimplexNoise(),
 cameraSpeed = 0,
-blobScale = 3;
+blobScale = 1;
 
 
 init();
@@ -41,14 +41,14 @@ function init() {
     //OrbitControl
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 4;
+    controls.autoRotateSpeed = 1;
     controls.maxDistance = 350;
-    controls.minDistance = 150;
+    controls.minDistance = 50;
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://i.ibb.co/4gHcRZD/bg3-je3ddz.jpg');
-    const texturenucleus = loader.load('background.png');
+    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/background.png');
     const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
     const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");
     const texture2 = loader.load("https://i.ibb.co/yYS2yx5/p3-ttfn70.png");
@@ -56,11 +56,71 @@ function init() {
 
 
     /*  Nucleus  */
-    texturenucleus.anisotropy = 16;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(30, 10);
+    texturenucleus.anisotropy = 6;
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(150 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
+
+    const cubeGeometry = new THREE.BoxGeometry(20, 20, 20);
+    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    cube.position.set(0, 0, -150); // Adjust position based on your needs
+    nucleus.add(cube);
+
+    const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 16);
+const cogMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
+const cog = new THREE.Mesh(cogGeometry, cogMaterial);
+cog.rotation.x = Math.PI / 2;
+
+// Define the spherical coordinates for the cog's placement
+const sphericalCoordinates = new THREE.Spherical(150, Math.PI, Math.PI / 2); // Adjust the angles
+const position = new THREE.Vector3().setFromSpherical(sphericalCoordinates);
+cog.position.copy(position);
+
+// Calculate the angle needed to orient the cog toward the sphere's center
+const orientationAngle = Math.atan2(position.y, position.x) - Math.PI;
+
+// Set the cog's rotation to the calculated orientation angle
+cog.rotation.z = orientationAngle;
+
+// Rotate the cog by 90 degrees around its y-axis
+cog.rotation.y = Math.PI / 2;
+
+nucleus.add(cog);
+
+// Create a large cone for the mountain ridge
+const coneGeometry = new THREE.ConeBufferGeometry(20, 40, 30);
+const coneMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown color
+const largeCone = new THREE.Mesh(coneGeometry, coneMaterial);
+
+// Define spherical coordinates for the large cone's placement on the opposite side
+const largeConeSphericalCoordinates = new THREE.Spherical(-150, Math.PI, (-Math.PI / 4)); // Adjust the angles
+const largeConePosition = new THREE.Vector3().setFromSpherical(largeConeSphericalCoordinates);
+
+// Position the large cone on the opposite side
+largeCone.position.copy(largeConePosition);
+
+scene.add(largeCone);
+
+// Create two smaller cones
+const smallConeGeometry = new THREE.ConeBufferGeometry(5, 15, 16);
+const smallConeMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown color
+
+// Define spherical coordinates for the first small cone's placement
+const smallConeSphericalCoordinates1 = new THREE.Spherical(-150, Math.PI, (-Math.PI / 30.1)); // Adjust the angles
+const smallConePosition1 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates1);
+const smallCone1 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
+smallCone1.position.copy(smallConePosition1);
+scene.add(smallCone1);
+
+// Define spherical coordinates for the second small cone's placement
+const smallConeSphericalCoordinates2 = new THREE.Spherical(-150, Math.PI, (-Math.PI / 4 - 30.1)); // Adjust the angles
+const smallConePosition2 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates2);
+const smallCone2 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
+smallCone2.position.copy(smallConePosition2);
+scene.add(smallCone2);
+
 
 
     /*    Sphere  Background   */
@@ -69,6 +129,8 @@ function init() {
     let materialSphereBg = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map: textureSphereBg,
+        transparent: true, // Enable transparency
+        opacity: 0.9,
     });
     sphereBg = new THREE.Mesh(geometrySphereBg, materialSphereBg);
     scene.add(sphereBg);
@@ -153,20 +215,20 @@ function animate() {
 
 
     //Nucleus Animation
-    nucleus.geometry.vertices.forEach(function (v) {
-        let time = Date.now();
-        v.normalize();
-        let distance = nucleus.geometry.parameters.radius + noise.noise3D(
-            v.x + time * 0.0005,
-            v.y + time * 0.0003,
-            v.z + time * 0.0008
-        ) * blobScale;
-        v.multiplyScalar(distance);
-    })
-    nucleus.geometry.verticesNeedUpdate = true;
-    nucleus.geometry.normalsNeedUpdate = true;
-    nucleus.geometry.computeVertexNormals();
-    nucleus.geometry.computeFaceNormals();
+       nucleus.geometry.vertices.forEach(function (v) {
+           let time = Date.now();
+           v.normalize();
+           let distance = nucleus.geometry.parameters.radius + noise.noise3D(
+               v.x + time * 0.0005,
+               v.y + time * 0.0003,
+               v.z + time * 0.0008
+           ) * blobScale;
+           v.multiplyScalar(distance);
+       })
+       nucleus.geometry.verticesNeedUpdate = true;
+       nucleus.geometry.normalsNeedUpdate = true;
+       nucleus.geometry.computeVertexNormals();
+       nucleus.geometry.computeFaceNormals();
     nucleus.rotation.y += 0.002;
 
 
@@ -194,22 +256,3 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
 }
-
-
-
-/*     Fullscreen btn     */
-// let fullscreen;
-// let fsEnter = document.getElementById('fullscr');
-// fsEnter.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     if (!fullscreen) {
-//         fullscreen = true;
-//         document.documentElement.requestFullscreen();
-//         fsEnter.innerHTML = "Exit Fullscreen";
-//     }
-//     else {
-//         fullscreen = false;
-//         document.exitFullscreen();
-//         fsEnter.innerHTML = "Go Fullscreen";
-//     }
-// });
