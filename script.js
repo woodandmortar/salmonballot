@@ -47,7 +47,7 @@ function init() {
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background.png');
+    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
     const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
     const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");
