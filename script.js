@@ -48,7 +48,7 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/background.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
     const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");
     const texture2 = loader.load("https://i.ibb.co/yYS2yx5/p3-ttfn70.png");
@@ -57,8 +57,10 @@ function init() {
 
     /*  Nucleus  */
     texturenucleus.anisotropy = 6;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(110 * blobScale, 10);
-    let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus });
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(150 * blobScale, 10);
+    let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
+    transparent: true, // Enable transparency
+    opacity: 0.95, });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
 
@@ -125,12 +127,10 @@ scene.add(smallCone2);
 
     /*    Sphere  Background   */
     textureSphereBg.anisotropy = 16;
-    let geometrySphereBg = new THREE.SphereBufferGeometry(150, 40, 40);
+    let geometrySphereBg = new THREE.SphereBufferGeometry(110, 40, 40);
     let materialSphereBg = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map: textureSphereBg,
-        transparent: true, // Enable transparency
-        opacity: 0.4,
     });
     sphereBg = new THREE.Mesh(geometrySphereBg, materialSphereBg);
     scene.add(sphereBg);
