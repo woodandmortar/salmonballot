@@ -77,7 +77,7 @@ const icosahedronGeometry2 = new THREE.IcosahedronGeometry(nucleus2Radius, 10);
 const lambertMaterial2 = new THREE.MeshPhongMaterial({
     map: texturenucleus,
     transparent: true,
-    opacity: 0.9,
+    opacity: 0.5,
 });
 const nucleus2 = new THREE.Mesh(icosahedronGeometry2, lambertMaterial2);
 nucleus2.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
