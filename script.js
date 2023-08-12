@@ -47,7 +47,7 @@ function init() {
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
+    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background.png');
     const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/background.png');
     const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
     const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");
@@ -57,7 +57,7 @@ function init() {
 
     /*  Nucleus  */
     texturenucleus.anisotropy = 6;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(150 * blobScale, 10);
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(110 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
@@ -65,7 +65,7 @@ function init() {
     const cubeGeometry = new THREE.BoxGeometry(20, 20, 20);
     const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
     const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.position.set(0, 0, -150); // Adjust position based on your needs
+    cube.position.set(0, 0, -110); // Adjust position based on your needs
     nucleus.add(cube);
 
     const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 16);
@@ -74,7 +74,7 @@ const cog = new THREE.Mesh(cogGeometry, cogMaterial);
 cog.rotation.x = Math.PI / 2;
 
 // Define the spherical coordinates for the cog's placement
-const sphericalCoordinates = new THREE.Spherical(150, Math.PI, Math.PI / 2); // Adjust the angles
+const sphericalCoordinates = new THREE.Spherical(110, Math.PI, Math.PI / 2); // Adjust the angles
 const position = new THREE.Vector3().setFromSpherical(sphericalCoordinates);
 cog.position.copy(position);
 
@@ -95,7 +95,7 @@ const coneMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown 
 const largeCone = new THREE.Mesh(coneGeometry, coneMaterial);
 
 // Define spherical coordinates for the large cone's placement on the opposite side
-const largeConeSphericalCoordinates = new THREE.Spherical(-150, Math.PI, (-Math.PI / 4)); // Adjust the angles
+const largeConeSphericalCoordinates = new THREE.Spherical(-110, Math.PI, (-Math.PI / 4)); // Adjust the angles
 const largeConePosition = new THREE.Vector3().setFromSpherical(largeConeSphericalCoordinates);
 
 // Position the large cone on the opposite side
@@ -108,14 +108,14 @@ const smallConeGeometry = new THREE.ConeBufferGeometry(5, 15, 16);
 const smallConeMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Brown color
 
 // Define spherical coordinates for the first small cone's placement
-const smallConeSphericalCoordinates1 = new THREE.Spherical(-150, Math.PI, (-Math.PI / 30.1)); // Adjust the angles
+const smallConeSphericalCoordinates1 = new THREE.Spherical(-110, Math.PI, (-Math.PI / 30.1)); // Adjust the angles
 const smallConePosition1 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates1);
 const smallCone1 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
 smallCone1.position.copy(smallConePosition1);
 scene.add(smallCone1);
 
 // Define spherical coordinates for the second small cone's placement
-const smallConeSphericalCoordinates2 = new THREE.Spherical(-150, Math.PI, (-Math.PI / 4 - 30.1)); // Adjust the angles
+const smallConeSphericalCoordinates2 = new THREE.Spherical(-110, Math.PI, (-Math.PI / 4 - 30.1)); // Adjust the angles
 const smallConePosition2 = new THREE.Vector3().setFromSpherical(smallConeSphericalCoordinates2);
 const smallCone2 = new THREE.Mesh(smallConeGeometry, smallConeMaterial);
 smallCone2.position.copy(smallConePosition2);
@@ -130,7 +130,7 @@ scene.add(smallCone2);
         side: THREE.BackSide,
         map: textureSphereBg,
         transparent: true, // Enable transparency
-        opacity: 0.9,
+        opacity: 0.4,
     });
     sphereBg = new THREE.Mesh(geometrySphereBg, materialSphereBg);
     scene.add(sphereBg);
