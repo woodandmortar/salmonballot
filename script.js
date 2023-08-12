@@ -22,12 +22,12 @@ function init() {
     camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000)
     camera.position.set(0,0,230);
 
-    const directionalLight = new THREE.DirectionalLight("#fff", 2);
-    directionalLight.position.set(0, 50, -20);
+    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
+    directionalLight.position.set(0, 300, 0);
     scene.add(directionalLight);
 
     let ambientLight = new THREE.AmbientLight("#ffffff", 1);
-    ambientLight.position.set(0, 20, 20);
+    ambientLight.position.set(0, 300, 0);
     scene.add(ambientLight);
 
     renderer = new THREE.WebGLRenderer({
@@ -70,6 +70,18 @@ function init() {
     cube.position.set(50, 30, -90); // Adjust position based on your needs
     cube.rotation.y = Math.PI / 2;
     nucleus.add(cube);
+
+    // Create a new nucleus (10 units larger)
+const nucleus2Radius = 112 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry2 = new THREE.IcosahedronGeometry(nucleus2Radius, 10);
+const lambertMaterial2 = new THREE.MeshPhongMaterial({
+    map: texturenucleus,
+    transparent: true,
+    opacity: 0.9,
+});
+const nucleus2 = new THREE.Mesh(icosahedronGeometry2, lambertMaterial2);
+nucleus2.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus2);
 
     const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 30);
 const cogMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
@@ -190,7 +202,6 @@ function animate() {
        nucleus.geometry.normalsNeedUpdate = true;
        nucleus.geometry.computeVertexNormals();
        nucleus.geometry.computeFaceNormals();
-    nucleus.rotation.y += 0.002;
 
 
     //Sphere Beckground Animation
