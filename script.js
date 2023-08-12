@@ -64,10 +64,10 @@ function init() {
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
 
-    const cubeGeometry = new THREE.BoxGeometry(20, 20, 20);
-    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x001100 });
+    const cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
+    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
     const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.position.set(50, 30, -90); // Adjust position based on your needs
+    cube.position.set(80, -40, -70); // Adjust position based on your needs
     cube.rotation.y = Math.PI / 2;
     nucleus.add(cube);
 
@@ -83,19 +83,6 @@ const nucleus2 = new THREE.Mesh(icosahedronGeometry2, lambertMaterial2);
 nucleus2.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus2);
 
-    const cogGeometry = new THREE.CylinderBufferGeometry(10, 20, 10, 30);
-const cogMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
-const cog = new THREE.Mesh(cogGeometry, cogMaterial);
-cog.rotation.x = Math.PI / 90;
-
-// Define the spherical coordinates for the cog's placement
-const sphericalCoordinates = new THREE.Spherical(-110, 110, 110); // Adjust the angles
-const position = new THREE.Vector3().setFromSpherical(sphericalCoordinates);
-cog.position.copy(position);
-
-// Calculate the angle needed to orient the cog toward the sphere's center
-const orientationAngle = Math.atan2(position.y, position.x) - Math.PI;
-nucleus.add(cog);
 
 
 
@@ -114,10 +101,10 @@ nucleus.add(cog);
     /*    Moving Stars   */
     let starsGeometry = new THREE.Geometry();
 
-    for (let i = 0; i < 3; i++) {
-        let particleStar = randomPointSphere(110);
+    for (let i = 0; i < 7; i++) {
+        let particleStar = randomPointSphere(90);
 
-        particleStar.velocity = THREE.MathUtils.randInt(50, 200);
+        particleStar.velocity = THREE.MathUtils.randInt(500, 1000);
 
         particleStar.startX = particleStar.x;
         particleStar.startY = particleStar.y;
@@ -126,7 +113,7 @@ nucleus.add(cog);
         starsGeometry.vertices.push(particleStar);
     }
     let starsMaterial = new THREE.PointsMaterial({
-        size: 35,
+        size: 25,
         color: "#ffffff",
         map: textureStar,
         blending: THREE.AdditiveBlending,
@@ -145,7 +132,7 @@ nucleus.add(cog);
             blending: THREE.AdditiveBlending,
         });
 
-        for (let i = 50; i > total; i--) {
+        for (let i = 10; i > total; i--) {
             let radius = THREE.MathUtils.randInt(110, 70);
             let particles = randomPointSphere(radius);
             pointGeometry.vertices.push(particles);
@@ -204,10 +191,6 @@ function animate() {
        nucleus.geometry.computeFaceNormals();
 
 
-    //Sphere Beckground Animation
-    sphereBg.rotation.x += 0.002;
-    sphereBg.rotation.y += 0.002;
-    sphereBg.rotation.z += 0.002;
 
 
     controls.update();
