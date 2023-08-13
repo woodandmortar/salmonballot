@@ -59,6 +59,7 @@ function init() {
     const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
     const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/cloudLayer.png');
     const texturenucleus11 = loader.load('https://woodandmortar.com/salmonballot/textLayer.png');
+    const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/lightLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
@@ -209,9 +210,9 @@ transparent: true,
 opacity: 0.9,
 });
 const nucleus4 = new THREE.Mesh(icosahedronGeometry4, lambertMaterial4);
-nucleus4.rotation.copy((nucleus.rotation)*-1); // Copy rotation from the first nucleus
+nucleus4.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus4);
-
+nucleus4.rotation.y -= 0.002;
 // End of Copy layer
 
 // Copy Layer
@@ -228,11 +229,24 @@ nucleus10.rotation.copy(nucleus.rotation); // Copy rotation from the first nucle
 scene.add(nucleus10);
 
 // End of Copy layer
+// Copy Layer
+texturenucleus12.anisotropy = 24;
+const nucleus12Radius = 125 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry12 = new THREE.IcosahedronGeometry(nucleus12Radius, 10);
+const lambertMaterial12 = new THREE.MeshPhongMaterial({
+map: texturenucleus12,
+transparent: true,
+opacity: 0.9,
+});
+const nucleus12 = new THREE.Mesh(icosahedronGeometry12, lambertMaterial12);
+nucleus12.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus12);
 
+// End of Copy layer
 
 // Copy Layer
 texturenucleus11.anisotropy = 24;
-const nucleus11Radius = 130 * blobScale; // 10 units larger than the first nucleus
+const nucleus11Radius = 150 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry11 = new THREE.IcosahedronGeometry(nucleus11Radius, 10);
 const lambertMaterial11 = new THREE.MeshPhongMaterial({
 map: texturenucleus11,
