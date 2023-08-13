@@ -22,11 +22,11 @@ function init() {
     camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000)
     camera.position.set(0,0,230);
 
-    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
+    const directionalLight = new THREE.DirectionalLight("#964B00", 1);
     directionalLight.position.set(0, 300, 0);
     scene.add(directionalLight);
 
-    let ambientLight = new THREE.AmbientLight("#ffffff", 1);
+    let ambientLight = new THREE.AmbientLight("#964B00", 1);
     ambientLight.position.set(0, 300, 0);
     scene.add(ambientLight);
 
@@ -48,7 +48,10 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
+    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/snowLightLayer.png');
+    const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
@@ -56,7 +59,7 @@ function init() {
 
 
     /*  Nucleus  */
-    texturenucleus.anisotropy = 26;
+    texturenucleus.anisotropy = 4;
     let icosahedronGeometry = new THREE.IcosahedronGeometry(111 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
@@ -71,11 +74,11 @@ function init() {
     cube.rotation.y = Math.PI / 2;
     nucleus.add(cube);
 
-    // Create a new nucleus (10 units larger)
+    // Copy Layer
 const nucleus2Radius = 112 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry2 = new THREE.IcosahedronGeometry(nucleus2Radius, 10);
 const lambertMaterial2 = new THREE.MeshPhongMaterial({
-    map: texturenucleus,
+    map: texturenucleus2,
     transparent: true,
     opacity: 0.5,
 });
@@ -83,6 +86,35 @@ const nucleus2 = new THREE.Mesh(icosahedronGeometry2, lambertMaterial2);
 nucleus2.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus2);
 
+  // End of Copy layer
+
+  // Copy Layer
+const nucleus3Radius = 113 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry3 = new THREE.IcosahedronGeometry(nucleus3Radius, 10);
+const lambertMaterial3 = new THREE.MeshPhongMaterial({
+  map: texturenucleus3,
+  transparent: true,
+  opacity: 0.5,
+});
+const nucleus3 = new THREE.Mesh(icosahedronGeometry3, lambertMaterial3);
+nucleus3.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus3);
+
+// End of Copy layer
+
+// Copy Layer
+const nucleus4Radius = 114 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry4 = new THREE.IcosahedronGeometry(nucleus4Radius, 10);
+const lambertMaterial4 = new THREE.MeshPhongMaterial({
+map: texturenucleus4,
+transparent: true,
+opacity: 0.5,
+});
+const nucleus4 = new THREE.Mesh(icosahedronGeometry4, lambertMaterial4);
+nucleus4.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus4);
+
+// End of Copy layer
 
 
 
@@ -179,9 +211,9 @@ function animate() {
            let time = Date.now();
            v.normalize();
            let distance = nucleus.geometry.parameters.radius + noise.noise3D(
-               v.x + time * 0.0005,
-               v.y + time * 0.0003,
-               v.z + time * 0.0008
+               v.x + time * 0.000005,
+               v.y + time * 0.000003,
+               v.z + time * 0.000008
            ) * blobScale;
            v.multiplyScalar(distance);
        })
