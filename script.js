@@ -22,11 +22,11 @@ function init() {
     camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000)
     camera.position.set(0,0,230);
 
-    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
+    const directionalLight = new THREE.DirectionalLight("#CBC3E3", 1);
     directionalLight.position.set(0, 300, 0);
     scene.add(directionalLight);
 
-    let ambientLight = new THREE.AmbientLight("#ffffff6", 1);
+    let ambientLight = new THREE.AmbientLight("#CBC3E3", 1);
     ambientLight.position.set(0, 300, 0);
     scene.add(ambientLight);
 
@@ -48,24 +48,81 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
     const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
     const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
+    const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
     const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
 
 
+
+
+
+
     /*  Nucleus  */
-    texturenucleus.anisotropy = 4;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(111 * blobScale, 10);
+    texturenucleus.anisotropy = 24;
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(95 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
-    opacity: .9, });
+    opacity: .5, });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
+
+
+
+
+
+
+
+
+    // Copy Layer
+    texturenucleus5.anisotropy = 24;
+    const nucleus5Radius = 110 * blobScale; // 10 units larger than the first nucleus
+    const icosahedronGeometry5 = new THREE.IcosahedronGeometry(nucleus5Radius, 10);
+    const lambertMaterial5 = new THREE.MeshPhongMaterial({
+    map: texturenucleus5,
+    transparent: true,
+    opacity: 0.6,
+    });
+    const nucleus5 = new THREE.Mesh(icosahedronGeometry5, lambertMaterial5);
+    nucleus5.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+    scene.add(nucleus5);
+
+    // End of Copy layer
+    // Copy Layer
+    texturenucleus6.anisotropy = 24;
+    const nucleus6Radius = 109 * blobScale; // 10 units larger than the first nucleus
+    const icosahedronGeometry6 = new THREE.IcosahedronGeometry(nucleus6Radius, 10);
+    const lambertMaterial6 = new THREE.MeshPhongMaterial({
+      side: THREE.BackSide,
+    map: texturenucleus6
+    });
+    const nucleus6 = new THREE.Mesh(icosahedronGeometry6, lambertMaterial6);
+    nucleus6.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+    scene.add(nucleus6);
+
+    // End of Copy layer
+    // Copy Layer
+    texturenucleus7.anisotropy = 24;
+    const nucleus7Radius = 40 * blobScale; // 10 units larger than the first nucleus
+    const icosahedronGeometry7 = new THREE.IcosahedronGeometry(nucleus7Radius, 10);
+    const lambertMaterial7 = new THREE.MeshPhongMaterial({
+    map: texturenucleus7,
+    transparent: true,
+    opacity: 0.6,
+    });
+    const nucleus7 = new THREE.Mesh(icosahedronGeometry7, lambertMaterial7);
+    nucleus7.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+    scene.add(nucleus7);
+
+    // End of Copy layer
+
 
     const cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
     const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
@@ -75,12 +132,13 @@ function init() {
     nucleus.add(cube);
 
     // Copy Layer
+    texturenucleus2.anisotropy = 24;
 const nucleus2Radius = 112 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry2 = new THREE.IcosahedronGeometry(nucleus2Radius, 10);
 const lambertMaterial2 = new THREE.MeshPhongMaterial({
     map: texturenucleus2,
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.99,
 });
 const nucleus2 = new THREE.Mesh(icosahedronGeometry2, lambertMaterial2);
 nucleus2.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
@@ -89,12 +147,13 @@ scene.add(nucleus2);
   // End of Copy layer
 
   // Copy Layer
-const nucleus3Radius = 113 * blobScale; // 10 units larger than the first nucleus
+  texturenucleus3.anisotropy = 24;
+const nucleus3Radius = 112.5 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry3 = new THREE.IcosahedronGeometry(nucleus3Radius, 10);
 const lambertMaterial3 = new THREE.MeshPhongMaterial({
   map: texturenucleus3,
   transparent: true,
-  opacity: 0.5,
+  opacity: 0.9,
 });
 const nucleus3 = new THREE.Mesh(icosahedronGeometry3, lambertMaterial3);
 nucleus3.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
@@ -103,12 +162,13 @@ scene.add(nucleus3);
 // End of Copy layer
 
 // Copy Layer
-const nucleus4Radius = 114 * blobScale; // 10 units larger than the first nucleus
+texturenucleus4.anisotropy = 24;
+const nucleus4Radius = 113 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry4 = new THREE.IcosahedronGeometry(nucleus4Radius, 10);
 const lambertMaterial4 = new THREE.MeshPhongMaterial({
 map: texturenucleus4,
 transparent: true,
-opacity: 0.5,
+opacity: 0.9,
 });
 const nucleus4 = new THREE.Mesh(icosahedronGeometry4, lambertMaterial4);
 nucleus4.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
@@ -118,10 +178,9 @@ scene.add(nucleus4);
 
 
 
-
     /*    Sphere  Background   */
     textureSphereBg.anisotropy = 16;
-    let geometrySphereBg = new THREE.SphereBufferGeometry(110, 40, 40);
+    let geometrySphereBg = new THREE.SphereBufferGeometry(93, 40, 40);
     let materialSphereBg = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map: textureSphereBg,
@@ -145,7 +204,7 @@ scene.add(nucleus4);
         starsGeometry.vertices.push(particleStar);
     }
     let starsMaterial = new THREE.PointsMaterial({
-        size: 25,
+        size: 8,
         color: "#ffffff",
         map: textureStar,
         blending: THREE.AdditiveBlending,
@@ -165,15 +224,15 @@ scene.add(nucleus4);
         });
 
         for (let i = 30; i > total; i--) {
-            let radius = THREE.MathUtils.randInt(110, 70);
+            let radius = THREE.MathUtils.randInt(90, 70);
             let particles = randomPointSphere(radius);
             pointGeometry.vertices.push(particles);
         }
         return new THREE.Points(pointGeometry, pointMaterial);
     }
-    scene.add(createStars(texture1, 15, 20));
-    scene.add(createStars(texture2, 5, 5));
-    scene.add(createStars(texture4, 7, 5));
+    scene.add(createStars(texture1, 5, 20));
+    scene.add(createStars(texture2, 10, 15));
+    scene.add(createStars(texture4, 15, 10));
 
 
     function randomPointSphere (radius) {
@@ -211,9 +270,9 @@ function animate() {
            let time = Date.now();
            v.normalize();
            let distance = nucleus.geometry.parameters.radius + noise.noise3D(
-               v.x + time * 0.000005,
-               v.y + time * 0.000003,
-               v.z + time * 0.000008
+               v.x + time * 0.0005,
+               v.y + time * 0.0003,
+               v.z + time * 0.0008
            ) * blobScale;
            v.multiplyScalar(distance);
        })
