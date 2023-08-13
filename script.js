@@ -22,11 +22,11 @@ function init() {
     camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000)
     camera.position.set(0,0,230);
 
-    const directionalLight = new THREE.DirectionalLight("#964B00", 1);
+    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
     directionalLight.position.set(0, 300, 0);
     scene.add(directionalLight);
 
-    let ambientLight = new THREE.AmbientLight("#964B00", 1);
+    let ambientLight = new THREE.AmbientLight("#ffffff", 1);
     ambientLight.position.set(0, 300, 0);
     scene.add(ambientLight);
 
@@ -48,7 +48,7 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
     const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/snowLightLayer.png');
     const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
@@ -63,7 +63,7 @@ function init() {
     let icosahedronGeometry = new THREE.IcosahedronGeometry(111 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
-    opacity: 1.1, });
+    opacity: .9, });
     nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     scene.add(nucleus);
 
