@@ -26,7 +26,7 @@ function init() {
     directionalLight.position.set(0, 300, 0);
     scene.add(directionalLight);
 
-    let ambientLight = new THREE.AmbientLight("#ffffff", 1);
+    let ambientLight = new THREE.AmbientLight("#ffffff6", 1);
     ambientLight.position.set(0, 300, 0);
     scene.add(ambientLight);
 
@@ -48,9 +48,9 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/background2.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
-    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
-    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/snowLightLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
+    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
+    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
     const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
