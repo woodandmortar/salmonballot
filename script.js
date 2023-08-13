@@ -132,7 +132,7 @@ scene.add(nucleus2);
             blending: THREE.AdditiveBlending,
         });
 
-        for (let i = 10; i > total; i--) {
+        for (let i = 30; i > total; i--) {
             let radius = THREE.MathUtils.randInt(110, 70);
             let particles = randomPointSphere(radius);
             pointGeometry.vertices.push(particles);
