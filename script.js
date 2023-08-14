@@ -72,7 +72,7 @@ function init() {
 
     /*  Nucleus  */
     texturenucleus.anisotropy = 24;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(50 * blobScale, 10);
+    let icosahedronGeometry = new THREE.IcosahedronGeometry(40 * blobScale, 10);
     let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus,
     transparent: true, // Enable transparency
     opacity: .9, });
@@ -151,7 +151,7 @@ function init() {
     // End of Copy layer
     // Copy Layer
     texturenucleus7.anisotropy = 24;
-    const nucleus7Radius = 50 * blobScale; // 10 units larger than the first nucleus
+    const nucleus7Radius = 40 * blobScale; // 10 units larger than the first nucleus
     const icosahedronGeometry7 = new THREE.IcosahedronGeometry(nucleus7Radius, 10);
     const lambertMaterial7 = new THREE.MeshPhongMaterial({
     map: texturenucleus7
@@ -231,12 +231,12 @@ scene.add(nucleus10);
 // End of Copy layer
 // Copy Layer
 texturenucleus12.anisotropy = 24;
-const nucleus12Radius = 125 * blobScale; // 10 units larger than the first nucleus
+const nucleus12Radius = 119 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry12 = new THREE.IcosahedronGeometry(nucleus12Radius, 10);
 const lambertMaterial12 = new THREE.MeshPhongMaterial({
 map: texturenucleus12,
 transparent: true,
-opacity: 0.9,
+opacity: 0.5,
 });
 const nucleus12 = new THREE.Mesh(icosahedronGeometry12, lambertMaterial12);
 nucleus12.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
@@ -251,7 +251,7 @@ const icosahedronGeometry11 = new THREE.IcosahedronGeometry(nucleus11Radius, 10)
 const lambertMaterial11 = new THREE.MeshPhongMaterial({
 map: texturenucleus11,
 transparent: true,
-opacity: 0.9,
+opacity: 0.50,
 });
 const nucleus11 = new THREE.Mesh(icosahedronGeometry11, lambertMaterial11);
 nucleus11.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
@@ -261,7 +261,7 @@ scene.add(nucleus11);
 
     /*    Sphere  Background   */
     textureSphereBg.anisotropy = 16;
-    let geometrySphereBg = new THREE.SphereBufferGeometry(50, 40, 40);
+    let geometrySphereBg = new THREE.SphereBufferGeometry(40, 40, 40);
     let materialSphereBg = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map: textureSphereBg,
@@ -276,7 +276,7 @@ scene.add(nucleus11);
     for (let i = 0; i < 7; i++) {
         let particleStar = randomPointSphere(90);
 
-        particleStar.velocity = THREE.MathUtils.randInt(500, 1000);
+        particleStar.velocity = THREE.MathUtils.randInt(50, 100);
 
         particleStar.startX = particleStar.x;
         particleStar.startY = particleStar.y;
@@ -360,7 +360,7 @@ function animate() {
             v.x = v.startX;
             v.y = v.startY;
             v.z = v.startZ;
-            v.velocity = THREE.MathUtils.randInt(150, 110);
+            v.velocity = THREE.MathUtils.randInt(50, 110);
         }
     });
 
