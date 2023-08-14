@@ -41,9 +41,9 @@ function init() {
     //OrbitControl
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
-    controls.autoRotateSpeed = .25;
-    controls.maxDistance = 350;
-    controls.minDistance = 50;
+    controls.autoRotateSpeed = .15;
+    controls.maxDistance = 550;
+    controls.minDistance = 30;
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
@@ -172,7 +172,7 @@ function init() {
 
     // Copy Layer
     texturenucleus2.anisotropy = 24;
-const nucleus2Radius = 112 * blobScale; // 10 units larger than the first nucleus
+const nucleus2Radius = 111 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry2 = new THREE.IcosahedronGeometry(nucleus2Radius, 10);
 const lambertMaterial2 = new THREE.MeshPhongMaterial({
     map: texturenucleus2,
@@ -187,7 +187,7 @@ scene.add(nucleus2);
 
   // Copy Layer
   texturenucleus3.anisotropy = 24;
-const nucleus3Radius = 112.5 * blobScale; // 10 units larger than the first nucleus
+const nucleus3Radius = 112 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry3 = new THREE.IcosahedronGeometry(nucleus3Radius, 10);
 const lambertMaterial3 = new THREE.MeshPhongMaterial({
   map: texturenucleus3,
@@ -216,17 +216,29 @@ nucleus4.rotation.y -= 0.002;
 // End of Copy layer
 
 // Copy Layer
-texturenucleus10.anisotropy = 24;
-const nucleus10Radius = 114 * blobScale; // 10 units larger than the first nucleus
+// Define the nucleus10 object
+const nucleus10Radius = 114 * blobScale;
 const icosahedronGeometry10 = new THREE.IcosahedronGeometry(nucleus10Radius, 10);
 const lambertMaterial10 = new THREE.MeshPhongMaterial({
-map: texturenucleus10,
-transparent: true,
-opacity: 0.9,
+    map: texturenucleus10,
+    transparent: true,
+    opacity: 0.9,
 });
 const nucleus10 = new THREE.Mesh(icosahedronGeometry10, lambertMaterial10);
 nucleus10.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus10);
+
+// Rotation speed in radians per second
+const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second
+
+// Function to rotate the nucleus10 counterclockwise by a certain angle
+function rotateNucleus10() {
+    nucleus10.rotation.y -= rotationSpeed; // Rotate counterclockwise
+}
+
+// Call the rotateNucleus10 function every 1000 milliseconds (1 second)
+setInterval(rotateNucleus10, 5);
+
 
 // End of Copy layer
 // Copy Layer
@@ -346,7 +358,10 @@ scene.add(nucleus11);
 }
 
 
+
+
 function animate() {
+
 
     //Stars  Animation
     stars.geometry.vertices.forEach(function (v) {
