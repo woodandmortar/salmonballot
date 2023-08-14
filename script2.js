@@ -14,9 +14,9 @@ function init()
 
 function threeDJitter()
 {
-	let randomX = Math.random()*5; //0-5
-	let randomY = Math.random()*5+30; //30-35
-	let randomZ = Math.random()*5;
+	let randomX = Math.random()*3; //0-5
+	let randomY = Math.random()*3; //30-35
+	let randomZ = Math.random()*3;
 	let randomTime = Math.random()*2000+2000;
 		thatDiv.style.transform = 'rotateX('+randomX+'deg) rotateY('+randomY+'deg) rotateZ('+randomZ+'deg)';
 

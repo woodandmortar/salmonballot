@@ -65,7 +65,8 @@ function init() {
     const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
     const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
 
-
+    // Rotation speed in radians per second
+    const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second
 
 
 
@@ -91,12 +92,20 @@ function init() {
     const lambertMaterial9 = new THREE.MeshPhongMaterial({
     map: texturenucleus9,
     transparent: true,
-    opacity: 0.9,
+    opacity: 0.7,
     });
     const nucleus9 = new THREE.Mesh(icosahedronGeometry9, lambertMaterial9);
     nucleus9.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
     scene.add(nucleus9);
+    const rotationSpeed9 = THREE.MathUtils.degToRad(.2); // 30 degrees per second
 
+    // Function to rotate the nucleus10 counterclockwise by a certain angle
+    function rotateNucleus9() {
+        nucleus9.rotation.x -= rotationSpeed9; // Rotate counterclockwise
+    }
+
+    // Call the rotateNucleus10 function every 1000 milliseconds (1 second)
+    setInterval(rotateNucleus9, 5);
     // End of Copy layer
 
 
@@ -107,11 +116,20 @@ function init() {
     const lambertMaterial8 = new THREE.MeshPhongMaterial({
     map: texturenucleus8,
     transparent: true,
-    opacity: 0.9,
+    opacity: 0.7,
     });
     const nucleus8 = new THREE.Mesh(icosahedronGeometry8, lambertMaterial8);
     nucleus8.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
     scene.add(nucleus8);
+    const rotationSpeed8 = THREE.MathUtils.degToRad(.2); // 30 degrees per second
+
+    // Function to rotate the nucleus10 counterclockwise by a certain angle
+    function rotateNucleus8() {
+        nucleus8.rotation.y -= rotationSpeed8; // Rotate counterclockwise
+    }
+
+    // Call the rotateNucleus10 function every 1000 milliseconds (1 second)
+    setInterval(rotateNucleus8, 5);
 
     // End of Copy layer
 
@@ -160,6 +178,15 @@ function init() {
     nucleus7.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
     scene.add(nucleus7);
 
+    const rotationSpeed7 = THREE.MathUtils.degToRad(.2); // 30 degrees per second
+
+    // Function to rotate the nucleus10 counterclockwise by a certain angle
+    function rotateNucleus7() {
+        nucleus7.rotation.y -= rotationSpeed7; // Rotate counterclockwise
+    }
+
+    // Call the rotateNucleus10 function every 1000 milliseconds (1 second)
+    setInterval(rotateNucleus7, 5);
     // End of Copy layer
 
 
@@ -228,8 +255,7 @@ const nucleus10 = new THREE.Mesh(icosahedronGeometry10, lambertMaterial10);
 nucleus10.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus10);
 
-// Rotation speed in radians per second
-const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second
+
 
 // Function to rotate the nucleus10 counterclockwise by a certain angle
 function rotateNucleus10() {
