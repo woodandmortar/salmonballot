@@ -5,7 +5,7 @@ body {
     height: 100vh;
     background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
     background-size: cover;
-    backdrop-filter:  brightness(50%);
+    backdrop-filter:  brightness(70%);
 }
 
 canvas {
@@ -17,24 +17,134 @@ canvas {
     height: 100vh;
 }
 
-button {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid white;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    padding: 0.5rem 0.9em;
-    background: #000000;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all .3s;
+
+
+h1
+{
+  width: 100%;
+  top: -11vw;
+  text-align: center;
+  color: rgba(125,240,250, 0.8);
+  position: absolute;
+  /* color: white; */
+  font-size:7vw;
+  font-family: "Righteous";
+  transform: translateZ(10vw);
 }
 
-button:hover {
-    background: #ffffff;
-    color: #000000;
+
+p
+{
+  font-family: "Righteous";
+  color: rgba(125,240,250, 0.8);
+  text-align: center;
+  font-size: 3vw;
+  position: absolute;
+  word-wrap: break-word;
+  width: 95vw;
+  top: 3vw;
+  padding: 1vw;
+}
+
+.mainPerspective
+{
+  perspective: 100vw;
+  transform-style: preserve-3d;
+}
+
+.animated
+{
+	transition: all 0.5s linear 0s;
+}
+.jitterAnimated
+{
+	transition: all 5s ease 0s;
+}
+
+.bordered
+{
+  border-radius: 2vw;
+  border: 0.3vw solid rgba(125, 240, 250, 0.8);
+}
+
+#firstImage
+{
+  position: absolute;
+  top:0
+}
+
+#backgroundImage
+{
+  width: 100vw;
+  margin: 0;
+  position: absolute;
+  top:0;
+  opacity: 0.5;
+}
+
+#thatDiv
+{
+  position: absolute;
+  width: 98vw;
+  height: 50vh;
+  bottom: 1px;
+  left: 1vw;
+}
+
+button
+{
+  border: 0.8vw rgb(125,240,250) dashed;
+  /* border-style: ; */
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 6vw;
+  height: 6vw;
+  opacity: 0.8;
+  font-size: 3vw;
+  animation: spin 50s linear infinite;
+}
+
+button:hover
+{
+  background-color: rgb(125,240,250);
+  cursor: pointer;
+}
+
+#rightDiv
+{
+  position: absolute;
+  width: 20vw;
+  height: 20vh;
+  top: 5vw;
+  right: 10vw;
+  background-image: url("https://woodandmortar.com/salmonballot/jelly2.png");
+  background-size: cover;
+}
+
+#rightDiv h1
+{
+  transform: translateZ(1vw);
+}
+
+#rightDiv p
+{
+  transform: translateZ(1vw);
+}
+
+#rightDiv2
+{
+  position: absolute;
+  width: 30vw;
+  height: 60vh;
+  top: 75vh;
+  right: 10vw;
+}
+
+@keyframes spin
+{
+  0% { transform: rotate(0deg) translateZ(2vw);}
+  100% { transform: rotate(360deg) translateZ(2vw);}
 }

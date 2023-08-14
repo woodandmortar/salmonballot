@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Globe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
+  <div id='thatDiv' class='jitterAnimated bordered'>
+    <p id="textData" class='textGlow animated'>A cluster of artificial islands built on ideals of
+       equality and sharing. Resources are distributed to all.</p>
+<button id="centerCameraButton" class='animated'></button>
+  </div>
+
+  <div id='rightDiv' class='jitterAnimated bordered'>
+    <h1 id="names" class='textGlow animated'>Collective</h1>
+    </p>
+  </div>
 <!-- partial:index.partial.html -->
 <!-- Inside the <body> tag of your HTML -->
-<button id="centerCameraButton">Center Camera</button>
 
 <div id="canvas_container"></div>
 
@@ -17,7 +27,8 @@
 <!-- partial -->
   <script src='https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/three@0.121.1/examples/js/controls/OrbitControls.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js'></script><script  src="./script.js"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js'></script>
+<script  src="./script.js"></script>
+<script  src="./script2.js"></script>
 </body>
 </html>
