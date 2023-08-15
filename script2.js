@@ -43,3 +43,30 @@ function randomiseBlur()
 
 	let allImage = document.getElementsByClassName('imageGlow');
 }
+
+
+// script.js
+
+const modalBg = document.getElementById('modalBg');
+const bookFrame = document.getElementById('bookFrame');
+
+thoseDiv1.addEventListener('click', () => {
+    // Set the source of the iframe to the book.html file
+    bookFrame.src = 'book.html';
+
+    // Show the modal background
+    modalBg.style.display = 'block';
+});
+
+modalBg.addEventListener('click', () => {
+    // Hide the modal background when clicked
+    modalBg.style.display = 'none';
+    // Clear the iframe source
+    bookFrame.src = '';
+});
+
+
+	 thoseDiv2.addEventListener("click", () => {
+		 // Close the book and return to the main content
+		 modalBg.style.display = 'none';
+	 });

@@ -374,13 +374,31 @@ scene.add(nucleus11);
         // Calculate the position to center the camera over the cube
         const cubePosition = cube.position.clone();
         const cameraDistance = 250; // Adjust as needed
-        const cameraPosition = cubePosition.clone().add(new THREE.Vector3(0, 0, cameraDistance));
+        const cameraPosition = cubePosition.clone().add(new THREE.Vector3(100, 100, cameraDistance));
 
         // Set the camera's position and update the controls
         camera.position.copy(cameraPosition);
         controls.target.copy(cubePosition);
         controls.update();
     }
+    // Add an event listener to the button
+    const centerCameraButton2 = document.getElementById("centerCameraButton2");
+    centerCameraButton2.addEventListener("click", centerCameraOverCube2);
+
+    // Define the function to center the camera over the cube
+    function centerCameraOverCube2() {
+        // Calculate the position to center the camera over the cube
+        const cubePosition = cube.position.clone();
+        const cameraDistance = -250; // Adjust as needed
+        const cameraPosition = cubePosition.clone().add(new THREE.Vector3(300, 300, cameraDistance));
+
+        // Set the camera's position and update the controls
+        camera.position.copy(cameraPosition);
+        controls.target.copy(cubePosition);
+        controls.update();
+    }
+
+
 }
 
 

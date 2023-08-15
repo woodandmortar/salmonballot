@@ -21,13 +21,14 @@ canvas {
 
 h1
 {
-  width: 100%;
-  left: -11vw;
+  width: 80%;
+  left: -80px;
+  bottom: -80px;
   text-align: center;
   color: rgba(125,240,250, 0.8);
   position: absolute;
   /* color: white; */
-  font-size:7vw;
+  font-size:3em;
   font-family: "Righteous";
   opacity: .7;
 }
@@ -41,7 +42,6 @@ p
   font-size: 1.4em;
   position: block;
   word-wrap: break-word;
-  width: 398px;
 }
 
 
@@ -81,21 +81,40 @@ p
   opacity: 0.5;
 }
 
-#thatDiv
-{
+#thatDiv {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
   position: absolute;
   bottom: 0%;
   right: 0px;
 }
 
-#thoseDiv
-{
-  position: block;
-  width: 400px;
+#thoseDiv {
+  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  width: 20vw;
+  margin: 5px; /* Add some space between items */
 }
-#thoseDiv:hover
-{
-  background-color: rgb(125,240,250,.3);
+#thoseDiv:hover {
+  background-color: rgba(125, 240, 250, 0.3);
+  cursor: pointer;
+}
+#thoseDiv1 {
+  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  width: 20vw;
+  margin: 5px; /* Add some space between items */
+}
+#thoseDiv1:hover {
+  background-color: rgba(125, 240, 250, 0.3);
+  cursor: pointer;
+}
+#thoseDiv2 {
+  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  width: 20vw;
+  margin: 5px; /* Add some space between items */
+}
+#thoseDiv2:hover {
+  background-color: rgba(125, 240, 250, 0.3);
   cursor: pointer;
 }
 button
@@ -120,16 +139,6 @@ button:hover
   cursor: pointer;
 }
 
-.mainText
-{
-  position: absolute;
-  z-index: 999999;
-  width:600px;
-  height: 600px;
-  top: 20px;
-  left: 20px;
-    overflow: hidden;
-}
 
 
 #rightDiv
@@ -153,7 +162,7 @@ button:hover
 /* CSS for the typing animation */
 .typing-animation {
   overflow: auto;
-  border-right: .15em solid #0074D9; /* Change the color as needed */
+  border-right: .15em solid rgba(125, 240, 250, 0.8); /* Change the color as needed */
   margin: auto;
   padding: auto;
   width: 95%;
@@ -178,6 +187,50 @@ button:hover
     border-color: transparent;
   }
   50% {
-    border-color: #0074D9; /* Change the color as needed */
+    border-color: rgba(125, 240, 250, 0.8); /* Change the color as needed */
   }
+}
+
+
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#popupContainer button {
+    margin-top: 10px;
+}
+
+#popupContainer.active {
+    display: block;
+}
+
+
+
+.modal-bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95vw;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 99999999;
+}
+
+.modal-content {
+    display: block;
+    width: 95vw;
+    height: 80vh;
+    margin: 5vh auto;
+    border: none;
+    background-color: white;
 }
