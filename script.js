@@ -48,7 +48,7 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
     const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
     const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
@@ -60,6 +60,7 @@ function init() {
     const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/cloudLayer.png');
     const texturenucleus11 = loader.load('https://woodandmortar.com/salmonballot/textLayer.png');
     const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/lightLayer.png');
+    const texturenucleus13 = loader.load('https://woodandmortar.com/salmonballot/mercatoLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
     const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
@@ -267,6 +268,22 @@ setInterval(rotateNucleus10, 5);
 
 
 // End of Copy layer
+
+// Copy Layer
+texturenucleus13.anisotropy = 24;
+const nucleus13Radius = 116 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry13 = new THREE.IcosahedronGeometry(nucleus13Radius, 10);
+const lambertMaterial13 = new THREE.MeshPhongMaterial({
+map: texturenucleus13,
+transparent: true,
+opacity: 0.9,
+});
+const nucleus13 = new THREE.Mesh(icosahedronGeometry13, lambertMaterial13);
+nucleus13.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus13);
+
+// End of Copy layer
+
 // Copy Layer
 texturenucleus12.anisotropy = 24;
 const nucleus12Radius = 119 * blobScale; // 10 units larger than the first nucleus
@@ -284,7 +301,7 @@ scene.add(nucleus12);
 
 // Copy Layer
 texturenucleus11.anisotropy = 24;
-const nucleus11Radius = 150 * blobScale; // 10 units larger than the first nucleus
+const nucleus11Radius = 140 * blobScale; // 10 units larger than the first nucleus
 const icosahedronGeometry11 = new THREE.IcosahedronGeometry(nucleus11Radius, 10);
 const lambertMaterial11 = new THREE.MeshPhongMaterial({
 map: texturenucleus11,
@@ -398,6 +415,24 @@ scene.add(nucleus11);
         controls.update();
     }
 
+    // Variable to store the camera's position
+    let storedCameraPosition = null;
+
+    // Function to update camera position display and the variable
+    function updateCameraPosition() {
+        const cameraPosition = camera.position;
+        storedCameraPosition = cameraPosition.clone(); // Store the camera position in the variable
+
+        // Display the camera position in the <p> element
+        const cameraPositionElement = document.getElementById("cameraPosition");
+        cameraPositionElement.textContent = `X=${cameraPosition.x.toFixed(2)}, Y=${cameraPosition.y.toFixed(2)}, Z=${cameraPosition.z.toFixed(2)}`;
+    }
+
+    // Attach the updateCameraPosition function to the button's click event
+    const updateCameraButton = document.getElementById("updateCameraButton");
+    updateCameraButton.addEventListener("click", updateCameraPosition);
+
+
 
 }
 
@@ -432,7 +467,7 @@ function animate() {
                v.x + time * 0.0005,
                v.y + time * 0.0003,
                v.z + time * 0.0008
-           ) * blobScale;
+           ) * (blobScale/.2);
            v.multiplyScalar(distance);
        })
        nucleus.geometry.verticesNeedUpdate = true;
