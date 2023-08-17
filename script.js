@@ -48,12 +48,13 @@ function init() {
 
     const loader = new THREE.TextureLoader();
     const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/purpLayer.png');
     const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
     const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
     const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
     const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
-    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
+    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
+    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/goldLayer.png');
     const texturenucleus8 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
     const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
     const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/cloudLayer.png');
@@ -61,9 +62,6 @@ function init() {
     const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/lightLayer.png');
     const texturenucleus13 = loader.load('https://woodandmortar.com/salmonballot/mercatoLayer.png');
     const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
-    const texture1 = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
-    const texture2 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
-    const texture4 = loader.load("https://woodandmortar.com/salmonballot/jelly2.png");
 
     // Rotation speed in radians per second
     const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second
@@ -98,10 +96,10 @@ function init() {
     nucleus9.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
     scene.add(nucleus9);
     const rotationSpeed9 = THREE.MathUtils.degToRad(.2); // 30 degrees per second
-
+nucleus9.rotation.x += 90;
     // Function to rotate the nucleus10 counterclockwise by a certain angle
     function rotateNucleus9() {
-        nucleus9.rotation.x -= rotationSpeed9; // Rotate counterclockwise
+        nucleus9.rotation.y += rotationSpeed9; // Rotate counterclockwise
     }
 
     // Call the rotateNucleus10 function every 1000 milliseconds (1 second)
@@ -125,7 +123,7 @@ function init() {
 
     // Function to rotate the nucleus10 counterclockwise by a certain angle
     function rotateNucleus8() {
-        nucleus8.rotation.y -= rotationSpeed8; // Rotate counterclockwise
+        nucleus8.rotation.y += rotationSpeed8; // Rotate counterclockwise
     }
 
     // Call the rotateNucleus10 function every 1000 milliseconds (1 second)
@@ -178,24 +176,106 @@ function init() {
     // End of Copy layer
 
 
-    const cubeGeometry = new THREE.BoxGeometry(965, 965, 15);
-    const cubeGeometry2 = new THREE.BoxGeometry(15, 965, 965);
-
+    const cubeGeometry = new THREE.BoxGeometry(25, 25, 25);
     const cubeMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus7 });
     const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.position.set(80, -40, -70); // Adjust position based on your needs
+    cube.position.set(180, -40, -70); // Adjust position based on your needs
     cube.rotation.y = Math.PI / 2;
     nucleus.add(cube);
 
-    const cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube2.position.set(80, -40, -170); // Adjust position based on your needs
-    cube2.rotation.y = Math.PI;
-    nucleus.add(cube2);
 
-    const cube3 = new THREE.Mesh(cubeGeometry2, cubeMaterial);
-    cube3.position.set(80, 40, 170); // Adjust position based on your needs
-    cube3.rotation.y = Math.PI;
-    nucleus.add(cube3);
+    const cubeWallMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus6 });
+
+    let cube2Position = 80;
+  let cube2Direction = 1; // 1 for moving forward, -1 for moving backward
+
+  // Create the cube
+  const cubeGeometry2 = new THREE.BoxGeometry(15, 600, 600);
+  const cube2 = new THREE.Mesh(cubeGeometry2, cubeWallMaterial);
+  cube2.position.set(cube2Position, -40, -170); // Adjust initial position based on your needs
+  cube2.rotation.y = Math.PI;
+  nucleus.add(cube2);
+
+
+  const cubeGeometry3 = new THREE.BoxGeometry(600, 600, 15);
+  const cube3 = new THREE.Mesh(cubeGeometry3, cubeWallMaterial);
+  cube3.position.set(80, 40, 170); // Adjust position based on your needs
+  cube3.rotation.y = Math.PI;
+  nucleus.add(cube3);
+
+
+
+
+
+
+    const cubeGeometry4 = new THREE.BoxGeometry(600, 15, 600);
+    const cube4 = new THREE.Mesh(cubeGeometry4, cubeWallMaterial);
+    cube4.position.set(280, 290, 70); // Adjust position based on your needs
+    cube4.rotation.y = Math.PI;
+    nucleus.add(cube4);
+
+    const cubeGeometry5 = new THREE.BoxGeometry(600, 15, 600);
+    const cube5 = new THREE.Mesh(cubeGeometry5, cubeWallMaterial);
+    cube5.position.set(-280, 90, 270); // Adjust position based on your needs
+    cube5.rotation.y = Math.PI;
+    nucleus.add(cube5);
+
+    const cubeGeometry6 = new THREE.BoxGeometry(600, 15, 600);
+    const cube6 = new THREE.Mesh(cubeGeometry6, cubeWallMaterial);
+    cube6.position.set(180, -390, -370); // Adjust position based on your needs
+    cube6.rotation.y = Math.PI;
+    nucleus.add(cube6);
+
+    // Function to animate the cube's position
+    function animateCubePosition() {
+        // Update the cube's position based on the direction
+        cube2Position += cube2Direction * .5; // Adjust the step size as needed
+        cube2.position.z = cube2Position;
+        cube3.position.x = cube2Position;
+        cube6.position.y = (cube2Position) - 200;
+
+        // Check if the cube has reached the desired limits
+        if (cube2Position >= 280 || cube2Position <= 80) {
+            // Reverse the direction to move back
+            cube2Direction *= -1;
+        }
+
+        // Request the next animation frame
+        requestAnimationFrame(animateCubePosition);
+    }
+
+    // Start the animation loop
+    animateCubePosition();
+
+    const sphereGeometry = new THREE.SphereGeometry(10, 32, 32);
+const sphereMaterial = new THREE.MeshPhongMaterial({
+  color: 0xffffff,
+   transparent: true,
+   opacity: 0.6,
+ });
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+scene.add(sphere);
+
+// Example: CylinderGeometry
+const cylinderGeometry = new THREE.CylinderGeometry(10, 10, 20, 32);
+const cylinderMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+cylinder.position.set(-20, 0, 0);
+scene.add(cylinder);
+
+// Example: ConeGeometry
+const coneGeometry = new THREE.ConeGeometry(10, 20, 32);
+const coneMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+const cone = new THREE.Mesh(coneGeometry, coneMaterial);
+cone.position.set(20, 0, 0);
+scene.add(cone);
+
+// Example: TorusGeometry
+const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const torusMaterial = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+torus.position.set(0, 0, -20);
+scene.add(torus);
 
 
     // Copy Layer
@@ -314,6 +394,8 @@ scene.add(nucleus11);
 
 // End of Copy layer
 
+
+
     /*    Sphere  Background   */
     textureSphereBg.anisotropy = 0;
     let geometrySphereBg = new THREE.SphereBufferGeometry(40, 40, 40);
@@ -328,10 +410,10 @@ scene.add(nucleus11);
     /*    Moving Stars   */
     let starsGeometry = new THREE.Geometry();
 
-    for (let i = 0; i < 7; i++) {
-        let particleStar = randomPointSphere(90);
+    for (let i = 0; i < 14; i++) {
+        let particleStar = randomPointSphere(800);
 
-        particleStar.velocity = THREE.MathUtils.randInt(50, 100);
+        particleStar.velocity = 2000;
 
         particleStar.startX = particleStar.x;
         particleStar.startY = particleStar.y;
@@ -340,7 +422,7 @@ scene.add(nucleus11);
         starsGeometry.vertices.push(particleStar);
     }
     let starsMaterial = new THREE.PointsMaterial({
-        size: 4,
+        size: 24,
         color: "#ffffff",
         map: textureStar,
         blending: THREE.AdditiveBlending,
@@ -352,23 +434,25 @@ scene.add(nucleus11);
 
     /*    Fixed Stars   */
     function createStars(texture, size, total) {
-        let pointGeometry = new THREE.Geometry();
-        let pointMaterial = new THREE.PointsMaterial({
-            size: size,
-            map: texture,
-            blending: THREE.AdditiveBlending,
-        });
+  for (let i = 0; i < total; i++) {
+    let radius = THREE.MathUtils.randInt(70, 590); // Adjust radius range as needed
+    let position = randomPointSphere(radius);
 
-        for (let i = 30; i > total; i--) {
-            let radius = THREE.MathUtils.randInt(90, 70);
-            let particles = randomPointSphere(radius);
-            pointGeometry.vertices.push(particles);
-        }
-        return new THREE.Points(pointGeometry, pointMaterial);
-    }
-    scene.add(createStars(texture1, 5, 20));
-    scene.add(createStars(texture2, 10, 15));
-    scene.add(createStars(texture4, 15, 10));
+    const sphereGeometry = new THREE.SphereGeometry(10, 32, 32);
+    const sphereMaterial = new THREE.MeshPhongMaterial({
+      map: texturenucleus7,
+      transparent: true,
+      opacity: 0.4,
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.copy(position);
+    sphere.rotation.copy(nucleus.rotation);
+    scene.add(sphere);
+  }
+}
+createStars(texturenucleus6, 5, 20);
+createStars(texturenucleus6, 10, 15);
+createStars(texturenucleus6, 15, 10);
 
 
     function randomPointSphere (radius) {

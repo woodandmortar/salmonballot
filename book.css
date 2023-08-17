@@ -189,7 +189,7 @@ body {
 }
 
 .open-book mark.orange {
-    background: linear-gradient(to bottom, rgba(255,134,9,1) 0%,rgba(255,177,34,0.5) 60%,rgba(255,177,34,1) 100%);
+    background: linear-gradient(to bottom, rgba(64,224,208,1) 0%,rgba(64,224,208,0.3) 60%,rgba(64,224,208,1) 100%);
 }
 
 .open-book hr {
@@ -207,7 +207,15 @@ body {
     padding: 1em 0;
 }
 
+.open-book dl:hover {
+  background-color: rgba(125, 240, 250, 0.3);
+  cursor: pointer;
+}
 
+#hoverText:hover {
+  background-color: rgba(125, 240, 250, 0.3);
+  cursor: pointer;
+}
 
 /*** MEDIA QUERIES ***/
 @media only screen and ( min-width: 50em ) {
