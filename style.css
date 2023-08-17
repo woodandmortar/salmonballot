@@ -3,7 +3,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
+    background-image: url("https://woodandmortar.com/salmonballot/background2.png");
     background-size: cover;
     backdrop-filter:  brightness(70%);
 }
@@ -83,17 +83,20 @@ p
 }
 
 #thatDiv {
-  display: flex;
+  position: block;
+  top: 5%;
+  right: 3%;
+  transform: translate(-5%, -5%);
+    -webkit-flex-direction: column;
+      flex-direction: column;
   align-items: center; /* Vertically center content */
   justify-content: center; /* Horizontally center content */
   position: absolute;
-  top: 0%;
-  right: 0px;
 }
 
 #thoseDiv {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
-  width: 18vw;
+  width: 50px;
   margin: 5px; /* Add some space between items */
 }
 #thoseDiv:hover {
@@ -102,7 +105,7 @@ p
 }
 #thoseDiv1 {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
-  width: 18vw;
+  width: 50px;
   margin: 5px; /* Add some space between items */
 }
 #thoseDiv1:hover {
@@ -111,7 +114,7 @@ p
 }
 #thoseDiv2 {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
-  width: 18vw;
+  width: 50px;
   margin: 5px; /* Add some space between items */
 }
 #thoseDiv2:hover {
@@ -120,7 +123,7 @@ p
 }
 #updateCameraButton {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
-  width: 15vw;
+  width: 50px;
   margin: 5px; /* Add some space between items */
 }
 #updateCameraButton:hover {
@@ -151,22 +154,12 @@ button:hover
 
 
 
-#rightDiv
-{
-  position: absolute;
-  width: 20vh;
-  height: 20vh;
-  bottom: 2vw;
-  right: 2vw;
-  background-image: url("https://woodandmortar.com/salmonballot/jelly2.png");
-  background-size: cover;
-}
 
 
 @keyframes spin
 {
-  0% { transform: rotate(0deg) translateZ(2vw);}
-  100% { transform: rotate(360deg) translateZ(2vw);}
+  0% { transform: rotate(0deg) translateZ(1vw);}
+  100% { transform: rotate(360deg) translateZ(1vw);}
 }
 
 /* CSS for the typing animation */
@@ -230,17 +223,16 @@ button:hover
     position: absolute;
     top: 0;
     left: 0;
-    width: 95vw;
-    height: 80vh;
+    width: 90%;
+    height: 90%;
     background-color: rgba(0, 0, 0, 0);
     z-index: 99999999;
 }
 
 .modal-content {
     display: block;
-    width: 95vw;
-    height: 80vh;
-    margin: 5vh auto;
+    width: 90%;
+    height: 90%;
     border: none;
     background-color: white;
 }

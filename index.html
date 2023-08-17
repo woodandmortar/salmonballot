@@ -5,6 +5,9 @@
   <title>Globe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
+  <script src="https://threejs.org/examples/js/libs/tween.min.js"></script>
 
 </head>
 <body>
@@ -13,26 +16,22 @@
  </div>
   <div id='thatDiv' class='jitterAnimated'>
     <div id='thoseDiv1' class=' bordered'>
-      <p class="textGlow animated">Journal</p>
+      <p class="textGlow animated">J</p>
     </div>
     <div id='thoseDiv2' class='bordered'>
-<p class="textGlow animated">Map</p>
+<p class="textGlow animated">M</p>
 </div>
 <div id='updateCameraButton' class='bordered'>
-<p class="textGlow animated">Locate</p>
+<p class="textGlow animated">L</p>
 </div>
 <div id='thoseDiv' class='bordered'>
-<p id="centerCameraButton" class="textGlow animated">Zoom</p>
+<p id="centerCameraButton" class="textGlow animated">Z</p>
 </div>
 <div id='thoseDiv' class='bordered'>
-<p id="centerCameraButton2" class="textGlow animated">Reset</p>
+<p id="centerCameraButton2" class="textGlow animated">R</p>
 </div></div>
 
-
-  <div id='rightDiv' class='jitterAnimated bordered'>
-    <h1 id="cameraPosition" class='textGlow animated'>Location</h1>
-    </p>
-  </div>
+  <h1 id="cameraPosition" class='textGlow animated'>Political Heading</h1>
 
 <!-- partial:index.partial.html -->
 <!-- Inside the <body> tag of your HTML -->
