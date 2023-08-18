@@ -69,20 +69,96 @@ modalBg.addEventListener('click', () => {
 		 modalBg.style.display = 'none';
 	 });
 
-	 function createLetterMesh(text, font, size) {
-	     const textGeometry = new THREE.TextGeometry(text, {
-	         font: font,
-	         size: size,
-	         height: 5, // Adjust as needed
-	         curveSegments: 12,
-	         bevelEnabled: true,
-	         bevelThickness: 1,
-	         bevelSize: 0.5,
-	         bevelOffset: 0,
-	         bevelSegments: 5,
-	     });
 
-	     const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-	     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-	     return textMesh;
-	 }
+
+
+	 window.addEventListener('message', event => {
+	   if (event.data.progressive !== undefined) {
+	     const progressiveSpan = document.getElementById('progressive');
+	     if (progressiveSpan) {
+	       const currentValue = parseInt(progressiveSpan.textContent);
+	       const newValue = currentValue + event.data.progressive;
+	       progressiveSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.socialist !== undefined) {
+	     const socialistSpan = document.getElementById('socialist');
+	     if (socialistSpan) {
+	       const currentValue = parseInt(socialistSpan.textContent);
+	       const newValue = currentValue + event.data.socialist;
+	       socialistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.idealist !== undefined) {
+	     const idealistSpan = document.getElementById('idealist');
+	     if (idealistSpan) {
+	       const currentValue = parseInt(idealistSpan.textContent);
+	       const newValue = currentValue + event.data.idealist;
+	       idealistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.globalist !== undefined) {
+	     const globalistSpan = document.getElementById('globalist');
+	     if (globalistSpan) {
+	       const currentValue = parseInt(globalistSpan.textContent);
+	       const newValue = currentValue + event.data.globalist;
+	       globalistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.conservative !== undefined) {
+	     const conservativeSpan = document.getElementById('conservative');
+	     if (conservativeSpan) {
+	       const currentValue = parseInt(conservativeSpan.textContent);
+	       const newValue = currentValue + event.data.conservative;
+	       conservativeSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.economist !== undefined) {
+	     const economistSpan = document.getElementById('economist');
+	     if (economistSpan) {
+	       const currentValue = parseInt(economistSpan.textContent);
+	       const newValue = currentValue + event.data.economist;
+	       economistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.realist !== undefined) {
+	     const realistSpan = document.getElementById('realist');
+	     if (realistSpan) {
+	       const currentValue = parseInt(realistSpan.textContent);
+	       const newValue = currentValue + event.data.realist;
+	       realistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.nationalist !== undefined) {
+	     const nationalistSpan = document.getElementById('nationalist');
+	     if (nationalistSpan) {
+	       const currentValue = parseInt(nationalistSpan.textContent);
+	       const newValue = currentValue + event.data.nationalist;
+	       nationalistSpan.textContent = newValue;
+	     }
+	   }
+	 });
+	 window.addEventListener('message', event => {
+	   if (event.data.populist !== undefined) {
+	     const populistSpan = document.getElementById('populist');
+	     if (populistSpan) {
+	       const currentValue = parseInt(populistSpan.textContent);
+	       const newValue = currentValue + event.data.populist;
+	       populistSpan.textContent = newValue;
+	     }
+	   }
+	 });

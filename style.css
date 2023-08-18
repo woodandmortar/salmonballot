@@ -121,6 +121,16 @@ p
   background-color: rgba(125, 240, 250, 0.3);
   cursor: pointer;
 }
+#thoseDiv3 {
+  position: absolute; /* Don't grow or shrink, maintain original size */
+  width: 300px;
+  margin: 5px; /* Add some space between items */
+  top: 100px;
+}
+#thoseDiv3:hover {
+  background-color: rgba(125, 240, 250, 0.3);
+  cursor: pointer;
+}
 #updateCameraButton {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
   width: 50px;

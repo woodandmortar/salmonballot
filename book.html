@@ -4,8 +4,8 @@
 
         <section class="open-book">
             <header>
-                <h1>2531 AD</h1>
-                <h6>Captain's log</h6>
+                <h1>Chapter 1</h1>
+                <h6>2531 AD</h6>
             </header>
             <article>
                 <h2 class="chapter-title">I did not kill myself</h2>
@@ -26,14 +26,21 @@
                         <em>-Action step</em><br>
 
 
-                <dl id="option1a" onclick="run1a();">  You drag your eyes open to investigate the room and the person you can hear. It’s better to get a bit of help from those around you. (Globalist 2, Idealist 2, Progressive 1, Socialist 1)</dl>
-                <dl id="option2a" onclick="run2a();">  You pretend to stay asleep. You can gather more information once this person leaves and you can take a look around unobserved. It’s better to stay to yourself and figure out what to do. (Economist 1, Realist 1)</dl>
-                  <dl id="option3a" onclick="run3a();"> You fling your eyes open and prepare yourself to start demanding some answers. It’s better to (Nationalist 2, Populist 1, Conservative 2)</dl>
+                <dl id="option1a" onclick="run1a();">  You drag your eyes open to investigate the room and the person you can hear. It’s better to get a bit of help from those around you.</dl>
+                <dl id="option2a" onclick="run2a();">  You pretend to stay asleep. You can gather more information once this person leaves and you can take a look around unobserved. It’s better to stay to yourself and figure out what to do.</dl>
+                  <dl id="option3a" onclick="run3a();"> You fling your eyes open and prepare yourself to start demanding some answers.</dl>
 <script>
 
 
-
 function run1a(){
+  const progressiveValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ progressive: progressiveValue }, '*');
+  const socialistValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ socialist: socialistValue }, '*');
+  const idealistValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ idealist: idealistValue }, '*');
+  const globalistValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ globalist: globalistValue }, '*');
   document.getElementById('option1b').style.display = "block";
   const option1a = document.getElementById('option1a');
   document.getElementById('option1a').disabled = true;
@@ -45,6 +52,10 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
+  const economistValue = 1; // Or any value you want to add to economist
+  window.parent.postMessage({ economist: economistValue }, '*');
+  const realistValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ realist: realistValue }, '*');
   document.getElementById('option2b').style.display = "block";
   const option2a = document.getElementById('option2a');
   document.getElementById('option2a').disabled = true;
@@ -56,6 +67,16 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
+  killPopulist();
+  killConservative();
+  killNationalist();
+  const populistValue = 1; // Or any value you want to add to populist
+  window.parent.postMessage({ populist: populistValue }, '*');
+  const conservativeValue = 1; // Or any value you want to add to Progressive
+  window.parent.postMessage({ conservative: conservativeValue }, '*');
+  const nationalistValue = 1; // Or any value you want to add to nationalist
+  window.parent.postMessage({ nationalist: nationalistValue }, '*');
+
   document.getElementById('option3b').style.display = "block";
   const option3a = document.getElementById('option3a');
   document.getElementById('option3a').disabled = true;
@@ -117,7 +138,7 @@ function run3a(){
             <footer>
                 <ol id="page-numbers">
                     <li id="backButton" style="display:none;">Back</li>
-                  <li id="nextButton" style="display:none;" onclick="location.replace('chapter2.html')">Next Page</li>
+                  <li id="nextButton" style="display:none;" onclick="location.replace('chapter1a.html')">Next Page</li>
                 </ol>
             </footer>
         </section>
