@@ -54,11 +54,13 @@ thoseDiv1.addEventListener('click', () => {
 
     // Show the modal background
     modalBg.style.display = 'block';
+		canvas_container.style.opacity = '0.1';
 });
 
 modalBg.addEventListener('click', () => {
     // Hide the modal background when clicked
     modalBg.style.display = 'none';
+		canvas_container.style.opacity = '1';
     // Clear the iframe source
     bookFrame.src = '';
 });
@@ -162,3 +164,48 @@ modalBg.addEventListener('click', () => {
 	     }
 	   }
 	 });
+
+
+
+
+	 let populations = {
+     progressive: 108655400,
+     socialist: 244940004,
+     idealist: 37840020,
+     globalist: 120000000,
+     conservative: 48544100,
+     economist: 9014400,
+     realist: 30074100,
+     nationalist: 202000,
+     populist: 244940004
+   };
+
+   function updatePopulations() {
+     let totalPopulation = 1;
+
+     for (let nation in populations) {
+       const nationSpan = document.getElementById(nation);
+       const currentValue = parseFloat(nationSpan.textContent);
+       const populationChangeFactor = currentValue > 1 ? 0.9999999991 : 1.000000000000001;
+
+       populations[nation] *= populationChangeFactor;
+       nationSpan.textContent = Math.round(populations[nation].toFixed(2));
+
+       totalPopulation += populations[nation];
+			 const popSpan = document.getElementById('population');
+			 popSpan.textContent = Math.round(totalPopulation);
+     }
+
+     const avgPopulation = totalPopulation / Object.keys(populations).length;
+     const avgSpan = document.getElementById('average');
+     avgSpan.textContent = Math.round(avgPopulation.toFixed(2));
+
+     const statusSpan = document.getElementById('status');
+     statusSpan.textContent = avgPopulation > 1 ? "Above 1" : "Under 1";
+   }
+
+   let interval;
+
+   function startUpdating() {
+     interval = setInterval(updatePopulations, 1000); // Update every second
+   }

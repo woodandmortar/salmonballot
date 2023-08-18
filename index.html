@@ -10,7 +10,8 @@
   <script src="https://threejs.org/examples/js/libs/tween.min.js"></script>
 
 </head>
-<body>
+<body onload="startUpdating()">
+
  <div class="modal-bg" id="modalBg">
      <iframe class="modal-content" id="bookFrame" src=""></iframe>
 
@@ -34,15 +35,18 @@
 </div>
 <div id='thoseDiv3' class='bordered'>
 <p id="allstats" class="textGlow animated">
-  Progressive:<span id="progressive">0</span><br>
-  Conservative:<span id="conservative">0</span><br>
-  Socialist:<span id="socialist">0</span><br>
-  Economist:<span id="economist">0</span><br>
-  Idealist:<span id="idealist">0</span><br>
-  Realist:<span id="realist">0</span><br>
-  Globalist:<span id="globalist">0</span><br>
-  Nationalist:<span id="nationalist">0</span><br>
-  Populist:<span id="populist">0</span>
+  <font style="font-size: 1.4em;">World Population: <span id="population"></span></font><br><br>
+  Ventura<font style="font-size: .8em; color: rgba(42,19,246,1);">: </font><span id="progressive"></span><br>
+  Tantrum<font style="font-size: .8em; color: rgba(230,0,0,1);">: </font><span id="conservative"></span><br>
+  Collective<font style="font-size: .8em; color: rgba(236,220,202,1);">: </font><span id="socialist"></span><br>
+  Mercado<font style="font-size: .8em; color: rgba(212,175,55,1);">: </font><span id="economist"></span><br>
+  Faxium<font style="font-size: .8em; color: rgba(0,184,0,1);">: </font><span id="idealist"></span><br>
+  Iron Coast<font style="font-size: .8em; color: rgba(115,115,115,1);">: </font><span id="realist"></span><br>
+  Eventus<font style="font-size: .8em; color: rgba(137,67,35,1);">: </font><span id="globalist"></span><br>
+  Abzimuth<font style="font-size: .8em; color: rgba(47,204,181,1);">: </font><span id="nationalist"></span><br>
+  Commune<font style="font-size: .8em; color: rgba(135,93,92,1);">: </font><span id="populist"></span><br><br>
+  Average<font style="font-size: .8em; color: rgba(135,93,92,1);">: </font><span id="average"></span><br><br>
+  Status<font style="font-size: .8em; color: rgba(135,93,92,1);">: </font><span id="status"></span>
 </p>
 </div>
 

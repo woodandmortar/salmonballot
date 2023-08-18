@@ -259,8 +259,7 @@ body {
     /* Header/Footer */
     .open-book header:before,
     .open-book header:after,
-    .open-book footer:before,
-    .open-book footer:after {
+     {
         background: #fff;
         border-radius: 25%;
         content: '';
@@ -319,7 +318,6 @@ body {
 
     .open-book footer:before,
     .open-book footer:after {
-        bottom: -2.65em;
     }
 
     .open-book footer:before {
