@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Globe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
+  <script src="https://threejs.org/examples/js/libs/tween.min.js"></script>
+
+</head>
+<body>
+
+ <div class="modal-bg" id="modalBg">
+     <iframe class="modal-content" id="bookFrame" src=""></iframe>
+
+ </div>
+  <div id='thatDiv' style="display:none;">
+    <div id='thoseDiv1'  style="display:none;">
+      <p >J</p>
+    </div>
+    <div id='thoseDiv2' style="display:none;">
+<p >M</p>
+</div>
+<div id='updateCameraButton'  style="display:none;">
+<p >L</p>
+</div>
+<div id='thoseDiv'  style="display:none;">
+<p id="centerCameraButton" >Z</p>
+</div>
+<div id='thoseDiv'  style="display:none;">
+<p id="centerCameraButton2" >R</p>
+</div>
+</div>
+<div id='thoseDiv3' >
+
+</div>
+
+  <h1 id="cameraPosition"  style="display:none;">Political Heading</h1>
+
+<!-- partial:index.partial.html -->
+<!-- Inside the <body> tag of your HTML -->
+
+<div id="canvas_container"></div>
+<!-- <button id="fullscr">Go Fullscreen</button> -->
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/three@0.121.1/examples/js/controls/OrbitControls.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js'></script>
+<script  src="./full.js"></script>
+
+
+
+</body>
+</html>

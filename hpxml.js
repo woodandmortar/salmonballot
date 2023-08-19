@@ -1,0 +1,213 @@
+
+                          const descriptAll = [
+                            "<h1>Progressive</h1><br> -  Open to new ideas and pushing boundaries to discover innovative solutions.",
+                            "<h1>Conservative</h1><br> - Values tradition and gradual change through experiencing different cultures.",
+                            "<h1>Socialist</h1><br> - Leads with compassion for the crew and equal sharing of rewards.",
+                            "<h1>Economist</h1><br> - Driven by profits and market forces, understands supply and demand dynamics.",
+                            "<h1>Idealist</h1><br> - Guided by vision and ideals to meticulously craft their work.",
+                            "<h1>Realist</h1><br> - Grounded and resilient, respects nature's harsh realities.",
+                            "<h1>Globalist</h1><br> - Operates across borders, navigating regulations and restrictions.",
+                            "<h1>Nationalist</h1><br> - Upholds law and protocol to maintain order and traditions. Stern yet fair, values duty over glory.",
+                            "<h1>Populist</h1><br> - Represents the working class, used to fight for better conditions but self-serving when push comes to shove.",
+                          ];
+
+                          const subcategories2 = {
+                            "progressive ": ["Progressive "],
+                            "conservative": ["Conservative"],
+                            "socialist": ["Socialist"],
+                            "economist": ["Economist"],
+                            "idealist": ["Idealist"],
+                            "realist": ["Realist"],
+                            "globalist": ["Globalist"],
+                            "nationalist": ["Nationalist"],
+                            "populist": ["Populist"],
+                          };
+
+                          const descriptAll2 = [
+                            "<h1>Explorer</h1><br> - An Explorer is driven by an insatiable curiosity to uncover the unknown. They thrive in uncharted territories, seeking hidden truths and unexplored frontiers. This subtrait embodies the spirit of adventure and the thrill of discovery.",
+                            "<h1>Voyager</h1><br> -  The Voyager possesses an unyielding desire for exploration and a sense of wanderlust that knows no bounds. They journey far and wide, embracing diverse cultures and embracing the richness of experiences that come with each new horizon.",
+                            "<h1>Captain</h1><br> -  A Captain is a natural leader who commands respect and authority. They are skilled at navigating the complexities of situations and guiding their crew towards success. This subtrait embodies strong leadership, strategic thinking, and a sense of responsibility.",
+                            "<h1>Merchant</h1><br> - The Merchant is astute in the art of trade and commerce. They possess a shrewd business mind and excel in negotiations, always seeking opportunities to maximize profits while balancing ethical considerations.",
+                            "<h1>Shipwright</h1><br> - A Shipwright is a master craftsman, skilled in designing and constructing the vessels that facilitate the journey. They pay meticulous attention to detail, creating vessels that are both functional and beautifully crafted.",
+                            "<h1>Fisherman</h1><br> -  The Fisherman embraces patience and persistence in their pursuit of life's rewards. They understand the ebb and flow of resources, working diligently to provide sustenance and prosperity to themselves and their community.",
+                            "<h1>Smuggler</h1><br> -  A Smuggler operates on the fringes of legality, using cunning and resourcefulness to navigate challenging situations. They possess a knack for finding unconventional solutions to problems and thrive in the shadows.",
+                            "<h1>Arbiter</h1><br> - The Arbiter is a mediator and diplomat, adept at resolving conflicts and maintaining harmony. They possess a keen sense of justice and fairness, striving to bring equilibrium to even the most contentious situations.",
+                            "<h1>Sailor</h1><br> - The Sailor is the backbone of the crew, steadfast and reliable even in the face of adversity. They embody resilience, adaptability, and a deep understanding of the rhythms of life on the journey.",
+                          ];
+
+
+                          const subcategories = {
+                            "explorer": ["Explorer"],
+                            "voyager": ["Voyager"],
+                            "captain": ["Captain"],
+                            "merchant": ["Merchant"],
+                            "shipwright": ["Shipwright"],
+                            "fisherman": ["Fisherman"],
+                            "smuggler": ["Smuggler"],
+                            "arbiter": ["Arbiter"],
+                            "sailor": ["Sailor"],
+                          };
+
+
+
+
+                          let result = '';
+                          var xaxis = 50;
+                          var yaxis = 50;
+                          var newRotation = 0;
+                          let nextPho = 0;
+
+
+
+                          function nextPhoto(){
+                            if (nextPho != 9) {
+                              nextPho += 1;
+                            }
+
+                            if (nextPho == 9) {
+                              nextPho = 0;
+                            }
+                            document.getElementById("descriptAll").innerHTML = descriptAll[nextPho];
+                            document.getElementById("descriptAll2").innerHTML = descriptAll2[nextPho];
+                          }
+
+                          window.onload = function() {
+                            document.getElementById("descriptAll").innerHTML = descriptAll[0];
+                            document.getElementById("descriptAll2").innerHTML = descriptAll2[0];
+                                    };
+
+
+                          function changeRed() {
+                              xaxis += 4;
+                              redCircle.setAttribute('cx', xaxis);
+                               newRotation += 10;
+                               needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                               populations.conservative += 250000;
+                               populations.realist -= 100000;
+                               populations.populist -= 100000;
+                               populations.socialist -= 100000;
+                          }
+                          function changeBlue() {
+                              xaxis -= 4;
+                              blueCircle.setAttribute('cx', xaxis);
+                              newRotation -= 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.progressive += 200000;
+                              populations.globalist += 100000;
+                              populations.conservative -= 150000;
+                              populations.nationalist -= 100000;
+                          }
+                          function changeGreen() {
+                              yaxis -= 3;
+                              xaxis += 3;
+                              greenCircle.setAttribute('cy', yaxis);
+                              greenCircle.setAttribute('cx', xaxis);
+                              newRotation += 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.idealist += 200000;
+                              populations.populist += 100000;
+                              populations.socialist -= 150000;
+                              populations.nationalist -= 100000;
+                              populations.conservative -= 50000;
+                          }
+                          function changeGold() {
+                              yaxis += 4;
+                              goldCircle.setAttribute('cy', yaxis);
+                              newRotation += 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.economist += 60000;
+                              populations.populist -= 60000;
+                              populations.socialist += 20000;
+                              populations.idealist += 20000;
+                              populations.nationalist += 20000;
+                              populations.conservative += 20000;
+                              populations.globalist += 20000;
+                              populations.progressive += 20000;
+                              populations.realist += 20000;
+                          }
+                          function changeBrown() {
+                              yaxis -= 3;
+                              xaxis -= 3;
+                              brownCircle.setAttribute('cx', xaxis);
+                              brownCircle.setAttribute('cy', yaxis);
+                              newRotation += 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.globalist += 200000;
+                              populations.nationalist -= 150000;
+                              populations.realist += 100000;
+                              populations.conservative -= 150000;
+                          }
+
+                          function changeGrey() {
+                              yaxis -= 4;
+                              greyCircle.setAttribute('cy', yaxis);
+                              newRotation += 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.realist += 200000;
+                              populations.nationalist -= 50000;
+                              populations.economist += 20000;
+                              populations.idealist -= 150000;
+                          }
+
+                          function changeTeal() {
+                              yaxis += 3;
+                              xaxis += 3;
+                              tealCircle.setAttribute('cy', yaxis);
+                              tealCircle.setAttribute('cx', xaxis);
+                              newRotation += 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.globalist -= 100000;
+                              populations.nationalist += 200000;
+                              populations.economist += 20000;
+                              populations.populist -= 150000;
+                          }
+
+                          function changeTaupe() {
+                              xaxis -= 3;
+                              yaxis += 3;
+                              taupeCircle.setAttribute('cy', yaxis);
+                              taupeCircle.setAttribute('cx', xaxis);
+                              newRotation -= 10;
+                              needleMove.setAttribute('transform', `rotate(${newRotation})`);
+                              populations.populist += 200000;
+                              populations.realist += 100000;
+                              populations.economist -= 20000;
+                              populations.progressive -= 150000;
+                          }
+
+                          function changeBeige() {
+                              populations.socialist += 200000;
+                          }
+
+
+                          function testData() {
+    // Get all the span elements
+    const spans = [
+      document.getElementById("progressive"),
+      document.getElementById("conservative"),
+      document.getElementById("socialist"),
+      document.getElementById("economist"),
+      document.getElementById("idealist"),
+      document.getElementById("realist"),
+      document.getElementById("globalist"),
+      document.getElementById("nationalist"),
+      document.getElementById("populist")
+    ];
+
+    // Initialize variables to store the largest number and its corresponding element ID
+    var largestNumber = -Infinity;
+    var largestElementId = "";
+
+    // Loop through each span element and extract the number from its content
+    for (var i = 0; i < spans.length; i++) {
+      var spanContent = spans[i].textContent; // Get the content of the span
+      var number = parseInt(spanContent); // Convert the content to an integer
+
+      if (!isNaN(number) && number > largestNumber) {
+        largestNumber = number; // Update the largest number and its corresponding element ID
+        largestElementId = spans[i].id;
+      }
+    }
+
+    alert("The largest number is: " + largestNumber + "\nSpan ID: " + largestElementId);
+  }
