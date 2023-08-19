@@ -94,6 +94,46 @@ p
   position: absolute;
 }
 
+#thatDiv4 {
+  position: absolute;
+  bottom: 4%;
+  right: 140px;
+  width: 50px;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  position: absolute;
+}
+
+#thatDiv3 {
+  position: absolute;
+  bottom: 4%;
+  right: 80px;
+  width: 50px;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  position: absolute;
+}
+
+#thatDiv2 {
+  position: absolute;
+  bottom: 4%;
+  right: 20px;
+  width: 50px;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  position: absolute;
+}
+
+#thatDiv1 {
+  position: absolute;
+  bottom: 1%;
+  right: 50vw;
+  width: 200px;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  position: absolute;
+}
+
 #thoseDiv {
   flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
   width: 50px;

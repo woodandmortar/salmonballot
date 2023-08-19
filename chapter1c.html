@@ -53,6 +53,7 @@ Seren complied in a distraught haze. She had begun to turn away from you and joi
 
 
 function run1a(){
+  document.getElementById('exitNow').style.display = "block";
   const progressiveValue = 10500; // Or any value you want to add to progressive
   window.parent.postMessage({ progressive: progressiveValue }, '*');
   const option1a = document.getElementById('option1a');
@@ -71,6 +72,7 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
+  document.getElementById('exitNow').style.display = "block";
   const conservativeValue = 10500; // Or any value you want to add to conservative
   window.parent.postMessage({ conservative: conservativeValue }, '*');
   const option2a = document.getElementById('option2a');
@@ -89,6 +91,7 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
+  document.getElementById('exitNow').style.display = "block";
   const socialistValue = 10500; // Or any value you want to add to socialist
   window.parent.postMessage({ socialist: socialistValue }, '*');
   const option3a = document.getElementById('option3a');
@@ -107,6 +110,7 @@ function run3a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run4a(){
+  document.getElementById('exitNow').style.display = "block";
   const economistValue = 10500; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
   const option4a = document.getElementById('option3a');
@@ -125,6 +129,7 @@ function run4a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run5a(){
+  document.getElementById('exitNow').style.display = "block";
   const idealistValue = 10500; // Or any value you want to add to idealist
   window.parent.postMessage({ idealist: idealistValue }, '*');
   const option5a = document.getElementById('option3a');
@@ -143,6 +148,7 @@ function run5a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run6a(){
+  document.getElementById('exitNow').style.display = "block";
   const realistValue = 10500; // Or any value you want to add to realist
   window.parent.postMessage({ realist: realistValue }, '*');
   const option6a = document.getElementById('option3a');
@@ -161,6 +167,7 @@ function run6a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run7a(){
+  document.getElementById('exitNow').style.display = "block";
   const globalistValue = 10500; // Or any value you want to add to globalist
   window.parent.postMessage({ globalist: globalistValue }, '*');
   const option7a = document.getElementById('option3a');
@@ -179,6 +186,7 @@ function run7a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run8a(){
+  document.getElementById('exitNow').style.display = "block";
   const nationalistValue = 10500; // Or any value you want to add to nationalist
   window.parent.postMessage({ nationalist: nationalistValue }, '*');
   const option8a = document.getElementById('option3a');
@@ -197,6 +205,7 @@ function run8a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run9a(){
+  document.getElementById('exitNow').style.display = "block";
   const populistValue = 10500; // Or any value you want to add to populist
   window.parent.postMessage({ populist: populistValue }, '*');
   const option9a = document.getElementById('option3a');
@@ -214,14 +223,22 @@ function run9a(){
   document.getElementById('backButton').style.opacity = "0";
   document.getElementById('backButton').style.display = "block";
 }
+
+exitNow.addEventListener("click", () => {
+  // Hide the modal background when clicked
+  modalBg.style.display = 'none';
+  canvas_container.style.opacity = '1';
+  // Clear the iframe source
+  bookFrame.src = '';
+});
   </script>
 
-
-<p>
+<dl id="exitNow" style="display:none;"><p>
 To be continued.....
 <br><br>
-Press M to return to map
-</p>
+Press to Return to map
+</p></dl>
+
 
 
             </article>

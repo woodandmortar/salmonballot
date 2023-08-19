@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Political Heading</title>
+  <title>Globe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -23,7 +23,17 @@
     <div id='thoseDiv2' class='bordered' style="display:none;">
 <p class="textGlow animated">M</p>
 </div>
+<div id='updateCameraButton' class='bordered' style="display:none;">
+<p class="textGlow animated">L</p>
 </div>
+<div id='thoseDiv' class='bordered' style="display:none;">
+<p id="centerCameraButton" class="textGlow animated">Z</p>
+</div>
+<div id='thoseDiv' class='bordered' style="display:none;">
+<p id="centerCameraButton2" class="textGlow animated">R</p>
+</div>
+</div>
+
 
 <div id='thatDiv4' class='jitterAnimated'>
   <div id='thoseDiv2' class='bordered'>
@@ -70,8 +80,7 @@
     <p class="textGlow animated">Password: <a id="password"></a></p>
   </div></div>
 
-
-<div id='thoseDiv3' class='bordered' style="display:none;">
+<div id='thoseDiv3' class='bordered'>
 <p id="allstats" class="textGlow animated">
   <font style="font-size: 1.4em;">World Population: <span id="population"></span></font><br><br>
   Ventura<font style="font-size: .8em; color: rgba(42,19,246,1);">: </font><span id="progressive"></span><br>
@@ -88,7 +97,7 @@
 </p>
 </div>
 
-  <p id="cameraPosition" class='textGlow animated'>Welcome to Political Heading...</p>
+  <h1 id="cameraPosition" class='textGlow animated' style="display:none;">Political Heading</h1>
 
 <!-- partial:index.partial.html -->
 <!-- Inside the <body> tag of your HTML -->
@@ -100,7 +109,7 @@
 <script src='https://cdn.jsdelivr.net/npm/three@0.121.1/examples/js/controls/OrbitControls.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js'></script>
 <script  src="./script.js"></script>
-<script  src="./start.js"></script>
+<script  src="./script2.js"></script>
 
 <script>
 let enteredSequence = '';
@@ -108,8 +117,8 @@ let enteredSequence = '';
 function appendToInput(number) {
   enteredSequence += number;
 document.getElementById('password').innerHTML = enteredSequence;
-  if (enteredSequence === '1234') {
-    window.location.href = 'chapter1.html';
+  if (enteredSequence === '587112349') {
+    window.location.href = 'chapter2.html';
   }
 }
 
@@ -118,5 +127,6 @@ function clearInput (){
   document.getElementById('password').innerHTML = enteredSequence;
 }
 </script>
+
 </body>
 </html>

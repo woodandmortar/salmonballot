@@ -50,7 +50,7 @@ const bookFrame = document.getElementById('bookFrame');
 
 thoseDiv1.addEventListener('click', () => {
     // Set the source of the iframe to the book.html file
-    bookFrame.src = 'awakening.html';
+    bookFrame.src = 'start.html';
 
     // Show the modal background
     modalBg.style.display = 'block';
