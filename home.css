@@ -649,6 +649,7 @@ button, a {
   flex-shrink: 0;
   padding: 6px 16px;
   font-weight: 700;
+  z-index:9999999999999999999999;
 }
 
 .mode-switch.active .moon {

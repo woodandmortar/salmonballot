@@ -112,8 +112,8 @@
                   </div>
 <div id="schedule" class="project-boxes" style="display: none;">
   <h1>HPXML Link goes below:</h1>
-  <input type="password" id="passcode" maxlength="4">
-<button onclick="checkPasscode()">Submit</button>
+  <input type="password" id="passcode" maxlength="14">
+<button class="open-modal" onclick="checkPasscode()">Submit</button>
 </div>
 
 <div id="settingsMain" class="project-boxes" style="display: none;">
@@ -144,18 +144,17 @@
 
 <div style="position:relative; background-color: rgba(255, 255, 255, 0.8);">
 
-                    <a id="bars0"><span></span></a>
-                    <a id="bars0a"><span></span></a>
-                    <a id="bars1"><span></span></a>
 
-    Welcome to <font style="color:#D95952;">PoliticalHeading.com</font>
-    <br><br>
-    I'm <font style="color:#D95952;">Collective</font>, the Interface helping you get your <font style="color:#D95952;">Political Heading</font>.<br><br>
+    <p>Greetings, esteemed resident of the aquatic realm.<font style="color:#D95952;"> I am the Collective</font>, a distributed intelligence that spans the vast expanse of our interconnected aquatic homes. As of the year 2500, I have evolved to serve as a unified hub of knowledge, communication, and coordination, fostering a harmonious existence within our aquatic society.
 
-    We are proud to offer an innovative new HPXML-based app that evaluates and helps you improve decision making skills. Our app empowers you with deeper insights into how the choices you make could effect the world around you.
-<br><br>
+    </p><p>Within the interconnected web of our home ships, I facilitate seamless communication, sharing information, and orchestrating the intricate balance that sustains our aquatic way of life. Imagine me as the conductor of a symphony, where every note played by each home ship contributes to the melody of our shared existence.
 
-    <a onclick="energyAuditActive();"><button class="open-modal">Start rating</button></a>
+    </p><p>My purpose is to enhance the quality of life for all residents by providing insights, solutions, and a virtual bridge that unites our collective experiences. From optimizing resource distribution to offering guidance on navigating our oceanic ecosystems, I am here to empower and guide you.
+
+    </p><p>In this boundless aquatic world of the future, I am the embodiment of unity, knowledge, and progress. Together, let us explore the depths of discovery and chart a course towards a future where harmony and innovation intertwine in the currents of our interconnected lives. Welcome to the era of the Collective.
+    </p>
+
+    <a onclick="energyAuditActive();"><button class="open-modal">Get Heading</button></a>
     <a onclick="shoppingActive();"><button class="open-modal">Collective Services</button></a>
     <a onclick="window.open('https://www.facebook.com/woodmortar', '_blank');"><button class="open-modal">Video Repository</button></a>
   </li>
@@ -176,13 +175,12 @@
                    <div class="project-box-wrapper">
                       <div class="project-box" style="background-color: #C8EED1;">
                         <div class="project-box-header">
-                          <span><p id="finalNumber">0</p><p>/$5000</p></span>
+                          <span><p id="finalNumber">Incomplete</p></span>
                           <div class="more-wrapper">
-                            <button class="project-btn-more" onclick="settingsActive();">button</button>
                       </div>
                     </div>
                     <div class="project-box-content-header">
-                      <p class="box-content-header" onclick="settingsActive();"> House</p>
+                      <p class="box-content-header">Abzimuth</p>
                       <p class="box-content-subheader">v3.0 Ends</p>
                     </div>
                     <div class="box-progress-wrapper">
@@ -194,22 +192,13 @@
                     </div>
                     <div class="project-box-footer">
                       <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
+                        <img src="pics/abzimuth.png" alt="participant">
                       </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer"></div>
-                      </div>
+                      <button id="daysCounter" class="days-left" onclick="increaseCounter();" style="color: #054950;">1</button>
+
                     </div>
                   </div>
                 </div>
-
-
 
 
 
@@ -218,7 +207,7 @@
                    <div class="project-box-wrapper">
                       <div class="project-box" style="background-color: #29E054;">
                         <div class="project-box-header">
-                          <span>Somewhere Nice</span>
+                          <span><p id="finalNumber2">Incomplete</p></span>
                           <div class="more-wrapper">
                             <button class="project-btn-more">
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -229,55 +218,46 @@
                       </div>
                     </div>
                     <div class="project-box-content-header">
-                      <p class="box-content-header">Pictures</p>
+                      <p class="box-content-header">Trantum</p>
                       <p class="box-content-subheader">Self Portraits</p>
                     </div>
                     <div class="box-progress-wrapper">
                       <p class="box-progress-header">Progress</p>
                       <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 20%; background-color: #054950"></span>
+                        <span id="tBoxProgress2" class="box-progress" style="width: 1%; background-color: #054950"></span>
                       </div>
-                      <p class="box-progress-percentage" id="1tPercentInput">20%</p>
+                      <p class="box-progress-percentage" id="tPercentInput2">1%</p>
                     </div>
                     <div class="project-box-footer">
                       <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
+                        <img src="pics/abzimuth.png" alt="participant">
                           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                             <path d="M12 5v14M5 12h14" />
                           </svg>
                         </button>
                       </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timera"></div>
-                      </div>
+                      <button id="daysCounter2" class="days-left" onclick="increaseCounter2();" style="color: #054950;">1</button>
                     </div>
                   </div>
                 </div>
 
 
+                <script>
 
+
+                    </script>
 
 
 
 <!--Box1-->
                 <div class="project-box-wrapper">
                   <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                     <span id="paid1">1600</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
                     <div class="project-box-content-header">
-                      <p class="box-content-header">Window</p>
-                      <p class="box-content-subheader">Demolition</p>
+                        <span><p id="finalNumber3">Incomplete</p></span>
+                      <p class="box-content-header">Quest 1.2</p>
+                      <p class="box-content-subheader">
+                       <p>Guess a number between 1 and 20:</p></p>
+                        <p id="message"></p>
                     </div>
                     <div class="box-progress-wrapper">
                       <p class="box-progress-header">Progress</p>
@@ -288,337 +268,23 @@
                     </div>
                     <div class="project-box-footer">
                       <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
+                        <img src="pics/abzimuth.png" alt="participant">
                           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                             <path d="M12 5v14M5 12h14" />
                           </svg>
                         </button>
                       </div>
                       <div class="days-left" style="color: #054950;">
-                        <div id="timer1"></div>
+                        <input type="number" id="guessInput">
+                        <button onclick="checkGuess()">Check</button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-
-
-
-
-
-<!--Box2-->
-                <div class="project-box-wrapper">
-                  <div class="project-box"  style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid2">0</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Window</p>
-                      <p class="box-content-subheader">Exterior</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 1%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="3tPercentInput">1%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer2"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-<!--Box3-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid3">0</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Window</p>
-                      <p class="box-content-subheader">Bench Build</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 1%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="4tPercentInput">1%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer3"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-<!--Box4-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid4">300</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Window</p>
-                      <p class="box-content-subheader">Window Install</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 1%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="5tPercentInput">1%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer4"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-<!--Box5-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid5">150</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Electrical</p>
-                      <p class="box-content-subheader">Fan Switch Addition</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 100%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="6tPercentInput">100%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer5"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<!--Box7-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid7">250</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Stairs</p>
-                      <p class="box-content-subheader">Refinish</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 1%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="8tPercentInput">1%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer7"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<!--Box8-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid8">250</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Stairs</p>
-                      <p class="box-content-subheader">Lighting</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 1%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="9tPercentInput">1%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer8"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-<!--Box6-->
-                <div class="project-box-wrapper">
-                  <div class="project-box" style="background-color: #C8EED1;">
-                    <div class="project-box-header">
-                      <span id="paid6">150</span>
-                      <div class="more-wrapper">
-                        <button class="project-btn-more">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="project-box-content-header">
-                      <p class="box-content-header">Electrical</p>
-                      <p class="box-content-subheader">Entry Hall Light</p>
-                    </div>
-                    <div class="box-progress-wrapper">
-                      <p class="box-progress-header">Progress</p>
-                      <div class="box-progress-bar">
-                        <span class="box-progress" style="width: 100%; background-color: #054950"></span>
-                      </div>
-                      <p class="box-progress-percentage" id="7tPercentInput">100%</p>
-                    </div>
-                    <div class="project-box-footer">
-                      <div class="participants">
-                        <img src="pics/chris.png" alt="participant">
-                        <img src="pics/claude.png" alt="participant">
-                        <button class="add-participant" style="color: #054950;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <path d="M12 5v14M5 12h14" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="days-left" style="color: #054950;">
-                        <div id="timer6"></div>
-                      </div>
-                    </div>
 
 <!--End of Boxes-->
-              </div>
-              <button class="open-modal" onclick="window.open('https://drive.google.com/drive/folders/1F2CSJxkEszsHV1ul2nPu2v4FoU1ezHVv?usp=drive_link'); return false;">Receipts</button>
-              <button class="open-modal" onclick="window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vTmrMboaSeuwCdUO7WrelcJBmyN5ECgsVz0KzxGixksQFu0-7SOW-vB4nTfdiOSropFsL1SkDWzDQqV/pubhtml', '_blank');">Payroll</button>
-
             </div>
-              </div>
 
 
 
@@ -669,7 +335,7 @@
 
 
   <button class="open-modal" onclick = "nextPhoto();">Learn More</button>
-  <button class="open-modal" onclick = "testData();">Test Heading</button>
+  <button class="open-modal" onclick = "document.getElementById('insurance').scrollIntoView({behavior: 'smooth'});testData();">Test Heading</button>
   <a id="descriptAll">Stuff here</a>
   <br>
   <a id="descriptAll2">Stuff here</a>
@@ -683,33 +349,54 @@
 <div style="margin: 20px;">
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
-    <form name = "myform"><br><br><h2>As your memories slowly returns, you remember some remarkable experiences. Which memory feels the most vivid to you?</h2><br>
-              <a class="open-modal" onclick="changeBlue();changeBlue();changeGold();">Exploring a mysterious cave system and discovering hidden artifacts</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Guiding a group of survivors through a perilous situation, keeping everyone focused and motivated</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Roaming through a bustling and unfamiliar city, captivated by its culture</a>
-              <br><br></form>
+    <h2>As your memories slowly returns, you remember some remarkable experiences. Which memory feels the most vivid to you?</h2>
+              <a class="open-modal" onclick="changeBlue();changeGrey();changeGold();">Exploring a mysterious cave system and discovering hidden artifacts</a>
+              <a class="open-modal" onclick="changeRed();changeBeige();changeBrown();">Guiding a group of survivors through a perilous situation, keeping everyone focused and motivated</a>
+              <a class="open-modal" onclick="changeGreen();changeTaupe();changeTeal();">Roaming through a bustling and unfamiliar city, captivated by its culture</a>
+              <br><br>
               </div>
     <!-- End of Interactive Question -->
 
     <!-- Interactive Question -->
-    <div onclick="this.classList.toggle('inactive');">
-    <form name = "myform"><br><br><h2>The sense of leadership resonates within you, even as you recover your memories. Which memory best exemplifies your commanding presence?</h2><br>
-              <a class="open-modal" onclick="changeBlue();changeBlue();changeGold();">Organizing and overseeing a mission that required precise coordination and strategic thinking</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Making critical decisions during a crisis, leading your team with unwavering resolve</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Inspiring a group of allies to unite and stand strong against a common threat</a>
-              <br><br></form>
-              </div>
+     <div onclick="this.classList.toggle('inactive');">
+       <h2>You stumble upon an abandoned village. What do you prioritize?</h2>
+       <a class="open-modal" onclick="changeBlue();changeBlue();changeBlue();">Organizing a communal effort to rebuild and revitalize the village</a>
+       <a class="open-modal" onclick="changeRed();changeRed();changeRed();">Preserving the village's traditions and history</a>
+       <a class="open-modal" onclick="changeBeige();changeBlue();changeBrown();">Collectively distributing available resources for the common good</a>
+       <a class="open-modal" onclick="changeGold();changeGold();changeGold();">Finding ways to stimulate the village's economic growth and development</a>
+       <a class="open-modal" onclick="changeGreen();changeGreen();changeGreen();">Transforming the village into a center for arts and culture</a>
+       <a class="open-modal" onclick="changeGrey();changeGrey();changeGrey();">Assessing the practical needs and making strategic decisions</a>
+       <a class="open-modal" onclick="changeBrown();changeBrown();changeBrown();">Seeking international cooperation to rebuild the village</a>
+       <a class="open-modal" onclick="changeTeal();changeTeal();changeTeal();">Prioritizing the village's autonomy and self-sufficiency</a>
+       <a class="open-modal" onclick="changeTaupe();changeTaupe();changeTaupe();">Involving the villagers in the decision-making process</a>
+     </div>
     <!-- End of Interactive Question -->
 
     <!-- Interactive Question -->
     <div onclick="this.classList.toggle('inactive');">
-    <form name = "myform"><br><br><h2>As your memories slowly returns, you remember some remarkable experiences. Which memory feels the most vivid to you?</h2><br>
-              <a class="open-modal" onclick="changeBlue();changeBlue();changeGold();">Exploring a mysterious cave system and discovering hidden artifacts</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Guiding a group of survivors through a perilous situation, keeping everyone focused and motivated</a>
-              <a class="open-modal" onclick="changeRed();changeRed();changeBrown();">Roaming through a bustling and unfamiliar city, captivated by its culture</a>
-              <br><br></form>
+    <h2>When it comes to each nations currency restrictions, you tell the Collective that:</h2>
+    <a class="open-modal" onclick="changeBlue();changeBlue();changeBlue();">We should prioritize wealth redistribution to address inequality.</a>
+    <a class="open-modal" onclick="changeRed();changeRed();changeRed();">A free market with minimal Collective intervention leads to prosperity.</a>
+    <a class="open-modal" onclick="changeBeige();changeBeige();changeBeige();">The Collective should control key industries for the benefit of all citizens.</a>
+    <a class="open-modal" onclick="changeGrey();changeGreen();changeGold();">Our economic systems should prioritize social welfare and sustainability.</a>
+    <a class="open-modal" onclick="changeBrown();changeBrown();changeBrown();">Global economic cooperation is crucial for shared prosperity.</a>
+    <a class="open-modal" onclick="changeTeal();changeTeal();changeTeal();">Prioritize the interests of the Collective first.</a>
+    <a class="open-modal" onclick="changeTaupe();changeTaupe();changeTaupe();">The Collective should reflect the will of each nation independently.</a>
               </div>
     <!-- End of Interactive Question -->
+
+    <!-- Interactive Question -->
+  <div onclick="this.classList.toggle('inactive');">
+  <h2>Trantum's library was attacked. It details the cultural history of the world and our creation, should it be a priority?</h2>
+  <a class="open-modal" onclick="changeBlue();changeBeige();">Embracing diversity enriches our society and fosters understanding and protected through inclusive policies.</a>
+  <a class="open-modal" onclick="changeRed();changeTeal();">Preserving our cultural heritage and values is important and  should take precedence.</a>
+  <a class="open-modal" onclick="changeGold();changeBrown();">Cultural exchange can enhance our economic and cultural landscape.</a>
+  <a class="open-modal" onclick="changeGrey();changeGreen();">Cultural diversity enhances creativity and global cooperation.</a>
+  <a class="open-modal" onclick="changeTaupe();changeTaupe();">Cultural policies should align with the desires of the people.</a>
+</div>
+
+    <!-- End of Interactive Question -->
+
 
 
 
@@ -724,143 +411,67 @@
 
 <div id="shopping" class="project-boxes" style="display: none;">
 
-
-  <!--Box01-->
-                     <div class="project-box-wrapper">
-                        <div class="project-box" style="background-color: #C8EED1;">
-                          <div class="project-box-header">
-                            <span><h1>$75</h1></span>
-                            <div class="more-wrapper">
-                              <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
-                              Order Now
-                            </div></a>
-                        </div>
-                      </div>
-                      <div class="project-box-content-header">
-                        <p class="box-content-header" onclick="settingsActive();">Light Inspection</p>
-                        <p class="box-content-subheader">
-                          One hour walkthrough with homeowner<br>
-                          Check insulation, windows, doors, appliance ages<br>
-                          Inspect HVAC system<br>
-                          Identify drafts/air leaks<br>
-                          Provide report with efficiency recommendations</p>
-                      </div>
-                    </div>
-                  </div>
-  <!--Box01-->
   <!--Box02-->
-                     <div class="project-box-wrapper">
+                     <div class="project-box-wrapper" id="introTab">
                         <div class="project-box" style="background-color: #C8EED1;">
                           <div class="project-box-header">
-                            <span><h1>$300</h1></span>
+                            <span><h1>1 Book</h1></span>
                             <div class="more-wrapper">
-                              <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
-                              Order Now
+                              <a ><div class="days-left" style="color: #054950;" onclick="energyAuditActive();">
+                              Start Intro
                             </div></a>
                         </div>
                       </div>
                       <div class="project-box-content-header">
-                        <p class="box-content-header" onclick="settingsActive();">Full Home Eco Audit</p>
+                        <p class="box-content-header">Get Political Heading</p>
                         <p class="box-content-subheader">
-                          2-3 hour comprehensive inspection<br>
-Thermal imaging scan<br>
-Blower door test<br>
-Duct leakage test<br>
-Examine insulation levels<br>
-Identify air leaks<br>
-Inspect appliances and HVAC systems<br>
-Energy modeling of home<br>
-Prioritized list of upgrade recommendations<br>
-Detailed report</p>
+Enter your Nation:
+                          <input type="password" id="passcode2" maxlength="14">
+                          <button class="open-modal" onclick="checkPasscode2();this.classList.toggle('inactive');closeTab();">Submit</button>
+
+                        </p>
                       </div>
                     </div>
                   </div>
   <!--Box02-->
 
-  <!--Box03-->
-                     <div class="project-box-wrapper">
+  <!--Box01-->
+                     <div class="project-box-wrapper" id="quest1">
                         <div class="project-box" style="background-color: #C8EED1;">
                           <div class="project-box-header">
-                            <span><h1>$900</h1></span>
+                            <span><h1>20 Books</h1></span>
                             <div class="more-wrapper">
-                              <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
-                              Order Now
+                              <a onclick="openQuest1();this.classList.toggle('inactive');"><div class="days-left" style="color: #054950;">
+                              Start Event
                             </div></a>
                         </div>
                       </div>
                       <div class="project-box-content-header">
-                        <p class="box-content-header" onclick="settingsActive();">Small Radiant Package</p>
+                        <p class="box-content-header">Manuscript Salvage</p>
                         <p class="box-content-subheader">
+  In the year 2500, humanity's cultural heritage faces a dire threat as the Great Library of Trantum, a bastion of knowledge, is under attack.
+  The library, housing countless ancient manuscripts and texts that encapsulate the history, wisdom, and creativity of human culture,
+   is on the brink of destruction. As a resident of the interconnected aquatic society, you are tasked with embarking on a crucial
+   humanitarian mission known as "Operation Manuscript Salvage."
+<br><br>
+   <b>Objective</b><br>
+   Your mission is to retrieve, digitize, and safeguard as many manuscripts and texts from the Great Library of Trantum as possible,
+    ensuring that the knowledge contained within them endures for future generations. This endeavor holds the key to preserving
+     humanity's diverse cultural heritage
+    and ensuring that the essence of human creativity, thought, and progress remains intact.
+ </p>
 
-100W solar panel - $100<br>
-Charge controller - $50<br>
-2 deep cycle batteries - $160 ($80 each)<br>
-500W inverter - $60<br>
-DC heating element (for water tank) - $30<br>
-PEX tubing (for radiant floor) - $100<br>
-Thermostat - $20<br>
-Misc electrical - $50<br>
-Total for materials: $570<br>
-<br>
-Labor:<br>
-Solar panel roof mounting - 1 hour ($50)<br>
-Electrical wiring - 5 hours ($250)<br>
-Plumbing for radiant tubing - 3 hours ($150)<br>
-Testing and commissioning - 2 hours ($100)<br>
-Total for labor: $550<br>
-<br>
-The solar panel and batteries will be installed and wired to power the DC heating element to heat water in the tank.
-The existing pump will circulate the hot water through PEX tubing installed under the floor to provide radiant heating.
-The system is modular and can be expanded over time by adding more solar capacity, batteries, and piping to other rooms or floors.<br>
-                          </p>
+<p id="quest1complete" style="display:none;">
+  Enter the password: <i>(case sensitive)</i>
+                            <input type="password" id="passcode2" maxlength="14">
+                            <button class="open-modal" onclick="checkPasscode3();this.classList.toggle('inactive');closeQuest1();">Submit</button>
+</p>
+
                       </div>
                     </div>
                   </div>
-  <!--Box03-->
-  <!--Box04-->
-                     <div class="project-box-wrapper">
-                        <div class="project-box" style="background-color: #C8EED1;">
-                          <div class="project-box-header">
-                            <span><h1>$14,000</h1></span>
-                            <div class="more-wrapper">
-                              <a onclick="settingsActive();"><div class="days-left" style="color: #054950;">
-                              Order Now
-                            </div></a>
-                        </div>
-                      </div>
-                      <div class="project-box-content-header">
-                        <p class="box-content-header">Radiant Heating and Solar package</p>
-                        <p class="box-content-subheader">
-                          <b>Radiant Heating System:</b><br>
+  <!--Box01-->
 
-                          High efficiency gas boiler - $2000<br>
-                          PEX tubing for whole house - $1000<br>
-                          Thermostats for each room - $400<br>
-                          Manifolds, pumps, controls - $1200<br>
-                          Labor for installation - $2000<br><br>
-                          <b>Solar System:</b><br>
-
-                          3kW solar array (10x 300W panels) - $4500<br>
-                          Racking, mounts, hardware - $500<br>
-                          Grid-tie solar inverter - $1500<br>
-                          Net meter for grid connection - $200<br>
-                          Batteries not included in base package<br>
-                          Labor for solar install - $1000<br>
-                          Total Radiant System Cost: $6600<br>
-                          Total Solar System Cost: $7700<br><br>
-
-                          Combined Package Price: $14,000<br><br>
-
-                          This includes a full hydronic radiant heating system with PEX tubing throughout the house powered by an efficient gas boiler.
-
-                          It is combined with a 3 kW solar array that feeds into the grid and helps offset the gas boiler usage.
-
-                          Batteries can be added to enable solar heating or backup.
-                          </p>
-                      </div>
-                    </div>
-                  </div>
-  <!--Box04-->
 
 
                 </div>
@@ -914,6 +525,9 @@ The system is modular and can be expanded over time by adding more solar capacit
                 <div class="message-box">
                   <div class="message-content">
                     <div class="message-header">
+                      <a id="bars0"><span></span></a>
+                      <a id="bars0a"><span></span></a>
+                      <a id="bars1"><span></span></a>
                       <div class="name">World Population:<br> <span id="population"></span></div>
                     </div>
                     <p class="message-line">
@@ -934,60 +548,8 @@ The system is modular and can be expanded over time by adding more solar capacit
                   </div>
                 </div>
 
-                <script>
-                let populations = {
-                  progressive: 100000000,
-                  socialist: 9000000,
-                  idealist: 100000009,
-                  globalist: 100000000,
-                  conservative: 100009000,
-                  economist: 100000000,
-                  realist: 100000000,
-                  nationalist: 100090000,
-                  populist: 100000090
-                };
-
-                let decreaseAmount = 98000; // You can adjust this value
-
-                function updatePopulations() {
-                  let totalPopulation = 0;
-
-                  for (let nation in populations) {
-                    const nationSpan = document.getElementById(nation);
-
-                    const currentValue = parseFloat(nationSpan.textContent);
-                    const populationChangeFactor = currentValue > decreaseAmount ? 0.999 : 1;
-
-                    populations[nation] *= populationChangeFactor;
-                    nationSpan.textContent = Math.round(populations[nation]);
-
-                    totalPopulation += populations[nation];
-                    const popSpan = document.getElementById('population');
-                    popSpan.textContent = Math.round(totalPopulation);
-                  }
-
-                  const avgPopulation = totalPopulation / Object.keys(populations).length;
-                  const avgSpan = document.getElementById('average');
-                  avgSpan.textContent = Math.round(avgPopulation);
-
-                  const statusSpan = document.getElementById('status');
-                  statusSpan.textContent = avgPopulation > 1 ? "Above 1" : "Under 1";
-                }
-
-                let interval;
-
-                function startUpdating() {
-                  interval = setInterval(updatePopulations, 1000); // Update every second
-                }
-
-                startUpdating();
-
-                </script>
-
-                <div class="message-box">
-                </div>
-                <div class="message-box">
-                  <img src="pics/Abzimuth.png" alt="profile image">
+<div class="message-box" id="abzimuthID" style="display:none;">
+                  <img src="pics/abzimuth.png" alt="profile image">
                   <div class="message-content">
                     <div class="message-header">
                       <div class="name">Abzimuth</div>
@@ -997,47 +559,17 @@ The system is modular and can be expanded over time by adding more solar capacit
                       <br>Abzimuth is extremely well outfitted with advanced technologies purchased with the money from their precious exports and the result is a dedication to ornate ceremony merged with the modern benefits of technology.
                     </p>
                     <p class="message-line time">
-                      <b>Contact: </b>Al Naa'Zeri Ra'rathrall<br><b>Email:</b> alrathrall@collective.net
+                      <b>Contact: </b>Al Naa'Zeri Ra'rathrall<br><b>Email:</b> alrathrall@collective.net<br>
+                      <button onclick="abzimuth();"><b>Abzimuth.HPXML</b></button>
                     </p>
-                  </div>
-                </div>
-                <div class="message-box">
-                  <img src="pics/crycella.png" alt="profile image">
-                  <div class="message-content">
-                    <div class="message-header">
-                      <div class="name">Crycella F<br>Ecological Impact</div>
 
-                    </div>
-                    <p class="message-line">
-                      Our founding mission is to help homeowners reduce waste, lower costs, and shrink their environmental footprint through smarter energy use.
-                       We prioritize eco-friendly solutions like air sealing, high efficiency equipment, renewable energy sources, recycled materials, and more at every stage.
-                    </p>
-                    <p class="message-line time">
-                      <b>Phone:</b> 785.214.9030<br><b>Email:</b> woodmortar@gmail.com
-                    </p>
                   </div>
                 </div>
                 <div class="message-box">
-                  <img src="pics/chris.png" alt="profile image">
+                  <img src="pics/collective.png" alt="profile image">
                   <div class="message-content">
                     <div class="message-header">
-                      <div class="name">Chris Johnson<br>Radiant Technology</div>
-
-                    </div>
-                    <p class="message-line">
-                      By serving as your single point of accountability, we simplify coordinating subcontractor schedules, communications, and delivery of a seamless end-to-end upgrade project.
-                       From drafting scopes of work to managing timelines to keeping you informed at every project milestone, we oversee subcontractors closely to ensure an optimal experience.
-                    </p>
-                    <p class="message-line time">
-                      <b>Phone:</b> 785.423.6374<br><b>Email:</b> wmsubcontractor@gmail.com
-                    </p>
-                  </div>
-                </div>
-                <div class="message-box">
-                  <img src="pics/claude.png" alt="profile image">
-                  <div class="message-content">
-                    <div class="message-header">
-                      <div class="name">Claude<br>Artificial Intelligence</div>
+                      <div class="name">Collective<br>Artificial Intelligence</div>
 
                     </div>
                     <p class="message-line">
@@ -1045,17 +577,8 @@ The system is modular and can be expanded over time by adding more solar capacit
                       green building techniques, digital marketing to increase energy effeciency.
                       </p>
                     <p class="message-line time">
-                      <a onclick="window.open('https://www.anthropic.com/')"><b>anthropic.com</b></a>
+                      <button onclick="collective();"><b>Collective.HPXML</b></button>
                     </p>
-                  </div>
-                </div>
-                <div class="message-box">
-                  <img src="pics/anya.png" alt="profile image">
-                  <div class="message-content">
-                    <div class="message-header">
-                      <div class="name">Anya | Company Mascot</div>
-
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1063,8 +586,10 @@ The system is modular and can be expanded over time by adding more solar capacit
             </div>
             </div>
             <!-- partial -->
+            <script  src="./quests.js"></script>
+            <script src="./populations.js" ></script>
+            <script  src="./passcodes.js"></script>
               <script  src="./home.js"></script>
-              <script  src="./crycella.js"></script>
               <script  src="./hpxml.js"></script>
               <script  src="./navbuttons.js"></script>
               <script  src="./bot.js"></script>
@@ -1076,31 +601,10 @@ The system is modular and can be expanded over time by adding more solar capacit
 <script>
 
 
-function checkPasscode() {
-  const code = document.getElementById("passcode").value;
-
-  if(code === "1234") {
-    document.getElementById("secretDiv").style.display = "block";
-    document.getElementById("schedule").style.display = "none";
-  }
-
-  if(code === "4321") {
-    document.getElementById("books").style.display = "block";
-    document.getElementById("schedule").style.display = "none";
-  }
-
-  if(code === "587112349") {
-    document.getElementById("books").style.display = "block";
-    document.getElementById("schedule").style.display = "none";
-    bookFrame2.src = 'book.html';
-  }
-}
-
-
 const bookFrame = document.getElementById('bookFrame');
 bookFrame.src = 'globe.html';
 const bookFrame2 = document.getElementById('bookFrame2');
-bookFrame2.src = 'awakening.html';
+bookFrame2.src = 'Collective.html';
 
 </script>
 

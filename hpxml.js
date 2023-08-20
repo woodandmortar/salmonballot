@@ -222,7 +222,7 @@
       }
     }
 
-    alert("The largest number is: " + largestNumber + "\nSpan ID: " + largestElementId);
+    // alert("The largest number is: " + largestNumber + "\nSpan ID: " + largestElementId);
     document.getElementById("titleChange").innerHTML = largestElementId;
     document.getElementById("titleChange2").innerHTML = pHeading;
   }
