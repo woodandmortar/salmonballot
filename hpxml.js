@@ -194,10 +194,22 @@
       document.getElementById("populist")
     ];
 
+    const spans2 = [
+      "Ventura",
+      "Trantum",
+      "Collective",
+      "Mercado",
+      "Faxium",
+      "Iron Coast",
+      "Eventus",
+      "Abzimuth",
+      "Three Seas Commune"
+    ];
+
     // Initialize variables to store the largest number and its corresponding element ID
     var largestNumber = -Infinity;
     var largestElementId = "";
-
+    var pHeading = "";
     // Loop through each span element and extract the number from its content
     for (var i = 0; i < spans.length; i++) {
       var spanContent = spans[i].textContent; // Get the content of the span
@@ -206,8 +218,11 @@
       if (!isNaN(number) && number > largestNumber) {
         largestNumber = number; // Update the largest number and its corresponding element ID
         largestElementId = spans[i].id;
+        pHeading = spans2[i];
       }
     }
 
     alert("The largest number is: " + largestNumber + "\nSpan ID: " + largestElementId);
+    document.getElementById("titleChange").innerHTML = largestElementId;
+    document.getElementById("titleChange2").innerHTML = pHeading;
   }

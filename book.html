@@ -8,7 +8,7 @@
                 <h6>2531 AD</h6>
             </header>
             <article>
-                <h2 class="chapter-title">I did not kill myself</h2>
+                <h2 class="chapter-title">Awakening</h2>
                 <p>
                   Back and forth, back and forth. Your body rocks in silent, empty, blackness but the longer it goes on the more you realize it isn’t silent, empty, or black. Each sway brings a beep, rhythmic and calm but rousing. Each beep pulls you further from the sway. You aren’t in blackness, the orange-tinted black of the back of your eyelids tells you there is dim light behind your closed eyes. Your breathing is low and as you become aware of it, a burning dryness erupts in your throat and stretches up into your sinuses. Your body aches, heavy and sore almost weighing you down to the crisp, rough sheets on the bed you have to be on.
 
@@ -33,13 +33,13 @@
 
 
 function run1a(){
-  const progressiveValue = 10500; // Or any value you want to add to Progressive
+  const progressiveValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ progressive: progressiveValue }, '*');
-  const socialistValue = 10500; // Or any value you want to add to Progressive
+  const socialistValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ socialist: socialistValue }, '*');
-  const idealistValue = 10500; // Or any value you want to add to Progressive
+  const idealistValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ idealist: idealistValue }, '*');
-  const globalistValue = 10500; // Or any value you want to add to Progressive
+  const globalistValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ globalist: globalistValue }, '*');
   document.getElementById('option1b').style.display = "block";
   const option1a = document.getElementById('option1a');
@@ -52,9 +52,9 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
-  const economistValue = 10500; // Or any value you want to add to economist
+  const economistValue = 105000; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
-  const realistValue = 10500; // Or any value you want to add to Progressive
+  const realistValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ realist: realistValue }, '*');
   document.getElementById('option2b').style.display = "block";
   const option2a = document.getElementById('option2a');
@@ -70,11 +70,11 @@ function run3a(){
   killPopulist();
   killConservative();
   killNationalist();
-  const populistValue = 10500; // Or any value you want to add to populist
+  const populistValue = 105000; // Or any value you want to add to populist
   window.parent.postMessage({ populist: populistValue }, '*');
-  const conservativeValue = 10500; // Or any value you want to add to Progressive
+  const conservativeValue = 105000; // Or any value you want to add to Progressive
   window.parent.postMessage({ conservative: conservativeValue }, '*');
-  const nationalistValue = 10500; // Or any value you want to add to nationalist
+  const nationalistValue = 105000; // Or any value you want to add to nationalist
   window.parent.postMessage({ nationalist: nationalistValue }, '*');
 
   document.getElementById('option3b').style.display = "block";
@@ -134,13 +134,10 @@ function run3a(){
 </p>
 
                 </div>
+
+                <dl id="nextButton" style="display:none;" onclick="location.replace('chapter1a.html')">- Next Page -</dl>
+
             </article>
-            <footer>
-                <ol id="page-numbers">
-                    <li id="backButton" style="display:none;">Back</li>
-                  <li id="nextButton" style="display:none;" onclick="location.replace('chapter1a.html')">Next Page</li>
-                </ol>
-            </footer>
         </section>
 
     </div>

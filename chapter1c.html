@@ -53,8 +53,7 @@ Seren complied in a distraught haze. She had begun to turn away from you and joi
 
 
 function run1a(){
-  document.getElementById('exitNow').style.display = "block";
-  const progressiveValue = 10500; // Or any value you want to add to progressive
+  const progressiveValue = 1050000; // Or any value you want to add to progressive
   window.parent.postMessage({ progressive: progressiveValue }, '*');
   const option1a = document.getElementById('option1a');
   document.getElementById('option1a').disabled = true;
@@ -72,8 +71,7 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
-  document.getElementById('exitNow').style.display = "block";
-  const conservativeValue = 10500; // Or any value you want to add to conservative
+  const conservativeValue = 1050000; // Or any value you want to add to conservative
   window.parent.postMessage({ conservative: conservativeValue }, '*');
   const option2a = document.getElementById('option2a');
   document.getElementById('option2a').disabled = true;
@@ -91,8 +89,7 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
-  document.getElementById('exitNow').style.display = "block";
-  const socialistValue = 10500; // Or any value you want to add to socialist
+  const socialistValue = 1050000; // Or any value you want to add to socialist
   window.parent.postMessage({ socialist: socialistValue }, '*');
   const option3a = document.getElementById('option3a');
   document.getElementById('option3a').disabled = true;
@@ -110,8 +107,7 @@ function run3a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run4a(){
-  document.getElementById('exitNow').style.display = "block";
-  const economistValue = 10500; // Or any value you want to add to economist
+  const economistValue = 1050000; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
   const option4a = document.getElementById('option3a');
   document.getElementById('option4a').disabled = true;
@@ -129,8 +125,7 @@ function run4a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run5a(){
-  document.getElementById('exitNow').style.display = "block";
-  const idealistValue = 10500; // Or any value you want to add to idealist
+  const idealistValue = 1050000; // Or any value you want to add to idealist
   window.parent.postMessage({ idealist: idealistValue }, '*');
   const option5a = document.getElementById('option3a');
   document.getElementById('option5a').disabled = true;
@@ -148,8 +143,7 @@ function run5a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run6a(){
-  document.getElementById('exitNow').style.display = "block";
-  const realistValue = 10500; // Or any value you want to add to realist
+  const realistValue = 1050000; // Or any value you want to add to realist
   window.parent.postMessage({ realist: realistValue }, '*');
   const option6a = document.getElementById('option3a');
   document.getElementById('option6a').disabled = true;
@@ -167,8 +161,7 @@ function run6a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run7a(){
-  document.getElementById('exitNow').style.display = "block";
-  const globalistValue = 10500; // Or any value you want to add to globalist
+  const globalistValue = 1050000; // Or any value you want to add to globalist
   window.parent.postMessage({ globalist: globalistValue }, '*');
   const option7a = document.getElementById('option3a');
   document.getElementById('option7a').disabled = true;
@@ -186,8 +179,7 @@ function run7a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run8a(){
-  document.getElementById('exitNow').style.display = "block";
-  const nationalistValue = 10500; // Or any value you want to add to nationalist
+  const nationalistValue = 1050000; // Or any value you want to add to nationalist
   window.parent.postMessage({ nationalist: nationalistValue }, '*');
   const option8a = document.getElementById('option3a');
   document.getElementById('option8a').disabled = true;
@@ -205,8 +197,7 @@ function run8a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run9a(){
-  document.getElementById('exitNow').style.display = "block";
-  const populistValue = 10500; // Or any value you want to add to populist
+  const populistValue = 1050000; // Or any value you want to add to populist
   window.parent.postMessage({ populist: populistValue }, '*');
   const option9a = document.getElementById('option3a');
   document.getElementById('option9a').disabled = true;
@@ -224,30 +215,9 @@ function run9a(){
   document.getElementById('backButton').style.display = "block";
 }
 
-exitNow.addEventListener("click", () => {
-  // Hide the modal background when clicked
-  modalBg.style.display = 'none';
-  canvas_container.style.opacity = '1';
-  // Clear the iframe source
-  bookFrame.src = '';
-});
   </script>
 
-<dl id="exitNow" style="display:none;"><p>
-To be continued.....
-<br><br>
-Press to Return to map
-</p></dl>
-
-
-
             </article>
-            <footer>
-                <ol id="page-numbers">
-                    <li id="backButton" style="display:none;">Back</li>
-                  <li id="nextButton" style="display:none;" onclick="close_window();return false;">End</li>
-                </ol>
-            </footer>
         </section>
     </div>
 </div>
