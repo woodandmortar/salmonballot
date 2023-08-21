@@ -5,6 +5,7 @@ function checkPasscode() {
   if(code === "587112349") {
     document.getElementById("books").style.display = "block";
     document.getElementById("schedule").style.display = "none";
+    settingsActive();
     bookFrame2.src = 'book.html';
   }
   if(code === "PeeLonHusk") {
@@ -90,13 +91,13 @@ function checkPasscode2() {
 
 function checkPasscode3() {
   const code3 = document.getElementById("passcode3").value;
-  if(code3 === "PeeLonHusk") {
+  if(code3 === "reset017") {
     document.getElementById("books").style.display = "block";
     document.getElementById("schedule").style.display = "none";
     settingsActive();
-    bookFrame2.src = 'PeeLonHusk.html';
-    bookFrame.src = 'PeeLonHusk.html';
-    alert('Critical notice! Population decrease exponentially increased due to quest logic, enter the password as HPXML also.');
+    bookFrame2.src = '16122042361017148.html';
+    bookFrame.src = '16122042361017148.html';
+    alert('Critical notice! Population decrease exponentially increased due to quest logic, expecting new HPXML parameters.');
     decreaseAmount = 2098000;
   }
   else if(true) {
@@ -120,4 +121,12 @@ function collective(){
   settingsActive();
   bookFrame2.src = 'Collective.html';
   bookFrame.src = 'Collective.html';
+}
+
+function n002(){
+  document.getElementById("books").style.display = "block";
+  document.getElementById("schedule").style.display = "none";
+  settingsActive();
+  bookFrame2.src = 'awakening.html';
+  bookFrame.src = 'awakening.html';
 }
