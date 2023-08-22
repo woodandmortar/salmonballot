@@ -43,25 +43,25 @@ function init() {
     controls.autoRotate = true;
     controls.autoRotateSpeed = .15;
     controls.maxDistance = 1500;
-    controls.minDistance = 30;
+    controls.minDistance = 1100;
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/purpLayer.png');
-    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
-    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
-    const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/buildingLayer.png');
-    const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
-    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
-    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/goldLayer.png');
-    const texturenucleus8 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/cloudLayer.png');
-    const texturenucleus11 = loader.load('https://woodandmortar.com/salmonballot/textLayer.png');
-    const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/lightLayer.png');
-    const texturenucleus13 = loader.load('https://woodandmortar.com/salmonballot/mercatoLayer.png');
-    const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/pics/purpLayer.png');
+    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/pics/baseLayer.png');
+    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/pics/earthLayer.png');
+    const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/pics/buildingLayer.png');
+    const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/pics/baseLayer2.png');
+    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/pics/coreLayer.png');
+    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/pics/goldLayer.png');
+    const texturenucleus8 = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/pics/cloudLayer.png');
+    const texturenucleus11 = loader.load('https://woodandmortar.com/salmonballot/pics/textLayer.png');
+    const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/pics/lightLayer.png');
+    const texturenucleus13 = loader.load('https://woodandmortar.com/salmonballot/pics/mercatoLayer.png');
+    const textureStar = loader.load("https://woodandmortar.com/salmonballot/pics/jelly.png");
 
     // Rotation speed in radians per second
     const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second

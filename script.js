@@ -42,22 +42,26 @@ function init() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
     controls.autoRotateSpeed = .15;
-    controls.maxDistance = 1550;
-    controls.minDistance = 1450;
+    controls.maxDistance = 1500;
+    controls.minDistance = 1100;
     controls.enablePan = false;
 
     const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/purpLayer.png');
-    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/baseLayer.png');
-    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/earthLayer.png');
-    const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/baseLayer2.png');
-    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/coreLayer.png');
-    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/goldLayer.png');
-    const texturenucleus8 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/webLayer.png');
-    const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/cloudLayer.png');
-    const textureStar = loader.load("https://woodandmortar.com/salmonballot/jelly.png");
+    const textureSphereBg = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus = loader.load('https://woodandmortar.com/salmonballot/pics/purpLayer.png');
+    const texturenucleus2 = loader.load('https://woodandmortar.com/salmonballot/pics/baseLayer.png');
+    const texturenucleus3 = loader.load('https://woodandmortar.com/salmonballot/pics/earthLayer.png');
+    const texturenucleus4 = loader.load('https://woodandmortar.com/salmonballot/pics/buildingLayer.png');
+    const texturenucleus5 = loader.load('https://woodandmortar.com/salmonballot/pics/baseLayer2.png');
+    const texturenucleus6 = loader.load('https://woodandmortar.com/salmonballot/pics/coreLayer.png');
+    const texturenucleus7 = loader.load('https://woodandmortar.com/salmonballot/pics/goldLayer.png');
+    const texturenucleus8 = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus9 = loader.load('https://woodandmortar.com/salmonballot/pics/webLayer.png');
+    const texturenucleus10 = loader.load('https://woodandmortar.com/salmonballot/pics/cloudLayer.png');
+    const texturenucleus11 = loader.load('https://woodandmortar.com/salmonballot/pics/textLayer.png');
+    const texturenucleus12 = loader.load('https://woodandmortar.com/salmonballot/pics/lightLayer.png');
+    const texturenucleus13 = loader.load('https://woodandmortar.com/salmonballot/pics/mercatoLayer.png');
+    const textureStar = loader.load("https://woodandmortar.com/salmonballot/pics/jelly.png");
 
     // Rotation speed in radians per second
     const rotationSpeed = THREE.MathUtils.degToRad(.01); // 30 degrees per second
@@ -304,6 +308,20 @@ scene.add(nucleus3);
 
 // End of Copy layer
 
+// Copy Layer
+texturenucleus4.anisotropy = 0;
+const nucleus4Radius = 814 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry4 = new THREE.IcosahedronGeometry(nucleus4Radius, 10);
+const lambertMaterial4 = new THREE.MeshPhongMaterial({
+map: texturenucleus4,
+transparent: true,
+opacity: 0.9,
+});
+const nucleus4 = new THREE.Mesh(icosahedronGeometry4, lambertMaterial4);
+nucleus4.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus4);
+nucleus4.rotation.y -= 0.002;
+// End of Copy layer
 
 // Copy Layer
 // Define the nucleus10 object
@@ -331,7 +349,50 @@ setInterval(rotateNucleus10, 5);
 
 // End of Copy layer
 
+// Copy Layer
+texturenucleus13.anisotropy = 0;
+const nucleus13Radius = 816 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry13 = new THREE.IcosahedronGeometry(nucleus13Radius, 10);
+const lambertMaterial13 = new THREE.MeshPhongMaterial({
+map: texturenucleus13,
+transparent: true,
+opacity: 0.9,
+});
+const nucleus13 = new THREE.Mesh(icosahedronGeometry13, lambertMaterial13);
+nucleus13.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus13);
 
+// End of Copy layer
+
+// Copy Layer
+texturenucleus12.anisotropy = 0;
+const nucleus12Radius = 819 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry12 = new THREE.IcosahedronGeometry(nucleus12Radius, 10);
+const lambertMaterial12 = new THREE.MeshPhongMaterial({
+map: texturenucleus12,
+transparent: true,
+opacity: 0.5,
+});
+const nucleus12 = new THREE.Mesh(icosahedronGeometry12, lambertMaterial12);
+nucleus12.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus12);
+
+// End of Copy layer
+
+// Copy Layer
+texturenucleus11.anisotropy = 0;
+const nucleus11Radius = 840 * blobScale; // 10 units larger than the first nucleus
+const icosahedronGeometry11 = new THREE.IcosahedronGeometry(nucleus11Radius, 10);
+const lambertMaterial11 = new THREE.MeshPhongMaterial({
+map: texturenucleus11,
+transparent: true,
+opacity: 0.50,
+});
+const nucleus11 = new THREE.Mesh(icosahedronGeometry11, lambertMaterial11);
+nucleus11.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
+scene.add(nucleus11);
+
+// End of Copy layer
 
 
 

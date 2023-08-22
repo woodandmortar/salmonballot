@@ -17,7 +17,7 @@ function checkComplete() {
     if (document.getElementById('finalNumber').innerHTML === "Complete" &&
         document.getElementById('finalNumber2').innerHTML === "Complete" &&
         document.getElementById('finalNumber3').innerHTML === "Complete") {
-        alert("Unlocked a secret Book");
+        alert("You see password: reset017");
         clearInterval(intervalId); // Stop the interval
     }
 }

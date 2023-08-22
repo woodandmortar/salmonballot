@@ -15,7 +15,7 @@ function checkPasscode() {
     bookFrame2.src = 'success.html';
     bookFrame.src = 'success.html';
     alert('Critical notice! Population decrease resolved. Chapter 1 Anomaly complete. Chapter 2 Pending....');
-    decreaseAmount = 53710;
+    decreaseAmount = 20;
   }
 
 }
