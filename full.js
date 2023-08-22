@@ -362,6 +362,16 @@ const nucleus13 = new THREE.Mesh(icosahedronGeometry13, lambertMaterial13);
 nucleus13.rotation.copy(nucleus.rotation); // Copy rotation from the first nucleus
 scene.add(nucleus13);
 
+// Function to rotate the nucleus10 counterclockwise by a certain angle
+function rotateNucleus13() {
+    rotationSpeed2 = 0.0000245;
+    nucleus13.rotation.y -= rotationSpeed;
+}
+
+// Call the rotateNucleus10 function every 1000 milliseconds (1 second)
+setInterval(rotateNucleus13, 5);
+
+
 // End of Copy layer
 
 // Copy Layer

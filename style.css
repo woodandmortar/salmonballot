@@ -3,7 +3,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    background-image: url("https://woodandmortar.com/salmonballot/background2.png");
+    background-image: url("https://woodandmortar.com/salmonballot/pics/background2.png");
     background-size: cover;
     backdrop-filter:  brightness(70%);
 }
