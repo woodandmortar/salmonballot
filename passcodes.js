@@ -75,8 +75,8 @@ function checkPasscode2() {
     document.getElementById("books").style.display = "block";
     document.getElementById("schedule").style.display = "none";
     settingsActive();
-    bookFrame2.src = 'Abzimuth.html';
-    bookFrame.src = 'Abzimuth.html';
+    bookFrame2.src = 'nations/nibr2531116.html';
+    bookFrame.src = 'nations/nibr2531116.html';
     document.getElementById("abzimuthID").style.display = "block";
   }
   if(code2 === "Commune" || code2 === "commune") {
@@ -130,8 +130,8 @@ function abzimuth(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   settingsActive();
-  bookFrame2.src = 'Abzimuth.html';
-  bookFrame.src = 'Abzimuth.html';
+  bookFrame2.src = 'nations/nibr2531116.html';
+  bookFrame.src = 'nations/nibr2531116.html';
 }
 
 function collective(){
