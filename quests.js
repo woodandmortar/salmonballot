@@ -178,3 +178,13 @@ let currentStep = 0;
                          guessInput.value = '';
                          guessInput.focus();
                      }
+
+
+
+function quest2() {
+alert('Critical notice! Population decrease exponentially increased due to quest logic, Terminate with password.');
+globeActive();
+rotationSpeed2 = 0.0000445;
+document.getElementById('quest2password').style.display = "block";
+decreaseAmount = 2098000;
+}

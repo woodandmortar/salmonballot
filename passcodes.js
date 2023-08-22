@@ -107,6 +107,25 @@ function checkPasscode3() {
 
 }
 
+function checkPasscode4() {
+  const code3 = document.getElementById("quest2code").value;
+  if(code3 === "reset0914") {
+    settingsActive();
+    bookFrame2.src = '16122042361017148.html';
+    bookFrame.src = '16122042361017148.html';
+    alert('Critical notice! Anomaly solved, exponential population decrease reversed.');
+    rotationSpeed2 = 0.000000005;
+    decreaseAmount = 20;
+  }
+  else if(true) {
+    alert('Critical Error! Population decrease exponentially increased due to bad processing, solve the password.');
+    decreaseAmount = 20980000;
+  }
+
+}
+
+
+
 function abzimuth(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";

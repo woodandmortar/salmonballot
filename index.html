@@ -409,7 +409,7 @@
                           <div class="project-box-header">
                             <span><h1>1 Book</h1></span>
                             <div class="more-wrapper">
-                              <a ><div class="days-left" style="color: #054950;" onclick="energyAuditActive();">
+                              <a ><div class="days-left" style="color: #054950;" onclick="energyAuditActive();this.classList.toggle('inactive');">
                               Start Intro
                             </div></a>
                         </div>
@@ -431,7 +431,7 @@ Enter your Nation:
                      <div class="project-box-wrapper" id="quest1">
                         <div class="project-box" style="background-color: #C8EED1;">
                           <div class="project-box-header">
-                            <span><h1>20 Books</h1></span>
+                            <span><h1>1 Books</h1></span>
                             <div class="more-wrapper">
                               <a onclick="openQuest1();this.classList.toggle('inactive');"><div class="days-left" style="color: #054950;">
                               Start Event
@@ -463,7 +463,51 @@ Enter your Nation:
                     </div>
                   </div>
   <!--Box01-->
+  <!--Box03-->
+                     <div class="project-box-wrapper" id="quest2">
+                        <div class="project-box" style="background-color: #C8EED1;">
+                          <div class="project-box-header">
+                            <span><h1>1 Book</h1></span>
+                            <div class="more-wrapper">
+                              <a ><div class="days-left" style="color: #054950;" onclick="quest2();this.classList.toggle('inactive');">
+                              Start Event
+                            </div></a>
+                        </div>
+                      </div>
+                      <div class="project-box-content-header">
+                        <p class="box-content-header">Manuscript Salvage</p>
+                        <p class="box-content-subheader">
+  The vibrant free markets of Mercado face an imminent and catastrophic threat in the form of an impending hurricane.
+  The bustling commerce hubs, where livelihoods are intertwined with trade and exchange, stand on the verge of devastation.
+  As part of the united efforts of the Collective AI, you are entrusted with a vital and urgent mission: "Operation Vessel Rescue."
+  <br><br>
+  <b>Objective</b><br>
+  Your mission is to coordinate and deploy a massive fleet of life vessels, numbering in the tens of thousands, to save the lives and livelihoods
+  of the inhabitants of Mercado's free markets. These life vessels are beacons of hope, ensuring the safe evacuation and protection of individuals,
+  businesses, and cultural assets. The fate of an entire interconnected society hinges on your strategic coordination and unwavering dedication.
+  <br><br>
+  <b>Challenges</b><br>
+  As you navigate the turbulent waters and unpredictable conditions, you'll encounter challenges that demand quick decision-making and efficient
+  deployment of resources. Time is of the essence, and your ability to coordinate rescue efforts effectively will determine the outcome for countless lives.
+  <br><br>
+  <b>Impact</b><br>
+  The success of "Operation Vessel Rescue" is paramount not only for the survival of the individuals within Mercado but also for the preservation
+  of the intricate web of trade, culture, and prosperity that defines the free markets. Your actions will resonate as a testament to the power of unity
+  and the Collective AI's commitment to safeguarding the well-being of its interconnected societies.
+</p>
+                      </div>
+                      <div class="project-box-content-header" id="quest2password" style="display:none;">
+                        <p class="box-content-header">Locate Mainframe Password</p>
+                        <p class="box-content-subheader">
+Enter the Password:
+                          <input type="password" id="quest2code" maxlength="14">
+                          <button class="open-modal" onclick="checkPasscode4();this.classList.toggle('inactive');closeTab();">Submit</button>
 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+  <!--Box03-->
 
 
                 </div>
