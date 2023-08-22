@@ -17,7 +17,7 @@ function checkComplete() {
     if (document.getElementById('finalNumber').innerHTML === "Complete" &&
         document.getElementById('finalNumber2').innerHTML === "Complete" &&
         document.getElementById('finalNumber3').innerHTML === "Complete") {
-        alert("You see password: reset017");
+        alert("You see password: reset017 written on a folder");
         clearInterval(intervalId); // Stop the interval
     }
 }
@@ -44,7 +44,8 @@ let currentStep = 0;
 
                     const progressBar = document.getElementById('tBoxProgress');
                     const progressText = document.getElementById('tPercentInput');
-
+                    alert('Critical notice! Population decrease exponentially increased due to quest logic, Crisis Level: 3 - expecting new .HPXML parameters to continue.');
+                    status = 3;
                     function updateProgressBar(progress) {
                         progressBar.style.width = progress + '%';
                         progressText.textContent = Math.round(progress) + '%';
@@ -182,9 +183,9 @@ let currentStep = 0;
 
 
 function quest2() {
-alert('Critical notice! Population decrease exponentially increased due to quest logic, Terminate with password.');
+alert('Critical notice! Population decrease exponentially increased due to quest logic, Crisis Level: 3 - Terminate with password.');
 globeActive();
 rotationSpeed2 = 0.0000445;
 document.getElementById('quest2password').style.display = "block";
-decreaseAmount = 2098000;
+status = 3;
 }

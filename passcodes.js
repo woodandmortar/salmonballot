@@ -14,8 +14,8 @@ function checkPasscode() {
     settingsActive();
     bookFrame2.src = 'success.html';
     bookFrame.src = 'success.html';
-    alert('Critical notice! Population decrease resolved. Chapter 1 Anomaly complete. Chapter 2 Pending....');
-    decreaseAmount = 20;
+    alert('Critical notice! Population decrease resolved.  Crisis Level: 0 - Chapter 1 Anomaly complete. Chapter 2 Pending....');
+    status = 0;
   }
 
 }
@@ -97,12 +97,12 @@ function checkPasscode3() {
     settingsActive();
     bookFrame2.src = '16122042361017148.html';
     bookFrame.src = '16122042361017148.html';
-    alert('Critical notice! Population decrease exponentially increased due to quest logic, expecting new HPXML parameters.');
-    decreaseAmount = 2098000;
+    alert('Critical notice! Population decrease exponentially increased due to quest logic, Crisis Level: 3 - expecting new .HPXML parameters to continue.');
+    status = 3;
   }
   else if(true) {
-    alert('Critical Error! Population decrease exponentially increased due to bad processing, solve the password.');
-    decreaseAmount = 20980000;
+    alert('Critical Error! Population decrease exponentially increased due to bad processing, Crisis Level: 4 - solve the password.');
+    status = 4;
   }
 
 }
@@ -113,13 +113,13 @@ function checkPasscode4() {
     settingsActive();
     bookFrame2.src = '16122042361017148.html';
     bookFrame.src = '16122042361017148.html';
-    alert('Critical notice! Anomaly solved, exponential population decrease reversed.');
+    alert('Critical notice! Anomaly solved, Crisis Level: 0 - exponential population decrease reversed.');
     rotationSpeed2 = 0.000000005;
-    decreaseAmount = 20;
+    status = 0;
   }
   else if(true) {
-    alert('Critical Error! Population decrease exponentially increased due to bad processing, solve the password.');
-    decreaseAmount = 20980000;
+    alert('Critical Error! Population decrease exponentially increased due to bad processing, Crisis Level: 4 - solve the password.');
+    status = 4;
   }
 
 }

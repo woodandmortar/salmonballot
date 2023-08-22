@@ -10,7 +10,9 @@ let populations = {
   populist: 100000090
 };
 
-let decreaseAmount = 98000; // You can adjust this value
+let status = 0; // Set the initial status level
+let increaseAmount = .01; // Population increase amount for status 0
+let decreaseAmounts = [2000, 40000, 60000, 80000, 100000, 500000]; // Population decrease amounts for different statuses
 
 function updatePopulations() {
   let totalPopulation = 0;
@@ -18,10 +20,18 @@ function updatePopulations() {
   for (let nation in populations) {
     const nationSpan = document.getElementById(nation);
 
-    const currentValue = parseFloat(nationSpan.textContent);
-    const populationChangeFactor = currentValue > decreaseAmount ? 0.999 : 1;
+    if (status === 0) {
+      populations[nation] += increaseAmount;
+    } else {
+      populations[nation] -= decreaseAmounts[status];
+    }
 
-    populations[nation] *= populationChangeFactor;
+    if (populations[nation] < 1000) {
+      window.location.reload();
+      alert("Population dropped below 1000! Resetting window...");
+      break;
+    }
+
     nationSpan.textContent = Math.round(populations[nation]);
 
     totalPopulation += populations[nation];
@@ -34,7 +44,7 @@ function updatePopulations() {
   avgSpan.textContent = Math.round(avgPopulation);
 
   const statusSpan = document.getElementById('status');
-  statusSpan.textContent = avgPopulation > 1 ? "Above 1" : "Under 1";
+  statusSpan.textContent = status;
 }
 
 let interval;
