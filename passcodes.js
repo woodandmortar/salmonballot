@@ -111,8 +111,8 @@ function checkPasscode4() {
   const code3 = document.getElementById("quest2code").value;
   if(code3 === "reset0914") {
     settingsActive();
-    bookFrame2.src = '16122042361017148.html';
-    bookFrame.src = '16122042361017148.html';
+    bookFrame2.src = 'vid004.html';
+    bookFrame.src = 'vid004.html';
     alert('Critical notice! Anomaly solved, Crisis Level: 0 - exponential population decrease reversed.');
     rotationSpeed2 = 0.000000005;
     status = 0;
