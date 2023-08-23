@@ -8,7 +8,7 @@
                 <h6>2531 AD</h6>
             </header>
             <article>
-                <div><p>An old man with a gushing rivulet of blood flowing from an open gash over one thick, salt and pepper eyebrow trotted towards you. “I don’t know who you are and I don’t care but you’re going to help me carry this dumbass back to our ship or I’m going to-”
+                <div id="1stDiv"><p>An old man with a gushing rivulet of blood flowing from an open gash over one thick, salt and pepper eyebrow trotted towards you. “I don’t know who you are and I don’t care but you’re going to help me carry this dumbass back to our ship or I’m going to-”
 </p><p>
 “I’m not a dumbass, ancient,” the woman groans as she sits up, a hand cupping the back of her head. She pulls it away, small spots of blood grace the ends of her fingertips but she wipes it away on her coveralls dismissively.
 </p><p>
@@ -53,6 +53,8 @@ Seren complied in a distraught haze. She had begun to turn away from you and joi
 
 
 function run1a(){
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
   const progressiveValue = 1050000; // Or any value you want to add to progressive
   window.parent.postMessage({ progressive: progressiveValue }, '*');
   const option1a = document.getElementById('option1a');
@@ -71,7 +73,9 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
-  const conservativeValue = 1050000; // Or any value you want to add to conservative
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const conservativeValue = 1050000; // Or any value you want to add to conservative
   window.parent.postMessage({ conservative: conservativeValue }, '*');
   const option2a = document.getElementById('option2a');
   document.getElementById('option2a').disabled = true;
@@ -89,7 +93,9 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
-  const socialistValue = 1050000; // Or any value you want to add to socialist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const socialistValue = 1050000; // Or any value you want to add to socialist
   window.parent.postMessage({ socialist: socialistValue }, '*');
   const option3a = document.getElementById('option3a');
   document.getElementById('option3a').disabled = true;
@@ -107,7 +113,9 @@ function run3a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run4a(){
-  const economistValue = 1050000; // Or any value you want to add to economist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const economistValue = 1050000; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
   const option4a = document.getElementById('option3a');
   document.getElementById('option4a').disabled = true;
@@ -125,7 +133,9 @@ function run4a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run5a(){
-  const idealistValue = 1050000; // Or any value you want to add to idealist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const idealistValue = 1050000; // Or any value you want to add to idealist
   window.parent.postMessage({ idealist: idealistValue }, '*');
   const option5a = document.getElementById('option3a');
   document.getElementById('option5a').disabled = true;
@@ -143,7 +153,9 @@ function run5a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run6a(){
-  const realistValue = 1050000; // Or any value you want to add to realist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const realistValue = 1050000; // Or any value you want to add to realist
   window.parent.postMessage({ realist: realistValue }, '*');
   const option6a = document.getElementById('option3a');
   document.getElementById('option6a').disabled = true;
@@ -161,7 +173,9 @@ function run6a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run7a(){
-  const globalistValue = 1050000; // Or any value you want to add to globalist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const globalistValue = 1050000; // Or any value you want to add to globalist
   window.parent.postMessage({ globalist: globalistValue }, '*');
   const option7a = document.getElementById('option3a');
   document.getElementById('option7a').disabled = true;
@@ -179,7 +193,9 @@ function run7a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run8a(){
-  const nationalistValue = 1050000; // Or any value you want to add to nationalist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const nationalistValue = 1050000; // Or any value you want to add to nationalist
   window.parent.postMessage({ nationalist: nationalistValue }, '*');
   const option8a = document.getElementById('option3a');
   document.getElementById('option8a').disabled = true;
@@ -197,7 +213,9 @@ function run8a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run9a(){
-  const populistValue = 1050000; // Or any value you want to add to populist
+  document.getElementById('2ndDiv').style.display = "block";
+  document.getElementById('1stDiv').style.display = "none";
+const populistValue = 1050000; // Or any value you want to add to populist
   window.parent.postMessage({ populist: populistValue }, '*');
   const option9a = document.getElementById('option3a');
   document.getElementById('option9a').disabled = true;
@@ -216,7 +234,9 @@ function run9a(){
 }
 
   </script>
-
+<div id="2ndDiv" style="display:none;">
+<h1>Check your new heading!</h1>
+  </div>
             </article>
         </section>
     </div>

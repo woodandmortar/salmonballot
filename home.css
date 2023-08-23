@@ -433,9 +433,33 @@ button, a {
   opacity: 0.7;
 }
 .message-line.time {
+  display: flex;
+  flex-direction: row;
   text-align: right;
   margin-bottom: 0;
 }
+.message-line2 {
+  border-right: .1em solid;
+  background-color: lightgreen;
+  font-family: monospace;
+  animation: type 0.2s steps(1, end) 0s 1 normal both, blink 1s steps(1, end) infinite;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 24ch; /* Initial setting. Will be overridden by JS */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 
 .project-boxes {
   margin: 0 -8px;
@@ -875,6 +899,30 @@ button, a {
       }
       }
 
+      .open-modal2 {
+         text-align: center;
+         display: block;
+        border: 2px solid black;
+        background: transparent;
+        color: #000;
+        width: 30px;
+        Height: 120px;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        letter-spacing: 2px;
+        font-size: 10px;
+        padding: .5em 1em;
+        font-weight: bold;
+        -webkit-transition: background 0.3s;
+        transition: background 0.3s;
+        animation: pulse 8s infinite;
+
+      }
+
+      .open-modal2:hover {
+        background: #D95952;
+      }
+
          .row {
   display: flex;
   flex-wrap: wrap;
@@ -943,289 +991,3 @@ button, a {
   #tailMove {
     animation: swim 2s infinite alternate ease-in-out;
   }
-
-  /**===== bars0 =====*/
-  #bars0 {
-    display: block;
-    position: absolute;
-    top:0px;
-    right:135px;
-    height: 50px;
-    width: 50px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
-
-  #bars0 span {
-    position: absolute;
-    display: block;
-    bottom: 10px;
-    width: 9px;
-    height: 5px;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.25);
-    -webkit-animation: bars0 2.5s  infinite ease-in-out;
-            animation: bars0 2.5s  infinite ease-in-out;
-
-                      -webkit-animation-delay: 0.2s;
-                              animation-delay: 0.2s;
-  }
-
-  @keyframes bars0 {
-    0% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    25% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    80% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    100% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-  }
-  @-webkit-keyframes bars0 {
-    0% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    25% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    80% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    100% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-  }
-  /** END of bars1 */
-  /**===== bars0a =====*/
-  #bars0a {
-    display: block;
-    position: absolute;
-    top:0px;
-    right:150px;
-    height: 50px;
-    width: 50px;
-    border-radius: 2px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
-
-  #bars0a span {
-    position: absolute;
-    display: block;
-    bottom: 10px;
-    width: 9px;
-    height: 5px;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.25);
-    -webkit-animation: bars0a 2.5s  infinite ease-in-out;
-            animation: bars0a 2.5s  infinite ease-in-out;
-
-  }
-
-  span::before,
-  span::after {
-    content: '';
-    display: block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: none;
-  }
-
-  span::before {
-    position: absolute;
-    bottom: 0;
-    left: -15px;
-  }
-
-  span::after {
-    position: absolute;
-    bottom: 0;
-    right: -15px;
-  }
-
-  @keyframes bars0a {
-    0% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    25% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    80% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    100% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-  }
-  @-webkit-keyframes bars0a {
-    0% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    25% {
-      height: 30px;
-      -webkit-transform: translateY(15px);
-              transform: translateY(15px);
-      background: #000000;
-    }
-    80% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-    100% {
-      height: 5px;
-      -webkit-transform: translateY(0px);
-              transform: translateY(0px);
-      background: rgba(0, 0, 0, 0.25);
-    }
-  }
-  /** END of bars1 */
-/**===== bars1 =====*/
-#bars1 {
-  display: block;
-  position: absolute;
-  top:10px;
-  right:100px;
-  height: 50px;
-  width: 50px;
-}
-
-#bars1 span {
-  position: absolute;
-  display: block;
-  bottom: 10px;
-  width: 9px;
-  height: 5px;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.25);
-  -webkit-animation: bars1 2.5s  infinite ease-in-out;
-          animation: bars1 2.5s  infinite ease-in-out;
-
-          -webkit-animation-delay: 0.4s;
-                  animation-delay: 0.4s;
-}
-
-
-@keyframes bars1 {
-  0% {
-    height: 5px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    background: rgba(0, 0, 0, 0.25);
-  }
-  25% {
-    height: 28px;
-    -webkit-transform: translateY(15px);
-            transform: translateY(15px);
-    -webkit-transform: translateY(15px);
-            transform: translateY(15px);
-    background: #000000;
-  }
-  80% {
-    height: 28px;
-    -webkit-transform: translateY(15px);
-            transform: translateY(15px);
-    -webkit-transform: translateY(15px);
-            transform: translateY(15px);
-            background: #000000;
-  }
-  100% {
-    height: 5px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    background: rgba(0, 0, 0, 0.25);
-  }
-}
-@-webkit-keyframes bars1 {
-  0% {
-    height: 5px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    background: rgba(0, 0, 0, 0.25);
-  }
-  25% {
-    height: 30px;
-    -webkit-transform: translateY(15px);
-            transform: translateY(15px);
-    background: #000000;
-  }
-  80% {
-    height: 5px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    background: rgba(0, 0, 0, 0.25);
-  }
-  100% {
-    height: 5px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    background: rgba(0, 0, 0, 0.25);
-  }
-}
-/** END of bars1 */
-/*-----------------------------------------------------------------------*/

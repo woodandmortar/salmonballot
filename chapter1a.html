@@ -34,6 +34,7 @@
 
 
 function run1a(){
+  document.getElementById('2ndDiv').style.display = "block";
   const conservativeValue = 105000; // Or any value you want to add to conservative
   window.parent.postMessage({ conservative: conservativeValue }, '*');
   const nationalistValue = 100500; // Or any value you want to add to Progressive
@@ -49,6 +50,7 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const idealistValue = 105000; // Or any value you want to add to idealist
   window.parent.postMessage({ idealist: idealistValue }, '*');
   const socialistValue = 105000; // Or any value you want to add to Progressive
@@ -64,6 +66,7 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const progressiveValue = 105000; // Or any value you want to add to progressive
   window.parent.postMessage({ progressive: progressiveValue }, '*');
   const populistValue = 105000; // Or any value you want to add to Progressive
@@ -81,6 +84,7 @@ function run3a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run4a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const economistValue = 105000; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
   const realistValue = 105000; // Or any value you want to add to Progressive
@@ -97,7 +101,7 @@ function run4a(){
 }
   </script>
 
-
+<div id="2ndDiv" style="display:none;">
 <p>
                “It doesn’t matter either way,” he dismisses the line of questioning with a lazy wave. “You’re awake now and that’s what matters. I can give you a full evaluation now that you’re conscious. Based on your injuries, there’s no reason you don’t get out of here today.” He paused again to allow you to process what he had just said. “I can set you up with some local resources and reach out to any family -”
 </p>
@@ -109,7 +113,7 @@ function run4a(){
 </p>
 <p>
                You immediately drop to the floor to crawl beneath the smoke and avoid more flying shrapnel. You can feel your body trying to scream at you through your adrenaline. You ignore it, you have to ignore it or you die. The greasy smog is thinner on the floor. It isn’t clear but at least you can breathe without wheezing and see down the hall. You move quickly into the hall keeping your face as low as you can while still keeping as many of your limbs underneath your body as possible. Belly crawling your way out of here would take too long. It wasn’t hard to follow the emergency exit signs even through the flashing white lights strobing through the smoke billows. The exits glowed a vicious red more like a warning than salvation, but salvation they were, so that’s where you headed.
-</p>
+</p></div>
 
 <dl id="nextButton" style="display:none;" onclick="location.replace('chapter1b.html')">- Next Page -</dl>
             </article>

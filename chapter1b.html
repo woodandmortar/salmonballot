@@ -41,6 +41,7 @@
 
 
 function run1a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const economistValue = 105000; // Or any value you want to add to economist
   window.parent.postMessage({ economist: economistValue }, '*');
   const realistValue = 100500; // Or any value you want to add to Progressive
@@ -56,6 +57,7 @@ function run1a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run2a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const conservativeValue = 105000; // Or any value you want to add to conservative
   window.parent.postMessage({ conservative: conservativeValue }, '*');
   const idealistValue = 105000; // Or any value you want to add to Progressive
@@ -73,6 +75,7 @@ function run2a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run3a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const populistValue = 105000; // Or any value you want to add to populist
   window.parent.postMessage({ populist: populistValue }, '*');
   const nationalistValue = 105000; // Or any value you want to add to Progressive
@@ -88,6 +91,7 @@ function run3a(){
   document.getElementById('backButton').style.display = "block";
 }
 function run4a(){
+    document.getElementById('2ndDiv').style.display = "block";
   const globalistValue = 105000; // Or any value you want to add to globalist
   window.parent.postMessage({ globalist: globalistValue }, '*');
   const socialistValue = 105000; // Or any value you want to add to Progressive
@@ -103,7 +107,7 @@ function run4a(){
   document.getElementById('backButton').style.display = "block";
 }
   </script>
-
+<div id="2ndDiv" style="display:none;">
 <p>
   The pressure bar loosens under your hand through no effort of your own and the door swings away from you swiftly, pulling your support away and causing you to stumble forward. A woman smudged with grime and dust barges through the door nearly barreling into you.
 </p><p>
@@ -127,7 +131,7 @@ function run4a(){
 </p><p>
   “Seren!” a gruff voice shouted hoarsely from just beyond you. “Damn it, Seren, I told you not to go in there you daft, thick-headed prawn.”
 
-</p>
+</p></div>
 
 <dl id="nextButton" style="display:none;" onclick="location.replace('chapter1c.html')">- Next Page -</dl>
 
