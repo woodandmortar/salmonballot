@@ -54,3 +54,57 @@ function startUpdating() {
 }
 
 startUpdating();
+
+
+const symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-+=[]{}:;<>?,.~_|";
+const tableau = [];
+
+// Create Vigenère tableau
+for (let i = 0; i < symbols.length; i++) {
+    let shifted = symbols.slice(i) + symbols.slice(0, i);
+    tableau.push(shifted);
+}
+
+function isValid(input) {
+    for (let char of input) {
+        if (!symbols.includes(char)) {
+            alert('Invalid character: ' + char);
+            return false;
+        }
+    }
+    return true;
+}
+
+function encrypt() {
+    const plainText = document.getElementById('plainText').value;
+    const key = document.getElementById('key').value;
+
+    if (!isValid(plainText) || !isValid(key)) return;
+
+    let encryptedText = "";
+
+    for (let i = 0; i < plainText.length; i++) {
+        let row = symbols.indexOf(key[i % key.length]);
+        let col = symbols.indexOf(plainText[i]);
+        encryptedText += tableau[row][col];
+    }
+
+    document.getElementById('result').value = encryptedText;
+}
+
+function decrypt() {
+    const cipherText = document.getElementById('plainText').value;
+    const key = document.getElementById('key').value;
+
+    if (!isValid(cipherText) || !isValid(key)) return;
+
+    let decryptedText = "";
+
+    for (let i = 0; i < cipherText.length; i++) {
+        let row = symbols.indexOf(key[i % key.length]);
+        let col = tableau[row].indexOf(cipherText[i]);
+        decryptedText += symbols[col];
+    }
+
+    document.getElementById('result').value = decryptedText;
+}

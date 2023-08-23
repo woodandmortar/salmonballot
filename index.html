@@ -517,7 +517,21 @@ Enter the Password:
 
 <div id="salmon" class="project-boxes" style="display: none;">
 
-<iframe src="https://discord.com/widget?id=893938389437513749&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  <label for="plainText">Enter Encrypted Text:</label>
+  <input type="text" id="plainText" placeholder="Enter plaintext or cipher text">
+  <br><br>
+
+  <label for="key">Key:</label>
+  <input type="text" id="key" placeholder="Enter key">
+  <br><br>
+
+  <button class="open-modal" onclick="encrypt()">Encrypt</button>
+  <button class="open-modal" onclick="decrypt()">Decrypt</button>
+  <br><br>
+
+  <label for="result">Result:</label>
+  <input type="text" id="result" readonly>
+
 </div>
 
 <div id="globe" style="display: none;">
