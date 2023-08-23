@@ -1,17 +1,17 @@
 let populations = {
-  progressive: 100000000,
-  socialist: 9000000,
-  idealist: 100000009,
-  globalist: 100000000,
-  conservative: 100009000,
-  economist: 100000000,
-  realist: 100000000,
-  nationalist: 100090000,
-  populist: 100000090
+  progressive: 10000010,
+  socialist: 10000000,
+  idealist: 100000020,
+  globalist: 100000030,
+  conservative: 100000040,
+  economist: 100000050,
+  realist: 100000080,
+  nationalist: 100000060,
+  populist: 100000070
 };
 
 let status = 0; // Set the initial status level
-let increaseAmount = .01; // Population increase amount for status 0
+let increaseAmount = .03; // Population increase amount for status 0
 let decreaseAmounts = [2000, 40000, 60000, 80000, 100000, 500000]; // Population decrease amounts for different statuses
 
 function updatePopulations() {
@@ -108,3 +108,17 @@ function decrypt() {
 
     document.getElementById('result').value = decryptedText;
 }
+
+
+
+
+window.addEventListener('message', function(event) {
+  // Ensure you trust the sender of the message!
+  // Add checks for origin if needed
+
+  for (let nation in populations) {
+    if (event.data[nation]) {
+      populations[nation] += event.data[nation];
+    }
+  }
+});

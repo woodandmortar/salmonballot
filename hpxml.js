@@ -1,26 +1,26 @@
 
                           const descriptAll = [
-                            "<h1>Progressive</h1><br> -  Open to new ideas and pushing boundaries to discover innovative solutions.",
-                            "<h1>Conservative</h1><br> - Values tradition and gradual change through experiencing different cultures.",
-                            "<h1>Socialist</h1><br> - Leads with compassion for the crew and equal sharing of rewards.",
-                            "<h1>Economist</h1><br> - Driven by profits and market forces, understands supply and demand dynamics.",
-                            "<h1>Idealist</h1><br> - Guided by vision and ideals to meticulously craft their work.",
-                            "<h1>Realist</h1><br> - Grounded and resilient, respects nature's harsh realities.",
-                            "<h1>Globalist</h1><br> - Operates across borders, navigating regulations and restrictions.",
-                            "<h1>Nationalist</h1><br> - Upholds law and protocol to maintain order and traditions. Stern yet fair, values duty over glory.",
-                            "<h1>Populist</h1><br> - Represents the working class, used to fight for better conditions but self-serving when push comes to shove.",
+                            "<h1>United Islands of Ventura</h1><br> -  Open to new ideas and pushing boundaries to discover innovative solutions. Having a wide distribution of wealth ranging from the very impoverished to the very wealthy, they are generally slow to change but verbally express a desire to do better by their citizens.",
+                            "<h1>Commonwealth of Trantum</h1><br> - Values tradition and gradual change through experiencing different cultures. A nation geared around doing the best for themselves with active disregard to most of the rest of the world.",
+                            "<h1>The Collective</h1><br> - a purely socialist AI with a singular directive - protect all humanity.",
+                            "<h1>Free Markets of Mercado</h1><br> - Driven by profits and market forces, Mercado is a mobile island with an economist governing body. Having trade regions set up all over the globe, Mercatians believe that - Gold is King",
+                            "<h1>Faxium </h1><br> - A nation who believes at their core that creative science can solve most problems. Faxium exports genetically modified, organic bioluminescent plants to most of the other nations.",
+                            "<h1>Iron Coast</h1><br> - Grounded and resilient, respects nature's harsh realities the Iron Coast is a low resource region with a realist governing body. They are reliant on natural resources as they are the most isolated nation.",
+                            "<h1>Eventus</h1><br> - A nation geared around spreading quality healthcare to the world. People from the rest of the world travel to Eventus to treat healthcare problems that cannot be solved in their own nations.",
+                            "<h1>Abzimuth</h1><br> - A nation who would ignore the world if it meant the prosperity of their people. Abzimuth exports precious gems and metals, upholds law and protocol to maintain order and traditions. Stern yet fair, values duty over glory.",
+                            "<h1>Ocidentica</h1><br> - Represents the working class, used to fight for better conditions but self-serving when push comes to shove. A nation composed primarily of low income people, Ocidentica exports readily available but generally low quality fish.",
                           ];
 
                           const subcategories2 = {
-                            "progressive ": ["Progressive "],
-                            "conservative": ["Conservative"],
-                            "socialist": ["Socialist"],
-                            "economist": ["Economist"],
-                            "idealist": ["Idealist"],
-                            "realist": ["Realist"],
-                            "globalist": ["Globalist"],
-                            "nationalist": ["Nationalist"],
-                            "populist": ["Populist"],
+                            "progressive ": ["Ventura "],
+                            "conservative": ["Trantum"],
+                            "socialist": ["Collective"],
+                            "economist": ["Mercado"],
+                            "idealist": ["Faxium "],
+                            "realist": ["Iron Coast"],
+                            "globalist": ["Eventus"],
+                            "nationalist": ["Abzimuth"],
+                            "populist": ["Ocidentica"],
                           };
 
                           const descriptAll2 = [
@@ -203,7 +203,7 @@
       "Iron Coast",
       "Eventus",
       "Abzimuth",
-      "Three Seas Commune"
+      "Ocidentica"
     ];
 
     // Initialize variables to store the largest number and its corresponding element ID
