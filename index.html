@@ -76,24 +76,8 @@
                   </div>
 <div id="schedule" class="project-boxes" style="display: none;">
 
-  <div id="chatbox">
-    <p>Bot: Find your logic pattern, try to be as descriptive as you can.</p>
-</div>
-<input type="text" id="userInput" placeholder="Type your response...">
-<button id="sendButton">Send</button>
-<button id="exportButton">Export Logic Patterns</button>
+  <iframe id="bookFrame" src="" style="width: 100%; height: 600px;"></iframe>
 
-<div>
-    <h2>Upload your logicPatterns.txt</h2>
-    <input type="file" id="fileInput">
-    <button onclick="gradeLogic()">Submit</button>
-</div>
-
-<div id="result"></div>
-
-  <h1>HPXML Link goes below:</h1>
-  <input type="password" id="passcode" maxlength="14">
-<button class="open-modal" onclick="checkPasscode()">Submit</button>
 </div>
 
 <div id="settingsMain" class="project-boxes" style="display: none;">
@@ -498,6 +482,11 @@ Enter the Password:
 
 
 <div id="salmon" class="project-boxes" style="display: none;">
+
+
+    <h1>HPXML Link goes below:</h1>
+    <input type="password" id="passcode" maxlength="14">
+  <button class="open-modal" onclick="checkPasscode()">Submit</button>
 
   <label for="plainText">Enter Encrypted Text:</label>
   <input type="text" id="plainText" placeholder="Enter plaintext or cipher text">
