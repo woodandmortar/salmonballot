@@ -36,7 +36,7 @@ function scheduleActive(){
   navSalmon.classList.remove("active");
   books.style.display = 'none';
   bookFrame.src = '';
-  bookFrame2.src = 'test.html';
+  bookFrame2.src = 'zero.html';
 }
 
 function splashActive(){
