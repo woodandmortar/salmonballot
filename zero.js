@@ -73,4 +73,21 @@ for(i=10;i--;)
 	for(j=10;j--;)
 		game.appendChild(tile(i,j,7+(R()*3)|0))
 
-window.onclick=function(e){if(e.target.classList.contains('tile'))interAction(e.target)}
+		// ... [rest of your code]
+
+		let eventHandled = false; // Flag to check if touch event has been handled
+
+		window.ontouchstart = function(e) {
+		    if(e.target.classList.contains('tile')) {
+		        interAction(e.target);
+		        eventHandled = true; // Set the flag to true after handling touch event
+		    }
+		}
+
+		window.onclick = function(e) {
+		    if(eventHandled) { // If touch event was handled, reset the flag and return
+		        eventHandled = false;
+		        return;
+		    }
+		    if(e.target.classList.contains('tile')) interAction(e.target);
+		}
