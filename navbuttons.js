@@ -16,7 +16,6 @@ function energyAuditActive(){
   navShopping.classList.remove("active");
   navSalmon.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
 }
 
 function scheduleActive(){
@@ -35,8 +34,6 @@ function scheduleActive(){
   navShopping.classList.remove("active");
   navSalmon.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
-  bookFrame3.src = 'zero.html';
 }
 
 function splashActive(){
@@ -56,7 +53,6 @@ function splashActive(){
   navShopping.classList.remove("active");
   navSalmon.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
 }
 
 function settingsActive(){
@@ -76,8 +72,6 @@ function settingsActive(){
   navShopping.classList.remove("active");
   navSalmon.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
-  bookFrame2.src = 'Collective.html';
 }
 
 function shoppingActive(){
@@ -97,7 +91,6 @@ function shoppingActive(){
   navSchedule.classList.remove("active");
   navSalmon.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
 }
 
 function salmonActive(){
@@ -117,7 +110,6 @@ function salmonActive(){
   navAudit.classList.remove("active");
   navSchedule.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = '';
 }
 
 function globeActive(){
@@ -137,5 +129,4 @@ function globeActive(){
   navAudit.classList.remove("active");
   navSchedule.classList.remove("active");
   books.style.display = 'none';
-  bookFrame.src = 'Chapter1.html';
 }

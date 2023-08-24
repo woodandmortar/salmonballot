@@ -413,11 +413,6 @@ Enter your Nation:
     and ensuring that the essence of human creativity, thought, and progress remains intact.
  </p>
 
-<p id="quest1complete" style="display:none;">
-  Enter the password: <i>(case sensitive)</i>
-                            <input type="password" id="passcode2" maxlength="14">
-                            <button class="open-modal" onclick="checkPasscode3();this.classList.toggle('inactive');closeQuest1();">Submit</button>
-</p>
 
                       </div>
                     </div>
@@ -477,10 +472,6 @@ Enter the Password:
 
 <div id="salmon" class="project-boxes" style="display: none;">
 
-
-    <h1>HPXML Link goes below:</h1>
-    <input type="password" id="passcode" maxlength="14">
-  <button class="open-modal" onclick="checkPasscode()">Submit</button>
 
   <label for="plainText">Enter Encrypted Text:</label>
   <input type="text" id="plainText" placeholder="Enter plaintext or cipher text">
@@ -651,9 +642,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="message-box">
                   <div class="message-content">
                     <div class="message-header">
-                      <div class="name">Files:</div>
-
+                      <div class="name">Codes:</div>
                     </div>
+                    <p class="message-line time">
+                    <input type="password" id="passcode" maxlength="14">
+                    <button class="open-modal" onclick="checkPasscode();this.classList.toggle('inactive');closeQuest1();">Submit</button></p>
                     <p class="message-line time">
                       <button class="open-modal2" onclick="sendSphere2MoveCommand();"><b>Test</b></button>
                       <button class="open-modal2" onclick="window.open('https://www.tiktok.com/@politicalheading/video/7270262971694255406?is_from_webapp=1&sender_device=pc&web_id=7270263381704115755', '_blank');"><b>Videos</b></button>
@@ -661,6 +654,8 @@ document.addEventListener('DOMContentLoaded', function() {
                       <button class="open-modal2" onclick="n002();">587112349</button>
                       <button class="open-modal2" onclick="abzimuth();" id="abzimuthID" style="display:none;">nibr2531116</button>
                     </p>
+
+
                   </div>
                 </div>
 

@@ -6,7 +6,6 @@ function closeTab() {
 
 function openQuest1(){
     document.getElementById("secretDiv").style.display = "block";
-    document.getElementById("quest1complete").style.display = "block";
     startGame();
     startGame2();
     document.getElementById("schedule").style.display = "none";
