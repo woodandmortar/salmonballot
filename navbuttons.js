@@ -36,7 +36,7 @@ function scheduleActive(){
   navSalmon.classList.remove("active");
   books.style.display = 'none';
   bookFrame.src = '';
-  bookFrame2.src = 'zero.html';
+  bookFrame3.src = 'zero.html';
 }
 
 function splashActive(){
@@ -77,6 +77,7 @@ function settingsActive(){
   navSalmon.classList.remove("active");
   books.style.display = 'none';
   bookFrame.src = '';
+  bookFrame2.src = 'Collective.html';
 }
 
 function shoppingActive(){
