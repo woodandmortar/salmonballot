@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logic Assessment</title>
+    <style>
+        #chatbox {
+            border: 1px solid #ccc;
+            height: 200px;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+        #logicAssessment {
+            margin-top: 10px;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/compromise@11.7.0/compromise.min.js"></script>
 </head>
 <body>
     <div id="chatbox"></div>
     <input id="userInput" type="text" placeholder="Type your response">
     <button id="assessButton">Assess Logic</button>
-    <button id="exportButton">Export Results</button>
     <div id="logicAssessment"></div>
 
     <script>
         const questions = [
-        // Logic-based questions
-        "If a tree falls in a forest and no one is around to hear it, does it make a sound?",
-        "Is the statement 'This statement is false' true or false?",
-
-        // Open-ended questions
-        "What does 'freedom' mean to you?",
-        "How do you define 'intelligence'?",
-
-        // Hypothetical scenarios
-        "Imagine you're on a deserted island with a box. What's in the box and why?",
-        "If you could go back in time and change one event, what would it be and why?",
-
-        // Ambiguous questions
-        "How long is a piece of string?",
-        "Why do we do what we do?",
-
-        // Philosophical/Abstract questions
-        "Do you believe in fate or free will? Why?",
-        "What's the difference between living and existing?"
+            "Is the sky blue?",
+            "Do fish swim in the air?",
+            "Is water wet?",
+            "Can humans breathe underwater without equipment?"
         ];
 
         let currentQuestionIndex = 0;
-        const assessmentResults = [];
 
         function presentQuestion() {
             const chatbox = document.getElementById('chatbox');
@@ -47,56 +43,28 @@
             }
         }
 
-        function assessLogic(response) {
-            const doc = nlp(response);
-
-            if (doc.has('#Value')) {
-                return 'Logical and valid.';
-            } else if (doc.has('#Negative')) {
-                return 'Illogical or invalid.';
-            } else {
-                return 'Mixed or unclear logic.';
-            }
-        }
-
-        function assessAndDisplay() {
+        function assessLogic() {
             const userInput = document.getElementById('userInput').value;
+            const doc = nlp(userInput);
+            let sentiment = "Neutral response.";
+
+            if (doc.has('#Positive')) {
+                sentiment = "Positive response.";
+            } else if (doc.has('#Negative')) {
+                sentiment = "Negative response.";
+            }
 
             const chatbox = document.getElementById('chatbox');
             chatbox.innerHTML += `<p>User: ${userInput}</p>`;
-
-            const logicAssessment = assessLogic(userInput);
             const logicAssessmentDiv = document.getElementById('logicAssessment');
-            logicAssessmentDiv.innerHTML = `<p>Logic Assessment: ${logicAssessment}</p>`;
-
-            assessmentResults.push({ question: questions[currentQuestionIndex], userInput, logicAssessment });
+            logicAssessmentDiv.innerHTML = `<p>Logic Assessment: ${sentiment}</p>`;
 
             currentQuestionIndex++;
             presentQuestion();
-
             document.getElementById('userInput').value = '';
         }
 
-        function exportResults() {
-            let exportContent = 'Question\tUser Input\tLogic Assessment\n';
-            assessmentResults.forEach(result => {
-                exportContent += `${result.question}\t${result.userInput}\t${result.logicAssessment}\n`;
-            });
-
-            const blob = new Blob([exportContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'assessmentResults.txt';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        // Attach event listeners
-        document.getElementById('assessButton').addEventListener('click', assessAndDisplay);
-        document.getElementById('exportButton').addEventListener('click', exportResults);
-
-        // Start the conversation
+        document.getElementById('assessButton').addEventListener('click', assessLogic);
         presentQuestion();
     </script>
 </body>
