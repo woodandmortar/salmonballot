@@ -28,6 +28,13 @@ function checkPasscode() {
     status = 0;
   }
 
+  if(code === "reset9944") {
+    scheduleActive();
+    bookFrame2.src = "https://mozilla.github.io/pdf.js/web/viewer.html?file=https://woodandmortar.com/salmonballot/PEAFaxium.pdf";
+    alert('Critical notice! Population decrease resolved.  Crisis Level: 0 - Quest 1 Anomaly complete.');
+    status = 0;
+  }
+
 }
 
 function checkPasscode2() {
