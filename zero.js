@@ -1,4 +1,5 @@
-R=Math.random,d=document,moves=0
+R=Math.random, d=document, moves=0;
+
 // mini jquery ;) (equivalent to dev console's native $/$$ functions)
 $ =function(x,c){return(c||d).querySelector(x)}
 $$=function(x,c){return[].slice.call((c||d).querySelectorAll(x))}
@@ -9,7 +10,12 @@ lock=function(l){game.classList[l?'add':'remove']('lock')}
 function tile(x,y,v,t){
 	t=document.createElement('div')
 	t.setPos=function(x,y){t.pos={x:x,y:y};t.setAttribute('class','tile x'+x+' y'+(y<0?'h':y))}
-	t.setVal=function(v){t.textContent=v;t.style.backgroundColor='hsl('+((v*100)%360)+',100%,'+(20+v*5)+'%)'}
+	t.setVal=function(v){
+        t.textContent=v;
+        // Adjusted color spectrum from light green to blue
+        let hue = 120 + (v * 15) % 120; // 120 is hue for green, 240 is hue for blue
+        t.style.backgroundColor='hsl('+hue+',100%,'+(20+v*5)+'%)';
+    }
 	t.setVal(v);t.setPos(x,y)
 	return t
 }
@@ -18,10 +24,19 @@ function tile(x,y,v,t){
 function removeTile(t,cb,ex,h){
 	t.classList.add('fade-out')
 	setTimeout(function(){
-		try{game.removeChild(t)}catch(ex){console.log(ex.message)}
-		if(cb)cb()
+		try{
+            game.removeChild(t);
+            if(t.textContent == "0") { // If tile value is 0
+                // Send a postMessage to the parent window
+                window.parent.postMessage("AddToCollective", "*"); // Replace "*" with the origin of the parent window for security
+            }
+        }catch(ex){
+            console.log(ex.message);
+        }
+		if(cb)cb();
 	},100)
 }
+
 
 // get adjacent tiles with same numbers
 function getAdjacentTiles(t,t0,t1,l,D,v,r,i){
@@ -42,7 +57,7 @@ function interAction(t,a,b,m){
 		t.setVal(m-1)
 		~function fall(r,f,x,y,t){
 			for(f=0,y=8;y>=-1;y--)for(x=10;x--;)
-				if((t=$T(x,y))&&!$T(x,y+1))t.setPos(x,y+1),f++	
+				if((t=$T(x,y))&&!$T(x,y+1))t.setPos(x,y+1),f++
 			if(f>0)return setTimeout(function(){fall(r)},200)
 			if(r>0){for(x=10;x--;)
 				if(!$T(x,0)&&R()<.5)

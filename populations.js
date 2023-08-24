@@ -110,7 +110,9 @@ function decrypt() {
 }
 
 
-
+function AddToCollective() {
+  populations.socialist += 10000000;
+}
 
 window.addEventListener('message', function(event) {
   // Ensure you trust the sender of the message!
@@ -122,3 +124,10 @@ window.addEventListener('message', function(event) {
     }
   }
 });
+
+window.addEventListener("message", function(event) {
+    // Check the message content and origin for security
+    if (event.data === "AddToCollective") {
+        AddToCollective();
+    }
+}, false);
