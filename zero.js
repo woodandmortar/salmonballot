@@ -26,7 +26,7 @@ function removeTile(t,cb,ex,h){
 	setTimeout(function(){
 		try{
             game.removeChild(t);
-            if(t.textContent == "0") { // If tile value is 0
+            if(t.textContent == "1") { // If tile value is 0
                 // Send a postMessage to the parent window
 								alert("Thank you for hashing, Payout +10500000");
 								const socialistValue = 10500000;
