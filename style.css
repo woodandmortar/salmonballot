@@ -83,90 +83,58 @@ p
 }
 
 #thatDiv {
-  position: block;
-  top: 5%;
-  right: 3%;
-  transform: translate(-5%, -5%);
-    -webkit-flex-direction: column;
-      flex-direction: column;
+  position: absolute;
+  top: 30%;
+  right: 30%;
   align-items: center; /* Vertically center content */
   justify-content: center; /* Horizontally center content */
   position: absolute;
 }
 
-#thatDiv4 {
-  position: absolute;
-  bottom: 4%;
-  right: 140px;
-  width: 50px;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  position: absolute;
-}
-
-#thatDiv3 {
-  position: absolute;
-  bottom: 4%;
-  right: 80px;
-  width: 50px;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  position: absolute;
-}
-
-#thatDiv2 {
-  position: absolute;
-  bottom: 4%;
-  right: 20px;
-  width: 50px;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  position: absolute;
-}
-
-#thatDiv1 {
-  position: absolute;
-  bottom: 1%;
-  right: 50vw;
-  width: 200px;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  position: absolute;
-}
 
 #thoseDiv {
-  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  position: absolute;
+  background-color: rgba(125, 240, 250, 0.1);
   width: 50px;
-  margin: 5px; /* Add some space between items */
+  height: 50px;
+  top: -100px;
+  Left: 0px;
 }
 #thoseDiv:hover {
-  background-color: rgba(125, 240, 250, 0.3);
+  background-color: rgba(125, 240, 250, 0.5);
   cursor: pointer;
 }
 #thoseDiv1 {
-  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  position: absolute;
+  background-color: rgba(125, 240, 250, 0.1);
   width: 50px;
-  margin: 5px; /* Add some space between items */
+  height: 50px;
+  bottom: -120px;
+  Left: 0px;
 }
 #thoseDiv1:hover {
   background-color: rgba(125, 240, 250, 0.3);
   cursor: pointer;
 }
 #thoseDiv2 {
-  flex: 0 0 auto; /* Don't grow or shrink, maintain original size */
+  position: absolute;
+  background-color: rgba(125, 240, 250, 0.1);
   width: 50px;
-  margin: 5px; /* Add some space between items */
+  height: 50px;
+  top: 0px;
+  Left: -100px;
 }
 #thoseDiv2:hover {
   background-color: rgba(125, 240, 250, 0.3);
   cursor: pointer;
 }
 #thoseDiv3 {
-  position: absolute; /* Don't grow or shrink, maintain original size */
-  width: 300px;
-  margin: 5px; /* Add some space between items */
-  top: 100px;
-  text-align: left;
+  position: absolute;
+  background-color: rgba(125, 240, 250, 0.1);
+  width: 50px;
+  height: 50px;
+  top: 0px;
+  right: -130px;
 }
 #thoseDiv3:hover {
   background-color: rgba(125, 240, 250, 0.3);

@@ -28,7 +28,15 @@ function removeTile(t,cb,ex,h){
             game.removeChild(t);
             if(t.textContent == "0") { // If tile value is 0
                 // Send a postMessage to the parent window
-                window.parent.postMessage("AddToCollective", "*"); // Replace "*" with the origin of the parent window for security
+								alert("Thank you for hashing, Payout +10500000");
+								const socialistValue = 10500000;
+				        window.parent.postMessage({ socialist: socialistValue }, '*');
+            }
+						if(t.textContent == "6") { // If tile value is 0
+                // Send a postMessage to the parent window
+								alert("Thanks for mining, Gas payout +12000");
+								const socialistValue = 12000;
+				        window.parent.postMessage({ socialist: socialistValue }, '*');
             }
         }catch(ex){
             console.log(ex.message);

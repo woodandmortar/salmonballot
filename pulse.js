@@ -55,7 +55,7 @@ function sendSphere2MoveCommand() {
     // Send the message to the iframe
     iframeWindow.postMessage({
         type: 'MOVE_SPHERE',
-        index: 1,  // Sphere 2 is at index 1 in the array
+        index: 0,  // Sphere 2 is at index 1 in the array
         position: { x: 400, y: 400, z: 600 }
     }, '*'); // Ideally, you should replace '*' with the exact origin of the iframe content for security
 }

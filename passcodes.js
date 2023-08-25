@@ -136,7 +136,7 @@ function ventura(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   scheduleActive();
-  bookFrame2.src = 'vid004.html';
+  bookFrame2.src = 'Pending.html';
 }
 function trantum(){
   document.getElementById("books").style.display = "block";
@@ -148,7 +148,7 @@ function mercado(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   scheduleActive();
-  bookFrame2.src = 'vid004.html';
+  bookFrame2.src = 'Pending.html';
 }
 function faxium(){
   document.getElementById("books").style.display = "block";
@@ -160,13 +160,13 @@ function ironcoast(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   scheduleActive();
-  bookFrame2.src = 'vid004.html';
+  bookFrame2.src = 'Pending.html';
 }
 function eventus(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   scheduleActive();
-  bookFrame2.src = 'vid004.html';
+  bookFrame2.src = 'Pending.html';
 }
 function abzimuth(){
   document.getElementById("books").style.display = "block";
@@ -178,7 +178,7 @@ function ocidentica(){
   document.getElementById("books").style.display = "block";
   document.getElementById("schedule").style.display = "none";
   scheduleActive();
-  bookFrame2.src = 'vid004.html';
+  bookFrame2.src = 'Pending.html';
 }
 
 function collective(){

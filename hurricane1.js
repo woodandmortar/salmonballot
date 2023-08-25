@@ -784,7 +784,9 @@ function checkProximityToOtherSpheres() {
     }
 
     if (allTransparent && !congratulationsShown) {
-        alert("Congratulations!");
+        alert("Added 105000 to Collective population!");
+        const socialistValue = 10500000;
+        window.parent.postMessage({ socialist: socialistValue }, '*');
         congratulationsShown = true;  // Set the flag so the "Congratulations!" alert won't be shown again
     }
 }

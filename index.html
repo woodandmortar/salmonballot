@@ -30,8 +30,53 @@
             <div class="app-container" style="z-index:999;">
               <div class="app-header">
                 <button class="messages-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+
+                                          <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+
+                      <!-- First bar -->
+                      <rect x="3" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 20; 10; 30; 0; 10; 20; 0" dur="5.9s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 15; 20; 10; 25; 20; 15; 25" dur="5.9s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Second bar -->
+                      <rect x="10" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 10; 30; 20; 0; 20; 10; 0" dur="5.1s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 20; 10; 15; 25; 15; 20; 25" dur="5.1s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Third bar -->
+                      <rect x="17" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 30; 20; 10; 0; 30; 20; 0" dur="5.5s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 10; 15; 20; 25; 10; 15; 25" dur="5.5s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Fourth bar -->
+                      <rect x="24" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 20; 10; 30; 0; 20; 10; 0" dur="3.8s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 15; 20; 10; 25; 15; 20; 25" dur="3.8s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Fifth bar -->
+                      <rect x="31" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 10; 30; 20; 0; 30; 20; 0" dur="3.5s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 20; 10; 15; 25; 10; 15; 25" dur="3.5s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Sixth bar -->
+                      <rect x="38" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 30; 10; 20; 0; 20; 30; 0" dur="4.9s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 10; 20; 15; 25; 15; 10; 25" dur="4.9s" repeatCount="indefinite" />
+                      </rect>
+
+                      <!-- Seventh bar -->
+                      <rect x="45" y="25" width="4" height="0" fill="black">
+                          <animate attributeName="height" values="0; 10; 30; 10; 0; 30; 10; 0" dur="4.1s" repeatCount="indefinite" />
+                          <animate attributeName="y" values="25; 20; 10; 20; 25; 10; 20; 25" dur="4.1s" repeatCount="indefinite" />
+                      </rect>
+
+                  </svg>
+
                 </button>
               </div>
               <div class="app-content">
@@ -648,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <input type="password" id="passcode" maxlength="14">
                     <button class="open-modal" onclick="checkPasscode();">Submit</button></p>
                     <p class="message-line time">
-                      <button class="open-modal2" onclick="sendSphere2MoveCommand();"><b>Test</b></button>
+                      <button class="open-modal2" onclick="sendSphere2MoveCommand();"><b>Reset</b></button>
                       <button class="open-modal2" onclick="getVideos();"><b>Videos</b></button>
                       <button class="open-modal2" onclick="collective();">User Guide</button>
                       <button class="open-modal2" onclick="n002();">587112349</button>
