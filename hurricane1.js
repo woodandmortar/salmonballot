@@ -694,3 +694,103 @@ function moveSphereToPosition(index, targetPosition) {
 
     spheres[index].position.copy(targetPosition);
 }
+
+// Store the current spherical coordinates for each sphere
+let sphereCoordinates = [];
+
+spheres.forEach(sphere => {
+    let cartesian = sphere.position;
+    let r = cartesian.length();
+    let theta = Math.atan2(cartesian.y, cartesian.x);
+    let phi = Math.acos(cartesian.z / r);
+    sphereCoordinates.push({ r: r, theta: theta, phi: phi });
+});
+
+document.getElementById("Up").addEventListener("click", function() {
+    moveSelectedSphereByAngle(0, -Math.PI / 36);  // Move 5 degrees upwards
+});
+
+document.getElementById("Down").addEventListener("click", function() {
+    moveSelectedSphereByAngle(0, Math.PI / 36);  // Move 5 degrees downwards
+});
+
+document.getElementById("Left").addEventListener("click", function() {
+    moveSelectedSphereByAngle(-Math.PI / 36, 0);  // Move 5 degrees to the left
+});
+
+document.getElementById("Right").addEventListener("click", function() {
+    moveSelectedSphereByAngle(Math.PI / 36, 0);  // Move 5 degrees to the right
+});
+
+
+
+// Store the positions of all spheres in an array
+let spherePositions = spheres.map(sphere => sphere.position.clone());
+
+// Flags to track if the alert has been shown for each sphere
+let alertShownFlags = new Array(spheres.length).fill(false);
+
+function moveSelectedSphereByAngle(deltaTheta, deltaPhi) {
+    let coords = sphereCoordinates[selectedSphereIndex];
+
+    setTimeout(() => {
+        coords.theta += deltaTheta;
+        coords.phi += deltaPhi;
+        updateSpherePosition(coords);
+    }, 0);  // Immediate movement
+
+    setTimeout(() => {
+        coords.theta += deltaTheta * 0.5;  // Half the initial movement
+        coords.phi += deltaPhi * 0.5;
+        updateSpherePosition(coords);
+    }, 100);  // Delayed by 100ms
+
+    setTimeout(() => {
+        coords.theta += deltaTheta * 0.25;  // Quarter of the initial movement
+        coords.phi += deltaPhi * 0.25;
+        updateSpherePosition(coords);
+    }, 200);  // Delayed by 200ms
+}
+
+function updateSpherePosition(coords) {
+    // Ensure phi is within bounds
+    coords.phi = Math.max(0.01, Math.min(Math.PI - 0.01, coords.phi));
+
+    let x = coords.r * Math.sin(coords.phi) * Math.cos(coords.theta);
+    let y = coords.r * Math.sin(coords.phi) * Math.sin(coords.theta);
+    let z = coords.r * Math.cos(coords.phi);
+
+    moveSphereToPosition(selectedSphereIndex, new THREE.Vector3(x, y, z));
+    checkProximityToOtherSpheres();
+}
+let congratulationsShown = false;  // Flag to track if the "Congratulations!" alert has been shown
+
+function checkProximityToOtherSpheres() {
+    let selectedSpherePosition = spheres[selectedSphereIndex].position;
+    let allTransparent = true;
+
+    for (let i = 0; i < spherePositions.length; i++) {
+        if (i === selectedSphereIndex) continue;  // Skip the selected sphere
+
+        let distance = selectedSpherePosition.distanceTo(spherePositions[i]);
+        if (distance < 100 && !alertShownFlags[i]) {
+            spheres[i].material.opacity = 0;
+            spheres[i].material.transparent = true;  // Ensure transparency is enabled
+            alertShownFlags[i] = true;  // Set the flag so the alert won't be shown again for this sphere
+        }
+        if (spheres[i].material.opacity !== 0) {
+            allTransparent = false;
+        }
+    }
+
+    if (allTransparent && !congratulationsShown) {
+        alert("Congratulations!");
+        congratulationsShown = true;  // Set the flag so the "Congratulations!" alert won't be shown again
+    }
+}
+
+
+
+// Make the controlled sphere larger and light red in color
+spheres[selectedSphereIndex].geometry = new THREE.SphereGeometry(45, 32, 32);  // Increase the radius to 45
+spheres[selectedSphereIndex].material.color.set(0xFF6060);  // Set the color to light red
