@@ -58,7 +58,7 @@
                 <center>  <dt><strong>Sending Aid:</strong></dt> </center>
 
 
-                <div class="name">World Population:<br> <span id="population"></span></div>
+                <div class="name">World Population: <span id="population"></span></div>
 
                 <p>
                 Ventura<font style="font-size: .8em; color: rgba(42,19,246,1);">: </font><span id="progressive"></span><br>
@@ -138,10 +138,10 @@
               }, 2 * 60 * 1000);
               }
               function run3a(){
-                const socialistValue = -1050000; // Or any value you want to add to populist
-                window.parent.postMessage({ socialist: socialistValue }, '*');
-              const nationalistValue = 1050000; // Or any value you want to add to socialist
-              window.parent.postMessage({ nationalist: nationalistValue }, '*');
+                const nationalistValue = 1050000; // Or any value you want to add to populist
+                window.parent.postMessage({ nationalist: nationalistValue }, '*');
+              const socialistValue = -1050000; // Or any value you want to add to socialist
+              window.parent.postMessage({ socialist: socialistValue }, '*');
               const option3a = document.getElementById('option3a');
               setTimeout(() => {
               document.getElementById('option3a').disabled = true;
@@ -274,6 +274,7 @@
               </script>
             </article>
             <footer>
+              <script src="./populations.js" ></script>
             </footer>
         </section>
     </div>
