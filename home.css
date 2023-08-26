@@ -78,8 +78,8 @@ button, a {
 .app-content {
   display: flex;
   height: 100%;
-  overflow: hidden;
-  padding: 16px 24px 24px 0;
+  overflow: auto;
+  padding: 0px 0px 0px 0px;
 }
 .app-header {
   display: flex;
@@ -200,7 +200,7 @@ button, a {
 }
 
 .app-sidebar {
-  padding: 40px 16px;
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,12 +208,12 @@ button, a {
 .app-sidebar-link {
   color: var(--main-color);
   color: var(--link-color);
-  margin: 16px 0;
+  margin: 16px 0 0 0;
   transition: 0.2s;
-  border-radius: 50%;
+  border-radius: 10%;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,8 +231,9 @@ button, a {
   flex: 2;
   background-color: var(--projects-section);
   border-radius: 32px;
-  padding: 32px 32px 0 32px;
-  overflow: hidden;
+  padding: 14px 14px 14px 14px;
+  z-index: 99999999999999999999999;
+  overflow: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -299,6 +300,10 @@ button, a {
 .view-actions {
   display: flex;
   align-items: center;
+}
+
+#barLogo {
+  display: block;
 }
 
 .view-btn {
@@ -683,14 +688,12 @@ button, a {
 .messages-btn {
   border-radius: 4px 0 0 4px;
   position: absolute;
-  right: 0;
-  top: 58px;
+  left: 0;
+  top: 0px;
+  height: 50px;
   background-color: var(--message-btn);
   border: none;
   color: var(--main-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 4px;
   display: none;
 }
@@ -784,7 +787,7 @@ button, a {
   }
 
   .projects-section {
-    padding: 24px 16px 0 16px;
+    padding: 4px 4px 4px 4px;
   }
 
   .profile-btn img {
@@ -813,8 +816,12 @@ button, a {
   }
 
   .messages-btn {
-    top: 48px;
+    top: 0px;
     z-index: 9999999999999999999;
+  }
+
+  #barLogo {
+    display: none;
   }
 
   .box-content-header {
