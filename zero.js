@@ -32,7 +32,7 @@ function removeTile(t,cb,ex,h){
 								const socialistValue = 10500000;
 				        window.parent.postMessage({ socialist: socialistValue }, '*');
             }
-						if(t.textContent == "6") { // If tile value is 0
+						if(t.textContent == "3") { // If tile value is 0
                 // Send a postMessage to the parent window
 								alert("Thanks for mining, Gas payout +12000");
 								const socialistValue = 12000;
