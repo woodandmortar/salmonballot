@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Fixer</title>
+    <style>
+        .json-editor {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Import Corrupted JSON</h3>
+<input type="file" id="jsonInput" onchange="importJSON(event)">
+
+<h3>Fixed JSON</h3>
+<div class="error-message" id="errorDisplay"></div>
+<textarea class="json-editor" id="jsonEditor"></textarea>
+
+<script>
+    function importJSON(event) {
+        const files = event.target.files;
+        if (files.length === 0) {
+            alert("No file selected. Please select a file and try again.");
+            return;
+        }
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const fixedJSON = fixJSON(e.target.result);
+                document.getElementById('jsonEditor').value = JSON.stringify(fixedJSON, null, 2);
+                document.getElementById('errorDisplay').textContent = '';  // Clear any previous error messages
+            } catch (error) {
+                const lineNumber = getLineNumber(e.target.result, error.position);
+                document.getElementById('errorDisplay').textContent = "Error fixing JSON at line " + lineNumber + ": " + error.message;
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    function fixJSON(corruptedJSON) {
+        // Attempt to fix common JSON errors
+        let fixed = corruptedJSON
+            .replace(/,\s*}/g, "}")  // Remove trailing commas before closing braces
+            .replace(/,\s*]/g, "]")  // Remove trailing commas before closing brackets
+            .replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2":')  // Ensure keys are in double quotes
+            .replace(/'/g, '"');  // Replace single quotes with double quotes
+
+        return JSON.parse(fixed);  // Parse the fixed JSON to ensure it's valid
+    }
+
+    function getLineNumber(text, position) {
+        const lines = text.substring(0, position).split('\n');
+        return lines.length;
+    }
+</script>
+
+</body>
+</html>
