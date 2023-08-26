@@ -1,0 +1,7 @@
+[
+    ["hello", "Hi there!", ""],
+    ["how are you", "I'm doing well, thank you!", ""],
+    ["good morning", "Good morning! How can I assist you today?", ""],
+    ["good evening", "Good evening! How can I help you?", ""],
+    ["bye", "Goodbye! If you have any more questions, feel free to ask.", ""]
+]
