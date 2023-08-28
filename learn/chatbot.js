@@ -2,6 +2,34 @@
 let baseData = [];
   let conversationData = [];
 
+  // Function to trigger the download of base.json from the provided URL
+  function downloadBaseJSON() {
+      // URL of the base.json file
+      const fileURL = 'https://woodandmortar.com/salmonballot/learn/models/base.json';
+
+      // Fetch the content of the file
+      fetch(fileURL)
+          .then(response => response.blob())
+          .then(blob => {
+              // Create a link element for download
+              const a = document.createElement('a');
+              a.href = URL.createObjectURL(blob);
+              a.download = 'base.json';
+
+              // Append the link to the document and trigger the download
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+          })
+          .catch(error => {
+              console.error("Error downloading the file:", error);
+          });
+  }
+
+  // Sample usage: Attach the function to a button's onclick event
+  // <button onclick="downloadBaseJSON()">Download base.json</button>
+
+
   function levenshtein(a, b) {
       if (a.length === 0) return b.length;
       if (b.length === 0) return a.length;
@@ -87,7 +115,7 @@ if (message.startsWith('cmd')) {
           response = searchInData(message, conversationData);
       }
       if (!response) {
-          return 'I don\'t know how to answer that. Please provide the correct response in the JSON Editor below.';
+          return 'I can\'t answer that until you provide me with a DataSchool.JSON file.';
       }
       return response;
   }
