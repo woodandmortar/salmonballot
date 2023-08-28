@@ -46,8 +46,14 @@ let baseData = [];
 
   function sendMessage() {
     const inputElem = document.getElementById('userInput');
-    const message = inputElem.value;
-    inputElem.value = '';
+const message = inputElem.value;
+inputElem.value = '';
+
+// Check for cmd command before processing the message
+if (message.startsWith('cmd')) {
+    parseCollectiveCommand(message);
+    return; // Exit the function after processing the command
+}
 
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.innerHTML += '<p>User: ' + message + '</p>';
@@ -171,19 +177,68 @@ let baseData = [];
       a.click();
   }
 
+  function updateConversationData() {
+      const jsonEditor = document.getElementById('jsonEditor');
+      try {
+          const newData = JSON.parse(jsonEditor.value);
+          if (Array.isArray(newData)) {
+              let validEntries = 0;
+              for (const entry of newData) {
+                  if (Array.isArray(entry) && entry.length === 3) {
+                      conversationData.push(entry);
+                      validEntries++;
+                  }
+              }
+              if (validEntries > 0) {
+                  updateJSONDisplay();
+                  alert("Data updated successfully!");
+              } else {
+                  alert("Invalid data format. Please ensure you have the format [question, answer, liveChange].");
+              }
+          } else {
+              alert("Invalid data format. Please ensure you have the format [question, answer, liveChange].");
+          }
+      } catch (error) {
+          alert("Error updating data: " + error.message);
+      }
+  }
 
-function updateConversationData() {
-    const jsonEditor = document.getElementById('jsonEditor');
-    try {
-        const newData = JSON.parse(jsonEditor.value);
-        if (Array.isArray(newData) && newData.length === 3) {
-            conversationData.push(newData);
-            updateJSONDisplay();
-            alert("Data updated successfully!");
-        } else {
-            alert("Invalid data format. Please ensure you have the format [question, answer, liveChange].");
-        }
-    } catch (error) {
-        alert("Error updating data: " + error.message);
-    }
+
+function parseCollectiveCommand(data) {
+  const collectiveRegex = /cmd \[([a-z]+)\] \[(\d+)\] \[([a-z]+)\]/i;
+  const match = data.match(collectiveRegex);
+
+  if (match) {
+    const action = match[1];
+    const value = parseInt(match[2], 10);
+    const category = match[3];
+
+    executeCollectiveAction(action, value, category);
+  }
 }
+
+function executeCollectiveAction(action, value, category) {
+  switch (action.toLowerCase()) {
+    case 'add':
+      postMessageToParent(value, category);
+      break;
+    case 'subtract':
+      postMessageToParent(-value, category);
+      break;
+    default:
+      console.error('Invalid action:', action);
+  }
+}
+
+function postMessageToParent(value, category) {
+  const message = {};
+  message[category] = value;
+  window.parent.postMessage(message, '*');
+}
+
+
+
+
+// Usage:
+// parseCollectiveCommand("Some chat data cmd [add] [10000] [nationalist]");
+// parseCollectiveCommand("Another example cmd [subtract] [10000][populist]");
