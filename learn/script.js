@@ -1,531 +1,350 @@
-/**
- * requestAnimationFrame
- */
-window.requestAnimationFrame = (function(){
-    return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            window.oRequestAnimationFrame      ||
-            window.msRequestAnimationFrame     ||
-            function (callback) {
-                window.setTimeout(callback, 1000 / 60);
-            };
-})();
+let max_particles = 1200;
+let particles = [];
+let frequency = 20;
+let init_num = max_particles;
+let max_time = frequency * max_particles;
+let time_to_recreate = false;
+const data = createCanvas();
+let tela = data[0];
+let canvas = data[1];
+
+// Enable repopolate
+setTimeout(function () {
+  time_to_recreate = true;
+}.bind(this), max_time);
+
+// Popolate particles
+popolate(max_particles);
+
+class FishEgg {
+  constructor(canvas) {
+    const random = Math.random();
+    this.progress = 0;
+    this.canvas = canvas;
+    // Set position
+    this.x = $(window).width() / 2 + (Math.random() * 300 - Math.random() * 300);
+    this.y = $(window).height() / 2 + (Math.random() * $(window).height() / 4 - Math.random() * $(window).height() / 4);
+    // Get viewport size
+    this.w = $(window).width();
+    this.h = $(window).height();
+
+    // Dimension
+    this.radius = 12 + Math.random() * 6;
+    // Color
+    this.color = "rgba(255,255,255,1)";
+    // Setting
+    this.fish_egg = {
+      offset1: Math.random() > 0.5 ? 0.5 + Math.random() * 3 : 0.5 + Math.random() * -3,
+      offset2: Math.random() > 0.5 ? 0.5 + Math.random() * 3 : 0.5 + Math.random() * -3,
+      offset3: Math.random() > 0.5 ? 0.5 + Math.random() * 3 : 0.5 + Math.random() * -3,
+      radius1: 0.5 + Math.random() * 5,
+      radius2: 0.5 + Math.random() * 5,
+      radius3: 0.5 + Math.random() * 5 };
+
+    this.variantx1 = Math.random() * 100;
+    this.variantx2 = Math.random() * 100;
+    this.varianty1 = Math.random() * 100;
+    this.varianty2 = Math.random() * 100;
+  }
+
+  createCircle(x, y, r, c) {
+    this.canvas.beginPath();
+    this.canvas.fillStyle = c;
+    this.canvas.arc(x, y, r, 0, Math.PI * 2, false);
+    this.canvas.fill();
+    this.canvas.closePath();
+  }
+
+  createEyes() {
+    this.createCircle(this.x + this.fish_egg.offset2, this.y + this.fish_egg.offset2, this.fish_egg.radius2 + 4, "rgba(241, 242, 244, 0.06)");
+    this.createCircle(this.x + this.fish_egg.offset3, this.y + this.fish_egg.offset3, this.fish_egg.radius3 + 2, "rgba(255, 204, 67, 0.08)");
+    this.createCircle(this.x + Math.random(this.progress / 350) * this.fish_egg.offset1, this.y + Math.random(this.progress / 350) * this.fish_egg.offset1, this.fish_egg.radius1, "rgba(152, 19, 4, 0.19)");
+  }
+
+  render() {
+    // Create inside parts
+    this.createEyes();
+
+    this.canvas.beginPath();
+    let c = '130, 151, 180';
+    let rad = this.canvas.createRadialGradient(this.x, this.y, this.radius, this.x, this.y, 1);
+    rad.addColorStop(0, 'rgba(' + c + ',0.09)');
+    rad.addColorStop(0.9, 'rgba(' + c + ',0)');
+    this.canvas.lineWidth = Math.random() * 2.2;
+    this.canvas.fillStyle = rad;
+    this.canvas.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    this.canvas.fill();
+    this.canvas.strokeStyle = "rgba(255, 255, 217, 0.05)";
+    this.canvas.stroke();
+    this.canvas.closePath();
+  }
+
+  move() {
+    this.x += Math.sin(this.progress / this.variantx1) * Math.cos(this.progress / this.variantx2) / 8;
+    this.y += Math.sin(this.progress / this.varianty1) * Math.cos(this.progress / this.varianty2) / 8;
 
 
-/**
- * Vector
+
+    if (this.x < 0 || this.x > this.w - this.radius) {
+      return false;
+    }
+
+    if (this.y < 0 || this.y > this.h - this.radius) {
+      return false;
+    }
+    this.render();
+    this.progress++;
+    return true;
+  }}
+
+
+class FishLarva {
+  constructor(canvas, progress) {
+    const random = Math.random();
+    this.progress = 0;
+    this.canvas = canvas;
+    this.speed = 0.5 + random * 1.3;
+
+    this.x = $(window).width() / 2 + (Math.random() * 200 - Math.random() * 200);
+    this.y = $(window).height() / 2 + (Math.random() * 200 - Math.random() * 200);
+
+    this.s = 0.8 + Math.random() * 0.6;
+    this.a = 0;
+
+    this.w = $(window).width();
+    this.h = $(window).height();
+    this.radius = random * 1.3;
+    this.color = "#f69a34";
+
+    this.variantx1 = Math.random() * 1000;
+    this.variantx2 = Math.random() * 1000;
+    this.varianty1 = Math.random() * 1000;
+    this.varianty2 = Math.random() * 1000;
+  }
+
+  render() {
+    this.canvas.beginPath();
+    this.canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    this.canvas.lineWidth = 2;
+    this.canvas.fillStyle = this.color;
+    this.canvas.fill();
+    this.canvas.closePath();
+  }
+
+  move() {
+    // this.x += (Math.sin(this.progress/this.variantx1)*Math.cos(this.progress/this.variantx2))/this.speed;
+    // this.y += (Math.sin(this.progress/this.varianty1)*Math.cos(this.progress/this.varianty2))/this.speed;
+    this.x += Math.cos(this.a) * this.s;
+    this.y += Math.sin(this.a) * this.s;
+    this.a += Math.random() * 0.8 - 0.4;
+    if (this.x < 0 || this.x > this.w - this.radius) {
+      return false;
+    }
+
+    if (this.y < 0 || this.y > this.h - this.radius) {
+      return false;
+    }
+    this.render();
+    this.progress++;
+    return true;
+  }}
+
+
+
+class FishLarvaEgg {
+  constructor(canvas, progress) {
+    const random = Math.random();
+    this.progress = 0;
+    this.canvas = canvas;
+    this.speed = 0.5 + random * 0.2;
+
+    this.x = $(window).width() / 2 + (Math.random() * 200 - Math.random() * 200);
+    this.y = $(window).height() / 2 + (Math.random() * 200 - Math.random() * 200);
+
+    this.s = Math.random() * 1;
+    this.a = 0;
+
+    this.w = $(window).width();
+    this.h = $(window).height();
+    this.radius = random * 0.8;
+    this.color = random > 0.8 ? "#82a0c4" : "#2E4765";
+
+    this.variantx1 = Math.random() * 100;
+    this.variantx2 = Math.random() * 100;
+    this.varianty1 = Math.random() * 100;
+    this.varianty2 = Math.random() * 100;
+  }
+
+  render() {
+    this.canvas.beginPath();
+    this.canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    this.canvas.lineWidth = 2;
+    this.canvas.fillStyle = this.color;
+    this.canvas.fill();
+    this.canvas.closePath();
+  }
+
+  move() {
+    this.x += Math.cos(this.a) * this.s;
+    this.y += Math.sin(this.a) * this.s;
+    this.a += Math.random() * 0.8 - 0.4;
+
+    if (this.x < 0 || this.x > this.w - this.radius) {
+      return false;
+    }
+
+    if (this.y < 0 || this.y > this.h - this.radius) {
+      return false;
+    }
+    this.render();
+    this.progress++;
+    return true;
+  }}
+
+
+class Paramecium {
+  constructor(canvas) {
+    const random = Math.random();
+    this.progress = 0;
+    this.canvas = canvas;
+    // Set position
+    this.x = $(window).width() / 2 + (Math.random() * 300 - Math.random() * 300);
+    this.y = $(window).height() / 2 + (Math.random() * $(window).height() / 4 - Math.random() * $(window).height() / 4);
+    // Get viewport size
+    this.w = $(window).width();
+    this.h = $(window).height();
+    this.rotation = random * 180 * Math.PI / 180;
+    // Dimension
+    this.radius = 12 + Math.random() * 6;
+    // Color
+    this.color = "rgba(255,255,255,1)";
+    // Setting
+    this.variantx1 = Math.random() * 100;
+    this.variantx2 = Math.random() * 100;
+    this.varianty1 = Math.random() * 100;
+    this.varianty2 = Math.random() * 100;
+  }
+
+  createOval(x, y, w, h) {
+    var kappa = .5522848,
+    ox = w / 2 * kappa, // control point offset horizontal
+    oy = h / 2 * kappa, // control point offset vertical
+    xe = x + w, // x-end
+    ye = y + h, // y-end
+    xm = x + w / 2, // x-middle
+    ym = y + h / 2; // y-middle
+
+    this.canvas.save();
+
+    this.canvas.translate(this.w / 2, this.h / 2);
+
+    // Rotate 1 degree
+    this.canvas.rotate(this.rotation);
+
+    // Move registration point back to the top left corner of canvas
+    this.canvas.translate(-this.w / 2, -this.h / 2);
+
+    this.canvas.beginPath();
+    this.canvas.moveTo(x, ym);
+    this.canvas.quadraticCurveTo(x, y, xm, y);
+    this.canvas.quadraticCurveTo(xe, y, xe, ym);
+    this.canvas.quadraticCurveTo(xe, ye, xm, ye);
+    this.canvas.quadraticCurveTo(x, ye, x, ym);
+
+    this.canvas.strokeStyle = 1;
+    this.canvas.fillStyle = "rgba(255,255,255,0.01)";
+    this.canvas.fill();
+    this.canvas.stroke();
+    this.canvas.restore();
+  }
+
+  render() {
+    // Create inside parts
+    this.createOval(this.x, this.y, 12, 4);
+  }
+
+  move() {
+    this.x += Math.sin(this.progress / this.variantx1) * Math.cos(this.progress / this.variantx2) / 4;
+    this.y += Math.sin(this.progress / this.varianty1) * Math.cos(this.progress / this.varianty2) / 4;
+
+    if (this.x < 0 || this.x > this.w - this.radius) {
+      return false;
+    }
+
+    if (this.y < 0 || this.y > this.h - this.radius) {
+      return false;
+    }
+    this.render();
+    this.progress++;
+    return true;
+  }}
+
+
+/*
+ * Function to create canvas
  */
-function Vector(x, y) {
-    this.x = x || 0;
-    this.y = y || 0;
+function createCanvas() {
+  let tela = document.createElement('canvas');
+  tela.width = $(window).width();
+  tela.height = $(window).height();
+  $("body").append(tela);
+  let canvas = tela.getContext('2d');
+  return [tela, canvas];
 }
 
-Vector.add = function(a, b) {
-    return new Vector(a.x + b.x, a.y + b.y);
-};
-
-Vector.sub = function(a, b) {
-    return new Vector(a.x - b.x, a.y - b.y);
-};
-
-Vector.scale = function(v, s) {
-    return v.clone().scale(s);
-};
-
-Vector.random = function() {
-    return new Vector(
-        Math.random() * 2 - 1,
-        Math.random() * 2 - 1
-    );
-};
-
-Vector.prototype = {
-    set: function(x, y) {
-        if (typeof x === 'object') {
-            y = x.y;
-            x = x.x;
-        }
-        this.x = x || 0;
-        this.y = y || 0;
-        return this;
-    },
-
-    add: function(v) {
-        this.x += v.x;
-        this.y += v.y;
-        return this;
-    },
-
-    sub: function(v) {
-        this.x -= v.x;
-        this.y -= v.y;
-        return this;
-    },
-
-    scale: function(s) {
-        this.x *= s;
-        this.y *= s;
-        return this;
-    },
-
-    length: function() {
-        return Math.sqrt(this.x * this.x + this.y * this.y);
-    },
-
-    lengthSq: function() {
-        return this.x * this.x + this.y * this.y;
-    },
-
-    normalize: function() {
-        var m = Math.sqrt(this.x * this.x + this.y * this.y);
-        if (m) {
-            this.x /= m;
-            this.y /= m;
-        }
-        return this;
-    },
-
-    angle: function() {
-        return Math.atan2(this.y, this.x);
-    },
-
-    angleTo: function(v) {
-        var dx = v.x - this.x,
-            dy = v.y - this.y;
-        return Math.atan2(dy, dx);
-    },
-
-    distanceTo: function(v) {
-        var dx = v.x - this.x,
-            dy = v.y - this.y;
-        return Math.sqrt(dx * dx + dy * dy);
-    },
-
-    distanceToSq: function(v) {
-        var dx = v.x - this.x,
-            dy = v.y - this.y;
-        return dx * dx + dy * dy;
-    },
-
-    lerp: function(v, t) {
-        this.x += (v.x - this.x) * t;
-        this.y += (v.y - this.y) * t;
-        return this;
-    },
-
-    clone: function() {
-        return new Vector(this.x, this.y);
-    },
-
-    toString: function() {
-        return '(x:' + this.x + ', y:' + this.y + ')';
-    }
-};
-
-
-/**
- * GravityPoint
+/*
+ * Function to clear layer canvas
+ * @num:number number of particles
  */
-function GravityPoint(x, y, radius, targets) {
-    Vector.call(this, x, y);
-    this.radius = radius;
-    this.currentRadius = radius * 0.5;
+function popolate(num) {
+  for (var i = 0; i < num; i++) {
+    setTimeout(
+    function (x) {
+      return function () {
+        let random = Math.random();
+        // ------------------------------------
+        // Set type of planktom
+        let type = new FishLarva(canvas);
+        if (!time_to_recreate) {
+          if (random > .97) type = new FishEgg(canvas);
+          if (random < .1 && random > 0) type = new Paramecium(canvas);
+        }
+        if (random > .1 && random < .8) type = new FishLarvaEgg(canvas);
 
-    this._targets = {
-        particles: targets.particles || [],
-        gravities: targets.gravities || []
-    };
-    this._speed = new Vector();
+        // if(random < .1) this.type  = "bryozoan"
+        // ------------------------------------
+        // Add particle
+        particles.push(type);
+      };
+    }(i),
+    frequency * i);
+  }
+  return particles.length;
 }
 
-GravityPoint.RADIUS_LIMIT = 65;
-GravityPoint.interferenceToPoint = true;
-
-GravityPoint.prototype = (function(o) {
-    var s = new Vector(0, 0), p;
-    for (p in o) s[p] = o[p];
-    return s;
-})({
-    gravity:       0.05,
-    isMouseOver:   false,
-    dragging:      false,
-    destroyed:     false,
-    _easeRadius:   0,
-    _dragDistance: null,
-    _collapsing:   false,
-
-    hitTest: function(p) {
-        return this.distanceTo(p) < this.radius;
-    },
-
-    startDrag: function(dragStartPoint) {
-        this._dragDistance = Vector.sub(dragStartPoint, this);
-        this.dragging = true;
-    },
-
-    drag: function(dragToPoint) {
-        this.x = dragToPoint.x - this._dragDistance.x;
-        this.y = dragToPoint.y - this._dragDistance.y;
-    },
-
-    endDrag: function() {
-        this._dragDistance = null;
-        this.dragging = false;
-    },
-
-    addSpeed: function(d) {
-        this._speed = this._speed.add(d);
-    },
-
-    collapse: function(e) {
-        this.currentRadius *= 1.75;
-        this._collapsing = true;
-    },
-
-    render: function(ctx) {
-        if (this.destroyed) return;
-
-        var particles = this._targets.particles,
-            i, len;
-
-        for (i = 0, len = particles.length; i < len; i++) {
-            particles[i].addSpeed(Vector.sub(this, particles[i]).normalize().scale(this.gravity));
-        }
-
-        this._easeRadius = (this._easeRadius + (this.radius - this.currentRadius) * 0.07) * 0.95;
-        this.currentRadius += this._easeRadius;
-        if (this.currentRadius < 0) this.currentRadius = 0;
-
-        if (this._collapsing) {
-            this.radius *= 0.75;
-            if (this.currentRadius < 1) this.destroyed = true;
-            this._draw(ctx);
-            return;
-        }
-
-        var gravities = this._targets.gravities,
-            g, absorp,
-            area = this.radius * this.radius * Math.PI, garea;
-
-        for (i = 0, len = gravities.length; i < len; i++) {
-            g = gravities[i];
-
-            if (g === this || g.destroyed) continue;
-
-            if (
-                (this.currentRadius >= g.radius || this.dragging) &&
-                this.distanceTo(g) < (this.currentRadius + g.radius) * 0.85
-            ) {
-                g.destroyed = true;
-                this.gravity += g.gravity;
-
-                absorp = Vector.sub(g, this).scale(g.radius / this.radius * 0.5);
-                this.addSpeed(absorp);
-
-                garea = g.radius * g.radius * Math.PI;
-                this.currentRadius = Math.sqrt((area + garea * 3) / Math.PI);
-                this.radius = Math.sqrt((area + garea) / Math.PI);
-            }
-
-            g.addSpeed(Vector.sub(this, g).normalize().scale(this.gravity));
-        }
-
-        if (GravityPoint.interferenceToPoint && !this.dragging)
-            this.add(this._speed);
-
-        this._speed = new Vector();
-
-        if (this.currentRadius > GravityPoint.RADIUS_LIMIT) this.collapse();
-
-        this._draw(ctx);
-    },
-
-    _draw: function(ctx) {
-        var grd, r;
-
-        ctx.save();
-
-        grd = ctx.createRadialGradient(this.x, this.y, this.radius, this.x, this.y, this.radius * 5);
-        grd.addColorStop(0, 'rgba(0, 0, 0, 0.1)');
-        grd.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * 5, 0, Math.PI * 2, false);
-        ctx.fillStyle = grd;
-        ctx.fill();
-
-        r = Math.random() * this.currentRadius * 0.7 + this.currentRadius * 0.3;
-        grd = ctx.createRadialGradient(this.x, this.y, r, this.x, this.y, this.currentRadius);
-        grd.addColorStop(0, 'rgba(0, 0, 0, 1)');
-        grd.addColorStop(1, Math.random() < 0.2 ? 'rgba(255, 196, 0, 0.15)' : 'rgba(103, 181, 191, 0.75)');
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.currentRadius, 0, Math.PI * 2, false);
-        ctx.fillStyle = grd;
-        ctx.fill();
-        ctx.restore();
-    }
-});
-
-
-/**
- * Particle
+/*
+ * Function to clear layer canvas
  */
-function Particle(x, y, radius) {
-    Vector.call(this, x, y);
-    this.radius = radius;
-
-    this._latest = new Vector();
-    this._speed  = new Vector();
+function clear() {
+  let grd = canvas.createRadialGradient(tela.width / 2, tela.height / 2, 0, tela.width / 2, tela.height / 2, tela.width);
+  grd.addColorStop(0, "rgba(25,25,54,0.12)");
+  grd.addColorStop(1, "rgba(0,0,20,0.01)");
+  // Fill with gradient
+  canvas.fillStyle = grd;
+  canvas.fillRect(0, 0, tela.width, tela.height);
 }
 
-Particle.prototype = (function(o) {
-    var s = new Vector(0, 0), p;
-    for (p in o) s[p] = o[p];
-    return s;
-})({
-    addSpeed: function(d) {
-        this._speed.add(d);
-    },
-
-    update: function() {
-        if (this._speed.length() > 12) this._speed.normalize().scale(12);
-
-        this._latest.set(this);
-        this.add(this._speed);
-    }
-
-    // render: function(ctx) {
-    //     if (this._speed.length() > 12) this._speed.normalize().scale(12);
-
-    //     this._latest.set(this);
-    //     this.add(this._speed);
-
-    //     ctx.save();
-    //     ctx.fillStyle = ctx.strokeStyle = '#fff';
-    //     ctx.lineCap = ctx.lineJoin = 'round';
-    //     ctx.lineWidth = this.radius * 2;
-    //     ctx.beginPath();
-    //     ctx.moveTo(this.x, this.y);
-    //     ctx.lineTo(this._latest.x, this._latest.y);
-    //     ctx.stroke();
-    //     ctx.beginPath();
-    //     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    //     ctx.fill();
-    //     ctx.restore();
-    // }
-});
-
-
-
-// Initialize
-
-(function() {
-
-    // Configs
-
-    var BACKGROUND_COLOR      = 'rgba(11, 51, 56, 1)',
-        PARTICLE_RADIUS       = 1,
-        G_POINT_RADIUS        = 10,
-        G_POINT_RADIUS_LIMITS = 65;
-
-
-    // Vars
-
-    var canvas, context,
-        bufferCvs, bufferCtx,
-        screenWidth, screenHeight,
-        mouse = new Vector(),
-        gravities = [],
-        particles = [],
-        grad,
-        gui, control;
-
-
-    // Event Listeners
-
-    function resize(e) {
-        screenWidth  = canvas.width  = window.innerWidth;
-        screenHeight = canvas.height = window.innerHeight;
-        bufferCvs.width  = screenWidth;
-        bufferCvs.height = screenHeight;
-        context   = canvas.getContext('2d');
-        bufferCtx = bufferCvs.getContext('2d');
-
-        var cx = canvas.width * 0.5,
-            cy = canvas.height * 0.5;
-
-        grad = context.createRadialGradient(cx, cy, 0, cx, cy, Math.sqrt(cx * cx + cy * cy));
-        grad.addColorStop(0, 'rgba(0, 0, 0, 0)');
-        grad.addColorStop(1, 'rgba(0, 0, 0, 0.35)');
-    }
-
-    function mouseMove(e) {
-        mouse.set(e.clientX, e.clientY);
-
-        var i, g, hit = false;
-        for (i = gravities.length - 1; i >= 0; i--) {
-            g = gravities[i];
-            if ((!hit && g.hitTest(mouse)) || g.dragging)
-                g.isMouseOver = hit = true;
-            else
-                g.isMouseOver = false;
-        }
-
-        canvas.style.cursor = hit ? 'pointer' : 'default';
-    }
-
-    function mouseDown(e) {
-        for (var i = gravities.length - 1; i >= 0; i--) {
-            if (gravities[i].isMouseOver) {
-                gravities[i].startDrag(mouse);
-                return;
-            }
-        }
-        gravities.push(new GravityPoint(e.clientX, e.clientY, G_POINT_RADIUS, {
-            particles: particles,
-            gravities: gravities
-        }));
-    }
-
-    function mouseUp(e) {
-        for (var i = 0, len = gravities.length; i < len; i++) {
-            if (gravities[i].dragging) {
-                gravities[i].endDrag();
-                break;
-            }
-        }
-    }
-
-    function doubleClick(e) {
-        for (var i = gravities.length - 1; i >= 0; i--) {
-            if (gravities[i].isMouseOver) {
-                gravities[i].collapse();
-                break;
-            }
-        }
-    }
-
-
-    // Functions
-
-    function addParticle(num) {
-        var i, p;
-        for (i = 0; i < num; i++) {
-            p = new Particle(
-                Math.floor(Math.random() * screenWidth - PARTICLE_RADIUS * 2) + 1 + PARTICLE_RADIUS,
-                Math.floor(Math.random() * screenHeight - PARTICLE_RADIUS * 2) + 1 + PARTICLE_RADIUS,
-                PARTICLE_RADIUS
-            );
-            p.addSpeed(Vector.random());
-            particles.push(p);
-        }
-    }
-
-    function removeParticle(num) {
-        if (particles.length < num) num = particles.length;
-        for (var i = 0; i < num; i++) {
-            particles.pop();
-        }
-    }
-
-
-    // GUI Control
-
-    control = {
-        particleNum: 100
-    };
-
-
-    // Init
-
-    canvas  = document.getElementById('c');
-    bufferCvs = document.createElement('canvas');
-
-    window.addEventListener('resize', resize, false);
-    resize(null);
-
-    addParticle(control.particleNum);
-
-    canvas.addEventListener('mousemove', mouseMove, false);
-    canvas.addEventListener('mousedown', mouseDown, false);
-    canvas.addEventListener('mouseup', mouseUp, false);
-    canvas.addEventListener('dblclick', doubleClick, false);
-
-
-    // GUI
-
-    gui = new dat.GUI();
-    gui.add(control, 'particleNum', 0, 500).step(1).name('Particle Num').onChange(function() {
-        var n = (control.particleNum | 0) - particles.length;
-        if (n > 0)
-            addParticle(n);
-        else if (n < 0)
-            removeParticle(-n);
-    });
-    gui.add(GravityPoint, 'interferenceToPoint').name('Interference Between Point');
-    gui.close();
-
-
-    // Start Update
-
-    var loop = function() {
-        var i, len, g, p;
-
-        context.save();
-        context.fillStyle = BACKGROUND_COLOR;
-        context.fillRect(0, 0, screenWidth, screenHeight);
-        context.fillStyle = grad;
-        context.fillRect(0, 0, screenWidth, screenHeight);
-        context.restore();
-
-        for (i = 0, len = gravities.length; i < len; i++) {
-            g = gravities[i];
-            if (g.dragging) g.drag(mouse);
-            g.render(context);
-            if (g.destroyed) {
-                gravities.splice(i, 1);
-                len--;
-                i--;
-            }
-        }
-      
-        bufferCtx.save();
-        bufferCtx.globalCompositeOperation = 'destination-out';
-        bufferCtx.globalAlpha = 0.35;
-        bufferCtx.fillRect(0, 0, screenWidth, screenHeight);
-        bufferCtx.restore();
-
-        // パーティクルをバッファに描画
-        // for (i = 0, len = particles.length; i < len; i++) {
-        //     particles[i].render(bufferCtx);
-        // }
-        len = particles.length;
-        bufferCtx.save();
-        bufferCtx.fillStyle = bufferCtx.strokeStyle = '#fff';
-        bufferCtx.lineCap = bufferCtx.lineJoin = 'round';
-        bufferCtx.lineWidth = PARTICLE_RADIUS * 2;
-        bufferCtx.beginPath();
-        for (i = 0; i < len; i++) {
-            p = particles[i];
-            p.update();
-            bufferCtx.moveTo(p.x, p.y);
-            bufferCtx.lineTo(p._latest.x, p._latest.y);
-        }
-        bufferCtx.stroke();
-        bufferCtx.beginPath();
-        for (i = 0; i < len; i++) {
-            p = particles[i];
-            bufferCtx.moveTo(p.x, p.y);
-            bufferCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-        }
-        bufferCtx.fill();
-        bufferCtx.restore();
-
-        // バッファをキャンバスに描画
-        context.drawImage(bufferCvs, 0, 0);
-
-        requestAnimationFrame(loop);
-    };
-    loop();
-
-})();
+/*
+ * Function to update particles in canvas
+ */
+function update() {
+  clear();
+  particles = particles.filter(function (p) {return p.move();});
+  // Recreate particles
+  if (time_to_recreate) {
+    if (particles.length < init_num) {popolate(1);}
+  }
+  requestAnimationFrame(update.bind(this));
+}
+// Update canvas
+update();
