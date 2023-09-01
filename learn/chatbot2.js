@@ -3,7 +3,7 @@
 // Define responses for 'faxium'
 const faxiumResponses = {
   "Hello": "Hey, it's Faxium here!",
-  "How are you?": "I'm always in the hacking mood. What about you?",
+  "How are you": "I'm always in the hacking mood. What about you?",
   // ... add more questions and answers as needed for faxium
 };
 
@@ -28,30 +28,37 @@ function handleUserInput() {
     }
 }
 
-
 // Function to get response from faxium
 function getFaxiumResponse(question) {
   return faxiumResponses[question] || "Faxium doesn't know that.";
 }
 
-function sendFaxiumMessage(message2, sender) {
+function sendFaxiumMessage(message, sender) {
     const chatWindow = document.getElementById('chatWindow');
     let response;
 
-    if (sender === 'Faxium') {
-        response = "Bot: " + getResponse(message2);
-    } else if (message2.startsWith('@faxium')) {
-        response = "Bot: " + (faxiumResponses[message2.replace('@faxium', '').trim()] || "Faxium doesn't know that.");
-    } else {
-        const mainChatbotResponse = getResponse(message2);
-        response = mainChatbotResponse ? "Bot: " + mainChatbotResponse : "Bot: I don't have an answer for that.";
-    }
+    // Convert the message to lowercase for case-insensitive checks
+    const lowerCaseMessage = message.toLowerCase();
 
-    chatWindow.innerHTML += '<p>' + (sender || 'User') + ': ' + message2 + '</p>';  // Display the sender's name and message
+    // Check if the message starts with '@faxium' (case-insensitive and ignoring spaces)
+    if (lowerCaseMessage.match(/^@\s*faxium\s+/)) {
+        // Remove '@faxium' from the message (case-insensitive and ignoring spaces)
+        const faxiumMessage = message.replace(/^@\s*faxium\s+/i, '').trim();
+        response = "Faxium: " + (faxiumResponses[faxiumMessage] || "doesn't know that.");
+    } else {
+        if (sender === 'Faxium') {
+            response = "Bot: " + getResponse(message);
+        } else {
+            const mainChatbotResponse = getResponse(message);
+            response = mainChatbotResponse ? "Bot: " + mainChatbotResponse : "Faxium: I don't have an answer for that.";
+        }
+    }
+ if (sender === 'Faxium') {
+    chatWindow.innerHTML += '<p>' + (sender || 'User') + ': ' + message + '</p>';  // Display the sender's name and message
+}
     chatWindow.innerHTML += '<p>' + response + '</p>';
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
-
 
 
 
@@ -75,4 +82,4 @@ function askChatbot() {
 }
 
 // Set an interval for 'faxium' to ask a question every 2 seconds
-setInterval(askChatbot, 4000);
+setInterval(askChatbot, 14000);
