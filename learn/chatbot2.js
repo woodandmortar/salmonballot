@@ -1,14 +1,14 @@
 
 
-// Define responses for 'Hacker'
-const hackerResponses = {
-  "Hello": "Hey, it's Hacker here!",
+// Define responses for 'faxium'
+const faxiumResponses = {
+  "Hello": "Hey, it's Faxium here!",
   "How are you?": "I'm always in the hacking mood. What about you?",
-  // ... add more questions and answers as needed for Hacker
+  // ... add more questions and answers as needed for faxium
 };
 
-// List of questions 'Hacker' will ask
-const hackerQuestions = [
+// List of questions 'faxium' will ask
+const faxiumQuestions = [
   'How are you?',
   'What is the capital of France?',
   'Tell me a joke.',
@@ -19,46 +19,60 @@ const hackerQuestions = [
 
 let currentQuestionIndex = 0;
 
-
-// Function to get response from Hacker
-function getHackerResponse(question) {
-  return hackerResponses[question] || "Hacker doesn't know that.";
+function handleUserInput() {
+    const userInputField = document.getElementById('userInput');
+    const message = userInputField.value;
+    if (message) {
+        sendFaxiumMessage(message, 'User');
+        userInputField.value = '';  // Clear the input field
+    }
 }
 
-function sendHackerMessage(message2, sender) {
-    const chatWindow = document.getElementById('chatWindow');
 
+// Function to get response from faxium
+function getFaxiumResponse(question) {
+  return faxiumResponses[question] || "Faxium doesn't know that.";
+}
+
+function sendFaxiumMessage(message2, sender) {
+    const chatWindow = document.getElementById('chatWindow');
     let response;
-    if (sender === 'Hacker') {
-        // If the sender is Hacker, get a response from the main chatbot
-        response = getResponse(message2);
+
+    if (sender === 'Faxium') {
+        response = "Bot: " + getResponse(message2);
+    } else if (message2.startsWith('@faxium')) {
+        response = "Bot: " + (faxiumResponses[message2.replace('@faxium', '').trim()] || "Faxium doesn't know that.");
     } else {
-        // If the sender is User, get a response from the hackerResponses object
-        response = hackerResponses[message2.replace('@hacker', '').trim()] || "Hacker doesn't know that.";
+        const mainChatbotResponse = getResponse(message2);
+        response = mainChatbotResponse ? "Bot: " + mainChatbotResponse : "Bot: I don't have an answer for that.";
     }
 
-    chatWindow.innerHTML += '<p>' + (sender || 'User') + ': ' + message2 + '</p>';
+    chatWindow.innerHTML += '<p>' + (sender || 'User') + ': ' + message2 + '</p>';  // Display the sender's name and message
     chatWindow.innerHTML += '<p>' + response + '</p>';
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
 
 
-// Function for 'Hacker' to ask questions
+
+
+
+
+// Function for 'faxium' to ask questions
 function askChatbot() {
-  if (currentQuestionIndex < hackerQuestions.length) {
-    // Send the current question to the chatbot as 'Hacker'
-    sendHackerMessage(hackerQuestions[currentQuestionIndex], 'Hacker');
+  if (currentQuestionIndex < faxiumQuestions.length) {
+    // Send the current question to the chatbot as 'faxium'
+    sendFaxiumMessage(faxiumQuestions[currentQuestionIndex], 'Faxium');
 
     // Move to the next question
     currentQuestionIndex++;
 
     // If we've gone through all the questions, start over
-    if (currentQuestionIndex === hackerQuestions.length) {
+    if (currentQuestionIndex === faxiumQuestions.length) {
       currentQuestionIndex = 0;
     }
   }
 }
 
-// Set an interval for 'Hacker' to ask a question every 2 seconds
-setInterval(askChatbot, 12000);
+// Set an interval for 'faxium' to ask a question every 2 seconds
+setInterval(askChatbot, 4000);

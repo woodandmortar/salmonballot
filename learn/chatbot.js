@@ -258,6 +258,10 @@ let baseData =
       return closestQuestion;
   }
 
+
+  window.levenshtein = levenshtein;
+  window.getClosestQuestion = getClosestQuestion;
+
   window.sendMessage = function() {
       const inputElem = document.getElementById('userInput');
       const message = inputElem.value;
@@ -266,10 +270,10 @@ let baseData =
       const chatWindow = document.getElementById('chatWindow');
       chatWindow.innerHTML += '<p>User: ' + message + '</p>';
 
-      // Check if the message is for @hacker
-      if (message.toLowerCase().includes('@hacker')) {
-          sendHackerMessage(message, 'User');
-          return; // Exit the function after processing the message for @hacker
+      // Check if the message is for @faxium
+      if (message.toLowerCase().includes('@faxium')) {
+          sendFaxiumMessage(message, 'User');
+          return; // Exit the function after processing the message for @faxium
       }
 
       const response = getResponse(message);
@@ -304,8 +308,8 @@ let baseData =
       // Convert the message to lowercase for case-insensitive check
       const lowercaseMessage = message.toLowerCase();
 
-      // If the message is intended for @hacker, don't respond
-      if (lowercaseMessage.includes('@hacker')) {
+      // If the message is intended for @faxium, don't respond
+      if (lowercaseMessage.includes('@faxium')) {
           return null;
       }
 
