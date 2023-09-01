@@ -182,6 +182,9 @@ let baseData =
 ["Why did Nova Solari genetically engineer plants?", "To create sustainable bioluminescent lighting without a need for a power grid.", ""],
 ["How does Faxium promote innovation?", "Innovation is culturally paramount and celebrities are famous scientists.", ""],
 ["Why does Faxium avoid strong cultural traditions?", "Its idealism encourages a flexible, forward-thinking culture.", ""],
+["While we should strive for a society that offers opportunities, we must also champion the power of individual will and determination. It's the challenges and struggles that shape our character","We agree on the importance of challenges. However, we believe that by working together, pooling our resources, and supporting one another, we can face these challenges more effectively",""],
+["And I believe that it's our individual visions and ideals that give us the strength to overcome obstacles. When we're true to ourselves and our beliefs, we find the motivation to improve and grow","Perhaps our perspectives aren't mutually exclusive. By combining the strength of the collective with the passion of the individual, we can create a society where everyone thrives",""],
+["While sharing resources is noble, true self-improvement comes from within. Its the individuals pursuit of their ideals and dreams that leads to genuine growth.", "dont you think that by providing everyone with equal opportunities were giving them the foundation to pursue those dreams more effectively"],
     ["how old is the earth", "The Earth is approximately 4.54 billion years old.", ""]
 ]
 
@@ -278,7 +281,7 @@ let baseData =
 
       const response = getResponse(message);
       if (response) {  // Only display if there's a response
-          chatWindow.innerHTML += '<p>Bot: ' + response + '</p>';
+          chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
       }
 
       // Check for redundancy before updating the conversationData
@@ -318,7 +321,7 @@ let baseData =
           response = searchInData(message, conversationData);
       }
       if (!response) {
-          return 'I can\'t answer that until you provide me with a DataSchool.JSON file.';
+          return 'I can\'t answer that until you provide me with an Updated OS.';
       }
       return response;
   }

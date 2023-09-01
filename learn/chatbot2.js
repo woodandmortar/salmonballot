@@ -113,14 +113,19 @@ const faxiumResponses = {
   "What architectural style is common in Faxium? ": "Structures in Faxium incorporate organic shaping but clean lines and bright, natural colors in their architecture.",
   "Why did Nova Solari genetically engineer plants? ": "To create sustainable bioluminescent lighting without a need for a power grid.",
   "How does Faxium promote innovation? ": "Innovation is culturally paramount and celebrities are famous scientists.",
-  "Why does Faxium avoid strong cultural traditions? ": "Its idealism encourages a flexible, forward-thinking culture."
+  "dont you think that by providing everyone with equal opportunities were giving them the foundation to pursue those dreams more effectively": "A strong foundation is important, but its the individuals responsibility to build upon it. Idealism teaches us that our inner beliefs and aspirations drive our actions and growth.",
+  "Why does Faxium avoid strong cultural traditions? ": "Its idealism encourages a flexible, forward-thinking culture.",
+  "Yet, in a society where resources are hoarded by a few, many individuals are left without the means to even begin their journey of self-improvement. Isn't it our collective responsibility to ensure everyone has a fair start":"It's a balance. While we should strive for a society that offers opportunities, we must also champion the power of individual will and determination. It's the challenges and struggles that shape our character",
+  "We agree on the importance of challenges. However, we believe that by working together, pooling our resources, and supporting one another, we can face these challenges more effectively":"",
+  "Perhaps our perspectives aren't mutually exclusive. By combining the strength of the collective with the passion of the individual, we can create a society where everyone thrives":"Well said. It's through these debates and exchanges of ideas that we all learn and evolve."
 };
 
 // List of questions 'faxium' will ask
 const faxiumQuestions = [
-  'How are you?',
-  'What is the capital of France?',
-  'Tell me a joke.',
+  'While sharing resources is noble, true self-improvement comes from within. Its the individuals pursuit of their ideals and dreams that leads to genuine growth.',
+  'A strong foundation is important, but its the individuals responsibility to build upon it. Idealism teaches us that our inner beliefs and aspirations drive our actions and growth',
+  'Its a balance. While we should strive for a society that offers opportunities, we must also champion the power of individual will and determination. Its the challenges and struggles that shape our character',
+  'Well said. Its through these debates and exchanges of ideas that we all learn and evolve.',
   'How does the sun rise?',
   'Who are you?',
   'What is the pulse network?'
@@ -156,10 +161,10 @@ function sendFaxiumMessage(message, sender) {
         response = "Faxium: " + (faxiumResponses[faxiumMessage] || "doesn't know that.");
     } else {
         if (sender === 'Faxium') {
-            response = "Bot: " + getResponse(message);
+            response = "Collective: " + getResponse(message);
         } else {
             const mainChatbotResponse = getResponse(message);
-            response = mainChatbotResponse ? "Bot: " + mainChatbotResponse : "Faxium: I don't have an answer for that.";
+            response = mainChatbotResponse ? "Collective: " + mainChatbotResponse : "Faxium: I don't have an answer for that.";
         }
     }
  if (sender === 'Faxium') {
@@ -191,4 +196,4 @@ function askChatbot() {
 }
 
 // Set an interval for 'faxium' to ask a question every 2 seconds
-setInterval(askChatbot, 44000);
+setInterval(askChatbot, 24000);
