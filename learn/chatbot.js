@@ -439,41 +439,51 @@ let baseData =
   }
 
 
-function parseCollectiveCommand(data) {
-  const collectiveRegex = /cmd \[([a-z]+)\] \[(\d+)\] \[([a-z]+)\]/i;
-  const match = data.match(collectiveRegex);
 
-  if (match) {
-    const action = match[1];
-    const value = parseInt(match[2], 10);
-    const category = match[3];
+  function parseCollectiveCommand(data) {
+    const collectiveRegex = /cmd \[([a-z]+)\] \[(\d+)\] \[([a-z]+)\]/i;
+    const match = data.match(collectiveRegex);
 
-    executeCollectiveAction(action, value, category);
+    if (match) {
+      const action = match[1];
+      const value = parseInt(match[2], 10); // Convert the value to a number
+      const category = match[3];
+
+      executeCollectiveAction(action, value, category);
+    }
   }
-}
 
-function executeCollectiveAction(action, value, category) {
-  switch (action.toLowerCase()) {
-    case 'add':
-      postMessageToParent(value, category);
-      break;
-    case 'subtract':
-      postMessageToParent(-value, category);
-      break;
-    default:
-      console.error('Invalid action:', action);
+  function executeCollectiveAction(action, value, category) {
+    switch (action.toLowerCase()) {
+      case 'add':
+        postMessageToParent(value, category);
+        break;
+      case 'subtract':
+        postMessageToParent(-value, category);
+        break;
+      default:
+        console.error('Invalid action:', action);
+    }
   }
-}
 
-function postMessageToParent(value, category) {
-  const message = {};
-  message[category] = value;
-  window.parent.postMessage(message, '*');
-}
+  function postMessageToParent(value, category) {
+    const message = {};
+    message[category] = value;
+    window.parent.postMessage(message, '*');
+  }
 
+  // Function to process an array of commands
+  function processCommands(commands) {
+    commands.forEach(command => parseCollectiveCommand(command));
+  }
 
+  // Array of commands
+  const commands = [
+    "cmd [add] [1000] [progressive]",
+    "cmd [subtract] [1000] [progressive]",
+    "cmd [add] [1000] [conservative]",
+    // ... (add more commands as needed)
+  ];
 
-
-// Usage:
-// parseCollectiveCommand("Some chat data cmd [add] [10000] [nationalist]");
-// parseCollectiveCommand("Another example cmd [subtract] [10000][populist]");
+  // Process all commands in the array
+  processCommands(commands);
