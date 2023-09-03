@@ -10,14 +10,6 @@ window.onload = function() {
 };
 localStorage.clear();
 sessionStorage.clear();
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(function(registrations) {
-    for(let registration of registrations) {
-      registration.unregister();
-    }
-  });
-}
-
 
 let populations = {
   progressive: 10000010,

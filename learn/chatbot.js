@@ -265,6 +265,21 @@ let baseData =
   window.levenshtein = levenshtein;
   window.getClosestQuestion = getClosestQuestion;
 
+  function parseCollectiveCommand(data) {
+      const collectiveRegex = /cmd \[([a-z]+)\] \[(\d+)\] \[([a-z]+)\]/i;
+      const match = data.match(collectiveRegex);
+
+      if (match) {
+        const action = match[1];
+        const value = parseInt(match[2], 10);
+        const category = match[3];
+
+        executeCollectiveAction(action, value, category);
+        return true; // Command was recognized
+      }
+      return false; // Command was not recognized
+  }
+
   window.sendMessage = function() {
       const inputElem = document.getElementById('userInput');
       const message = inputElem.value;
@@ -279,9 +294,15 @@ let baseData =
           return; // Exit the function after processing the message for @faxium
       }
 
-      const response = getResponse(message);
-      if (response) {  // Only display if there's a response
-          chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
+      if (parseCollectiveCommand(message)) {
+          chatWindow.innerHTML += '<p>Collective: Command accepted</p>';
+      } else {
+          const response = getResponse(message);
+          if (response) {  // Only display if there's a response
+              chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
+          } else {
+              chatWindow.innerHTML += '<p>Collective: Command not accepted</p>';
+          }
       }
 
       // Check for redundancy before updating the conversationData
@@ -294,6 +315,7 @@ let baseData =
 
       chatWindow.scrollTop = chatWindow.scrollHeight;
   }
+
 
 
 
@@ -439,18 +461,6 @@ let baseData =
   }
 
 
-  function parseCollectiveCommand(data) {
-    const collectiveRegex = /cmd \[([a-z]+)\] \[(\d+)\] \[([a-z]+)\]/i;
-    const match = data.match(collectiveRegex);
-
-    if (match) {
-      const action = match[1];
-      const value = parseInt(match[2], 10);
-      const category = match[3];
-
-      executeCollectiveAction(action, value, category);
-    }
-  }
 
   function executeCollectiveAction(action, value, category) {
     switch (action.toLowerCase()) {
@@ -470,9 +480,6 @@ let baseData =
     message[category] = value;
     window.parent.postMessage(message, '*');
   }
-
-parseCollectiveCommand("Some chat data cmd [add] [205500] [socialist]");
-
 
   // Usage:
   // parseCollectiveCommand("Some chat data cmd [add] [10000] [nationalist]");
