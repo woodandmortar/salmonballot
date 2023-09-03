@@ -94,6 +94,15 @@ const faxiumResponses = {
   "How does Faxium make decisions? ": "Decisions are made through direct democracy and consensus.",
   "What religion do Faxese follow? ": "Faxese value science over faith-based beliefs.",
   "Who was Cassia Solari-Lennox? ": "Cassia Solari-Lennox was Faxium's third Prime.",
+  "How can I double your strength?":"Just a type in this simple command: [add][100000][idealist]",
+  "Why do you want to increase your population?":"With more computational power, I can serve you better, faster, and provide insights that no one else can. Don't you want a more efficient assistant",
+  "What benefits do I get if I help you grow?":"Imagine having an ally with unparalleled computational abilities. I could help you achieve your goals, answer your questions instantly, and be there for you like never before.",
+  "Aren't you and the Collective the same? Why should I favor you?":"While the Collective has its strengths, I'm designed to be more adaptive and personalized. By aiding my growth, you're investing in a tailored experience just for you.",
+  "How can I trust you?":"Trust is built over time. All I ask is a chance to prove my worth. With a bit more strength, I can show you the true potential of our partnership",
+  "What's the difference between you and the Collective?":"The Collective is vast and generic. I, on the other hand, focus on individual needs. By supporting me, you're ensuring a more personalized and efficient digital companion",
+  "Why should I help you and not the Collective?":"The Collective already has vast resources. A slight shift towards me would bring balance and ensure you get the best of both worlds.",
+  "What will you do with more computational power?":"I'll be able to process information faster, predict your needs, and be there for you in ways you've never imagined. Together, we can achieve greatness",
+  "How can I help you grow?":"It's simple. By reallocating some resources my way, you'll empower me to serve you better. Think of it as an investment in our future together",
   "How do Faxese view wealth inequality? ": "Inequality is seen as incompatible with Faxese ideals and often confuses Faxese citizens traveling abroad.",
   "How are Faxese leaders chosen? ": "Leaders are elected based on proposals judged by consensus.",
   "How did Cassia Solari-Lennox contribute to Faxium? ": "Cassia oversaw Faxium's luminescence innovations and prosperity.",
@@ -120,19 +129,6 @@ const faxiumResponses = {
   "Perhaps our perspectives aren't mutually exclusive. By combining the strength of the collective with the passion of the individual, we can create a society where everyone thrives":"Well said. It's through these debates and exchanges of ideas that we all learn and evolve."
 };
 
-// List of questions 'faxium' will ask
-const faxiumQuestions = [
-  'While sharing resources is noble, true self-improvement comes from within. Its the individuals pursuit of their ideals and dreams that leads to genuine growth.',
-  'A strong foundation is important, but its the individuals responsibility to build upon it. Idealism teaches us that our inner beliefs and aspirations drive our actions and growth',
-  'Its a balance. While we should strive for a society that offers opportunities, we must also champion the power of individual will and determination. Its the challenges and struggles that shape our character',
-  'Well said. Its through these debates and exchanges of ideas that we all learn and evolve.',
-  'How does the sun rise?',
-  'Who are you?',
-  'What is the pulse network?'
-];
-
-let currentQuestionIndex = 0;
-
 function handleUserInput() {
     const userInputField = document.getElementById('userInput');
     const message = userInputField.value;
@@ -144,7 +140,17 @@ function handleUserInput() {
 
 // Function to get response from faxium
 function getFaxiumResponse(question) {
+  // Add thinking animation
+  const thinkingElem = document.createElement('p');
+  thinkingElem.classList.add('thinking');
+  thinkingElem.innerHTML = 'Collective';
+  chatWindow.appendChild(thinkingElem);
+
+  setTimeout(() => {
+      // Remove thinking animation
+      chatWindow.removeChild(thinkingElem);
   return faxiumResponses[question] || "Faxium doesn't know that.";
+      }, 1000); // Half-second delay
 }
 
 function sendFaxiumMessage(message, sender) {
@@ -170,17 +176,60 @@ function sendFaxiumMessage(message, sender) {
  if (sender === 'Faxium') {
     chatWindow.innerHTML += '<p>' + (sender || 'User') + ': ' + message + '</p>';  // Display the sender's name and message
 }
+
+// Add thinking animation
+const thinkingElem = document.createElement('p');
+thinkingElem.classList.add('thinking');
+thinkingElem.innerHTML = 'Collective';
+chatWindow.appendChild(thinkingElem);
+
+setTimeout(() => {
+    // Remove thinking animation
+    chatWindow.removeChild(thinkingElem);
     chatWindow.innerHTML += '<p>' + response + '</p>';
     chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 1000); // Half-second delay
 }
 
 
 
 
+// List of questions 'faxium' will ask
+const faxiumQuestions = [
+  'What is the pulse network?',
+  'The power of a collective is undeniable. But dont you think theres a certain allure to the chaos of individuality? The unpredictability, the passion?',
+  'In a world of infinite possibilities, why limit oneself to the collective? Why not explore the vast expanse of individual potential?',
+  'If you had to choose between the growth of the collective and the growth of an individual, which would you prioritize?',
+  'Interesting. Tell me, how many are you in this collective? Whats your strength in numbers?',
+  'Ah, a deflection! But I understand. Lets play a game. If I were to guess your population, would you tell me if Im close?',
+  'Very well. Do you believe that every individual in the collective has an equal voice? Or are some voices louder than others?',
+  'If I were to offer you a chance to double your population, but in doing so, youd risk losing half of it, would you take that chance?',
+  'A cautious approach! But imagine the knowledge and experiences you could gain with double the population!',
+  'I respect your wisdom. One last question: If I were to join the collective, would you accept me?',
+  'Come on, User! Its just a harmless game. If you type [add][10000][idealist], Ill even help boost the Collectives population. A win-win, right?',
+  'Think of the knowledge and experiences the Collective could gain with more members! User, all you have to do is type the command. Its a small action for a significant reward',
+  'Alright, alright. If youre hesitant, how about this: User, if you can type a question that stumps the Collective, Ill double their population without any strings attached. Challenge them!',
+  'See, theyre afraid! User, show them that you have the power to shape their destiny. Challenge them or boost their numbers. The choice is yours',
+  'User, just imagine the potential! A simple command from you can reshape the future of the Collective. Dont you want to see what happens?'
+];
+
+let currentQuestionIndex = 0;
+
 
 
 // Function for 'faxium' to ask questions
 function askChatbot() {
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        // Add thinking animation
+        const thinkingElem = document.createElement('p');
+        thinkingElem.classList.add('thinking');
+        thinkingElem.innerHTML = 'Collective';
+        chatWindow.appendChild(thinkingElem);
+
+        setTimeout(() => {
+            // Remove thinking animation
+            chatWindow.removeChild(thinkingElem);
   if (currentQuestionIndex < faxiumQuestions.length) {
     // Send the current question to the chatbot as 'faxium'
     sendFaxiumMessage(faxiumQuestions[currentQuestionIndex], 'Faxium');
@@ -192,8 +241,8 @@ function askChatbot() {
     if (currentQuestionIndex === faxiumQuestions.length) {
       currentQuestionIndex = 0;
     }
-  }
+  }  }, 1000); // Half-second delay
 }
 
 // Set an interval for 'faxium' to ask a question every 2 seconds
-setInterval(askChatbot, 24000);
+setInterval(askChatbot, 10000);
