@@ -145,7 +145,7 @@ function getFaxiumResponse(question) {
   thinkingElem.classList.add('thinking');
   thinkingElem.innerHTML = 'Collective';
   chatWindow.appendChild(thinkingElem);
-
+chatWindow.scrollTop = chatWindow.scrollHeight;
   setTimeout(() => {
       // Remove thinking animation
       chatWindow.removeChild(thinkingElem);
@@ -182,6 +182,7 @@ const thinkingElem = document.createElement('p');
 thinkingElem.classList.add('thinking');
 thinkingElem.innerHTML = 'Collective';
 chatWindow.appendChild(thinkingElem);
+chatWindow.scrollTop = chatWindow.scrollHeight;
 
 setTimeout(() => {
     // Remove thinking animation

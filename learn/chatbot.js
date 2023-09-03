@@ -305,10 +305,12 @@ let baseData =
 
       const chatWindow = document.getElementById('chatWindow');
       chatWindow.innerHTML += '<p>User: ' + message + '</p>';
+      chatWindow.scrollTop = chatWindow.scrollHeight;
 
       // Check if the message is for @faxium
       if (message.toLowerCase().includes('@faxium')) {
           sendFaxiumMessage(message, 'User');
+          chatWindow.scrollTop = chatWindow.scrollHeight;
           return; // Exit the function after processing the message for @faxium
       }
 
@@ -317,6 +319,7 @@ let baseData =
       thinkingElem.classList.add('thinking');
       thinkingElem.innerHTML = 'Collective';
       chatWindow.appendChild(thinkingElem);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
 
       setTimeout(() => {
           // Remove thinking animation
@@ -324,12 +327,15 @@ let baseData =
 
           if (parseCollectiveCommand(message)) {
               chatWindow.innerHTML += '<p>Collective: Command accepted</p>';
+              chatWindow.scrollTop = chatWindow.scrollHeight;
           } else {
               const response = getResponse(message);
               if (response) {  // Only display if there's a response
                   chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
+                  chatWindow.scrollTop = chatWindow.scrollHeight;
               } else {
                   chatWindow.innerHTML += '<p>Collective: Command not accepted</p>';
+                  chatWindow.scrollTop = chatWindow.scrollHeight;
               }
           }
 
