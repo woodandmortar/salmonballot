@@ -279,7 +279,6 @@ let baseData =
       }
       return false; // Command was not recognized
   }
-
   window.sendMessage = function() {
       const inputElem = document.getElementById('userInput');
       const message = inputElem.value;
@@ -294,28 +293,38 @@ let baseData =
           return; // Exit the function after processing the message for @faxium
       }
 
-      if (parseCollectiveCommand(message)) {
-          chatWindow.innerHTML += '<p>Collective: Command accepted</p>';
-      } else {
-          const response = getResponse(message);
-          if (response) {  // Only display if there's a response
-              chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
+      // Add thinking animation
+      const thinkingElem = document.createElement('p');
+      thinkingElem.classList.add('thinking');
+      thinkingElem.innerHTML = 'Collective';
+      chatWindow.appendChild(thinkingElem);
+
+      setTimeout(() => {
+          // Remove thinking animation
+          chatWindow.removeChild(thinkingElem);
+
+          if (parseCollectiveCommand(message)) {
+              chatWindow.innerHTML += '<p>Collective: Command accepted</p>';
           } else {
-              chatWindow.innerHTML += '<p>Collective: Command not accepted</p>';
+              const response = getResponse(message);
+              if (response) {  // Only display if there's a response
+                  chatWindow.innerHTML += '<p>Collective: ' + response + '</p>';
+              } else {
+                  chatWindow.innerHTML += '<p>Collective: Command not accepted</p>';
+              }
           }
-      }
 
-      // Check for redundancy before updating the conversationData
-      if (!isRedundant(message, response)) {
-          conversationData.push([message, response, ""]);
-      }
+          // Check for redundancy before updating the conversationData
+          if (!isRedundant(message, response)) {
+              conversationData.push([message, response, ""]);
+          }
 
-      // Update the JSON editor to reflect the changes
-      updateJSONDisplay();
+          // Update the JSON editor to reflect the changes
+          updateJSONDisplay();
 
-      chatWindow.scrollTop = chatWindow.scrollHeight;
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 1000); // Half-second delay
   }
-
 
 
 
@@ -330,6 +339,7 @@ let baseData =
   }
 
   function getResponse(message) {
+
       // Convert the message to lowercase for case-insensitive check
       const lowercaseMessage = message.toLowerCase();
 
