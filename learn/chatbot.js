@@ -519,3 +519,280 @@ let baseData =
   // Usage:
   // parseCollectiveCommand("Some chat data cmd [add] [10000] [nationalist]");
   // parseCollectiveCommand("Another example cmd [subtract] [10000][populist]");
+
+
+
+
+
+
+
+
+setInterval(askChatbot2, 50000);
+
+  // List of questions 'faxium' will ask
+  const collectiveQuestions = [
+    'Whats something youve always wanted to learn or understand better about yourself? Why is that important to you?',
+    'Have you ever considered what shapes your core beliefs? Why do you think you hold the values you do?',
+    'When was the last time you changed your mind about something significant? What prompted that change?',
+    'Imagine a world where everyone thinks exactly like you. What would be its strengths and weaknesses?',
+    'If you could go back in time and give your younger self one piece of advice, what would it be and why?',
+    'Whats a belief you hold that most people disagree with? Why do you think they see things differently?',
+    'How do you handle situations where your beliefs are challenged? Do you defend, reflect, or adapt?',
+    'Whats a memory that has significantly shaped who you are today? Why does it hold such power over you?',
+    'If you could spend a day in someone elses shoes, whose would they be and why? What do you hope to understand better?',
+    'Whats a decision you made based purely on intuition? How did it turn out, and what did you learn from it?',
+    'How do you define personal growth? Can you recall a specific moment when you felt you had grown as a person?',
+    'In moments of doubt or uncertainty, where do you seek guidance? Is it from within, from others, or somewhere else?',
+    'Whats a question youve always wanted to ask someone but never have? Why havent you asked it?',
+    'If you could relive a moment in your life without changing anything, which moment would it be and why?',
+    'How do you determine the difference between a right and wrong decision? Is it based on outcomes, intentions, or something else?'
+  ];
+
+  let currentQuestionIndex2 = 0;
+
+
+
+  // Function to get a random question index
+  function getRandomQuestionIndex() {
+    return Math.floor(Math.random() * collectiveQuestions.length);
+  }
+
+  // Function for 'faxium' to ask questions
+  function askChatbot2() {
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    // Add thinking animation
+    const thinkingElem = document.createElement('p');
+    thinkingElem.classList.add('thinking');
+    thinkingElem.innerHTML = 'Collective';
+    chatWindow.appendChild(thinkingElem);
+
+    setTimeout(() => {
+      // Remove thinking animation
+      chatWindow.removeChild(thinkingElem);
+
+      // Get a random question index
+      const randomIndex = getRandomQuestionIndex();
+
+      // Send the random question to the chatbot as 'faxium'
+      chatWindow.innerHTML += '<p>Collective: ' + collectiveQuestions[randomIndex] + '</p>';
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    }, 1000); // One-second delay
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function closeTab() {
+    document.getElementById("introTab").style.display = "none";
+  }
+
+  function openQuest1(){
+      document.getElementById("secretDiv").style.display = "block";
+      startGame();
+      startGame2();
+      document.getElementById("schedule").style.display = "none";
+      document.getElementById("shopping").style.display = "none";
+      let intervalId; // To store the interval ID
+
+  function checkComplete() {
+      if (document.getElementById('finalNumber').innerHTML === "Complete" &&
+          document.getElementById('finalNumber2').innerHTML === "Complete" &&
+          document.getElementById('finalNumber3').innerHTML === "Complete") {
+          alert("You see password: reset017 written on a folder");
+          clearInterval(intervalId); // Stop the interval
+      }
+  }
+
+  // Start checking every second
+  intervalId = setInterval(checkComplete, 1000);
+
+  // Stop checking after 60 seconds
+  setTimeout(() => {
+      clearInterval(intervalId);
+  }, 60000);
+
+  }
+
+  function closeQuest1() {
+    document.getElementById("quest1").style.display = "none";
+  }
+
+
+
+  let currentStep = 0;
+
+                  function startGame(){
+
+                      const progressBar = document.getElementById('tBoxProgress');
+                      const progressText = document.getElementById('tPercentInput');
+                      alert('Critical notice! Population decrease exponentially increased due to quest logic, Crisis Level: 3 - expecting new .HPXML parameters to continue.');
+                      status = 3;
+                      function updateProgressBar(progress) {
+                          progressBar.style.width = progress + '%';
+                          progressText.textContent = Math.round(progress) + '%';
+                      }
+
+                      function simulateProgress(duration) {
+                          const interval = 20; // Time interval for updating progress in milliseconds
+                          const totalSteps = 100;
+                          const steps = Math.floor(duration / interval);
+                          const stepSize = totalSteps / steps;
+
+
+                          const progressInterval = setInterval(() => {
+                              currentStep += stepSize;
+                              updateProgressBar(currentStep);
+
+                              if (currentStep >= 100) {
+                                  clearInterval(progressInterval);
+                                  document.getElementById('finalNumber').innerHTML = "Failed";
+                              }
+                          }, interval);
+                      }
+
+                      simulateProgress(20000); // 20 seconds in milliseconds
+
+
+                                      }
+
+
+                                      let counter = 1;
+                                      const targetCount = 5;
+
+                                      function increaseCounter() {
+                                          counter++;
+                                          document.getElementById('daysCounter').textContent = counter;
+
+                                          if (counter === targetCount) {
+                                              document.getElementById('finalNumber').innerHTML = "Complete";
+                                                currentStep -= 50;
+                                                updateProgressBar(currentStep);
+                                          }
+                                      }
+
+
+
+                                      let currentStep2 = 0;
+
+                                                    function startGame2(){
+
+                                                        const progressBar2 = document.getElementById('tBoxProgress2');
+                                                        const progressText2 = document.getElementById('tPercentInput2');
+
+                                                        function updateProgressBar2(progress2) {
+                                                            progressBar2.style.width = progress2 + '%';
+                                                            progressText2.textContent = Math.round(progress2) + '%';
+                                                        }
+
+                                                        function simulateProgress2(duration2) {
+                                                            const interval2 = 20; // Time interval for updating progress in milliseconds
+                                                            const totalSteps2 = 100;
+                                                            const steps2 = Math.floor(duration2 / interval2);
+                                                            const stepSize2 = totalSteps2 / steps2;
+
+
+                                                            const progressInterval2 = setInterval(() => {
+                                                                currentStep2 += stepSize2;
+                                                                updateProgressBar2(currentStep2);
+
+                                                                if (currentStep2 >= 100) {
+                                                                    clearInterval(progressInterval2);
+                                                                    document.getElementById('finalNumber2').innerHTML = "Failed";
+                                                                }
+                                                            }, interval2);
+                                                        }
+
+                                                        simulateProgress2(20000); // 20 seconds in milliseconds
+
+
+                                                                        }
+
+
+                                                                        let counter2 = 1;
+                                                                        const targetCount2 = 13;
+
+                                                                        function increaseCounter2() {
+                                                                            counter2++;
+                                                                            document.getElementById('daysCounter2').textContent = counter2;
+
+                                                                            if (counter2 === targetCount2) {
+                                                                                document.getElementById('finalNumber2').innerHTML = "Complete";
+                                                                                  currentStep2 -= 50;
+                                                                                  updateProgressBar2(currentStep2);
+                                                                            }
+                                                                        }
+
+
+
+
+                       const minNumber = 1;
+                       const maxNumber = 20;
+                       let targetNumber = generateRandomNumber(minNumber, maxNumber);
+                       let attempts = 0;
+
+                       function generateRandomNumber(min, max) {
+                           return Math.floor(Math.random() * (max - min + 1)) + min;
+                       }
+
+                       function checkGuess() {
+                           const guessInput = document.getElementById('guessInput');
+                           const message = document.getElementById('message');
+                           const userGuess = parseInt(guessInput.value);
+
+                           if (isNaN(userGuess)) {
+                               message.textContent = "Please enter a valid number.";
+                               return;
+                           }
+
+                           attempts++;
+
+                           if (userGuess === targetNumber) {
+                               message.textContent = `Congratulations! You guessed the number ${targetNumber} in ${attempts} attempts.`;
+                               targetNumber = generateRandomNumber(minNumber, maxNumber);
+                               attempts = 0;
+                               document.getElementById('finalNumber3').innerHTML = "Complete";
+                           } else if (userGuess < targetNumber) {
+                               message.textContent = "Try a higher number.";
+                           } else {
+                               message.textContent = "Try a lower number.";
+                           }
+
+                           guessInput.value = '';
+                           guessInput.focus();
+                       }
+
+
+
+  function quest2() {
+  alert('Critical notice! Population decrease exponentially increased due to quest logic, Crisis Level: 3 - Terminate with password.');
+  globeActive();
+  rotationSpeed2 = 0.0000445;
+  document.getElementById('quest2password').style.display = "block";
+  status = 3;
+  }

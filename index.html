@@ -518,6 +518,7 @@ Enter the Password:
                           <p class="message-line time">
                                             <input type="password" id="passcode" maxlength="14">
                                             <button class="open-modal" onclick="checkPasscode();">Submit</button></p>
+                                            <br><br>
                                             <p class="message-line time">
                                               <label for="plainText">Enter Encrypted Text:</label>
                                               <input type="text" id="plainText" placeholder="Enter plaintext or cipher text">
@@ -525,7 +526,9 @@ Enter the Password:
 
                                               <label for="key">Key:</label>
                                               <input type="text" id="key" placeholder="Enter key">
-                                            </p><p class="message-line time">
+                                            </p>
+<br><br>
+                                            <p class="message-line time">
 
                                               <button class="open-modal" onclick="encrypt()">Encrypt</button>
                                               <button class="open-modal" onclick="decrypt()">Decrypt</button>
@@ -535,14 +538,14 @@ Enter the Password:
                                               <input type="text" id="result" readonly>
 
                                             </p>
-
+<br><br>
                           <p class="message-line time">
                                               <button class="open-modal2" onclick="sendSphere2MoveCommand();"><b>Reset</b></button>
                                               <button class="open-modal2" onclick="getVideos();"><b>Videos</b></button>
                                               <button class="open-modal2" onclick="collective();">User Guide</button>
                                               <button class="open-modal2" onclick="n002();">587112349</button>
                                               <button class="open-modal2" onclick="ventura();" id="venturaID" style="display:none;">Pending</button>
-                                              <button class="open-modal2" onclick="trantum();" id="trantumID" style="display:none;">Pending</button>
+                                              <button class="open-modal2" onclick="trantum();" id="trantumID">Trantum</button>
                                               <button class="open-modal2" onclick="mercado();" id="mercadoID" style="display:none;">Pending</button>
                                               <button class="open-modal2" onclick="faxium();" id="faxiumID" style="display:none;">PEAFaxium</button>
                                               <button class="open-modal2" onclick="ironcoast();" id="ironcoastID" style="display:none;">Pending</button>
@@ -599,8 +602,8 @@ Enter the Password:
 
             </div>
             </div>
-            <!-- partial -->
-            <script  src="./quests.js"></script>
+
+
             <script  src="./hpxml.js"></script>
             <script  src="./pulse.js"></script>
             <script src="./populations.js" ></script>
@@ -626,6 +629,12 @@ const bookFrame5 = document.getElementById('bookFrame5');
 bookFrame5.src = 'learn/model.html';
 const bookFrame6 = document.getElementById('bookFrame6');
 bookFrame6.src = 'games/words/index.html';
+
+function trantum(){
+  const bookFrame2 = document.getElementById('bookFrame2');
+  bookFrame2.src = 'Trantum.html';
+  scheduleActive();
+}
 
 </script>
 

@@ -140,17 +140,7 @@ function handleUserInput() {
 
 // Function to get response from faxium
 function getFaxiumResponse(question) {
-  // Add thinking animation
-  const thinkingElem = document.createElement('p');
-  thinkingElem.classList.add('thinking');
-  thinkingElem.innerHTML = 'Collective';
-  chatWindow.appendChild(thinkingElem);
-chatWindow.scrollTop = chatWindow.scrollHeight;
-  setTimeout(() => {
-      // Remove thinking animation
-      chatWindow.removeChild(thinkingElem);
-  return faxiumResponses[question] || "Faxium doesn't know that.";
-      }, 1000); // Half-second delay
+  return faxiumResponses[question] || "Faxium needs an update to provide a response.";
 }
 
 function sendFaxiumMessage(message, sender) {
@@ -164,7 +154,8 @@ function sendFaxiumMessage(message, sender) {
     if (lowerCaseMessage.match(/^@\s*faxium\s+/)) {
         // Remove '@faxium' from the message (case-insensitive and ignoring spaces)
         const faxiumMessage = message.replace(/^@\s*faxium\s+/i, '').trim();
-        response = "Faxium: " + (faxiumResponses[faxiumMessage] || "doesn't know that.");
+        response = "Faxium: " + (faxiumResponses[faxiumMessage] || "doesn't respond.");
+        setInterval(askChatbot, 27000);
     } else {
         if (sender === 'Faxium') {
             response = "Collective: " + getResponse(message);
@@ -207,7 +198,7 @@ const faxiumQuestions = [
   'If I were to offer you a chance to double your population, but in doing so, youd risk losing half of it, would you take that chance?',
   'A cautious approach! But imagine the knowledge and experiences you could gain with double the population!',
   'I respect your wisdom. One last question: If I were to join the collective, would you accept me?',
-  'Come on, User! Its just a harmless game. If you type [add][10000][idealist], Ill even help boost the Collectives population. A win-win, right?',
+  'Come on, User! Its just a harmless game. If you type cmd [add][10000][idealist], Ill even help boost the Collectives population. A win-win, right?',
   'Think of the knowledge and experiences the Collective could gain with more members! User, all you have to do is type the command. Its a small action for a significant reward',
   'Alright, alright. If youre hesitant, how about this: User, if you can type a question that stumps the Collective, Ill double their population without any strings attached. Challenge them!',
   'See, theyre afraid! User, show them that you have the power to shape their destiny. Challenge them or boost their numbers. The choice is yours',
@@ -238,12 +229,5 @@ function askChatbot() {
     // Move to the next question
     currentQuestionIndex++;
 
-    // If we've gone through all the questions, start over
-    if (currentQuestionIndex === faxiumQuestions.length) {
-      currentQuestionIndex = 0;
-    }
   }  }, 1000); // Half-second delay
 }
-
-// Set an interval for 'faxium' to ask a question every 2 seconds
-setInterval(askChatbot, 10000);

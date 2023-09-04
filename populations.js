@@ -14,7 +14,7 @@ sessionStorage.clear();
 let populations = {
   progressive: 10000010,
   socialist: 10000000,
-  idealist: 100000020,
+  idealist: 70000020,
   globalist: 100000030,
   conservative: 100000040,
   economist: 100000050,

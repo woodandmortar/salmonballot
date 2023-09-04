@@ -1,0 +1,314 @@
+<link rel="stylesheet" href="book.css">
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <header>
+                <h1>Political Heading</h1>
+                <h6>Conservative</h6>
+            </header>
+            <article>
+              <h2 class="chapter-title">Trantum</h2>
+              <div id="experimentsContainer"></div>
+              <div id="reflectionsContainer"></div>
+            </article>
+        </section>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+
+                  const generalKeywords = {
+                    curious: "Your curiosity is a sign of an open mind. It's always beneficial to seek understanding and knowledge.",
+                    confused: "It's okay to feel uncertain or confused at times. Taking a step back and seeking clarity can be helpful.",
+                    surprised: "Surprises can be unsettling, but they also offer opportunities for growth and new perspectives.",
+                    challenge: "Facing challenges head-on can be a testament to your resilience and determination.",
+                    understand: "Your desire to understand indicates a depth of character and a willingness to learn.",
+                    learn: "Your eagerness to learn and adapt is commendable. Continuous learning is a key to personal growth.",
+                    accept: "Acceptance can be a sign of maturity. It's important to differentiate between what we can change and what we need to accept.",
+                    adapt: "Your adaptability is a strength, especially in ever-changing situations. It's a sign of flexibility and resilience."
+                  };
+
+
+
+                  const experiments = [
+                      {
+                        question: "Imagine you're in a room with a close friend, and they tell you something about yourself that you've never realized before. It's not necessarily negative, but it's surprising and challenges your self-perception. How do you react in that moment, and why?",
+                        keywords: {
+                          angry: "Your response suggests that unexpected feedback can evoke strong emotions in you. It might be helpful to explore why certain comments trigger these feelings.",
+                          upset: "Your response suggests that unexpected feedback can evoke strong emotions in you. It might be helpful to explore why certain comments trigger these feelings.",
+                          reflect: "You seem to have a contemplative nature, taking time to process and reflect upon new information. This can be a valuable trait in understanding oneself better.",
+                          think: "You seem to have a contemplative nature, taking time to process and reflect upon new information. This can be a valuable trait in understanding oneself better.",
+                          ask: "Your inclination to ask questions indicates a desire to understand and clarify situations. It's a sign of open-mindedness and a willingness to engage in constructive dialogue.",
+                          question: "Your inclination to ask questions indicates a desire to understand and clarify situations. It's a sign of open-mindedness and a willingness to engage in constructive dialogue.",
+                          deny: "A defensive reaction might indicate underlying insecurities or strong beliefs about oneself. It could be beneficial to explore why certain feedback is hard to accept.",
+                          disagree: "A defensive reaction might indicate underlying insecurities or strong beliefs about oneself. It could be beneficial to explore why certain feedback is hard to accept."
+                        }
+                      },
+                      {
+                        question: "You're at a gathering, and someone openly challenges a core value you've held since childhood, suggesting it's outdated and no longer relevant in today's society. How do you feel and respond?",
+                        keywords: {
+                          affirm: "Your affirmation of your values shows a strong conviction. Balancing this with openness can lead to richer conversations.",
+                          avoid: "Avoiding confrontation can sometimes be a way to maintain peace, but it's essential to address core issues eventually.",
+                          emotional: "Strong emotional reactions can indicate deeply held beliefs. It's beneficial to understand the root of these emotions.",
+                          reassess: "Your willingness to reassess your values shows adaptability and an open mind.",
+                          confront: "Direct confrontation can be a way to defend one's beliefs, but it's crucial to ensure it remains constructive.",
+                          internalize: "Internalizing feedback can lead to introspection, but it's essential not to let it diminish self-worth.",
+                          defend: "Your immediate defense of your values shows a deep-rooted connection to them. It's essential, however, to ensure that the defense doesn't close off potential learning opportunities.",
+                          reflect: "Your introspective nature allows you to consider different perspectives without immediately reacting. This can lead to a deeper understanding of both your values and opposing views.",
+                          question: "Your desire to question and understand the opposing viewpoint shows an openness to dialogue, even when faced with challenges to deeply held beliefs.",
+                          shutdown: "Closing off from challenging discussions can be a protective mechanism. It might be worth exploring what triggers this response."
+                        }
+                      },
+                      {
+                        question: "A colleague you respect mentions that they've observed you often become defensive when receiving feedback, even if it's constructive. How do you process this information?",
+                        keywords: {
+                          rationalize: "Trying to rationalize behavior is a common response. It's essential to differentiate between explaining and justifying.",
+                          grateful: "Expressing gratitude for feedback, even if challenging, shows maturity and a commitment to personal growth.",
+                          skeptical: "Skepticism can be a protective mechanism, but it's also essential to be open to genuine feedback.",
+                          inquire: "Seeking more details about the feedback can lead to better understanding and clarity.",
+                          introspect: "Delving into one's behaviors and patterns is a sign of a growth mindset.",
+                          validate: "Seeking validation from others can provide comfort but relying solely on external validation can be limiting.",
+                          deny: "Denial can sometimes be an immediate reaction to feedback that feels personal. Reflecting on why this feedback was triggering can provide insights.",
+                          acknowledge: "Recognizing and acknowledging observed behavior is the first step towards personal growth. Your openness to this feedback is commendable.",
+                          justify: "While it's natural to want to explain one's actions, it's also essential to listen and understand the feedback's root."
+                        }
+                      },
+                      {
+                        question: "Your partner suggests that sometimes you exhibit defensive behavior in your relationship, especially during disagreements. How do you react to this observation?",
+                        keywords: {
+                          compromise: "Willingness to compromise is a sign of understanding and valuing the relationship's harmony.",
+                          resistant: "Resistance to feedback can stem from various emotions. It's beneficial to explore the underlying reasons.",
+                          empathize: "Empathy can bridge misunderstandings and strengthen relationship bonds.",
+                          confused: "Feeling confused can indicate a mismatch between self-perception and external feedback.",
+                          reconnect: "Seeking to reconnect and understand each other's perspectives can be healing.",
+                          validate: "Validating your partner's feelings and perspectives can foster trust and understanding.",
+                          reflect: "Taking a moment to introspect shows maturity and a commitment to understanding the dynamics of your relationship.",
+                          argue: "Immediate defensiveness can sometimes exacerbate misunderstandings. It might be beneficial to take a step back and understand the feedback's context.",
+                          apologize: "Acknowledging potential flaws and apologizing shows empathy and a willingness to grow within the relationship."
+                        }
+                      },
+                      {
+                        question: "During a team meeting, a member suggests a different approach to a project you've been leading. They believe their method might be more efficient. How do you handle this?",
+                        keywords: {
+                          collaborate: "Collaboration can lead to a fusion of ideas and better outcomes.",
+                          insecure: "Feelings of insecurity can sometimes arise when leadership is challenged. Recognizing and addressing these feelings can be empowering.",
+                          appreciate: "Appreciating diverse viewpoints can lead to richer discussions and better solutions.",
+                          doubt: "Doubting oneself can be a natural reaction but should be balanced with self-confidence.",
+                          reaffirm: "Reaffirming your approach can provide clarity to the team, especially when explained with reasoning.",
+                          evaluate: "Evaluating feedback objectively can lead to informed decisions.",
+                          defensive: "Feeling protective of your leadership and decisions is natural. However, being open to alternative approaches can lead to innovation and growth.",
+                          consider: "Your willingness to consider alternative methods shows flexibility and a commitment to the project's best outcome.",
+                          dismiss: "Instantly dismissing alternative ideas can limit growth opportunities. Reflecting on the feedback can provide new insights."
+                        }
+                      },
+                      {
+                        question: "You read an article online where an anonymous commenter critiques your professional decisions, suggesting they were driven by personal bias rather than logic. How do you respond?",
+                        keywords: {
+                          clarify: "Clarifying misunderstandings can lead to better public perception and trust.",
+                          hurt: "Feeling hurt by public critiques is natural. It's essential to differentiate between constructive feedback and baseless criticism.",
+                          reflective: "Taking a step back and being reflective can lead to personal growth and better decision-making.",
+                          challenge: "Challenging critiques can be a way to defend one's decisions, but it's essential to ensure it's done constructively.",
+                          reconsider: "Reconsidering decisions based on feedback can show adaptability and a commitment to excellence.",
+                          assertive: "Being assertive in your responses can establish authority but should be balanced with openness.",
+                          defend: "Defending your decisions publicly can be a double-edged sword. While it's essential to stand up for your beliefs, it's also crucial to ensure discussions remain respectful.",
+                          ignore: "Choosing not to engage can sometimes be the best approach, especially when faced with anonymous critiques.",
+                          reflect: "Using critiques as a mirror to reflect on one's decisions can lead to personal and professional growth."
+                        }
+                      },
+                      {
+                        question: "Imagine you've worked hard on a project, and when presenting it, someone offers a critique that you hadn't considered. How do you feel and respond?",
+                        keywords: {
+                          frustrated: "It's natural to feel protective of work you're passionate about. Recognizing the value of constructive feedback, even if initially upsetting, can lead to personal and professional growth.",
+                          annoyed: "It's natural to feel protective of work you're passionate about. Recognizing the value of constructive feedback, even if initially upsetting, can lead to personal and professional growth.",
+                          grateful: "Your ability to appreciate feedback, even when it's challenging, shows maturity and a commitment to excellence.",
+                          thankful: "Your ability to appreciate feedback, even when it's challenging, shows maturity and a commitment to excellence.",
+                          rework: "Your willingness to adapt and make changes based on feedback is commendable. It's a sign of dedication to your craft.",
+                          redo: "Your willingness to adapt and make changes based on feedback is commendable. It's a sign of dedication to your craft."
+                        }
+                      },
+                      {
+                        question: "You're in a group discussion, and someone challenges a belief or opinion you hold strongly. They present a well-reasoned argument. How do you engage with them?",
+                        keywords: {
+                          defend: "Standing up for what you believe in is important, but it's also valuable to ensure discussions remain respectful and open.",
+                          argue: "Standing up for what you believe in is important, but it's also valuable to ensure discussions remain respectful and open.",
+                          listen: "Your patience in listening to others, even when challenged, indicates a strong sense of self-confidence and respect for diverse viewpoints.",
+                          hear: "Your patience in listening to others, even when challenged, indicates a strong sense of self-confidence and respect for diverse viewpoints.",
+                          ignore: "Choosing your battles is sometimes the best approach, especially in group settings. Reflect on whether this is a default response or a strategic choice.",
+                          dismiss: "Choosing your battles is sometimes the best approach, especially in group settings. Reflect on whether this is a default response or a strategic choice."
+                        }
+                      },
+                      {
+  question: "You're presenting a topic at work in which you consider yourself an expert. A colleague questions your methodology and suggests an alternative approach. How do you handle the situation?",
+  keywords: {
+    defensive: "Feeling protective of your expertise is natural, but being open to alternative approaches can lead to innovation and growth.",
+    challenge: "Engaging in a constructive debate can lead to better outcomes and mutual respect.",
+    consider: "Considering alternative methodologies shows flexibility and a commitment to the best outcome.",
+    reject: "Instantly rejecting alternative ideas can limit growth opportunities. It's beneficial to weigh all options before making a decision.",
+    explain: "Taking the time to explain your methodology can lead to better understanding and collaboration.",
+    dismiss: "Dismissing alternative ideas without consideration can lead to missed opportunities and potential misunderstandings."
+  }
+},
+{
+  question: "You post an opinion on social media, and someone you don't know well responds with a counter-argument backed by sources. How do you react?",
+  keywords: {
+    defensive: "Social media can amplify defensive reactions. It's important to differentiate between constructive criticism and online trolling.",
+    research: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
+    check: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
+    verify: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
+    sources: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
+    block: "While it's important to protect your mental well-being, blocking should be a last resort after attempting constructive dialogue.",
+    engage: "Engaging in a respectful dialogue can lead to mutual understanding and respect, even if you agree to disagree.",
+    ignore: "Choosing not to engage can sometimes be the best approach, especially if the discussion becomes unproductive.",
+    reflect: "Taking a moment to reflect on the feedback and sources provided can lead to personal growth and a more informed perspective."
+  }
+},
+                      {
+  question: "Your close friend gives you feedback about a behavior they've observed in you that they find hurtful. They approach you calmly and with care. How do you respond?",
+  keywords: {
+    defensive: "It's natural to feel protective of one's self-image. Recognizing the value of feedback, especially from a trusted friend, can lead to personal growth.",
+    justify: "Justifying behavior can sometimes be a way to avoid confronting uncomfortable truths. Consider the possibility that there's validity in the feedback.",
+    reflect: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
+    listen: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
+    appreciation: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
+    apologize: "Acknowledging and apologizing for hurtful behavior is a sign of empathy and understanding.",
+    deny: "Denial can be a defense mechanism to avoid facing uncomfortable truths. Consider the possibility that there's validity in the feedback.",
+    question: "Seeking clarity by asking questions can lead to better understanding and resolution."
+  }
+},
+
+                    ];
+
+                    experiments.forEach(experiment => {
+    experiment.keywords = { ...experiment.keywords, ...generalKeywords };
+  });
+
+                    function generateExperiment(experiment, index) {
+                      const container = document.getElementById('experimentsContainer');
+
+                      const experimentDiv = document.createElement('div');
+                      experimentDiv.id = `experiment${index}`;
+                      if (index !== 0) {
+                        experimentDiv.style.display = 'none';
+                      }
+
+                      const questionP = document.createElement('p');
+                      questionP.textContent = experiment.question;
+                      experimentDiv.appendChild(questionP);
+
+                      const textarea = document.createElement('textarea');
+                      textarea.rows = 4;
+                      textarea.cols = 50;
+                      textarea.placeholder = "Type your response here...";
+                      experimentDiv.appendChild(textarea);
+
+                      const button = document.createElement('button');
+                      button.textContent = "Submit";
+                      button.onclick = function() {
+    analyzeUserResponse(index, textarea.value);  // Use the refactored function name
+    experimentDiv.style.display = 'none';
+    const nextExperiment = document.getElementById(`experiment${index + 1}`);
+    if (nextExperiment) {
+        nextExperiment.style.display = 'block';
+    }
+};
+                      experimentDiv.appendChild(button);
+
+                      const reflectionH3 = document.createElement('h3');
+                      reflectionH3.textContent = "Your Reflection:";
+                      experimentDiv.appendChild(reflectionH3);
+
+                      const reflectionP = document.createElement('p');
+                      experimentDiv.appendChild(reflectionP);
+
+                      container.appendChild(experimentDiv);
+                    }
+
+                    experiments.forEach(generateExperiment);
+
+
+                    function calcLevenshteinDistance(str1, str2) {
+                        str1 = str1.toLowerCase();
+                        str2 = str2.toLowerCase();
+
+                        if (str1.length === 0) return str2.length;
+                        if (str2.length === 0) return str1.length;
+
+                        let matrix = [];
+
+                        for (let i = 0; i <= str2.length; i++) {
+                            matrix[i] = [i];
+                        }
+
+                        for (let j = 0; j <= str1.length; j++) {
+                            matrix[0][j] = j;
+                        }
+
+                        for (let i = 1; i <= str2.length; i++) {
+                            for (let j = 1; j <= str1.length; j++) {
+                                if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                                    matrix[i][j] = matrix[i - 1][j - 1];
+                                } else {
+                                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                                }
+                            }
+                        }
+
+                        return matrix[str2.length][str1.length];
+                    }
+
+                    function findClosestKeyword(input, keywords) {
+                        let closestKeyword = null;
+                        let minDistance = Infinity;
+                        const threshold = 5; // Adjust as needed
+
+                        const words = input.split(/\s+/); // Split the input into words
+
+                        for (const keyword of keywords) {
+                            for (const word of words) {
+                                const distance = calcLevenshteinDistance(word, keyword);
+                                console.log(`Word: ${word}, Keyword: ${keyword}, Distance: ${distance}`); // Debugging output
+                                if (distance < minDistance && distance <= threshold) {
+                                    minDistance = distance;
+                                    closestKeyword = keyword;
+                                }
+                            }
+                        }
+
+                        return closestKeyword;
+                    }
+
+
+
+                    function analyzeUserResponse(index, input) {
+                        const keywords = experiments[index].keywords;
+                        let reflection;
+
+                        // Convert input to lowercase for case-insensitive matching
+                        input = input.toLowerCase();
+
+                        // Find the closest keyword to the user's input
+                        const closestKeyword = findClosestKeyword(input, Object.keys(keywords));
+
+                        if (closestKeyword) {
+                            reflection = keywords[closestKeyword];
+                        }
+
+                        const reflectionsContainer = document.getElementById('reflectionsContainer');
+
+                        const reflectionH3 = document.createElement('h3');
+                        reflectionH3.textContent = `Reflection for Experiment ${index + 1}:`;
+                        reflectionsContainer.appendChild(reflectionH3);
+
+                        const reflectionP = document.createElement('p');
+                        reflectionP.textContent = reflection || "Your response is unique and might require deeper introspection. It's always beneficial to understand the root of our feelings and reactions.";
+                        reflectionsContainer.appendChild(reflectionP);
+                    }
+
+
+
+
+
+});
+</script>
