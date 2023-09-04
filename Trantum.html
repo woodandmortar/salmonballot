@@ -8,224 +8,222 @@
             </header>
             <article>
               <h2 class="chapter-title">Trantum</h2>
-              <div id="experimentsContainer"></div>
+              <div id="storyContainer"></div>
               <div id="reflectionsContainer"></div>
             </article>
         </section>
     </div>
 </div>
 
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
+  const generalKeywordsArray = [
+      { "word": "curious", "weight": 1, "response": "Your curiosity often leads to new discoveries. Embrace it as a path to understanding." },
+      { "word": "conflicted", "weight": 1, "response": "It's natural to feel conflicted when faced with tough choices. Reflecting on your values can guide your decision." },
+      { "word": "surprised", "weight": 1, "response": "Life is full of surprises. They challenge our expectations and help us grow." },
+      { "word": "guilty", "weight": 1, "response": "Guilt can be a sign of empathy and moral reflection. Consider what actions align with your core beliefs." },
+      { "word": "reflective", "weight": 1, "response": "Taking time to reflect is a sign of depth and introspection. It helps in understanding oneself better." },
+      { "word": "learn", "weight": 1, "response": "Every experience is a learning opportunity. Embrace them to enrich your journey." },
+      { "word": "torn", "weight": 1, "response": "Being torn between choices is challenging. Trust your instincts and values to guide you." },
+      { "word": "regretful", "weight": 1, "response": "Regret can be a tough emotion. It's an opportunity to learn and make amends where possible." },
+      { "word": "happy", "weight": 5, "response": "Finding joy in the journey is a gift. Cherish these moments." },
+      { "word": "frustrated", "weight": 5, "response": "Frustration can be a sign of passion and care. Channel it towards positive change." },
+      { "word": "determined", "weight": 5, "response": "Your determination can move mountains. Stay focused on your goals." },
+      { "word": "relieved", "weight": 5, "response": "Relief is a sign of resolution. It's a moment to breathe and appreciate the journey." },
+      { "word": "anxious", "weight": 5, "response": "Anxiety can be challenging. Remember to seek support and practice self-care." },
+      { "word": "hopeful", "weight": 1, "response": "Hope is a beacon in challenging times. Hold onto it and let it guide your path." },
+      { "word": "overwhelmed", "weight": 1, "response": "Feeling overwhelmed is natural. Take a step back, prioritize, and tackle one thing at a time." },
+      { "word": "inspired", "weight": 1, "response": "Inspiration can lead to great achievements. Channel this energy into your passions." },
+      { "word": "apprehensive", "weight": 1, "response": "It's okay to feel apprehensive. Trust in your abilities and gather more information if needed." },
+      { "word": "grateful", "weight": 1, "response": "Gratitude enriches our lives. It's a reminder of the good things and people around us." },
+      { "word": "indifferent", "weight": 5, "response": "Indifference can be a protective mechanism. Reflect on its root to better understand your feelings." },
+      { "word": "empowered", "weight": 5, "response": "Feeling empowered is invigorating. Use this energy to drive positive change in your life." },
+      { "word": "vulnerable", "weight": 5, "response": "Vulnerability is a sign of strength. It allows for growth, connection, and self-awareness." },
+      { "word": "optimistic", "weight": 5, "response": "Optimism can light up the darkest situations. It's a testament to your positive spirit." },
+      { "word": "pessimistic", "weight": 5, "response": "Pessimism can be a sign of caution. Balance it with hope and a proactive approach." },
+      { "word": "elated", "weight": 5, "response": "Your elation suggests a deep connection with the story's positive elements. Embrace this joy and let it guide your journey." },
+      { "word": "jubilant", "weight": 5, "response": "Your jubilation indicates a triumphant moment in the narrative. Celebrate these victories as they come." },
+      { "word": "ecstatic", "weight": 5, "response": "Your ecstatic reaction hints at a profound resonance with the tale's uplifting moments. Cherish these feelings." },
+      { "word": "inspired", "weight": 4, "response": "Feeling inspired suggests the story has sparked new ideas or emotions in you. Harness this energy for your personal growth." },
+      { "word": "hopeful", "weight": 4, "response": "Your hopefulness indicates optimism towards the story's outcome. Hold onto this hope as the narrative unfolds." },
+      { "word": "pensive", "weight": 3, "response": "A pensive mood suggests you're deeply reflecting on the story's events. Take your time to process and understand." },
+      { "word": "neutral", "weight": 3, "response": "A neutral stance can be a sign of detachment or contemplation. Observe the story's nuances to find deeper meaning." },
+      { "word": "ambivalent", "weight": 3, "response": "Ambivalence might indicate conflicting feelings about the story. Explore these emotions to gain clarity." },
+      { "word": "curious", "weight": 3, "response": "Your curiosity shows an eagerness to delve deeper into the narrative. Let this inquisitiveness guide your exploration." },
+      { "word": "reflective", "weight": 3, "response": "Being reflective suggests you're connecting past events with the story's present. Use this insight to enhance your understanding." },
+      { "word": "devastated", "weight": 5, "response": "Feeling devastated indicates a deep emotional impact from the story's events. Seek solace in the narrative's hopeful moments." },
+      { "word": "despondent", "weight": 5, "response": "Your despondence might stem from the story's tragic elements. Remember, every tale has its highs and lows." },
+      { "word": "enraged", "weight": 5, "response": "Your rage suggests a strong disagreement with certain events. Use this passion to engage more deeply with the narrative." },
+      { "word": "mournful", "weight": 4, "response": "A mournful sentiment indicates a sense of loss from the story. Embrace the healing power of time and narrative progression." },
+      { "word": "anxious", "weight": 4, "response": "Feeling anxious might relate to the story's uncertainties. Hold on, as every twist and turn brings new revelations." },
+      { "word": "content", "weight": 2, "response": "Feeling content suggests a comfortable alignment with the story's flow. Enjoy this sense of harmony." },
+      { "word": "bored", "weight": 2, "response": "Boredom might indicate a need for more engagement. Dive deeper into the narrative's layers to reignite interest." },
+      { "word": "tired", "weight": 2, "response": "Feeling tired can be a sign of emotional exhaustion from the story. Take a moment to rest and rejuvenate." },
+      { "word": "relaxed", "weight": 2, "response": "A relaxed demeanor suggests you're at ease with the story's pace. Enjoy this tranquil journey." },
+      { "word": "busy", "weight": 2, "response": "Feeling busy might indicate a whirlwind of emotions from the narrative. Take a step back to prioritize and process." },
+      { "word": "conflicted", "weight": 4, "response": "Being conflicted shows you're grappling with the story's dilemmas. Embrace this complexity for a richer experience." },
+      { "word": "empowered", "weight": 4, "response": "Feeling empowered suggests the story has instilled confidence in you. Use this newfound strength to navigate challenges." },
+      { "word": "vulnerable", "weight": 4, "response": "Your vulnerability indicates a deep emotional connection with the story. Cherish this raw honesty." },
+      { "word": "motivated", "weight": 5, "response": "Your motivation can drive you to achieve great things. Keep this fire burning." },
+          { "word": "disheartened", "weight": 5, "response": "It's natural to feel disheartened at times. Remember, every setback is a setup for a comeback." },
+          { "word": "enthusiastic", "weight": 5, "response": "Your enthusiasm is contagious. It can inspire others around you." },
+          { "word": "skeptical", "weight": 5, "response": "Skepticism can be a tool for critical thinking. Always seek the truth." },
+          { "word": "nostalgic", "weight": 5, "response": "Nostalgia is a window to our past. Cherish those memories, but also embrace the present." },
+          { "word": "indignant", "weight": 5, "response": "Indignation can be a sign of strong values. Stand up for what you believe in." },
+          { "word": "empathetic", "weight": 4, "response": "Your empathy shows a deep understanding and care for others. It's a beautiful trait to have." },
+          { "word": "apathetic", "weight": 4, "response": "Apathy can be a sign of burnout or disconnection. It might be helpful to seek what truly resonates with you." },
+          { "word": "courageous", "weight": 4, "response": "Courage isn't the absence of fear, but the ability to face it. Your bravery is commendable." },
+          { "word": "hesitant", "weight": 4, "response": "Hesitation can be a sign of careful consideration. Trust your instincts and take informed actions." },
+          { "word": "rejuvenated", "weight": 3, "response": "Feeling rejuvenated is a fresh start. Use this energy to pursue your passions." },
+          { "word": "melancholic", "weight": 3, "response": "Melancholy can be a reflective state. Embrace it, and understand its roots to find solace." },
+          { "word": "zealous", "weight": 3, "response": "Your zeal can move mountains. Channel this passion in the right direction." },
+          { "word": "stoic", "weight": 3, "response": "Stoicism is about finding peace regardless of external circumstances. Your calm demeanor is admirable." },
+          { "word": "bewildered", "weight": 2, "response": "Feeling bewildered can be disorienting. Take a moment to ground yourself and seek clarity." },
+          { "word": "serene", "weight": 2, "response": "Serenity is a state of inner peace. It's a testament to your balanced approach to life." },
+          { "word": "ardent", "weight": 2, "response": "Your ardor shows deep passion and commitment. Stay true to what you believe in." },
+          { "word": "resigned", "weight": 2, "response": "Feeling resigned might indicate acceptance. Remember, every end is a new beginning." },
+      { "word": "overwhelmed", "weight": 4, "response": "Feeling overwhelmed can be due to the story's intensity. Take breaks to process and return with a fresh perspective." },
+      { "word": "intrigued", "weight": 1, "response": "Being intrigued shows your interest in understanding deeper layers. Dive in and explore!" }
+  ];
 
-                  const generalKeywords = {
-                    curious: "Your curiosity is a sign of an open mind. It's always beneficial to seek understanding and knowledge.",
-                    confused: "It's okay to feel uncertain or confused at times. Taking a step back and seeking clarity can be helpful.",
-                    surprised: "Surprises can be unsettling, but they also offer opportunities for growth and new perspectives.",
-                    challenge: "Facing challenges head-on can be a testament to your resilience and determination.",
-                    understand: "Your desire to understand indicates a depth of character and a willingness to learn.",
-                    learn: "Your eagerness to learn and adapt is commendable. Continuous learning is a key to personal growth.",
-                    accept: "Acceptance can be a sign of maturity. It's important to differentiate between what we can change and what we need to accept.",
-                    adapt: "Your adaptability is a strength, especially in ever-changing situations. It's a sign of flexibility and resilience."
-                  };
+
+
+function calculateEmotionScore(input) {
+    let score = 0;
+    generalKeywordsArray.forEach(keywordObj => {
+        const regex = new RegExp(`\\b${keywordObj.word}\\b`, 'gi');
+        const matches = input.match(regex);
+        if (matches) {
+            score += matches.length * keywordObj.weight;
+        }
+    });
+    return score;
+}
+
+function getEmotionalFeedback(input) {
+    const score = calculateEmotionScore(input);
+    let feedback = "Your response is unique and might require deeper introspection.";
+    generalKeywordsArray.forEach(keywordObj => {
+        if (score >= keywordObj.weight) {
+            feedback = keywordObj.response;
+        }
+    });
+    return feedback;
+}
 
 
 
-                  const experiments = [
-                      {
-                        question: "Imagine you're in a room with a close friend, and they tell you something about yourself that you've never realized before. It's not necessarily negative, but it's surprising and challenges your self-perception. How do you react in that moment, and why?",
-                        keywords: {
-                          angry: "Your response suggests that unexpected feedback can evoke strong emotions in you. It might be helpful to explore why certain comments trigger these feelings.",
-                          upset: "Your response suggests that unexpected feedback can evoke strong emotions in you. It might be helpful to explore why certain comments trigger these feelings.",
-                          reflect: "You seem to have a contemplative nature, taking time to process and reflect upon new information. This can be a valuable trait in understanding oneself better.",
-                          think: "You seem to have a contemplative nature, taking time to process and reflect upon new information. This can be a valuable trait in understanding oneself better.",
-                          ask: "Your inclination to ask questions indicates a desire to understand and clarify situations. It's a sign of open-mindedness and a willingness to engage in constructive dialogue.",
-                          question: "Your inclination to ask questions indicates a desire to understand and clarify situations. It's a sign of open-mindedness and a willingness to engage in constructive dialogue.",
-                          deny: "A defensive reaction might indicate underlying insecurities or strong beliefs about oneself. It could be beneficial to explore why certain feedback is hard to accept.",
-                          disagree: "A defensive reaction might indicate underlying insecurities or strong beliefs about oneself. It could be beneficial to explore why certain feedback is hard to accept."
-                        }
-                      },
-                      {
-                        question: "You're at a gathering, and someone openly challenges a core value you've held since childhood, suggesting it's outdated and no longer relevant in today's society. How do you feel and respond?",
-                        keywords: {
-                          affirm: "Your affirmation of your values shows a strong conviction. Balancing this with openness can lead to richer conversations.",
-                          avoid: "Avoiding confrontation can sometimes be a way to maintain peace, but it's essential to address core issues eventually.",
-                          emotional: "Strong emotional reactions can indicate deeply held beliefs. It's beneficial to understand the root of these emotions.",
-                          reassess: "Your willingness to reassess your values shows adaptability and an open mind.",
-                          confront: "Direct confrontation can be a way to defend one's beliefs, but it's crucial to ensure it remains constructive.",
-                          internalize: "Internalizing feedback can lead to introspection, but it's essential not to let it diminish self-worth.",
-                          defend: "Your immediate defense of your values shows a deep-rooted connection to them. It's essential, however, to ensure that the defense doesn't close off potential learning opportunities.",
-                          reflect: "Your introspective nature allows you to consider different perspectives without immediately reacting. This can lead to a deeper understanding of both your values and opposing views.",
-                          question: "Your desire to question and understand the opposing viewpoint shows an openness to dialogue, even when faced with challenges to deeply held beliefs.",
-                          shutdown: "Closing off from challenging discussions can be a protective mechanism. It might be worth exploring what triggers this response."
-                        }
-                      },
-                      {
-                        question: "A colleague you respect mentions that they've observed you often become defensive when receiving feedback, even if it's constructive. How do you process this information?",
-                        keywords: {
-                          rationalize: "Trying to rationalize behavior is a common response. It's essential to differentiate between explaining and justifying.",
-                          grateful: "Expressing gratitude for feedback, even if challenging, shows maturity and a commitment to personal growth.",
-                          skeptical: "Skepticism can be a protective mechanism, but it's also essential to be open to genuine feedback.",
-                          inquire: "Seeking more details about the feedback can lead to better understanding and clarity.",
-                          introspect: "Delving into one's behaviors and patterns is a sign of a growth mindset.",
-                          validate: "Seeking validation from others can provide comfort but relying solely on external validation can be limiting.",
-                          deny: "Denial can sometimes be an immediate reaction to feedback that feels personal. Reflecting on why this feedback was triggering can provide insights.",
-                          acknowledge: "Recognizing and acknowledging observed behavior is the first step towards personal growth. Your openness to this feedback is commendable.",
-                          justify: "While it's natural to want to explain one's actions, it's also essential to listen and understand the feedback's root."
-                        }
-                      },
-                      {
-                        question: "Your partner suggests that sometimes you exhibit defensive behavior in your relationship, especially during disagreements. How do you react to this observation?",
-                        keywords: {
-                          compromise: "Willingness to compromise is a sign of understanding and valuing the relationship's harmony.",
-                          resistant: "Resistance to feedback can stem from various emotions. It's beneficial to explore the underlying reasons.",
-                          empathize: "Empathy can bridge misunderstandings and strengthen relationship bonds.",
-                          confused: "Feeling confused can indicate a mismatch between self-perception and external feedback.",
-                          reconnect: "Seeking to reconnect and understand each other's perspectives can be healing.",
-                          validate: "Validating your partner's feelings and perspectives can foster trust and understanding.",
-                          reflect: "Taking a moment to introspect shows maturity and a commitment to understanding the dynamics of your relationship.",
-                          argue: "Immediate defensiveness can sometimes exacerbate misunderstandings. It might be beneficial to take a step back and understand the feedback's context.",
-                          apologize: "Acknowledging potential flaws and apologizing shows empathy and a willingness to grow within the relationship."
-                        }
-                      },
-                      {
-                        question: "During a team meeting, a member suggests a different approach to a project you've been leading. They believe their method might be more efficient. How do you handle this?",
-                        keywords: {
-                          collaborate: "Collaboration can lead to a fusion of ideas and better outcomes.",
-                          insecure: "Feelings of insecurity can sometimes arise when leadership is challenged. Recognizing and addressing these feelings can be empowering.",
-                          appreciate: "Appreciating diverse viewpoints can lead to richer discussions and better solutions.",
-                          doubt: "Doubting oneself can be a natural reaction but should be balanced with self-confidence.",
-                          reaffirm: "Reaffirming your approach can provide clarity to the team, especially when explained with reasoning.",
-                          evaluate: "Evaluating feedback objectively can lead to informed decisions.",
-                          defensive: "Feeling protective of your leadership and decisions is natural. However, being open to alternative approaches can lead to innovation and growth.",
-                          consider: "Your willingness to consider alternative methods shows flexibility and a commitment to the project's best outcome.",
-                          dismiss: "Instantly dismissing alternative ideas can limit growth opportunities. Reflecting on the feedback can provide new insights."
-                        }
-                      },
-                      {
-                        question: "You read an article online where an anonymous commenter critiques your professional decisions, suggesting they were driven by personal bias rather than logic. How do you respond?",
-                        keywords: {
-                          clarify: "Clarifying misunderstandings can lead to better public perception and trust.",
-                          hurt: "Feeling hurt by public critiques is natural. It's essential to differentiate between constructive feedback and baseless criticism.",
-                          reflective: "Taking a step back and being reflective can lead to personal growth and better decision-making.",
-                          challenge: "Challenging critiques can be a way to defend one's decisions, but it's essential to ensure it's done constructively.",
-                          reconsider: "Reconsidering decisions based on feedback can show adaptability and a commitment to excellence.",
-                          assertive: "Being assertive in your responses can establish authority but should be balanced with openness.",
-                          defend: "Defending your decisions publicly can be a double-edged sword. While it's essential to stand up for your beliefs, it's also crucial to ensure discussions remain respectful.",
-                          ignore: "Choosing not to engage can sometimes be the best approach, especially when faced with anonymous critiques.",
-                          reflect: "Using critiques as a mirror to reflect on one's decisions can lead to personal and professional growth."
-                        }
-                      },
-                      {
-                        question: "Imagine you've worked hard on a project, and when presenting it, someone offers a critique that you hadn't considered. How do you feel and respond?",
-                        keywords: {
-                          frustrated: "It's natural to feel protective of work you're passionate about. Recognizing the value of constructive feedback, even if initially upsetting, can lead to personal and professional growth.",
-                          annoyed: "It's natural to feel protective of work you're passionate about. Recognizing the value of constructive feedback, even if initially upsetting, can lead to personal and professional growth.",
-                          grateful: "Your ability to appreciate feedback, even when it's challenging, shows maturity and a commitment to excellence.",
-                          thankful: "Your ability to appreciate feedback, even when it's challenging, shows maturity and a commitment to excellence.",
-                          rework: "Your willingness to adapt and make changes based on feedback is commendable. It's a sign of dedication to your craft.",
-                          redo: "Your willingness to adapt and make changes based on feedback is commendable. It's a sign of dedication to your craft."
-                        }
-                      },
-                      {
-                        question: "You're in a group discussion, and someone challenges a belief or opinion you hold strongly. They present a well-reasoned argument. How do you engage with them?",
-                        keywords: {
-                          defend: "Standing up for what you believe in is important, but it's also valuable to ensure discussions remain respectful and open.",
-                          argue: "Standing up for what you believe in is important, but it's also valuable to ensure discussions remain respectful and open.",
-                          listen: "Your patience in listening to others, even when challenged, indicates a strong sense of self-confidence and respect for diverse viewpoints.",
-                          hear: "Your patience in listening to others, even when challenged, indicates a strong sense of self-confidence and respect for diverse viewpoints.",
-                          ignore: "Choosing your battles is sometimes the best approach, especially in group settings. Reflect on whether this is a default response or a strategic choice.",
-                          dismiss: "Choosing your battles is sometimes the best approach, especially in group settings. Reflect on whether this is a default response or a strategic choice."
-                        }
-                      },
-                      {
-  question: "You're presenting a topic at work in which you consider yourself an expert. A colleague questions your methodology and suggests an alternative approach. How do you handle the situation?",
-  keywords: {
-    defensive: "Feeling protective of your expertise is natural, but being open to alternative approaches can lead to innovation and growth.",
-    challenge: "Engaging in a constructive debate can lead to better outcomes and mutual respect.",
-    consider: "Considering alternative methodologies shows flexibility and a commitment to the best outcome.",
-    reject: "Instantly rejecting alternative ideas can limit growth opportunities. It's beneficial to weigh all options before making a decision.",
-    explain: "Taking the time to explain your methodology can lead to better understanding and collaboration.",
-    dismiss: "Dismissing alternative ideas without consideration can lead to missed opportunities and potential misunderstandings."
+
+const storyGroups = [
+    {
+        setting: "an ancient library, its walls lined with dusty tomes and scrolls",
+        characters: ["a librarian named Tranatum", "an old scholar searching for a lost manuscript"],
+        objects: ["a book titled 'The Secrets Within'", "an ancient scroll that no one has been able to decipher"],
+        events: [
+            "finding a chapter that reveals a dark secret about your family's past. Would you share this information with your family or keep it hidden?",
+            "discovering a hidden section of the library that contains forbidden knowledge. Would you delve deeper into the forbidden texts or respect the library's rules and leave?"
+        ]
+    },
+    {
+        setting: "a vast maze, its walls shifting and changing with every step",
+        characters: ["an AI named Labyria", "a seasoned explorer"],
+        objects: ["a map that promises to lead you to a hidden treasure", "a compass that always points to the exit"],
+        events: [
+            "encountering a trapped creature begging for release. Would you free the creature, risking the maze's wrath, or continue on your path?",
+            "finding a shortcut that requires you to leave behind a fellow traveler. Would you take the shortcut to ensure your own safety or stay with your companion?"
+        ]
+    },
+    {
+            setting: "a bustling medieval marketplace, filled with traders from distant lands",
+            characters: ["a mysterious merchant selling rare artifacts", "a street performer with a hidden past"],
+            objects: ["a pendant that's said to grant wishes", "a sealed letter addressed to a forgotten king"],
+            events: [
+                "being offered a trade that seems too good to be true. Would you accept the offer or decline, suspecting a trick?",
+                "overhearing a plot to overthrow the local lord. Would you warn the authorities or stay silent to avoid getting involved?"
+            ]
+        },
+        {
+            setting: "a futuristic cityscape, where flying cars zoom past towering skyscrapers",
+            characters: ["a rogue AI seeking redemption", "a detective chasing a shadowy figure"],
+            objects: ["a device that can alter memories", "a holographic key to a hidden realm"],
+            events: [
+                "being given a chance to erase a painful memory. Would you choose to forget or embrace your past?",
+                "uncovering a conspiracy that could change the fate of the city. Would you expose the truth or protect the city's harmony?"
+            ]
+        },
+        {
+            setting: "a tranquil forest glade, bathed in the light of a full moon",
+            characters: ["a guardian spirit of the woods", "a lost traveler seeking refuge"],
+            objects: ["a potion that reveals hidden truths", "a magical harp that controls the elements"],
+            events: [
+                "encountering a wounded creature with a cursed mark. Would you help heal it, risking the curse, or leave it to its fate?",
+                "discovering a sacred grove where time stands still. Would you stay and enjoy eternal peace or return to the world outside?"
+            ]
+        },
+        {
+            setting: "a sunken city, its ruins teeming with marine life and forgotten treasures",
+            characters: ["a mermaid with a haunting melody", "an archaeologist searching for a legendary artifact"],
+            objects: ["a trident that commands the ocean's tides", "a pearl that shows visions of the future"],
+            events: [
+                "being offered a chance to become a sea creature and explore the depths forever. Would you accept or remain human?",
+                "finding an ancient relic that could raise the city back to the surface. Would you use it or leave the city undisturbed?"
+            ]
+        },
+        {
+            setting: "a remote mountain monastery, where monks practice ancient rituals",
+            characters: ["an elder monk with a mysterious past", "a novice with a forbidden secret"],
+            objects: ["a scroll detailing a powerful meditation technique", "a bell that can summon spirits"],
+            events: [
+                "learning of a ritual that grants immense power but requires great sacrifice. Would you undertake the ritual or decline its power?",
+                "discovering a hidden chamber where the monks keep dangerous knowledge. Would you investigate or respect their secrets?"
+            ]
+        },
+        {
+            setting: "a post-apocalyptic wasteland, where survivors scavenge amidst the ruins",
+            characters: ["a leader of a survivor community", "a lone wanderer with tales of a safe haven"],
+            objects: ["a radio that picks up mysterious broadcasts", "a map to a rumored oasis"],
+            events: [
+                "being faced with a moral dilemma: share limited resources with strangers or prioritize your own group. What would you choose?",
+                "hearing whispers of a sanctuary free from danger. Would you risk the journey based on rumors or stay in familiar territory?"
+            ]
+        }
+];
+
+function generateRandomStory() {
+    const randomGroup = storyGroups[Math.floor(Math.random() * storyGroups.length)];
+
+    const randomCharacter = randomGroup.characters[Math.floor(Math.random() * randomGroup.characters.length)];
+    const randomObject = randomGroup.objects[Math.floor(Math.random() * randomGroup.objects.length)];
+    const randomEvent = randomGroup.events[Math.floor(Math.random() * randomGroup.events.length)];
+
+    return `Imagine you're wandering through ${randomGroup.setting}. As you walk, ${randomCharacter} approaches you. They offer you ${randomObject}. As you interact with it, you find yourself facing a dilemma: ${randomEvent}`;
+}
+
+
+
+  function displayStory() {
+      const storyContainer = document.getElementById('storyContainer');
+      const storyP = document.createElement('p');
+      storyP.textContent = generateRandomStory();
+      storyContainer.appendChild(storyP);
+
+      const textarea = document.createElement('textarea');
+      textarea.rows = 4;
+      textarea.cols = 50;
+      textarea.placeholder = "Type your response here...";
+      storyContainer.appendChild(textarea);
+
+      const button = document.createElement('button');
+      button.textContent = "Submit";
+      button.onclick = function() {
+        analyzeUserResponse(textarea.value);
+      };
+      storyContainer.appendChild(button);
   }
-},
-{
-  question: "You post an opinion on social media, and someone you don't know well responds with a counter-argument backed by sources. How do you react?",
-  keywords: {
-    defensive: "Social media can amplify defensive reactions. It's important to differentiate between constructive criticism and online trolling.",
-    research: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
-    check: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
-    verify: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
-    sources: "Taking the time to research and understand opposing viewpoints can lead to a more informed perspective.",
-    block: "While it's important to protect your mental well-being, blocking should be a last resort after attempting constructive dialogue.",
-    engage: "Engaging in a respectful dialogue can lead to mutual understanding and respect, even if you agree to disagree.",
-    ignore: "Choosing not to engage can sometimes be the best approach, especially if the discussion becomes unproductive.",
-    reflect: "Taking a moment to reflect on the feedback and sources provided can lead to personal growth and a more informed perspective."
-  }
-},
-                      {
-  question: "Your close friend gives you feedback about a behavior they've observed in you that they find hurtful. They approach you calmly and with care. How do you respond?",
-  keywords: {
-    defensive: "It's natural to feel protective of one's self-image. Recognizing the value of feedback, especially from a trusted friend, can lead to personal growth.",
-    justify: "Justifying behavior can sometimes be a way to avoid confronting uncomfortable truths. Consider the possibility that there's validity in the feedback.",
-    reflect: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
-    listen: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
-    appreciation: "Taking a moment to reflect on feedback shows maturity and a willingness to grow as a person.",
-    apologize: "Acknowledging and apologizing for hurtful behavior is a sign of empathy and understanding.",
-    deny: "Denial can be a defense mechanism to avoid facing uncomfortable truths. Consider the possibility that there's validity in the feedback.",
-    question: "Seeking clarity by asking questions can lead to better understanding and resolution."
-  }
-},
 
-                    ];
-
-                    experiments.forEach(experiment => {
-    experiment.keywords = { ...experiment.keywords, ...generalKeywords };
-  });
-
-                    function generateExperiment(experiment, index) {
-                      const container = document.getElementById('experimentsContainer');
-
-                      const experimentDiv = document.createElement('div');
-                      experimentDiv.id = `experiment${index}`;
-                      if (index !== 0) {
-                        experimentDiv.style.display = 'none';
-                      }
-
-                      const questionP = document.createElement('p');
-                      questionP.textContent = experiment.question;
-                      experimentDiv.appendChild(questionP);
-
-                      const textarea = document.createElement('textarea');
-                      textarea.rows = 4;
-                      textarea.cols = 50;
-                      textarea.placeholder = "Type your response here...";
-                      experimentDiv.appendChild(textarea);
-
-                      const button = document.createElement('button');
-                      button.textContent = "Submit";
-                      button.onclick = function() {
-    analyzeUserResponse(index, textarea.value);  // Use the refactored function name
-    experimentDiv.style.display = 'none';
-    const nextExperiment = document.getElementById(`experiment${index + 1}`);
-    if (nextExperiment) {
-        nextExperiment.style.display = 'block';
-    }
-};
-                      experimentDiv.appendChild(button);
-
-                      const reflectionH3 = document.createElement('h3');
-                      reflectionH3.textContent = "Your Reflection:";
-                      experimentDiv.appendChild(reflectionH3);
-
-                      const reflectionP = document.createElement('p');
-                      experimentDiv.appendChild(reflectionP);
-
-                      container.appendChild(experimentDiv);
-                    }
-
-                    experiments.forEach(generateExperiment);
+  displayStory();
 
 
                     function calcLevenshteinDistance(str1, str2) {
@@ -258,20 +256,23 @@ document.addEventListener("DOMContentLoaded", function() {
                         return matrix[str2.length][str1.length];
                     }
 
+
+
+
                     function findClosestKeyword(input, keywords) {
                         let closestKeyword = null;
                         let minDistance = Infinity;
-                        const threshold = 5; // Adjust as needed
+                        const threshold = 3; // Adjust as needed for individual words
 
                         const words = input.split(/\s+/); // Split the input into words
 
-                        for (const keyword of keywords) {
+                        for (const keywordObj of keywords) {
                             for (const word of words) {
-                                const distance = calcLevenshteinDistance(word, keyword);
-                                console.log(`Word: ${word}, Keyword: ${keyword}, Distance: ${distance}`); // Debugging output
+                                const distance = calcLevenshteinDistance(word, keywordObj.word);
+                                console.log(`Word: ${word}, Keyword: ${keywordObj.word}, Distance: ${distance}`); // Debugging output
                                 if (distance < minDistance && distance <= threshold) {
                                     minDistance = distance;
-                                    closestKeyword = keyword;
+                                    closestKeyword = keywordObj;
                                 }
                             }
                         }
@@ -280,34 +281,42 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
 
 
+                    const rankedKeywords = generalKeywordsArray.sort((a, b) => b.weight - a.weight);
 
-                    function analyzeUserResponse(index, input) {
-                        const keywords = experiments[index].keywords;
-                        let reflection;
+                    function generateKeywordResponse() {
+                        return rankedKeywords.map(keyword => `${keyword.word} (${keyword.weight}): ${keyword.response}`).join('\n');
+                    }
+
+                    function analyzeUserResponse(input) {
+                        const detectedKeywords = [];
+                        const maxReflections = 5; // Maximum number of reflections to provide
 
                         // Convert input to lowercase for case-insensitive matching
                         input = input.toLowerCase();
 
-                        // Find the closest keyword to the user's input
-                        const closestKeyword = findClosestKeyword(input, Object.keys(keywords));
-
-                        if (closestKeyword) {
-                            reflection = keywords[closestKeyword];
+                        // Detect keywords in the user's input
+                        for (const keywordObj of generalKeywordsArray) {
+                            if (input.includes(keywordObj.word)) {
+                                detectedKeywords.push(keywordObj);
+                            }
                         }
 
+                        // Sort detected keywords based on their weight
+                        detectedKeywords.sort((a, b) => b.weight - a.weight);
+
+                        // Limit the reflections to the top N keywords
+                        const topKeywords = detectedKeywords.slice(0, maxReflections);
+
+                        // Generate the reflections
+                        const reflections = topKeywords.map(keywordObj => keywordObj.response);
+
                         const reflectionsContainer = document.getElementById('reflectionsContainer');
-
-                        const reflectionH3 = document.createElement('h3');
-                        reflectionH3.textContent = `Reflection for Experiment ${index + 1}:`;
-                        reflectionsContainer.appendChild(reflectionH3);
-
-                        const reflectionP = document.createElement('p');
-                        reflectionP.textContent = reflection || "Your response is unique and might require deeper introspection. It's always beneficial to understand the root of our feelings and reactions.";
-                        reflectionsContainer.appendChild(reflectionP);
+                        reflections.forEach(reflection => {
+                            const reflectionP = document.createElement('p');
+                            reflectionP.textContent = reflection;
+                            reflectionsContainer.appendChild(reflectionP);
+                        });
                     }
-
-
-
 
 
 });
