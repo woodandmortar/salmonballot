@@ -20,24 +20,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
   const generalKeywordsArray = [
-      { "word": "curious", "weight": 1, "response": "Your curiosity often leads to new discoveries. Embrace it as a path to understanding." },
-      { "word": "conflicted", "weight": 1, "response": "It's natural to feel conflicted when faced with tough choices. Reflecting on your values can guide your decision." },
-      { "word": "surprised", "weight": 1, "response": "Life is full of surprises. They challenge our expectations and help us grow." },
-      { "word": "guilty", "weight": 1, "response": "Guilt can be a sign of empathy and moral reflection. Consider what actions align with your core beliefs." },
-      { "word": "reflective", "weight": 1, "response": "Taking time to reflect is a sign of depth and introspection. It helps in understanding oneself better." },
-      { "word": "learn", "weight": 1, "response": "Every experience is a learning opportunity. Embrace them to enrich your journey." },
-      { "word": "torn", "weight": 1, "response": "Being torn between choices is challenging. Trust your instincts and values to guide you." },
-      { "word": "regretful", "weight": 1, "response": "Regret can be a tough emotion. It's an opportunity to learn and make amends where possible." },
+      { "word": "curious", "weight": 2, "response": "Your curiosity often leads to new discoveries. Embrace it as a path to understanding." },
+      { "word": "conflicted", "weight": 2, "response": "It's natural to feel conflicted when faced with tough choices. Reflecting on your values can guide your decision." },
+      { "word": "surprised", "weight": 2, "response": "Life is full of surprises. They challenge our expectations and help us grow." },
+      { "word": "guilty", "weight": 2, "response": "Guilt can be a sign of empathy and moral reflection. Consider what actions align with your core beliefs." },
+      { "word": "reflective", "weight": 2, "response": "Taking time to reflect is a sign of depth and introspection. It helps in understanding oneself better." },
+      { "word": "learn", "weight": 2, "response": "Every experience is a learning opportunity. Embrace them to enrich your journey." },
+      { "word": "torn", "weight": 2, "response": "Being torn between choices is challenging. Trust your instincts and values to guide you." },
+      { "word": "regretful", "weight": 2, "response": "Regret can be a tough emotion. It's an opportunity to learn and make amends where possible." },
       { "word": "happy", "weight": 5, "response": "Finding joy in the journey is a gift. Cherish these moments." },
       { "word": "frustrated", "weight": 5, "response": "Frustration can be a sign of passion and care. Channel it towards positive change." },
       { "word": "determined", "weight": 5, "response": "Your determination can move mountains. Stay focused on your goals." },
       { "word": "relieved", "weight": 5, "response": "Relief is a sign of resolution. It's a moment to breathe and appreciate the journey." },
       { "word": "anxious", "weight": 5, "response": "Anxiety can be challenging. Remember to seek support and practice self-care." },
-      { "word": "hopeful", "weight": 1, "response": "Hope is a beacon in challenging times. Hold onto it and let it guide your path." },
-      { "word": "overwhelmed", "weight": 1, "response": "Feeling overwhelmed is natural. Take a step back, prioritize, and tackle one thing at a time." },
-      { "word": "inspired", "weight": 1, "response": "Inspiration can lead to great achievements. Channel this energy into your passions." },
-      { "word": "apprehensive", "weight": 1, "response": "It's okay to feel apprehensive. Trust in your abilities and gather more information if needed." },
-      { "word": "grateful", "weight": 1, "response": "Gratitude enriches our lives. It's a reminder of the good things and people around us." },
+      { "word": "hopeful", "weight": 2, "response": "Hope is a beacon in challenging times. Hold onto it and let it guide your path." },
+      { "word": "overwhelmed", "weight": 2, "response": "Feeling overwhelmed is natural. Take a step back, prioritize, and tackle one thing at a time." },
+      { "word": "inspired", "weight": 2, "response": "Inspiration can lead to great achievements. Channel this energy into your passions." },
+      { "word": "apprehensive", "weight": 2, "response": "It's okay to feel apprehensive. Trust in your abilities and gather more information if needed." },
+      { "word": "grateful", "weight": 2, "response": "Gratitude enriches our lives. It's a reminder of the good things and people around us." },
       { "word": "indifferent", "weight": 5, "response": "Indifference can be a protective mechanism. Reflect on its root to better understand your feelings." },
       { "word": "empowered", "weight": 5, "response": "Feeling empowered is invigorating. Use this energy to drive positive change in your life." },
       { "word": "vulnerable", "weight": 5, "response": "Vulnerability is a sign of strength. It allows for growth, connection, and self-awareness." },
@@ -146,26 +146,37 @@ document.addEventListener("DOMContentLoaded", function() {
 { "word": "jubilant", "weight": 2, "response": "Your jubilant nature is uplifting. Embrace and share this joy with others." },
           { "word": "resigned", "weight": 2, "response": "Feeling resigned might indicate acceptance. Remember, every end is a new beginning." },
       { "word": "overwhelmed", "weight": 4, "response": "Feeling overwhelmed can be due to the story's intensity. Take breaks to process and return with a fresh perspective." },
-      { "word": "intrigued", "weight": 1, "response": "Being intrigued shows your interest in understanding deeper layers. Dive in and explore!" }
+      { "word": "intrigued", "weight": 2, "response": "Being intrigued shows your interest in understanding deeper layers. Dive in and explore!" }
   ];
 
 
 
   const fallbackKeywordsArray = [
-      { "word": "and", "weight": 1, "response": "Your response is neutral." },
-      { "word": "the", "weight": 1, "response": "Your response is neutral." },
-      { "word": "is", "weight": 1, "response": "Your response is neutral." },
-      { "word": "it", "weight": 1, "response": "Your response is neutral." },
-      { "word": "of", "weight": 1, "response": "Your response is neutral." },
-      { "word": "to", "weight": 1, "response": "Your response is neutral." },
-      { "word": "in", "weight": 1, "response": "Your response is neutral." },
-      { "word": "for", "weight": 1, "response": "Your response is neutral." },
-      { "word": "on", "weight": 1, "response": "Your response is neutral." },
-      { "word": "with", "weight": 1, "response": "Your response is neutral." },
-      { "word": "that", "weight": 1, "response": "Your response is neutral." },
-      { "word": "as", "weight": 1, "response": "Your response is neutral." },
-      { "word": "by", "weight": 1, "response": "Your response is neutral." }
+      { "word": "and", "weight": 1, "response": "Oh, 'and'? You're really pulling out the big words now, huh? 😂" },
+      { "word": "the", "weight": 1, "response": "Using 'the'? Classic move! But can you spice it up a bit?" },
+      { "word": "is", "weight": 1, "response": "Look at you, using 'is' like a pro! You want a cookie?" },
+      { "word": "it", "weight": 1, "response": "'It'? That's it? Come on, give me more!" },
+      { "word": "of", "weight": 1, "response": "Oh, 'of' course you'd use that word! See what I did there?" },
+      { "word": "to", "weight": 1, "response": "You're 'to' funny! Or did you mean 'too'? 🤔" },
+      { "word": "in", "weight": 1, "response": "You're 'in' deep thought, I see. Or just deep in typos?" },
+      { "word": "for", "weight": 1, "response": "You're 'for' real with that response? 😜" },
+      { "word": "on", "weight": 1, "response": "Keep it moving, champ! 'On' to the next word!" },
+      { "word": "with", "weight": 1, "response": "Rolling 'with' the basics, huh? Classic!" },
+      { "word": "that", "weight": 1, "response": "Oh, 'that' word again? Mix it up a little!" },
+      { "word": "as", "weight": 1, "response": "'As' if you just used that word! 😂" },
+      { "word": "he", "weight": 1, "response": "Oh, 'he'? Is he that guy who didn't text back? Classic move!" },
+    { "word": "she", "weight": 1, "response": "'She' probably has a secret Pinterest board. We all do." },
+    { "word": "but", "weight": 1, "response": "'But'? There's always a 'but'. Usually followed by an unsolicited opinion." },
+    { "word": "so", "weight": 1, "response": "'So'... what's next? A story about your cat? I'm here for it!" },
+    { "word": "if", "weight": 1, "response": "'If' you're about to tell me about your diet, I've got snacks ready." },
+    { "word": "was", "weight": 1, "response": "'Was' it one of those nights? We've all had them. No judgment." },
+    { "word": "my", "weight": 1, "response": "'My' oh my, are we getting personal now? Spill the tea!" },
+    { "word": "this", "weight": 1, "response": "'This' better be good! I've got my party goblin ready." },
+    { "word": "be", "weight": 1, "response": "To 'be' or not to 'be'? That's... probably not what you're asking, huh?" },
+    { "word": "you", "weight": 1, "response": "'You'? Oh, are we playing the blame game? I've got my bingo card!" },
+      { "word": "by", "weight": 1, "response": "Going 'by' the book with that one, huh? Get creative!" }
   ];
+
 
 
 
